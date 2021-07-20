@@ -1,0 +1,276 @@
+@import "../../../scss/variables";
+
+.form-order {
+
+    .section__title {
+        @include title-animation;
+
+        @media (min-width: $md) {
+            max-width: 672px;
+        }
+
+        @media (min-width: $xl){
+            max-width: 817px;
+        }
+    }
+
+    input, textarea {
+        padding-left: 40px;
+        padding-right: 16px;
+    }
+
+    textarea {
+        height: 90px;
+
+        @media (min-width: $md) {
+            height: 124px;
+        }
+
+        @media (min-width: $xl) {
+            height: 248px;
+        }
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: $md) {
+        }
+
+        @media (min-width: $xl) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__user-data {
+        width: 100%;
+
+        @include card-animation;
+
+        @media (min-width: $lg) {
+            width: 64.92693110647182%;
+        }
+
+        @media (min-width: $xl) {
+            width: 42.63976157767118%;
+        }
+    }
+
+    .controller__input {
+        @media (min-width: $lg) {
+            height: 80px;
+            margin-bottom: 48px;
+
+            input {
+                height: 80px;
+                padding: 23px 24px 23px 92px;
+                color: $color-text-secondary;
+                font-weight: normal;
+                font-size: 24px;
+                line-height: 140%;
+                letter-spacing: 0.02em;
+            }
+        }
+
+        &.checked.invalid .validator__check {
+            @media (max-width: $lg - 1) {
+                display: none;
+            }
+
+            @media (min-width: $xl) {
+                display: none;
+            }
+        }
+
+        &.checked.valid .validator__cross {
+            @media (min-width: $lg) and (max-width: $xl - 1) {
+                display: block;
+            }
+        }
+    }
+
+    .controller-wrap {
+        @media (min-width: $lg) {
+            height: 253px;
+
+            textarea {
+                height: 253px;
+                padding: 23px 24px 23px 92px;
+                color: $color-text-secondary;
+                font-weight: normal;
+                font-size: 24px;
+                line-height: 140%;
+                letter-spacing: 0.02em;
+            }
+        }
+    }
+
+    .controller-icon {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 16px;
+        left: 16px;
+
+        @media (min-width: $lg) {
+            width: 56px;
+            height: 56px;
+            top: 12px;
+            left: 24px;
+        }
+
+        img {
+            display: block;
+            position: absolute;
+            max-width: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &.icon-human {
+            img {
+                width: 40px;
+
+                @media (min-width: $lg) {
+                    width: 119px;
+                }
+            }
+        }
+
+        &.icon-phone {
+            img {
+                width: 43px;
+
+                @media (min-width: $lg) {
+                    width: 130px;
+                }
+            }
+        }
+
+        &.icon-mail {
+            img {
+                width: 106px;
+
+                @media (min-width: $lg) {
+                    width: 130px;
+                }
+            }
+        }
+
+        &.icon-msg {
+            img {
+                width: 39px;
+
+                @media (min-width: $lg) {
+                    width: 136px;
+                }
+            }
+        }
+    }
+
+    &__comments {
+        width: 100%;
+
+        @include card-animation;
+
+        transition-delay: .3s;
+
+        @media (min-width: $xl) {
+            width: 46.2453531598513%;
+        }
+    }
+
+    &__actions {
+        margin-top: -14px;
+
+        @include card-animation;
+
+        transition-delay: .4s;
+
+        @media (min-width: $md) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: $xl) {
+            margin: 48px 0 0;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+    }
+
+    &__actions-group {
+        @media (min-width: $md) {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            margin-top: 24px;
+            margin-bottom: 34px;
+            justify-content: flex-end;
+        }
+
+        @media (min-width: $lg) {
+            margin-top: 51px;
+            justify-content: flex-end;
+        }
+
+        @media (min-width: $xl) {
+            margin: 0;
+            width: 46.2453531598513%;
+            flex-direction: row;
+        }
+    }
+
+    &__privacy {
+        display: inline-block;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 160%;
+        color: $color-text-inactive;
+        margin-top: 10px;
+        margin-bottom: 16px;
+
+        @media (min-width: $md) {
+            font-size: 14px;
+            margin: 0;
+            width: 60%;
+        }
+
+        @media (min-width: $lg) {
+            width: 39.24843423799582%;
+        }
+
+        @media (min-width: $xl) {
+            width: auto;
+        }
+    }
+
+    &__button {
+        margin-bottom: 34px;
+
+        @media (min-width: $md) {
+            margin: 0 24px 0 0;
+        }
+
+        @media (min-width: $xl) {
+            margin-right: 0;
+            margin-left: 24px;
+            flex: 1 0 auto;
+        }
+    }
+
+    &__note {
+        display: block;
+        font-weight: normal;
+        color: $color-text-inactive;
+        font-size: 14px;
+        line-height: 160%;
+
+        @media (min-width: $xl) {
+            width: 46.2453531598513%;
+        }
+    }
+}

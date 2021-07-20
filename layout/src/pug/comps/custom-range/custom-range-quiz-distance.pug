@@ -1,0 +1,26 @@
+.label-controll
+    .label-controll__caption Расстояние
+    .label-controll__body
+        .label-controll__content
+
+            .custom-range
+                .input-suffix.custom-input#quizDistance
+                    input.value(
+                        type="text"
+                        data-calc-property="quizDistance"
+                        value=""
+                    )
+                    span.input-suffix__delimiter
+                    span.input-suffix__units#quizDistanceUnits метры
+
+                .custom-range__controller
+                    span.status-bar
+                    spna.slider
+                    input.custom-range__slide(
+                        type="range"
+                        step="1"
+                        min="1"
+                        max="50"
+                        value="1"
+                        data-calc-property="quizDistance"
+                    )

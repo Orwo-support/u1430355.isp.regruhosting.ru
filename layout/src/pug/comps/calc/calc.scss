@@ -1,0 +1,920 @@
+@import "../../../scss/variables";
+
+.calc {
+    margin-top: 16px;
+    margin-bottom: 110px;
+
+    @media (min-width: $lg) {
+        margin-top: 48px;
+    }
+
+    @media (min-width: $xl) {
+        margin-top: 69px;
+    }
+
+    &__subtitle {
+        font-size: 14px;
+        line-height: 163%;
+        margin-bottom: 24px;
+        margin-top: -52px;
+        color: $color-text-inactive;
+
+        @include card-animation;
+        transition-delay: 0.5s;
+
+        @media (min-width: $md) {
+            margin-top: -34px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: $lg) {
+            margin-top: -20px;
+            margin-bottom: 68px;
+        }
+
+        @media (min-width: $xl) {
+            margin-top: 0;
+            margin-bottom: 96px;
+        }
+    }
+
+    &__title-picture {
+        width: 100%;
+        height: 0;
+        padding-bottom: 64.70588235294118%;
+        margin-bottom: 24px;
+
+        @media (min-width: $md) {
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: $lg) {
+            display: none;
+        }
+
+        .image {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity .7s linear;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (min-width: $lg) {
+            flex-direction: row;
+            align-items: baseline;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: $xl) {
+            margin-bottom: 68px;
+        }
+
+        .title {
+            order: 2;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 130%;
+            letter-spacing: 0.02em;
+            color: $color-text-primary;
+            margin-bottom: 16px;
+
+            @include title-animation;
+
+            @media (min-width: $md) {
+                margin-bottom: 34px;
+            }
+
+            @media (min-width: $lg) {
+                order: 1;
+                margin-bottom: 0;
+                margin-right: 24px;
+            }
+
+            @media (min-width: $xl) {
+                font-size: 30px;
+                line-height: 140%;
+            }
+        }
+
+        .step {
+            order: 1;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 160%;
+            color: $color-text-inactive;
+            margin-bottom: 8px;
+
+            @include title-link-animation;
+
+            @media (min-width: $lg) {
+                order: 2;
+                font-size: 16px;
+                margin-bottom: 0;
+            }
+
+            @media (min-width: $xl) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &__tab-list-wrap {
+        &:after {
+            display: none;
+
+            @media (min-width: $lg) {
+                content: "";
+                display: block;
+                width: 82.44406196213425%;
+                height: 1px;
+                position: absolute;
+                top: 35px;
+                background-color: #241838;
+                z-index: -1;
+            }
+
+            @media (min-width: $xl) {
+                width: calc(100% - 12px);
+            }
+        }
+    }
+
+    &__tab-list {
+        margin-left: -8.108108108108108vw;
+        padding-left: 8.108108108108108vw;
+
+        &-animation-container {
+            @include card-animation;
+        }
+
+        &__slide {
+            width: auto;
+            padding-bottom: 68px;
+        }
+
+        &__button {
+            height: 32px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 160%;
+            color: $color-text-secondary;
+            transition: all .3s linear;
+            position: relative;
+            margin-right: 24px;
+            cursor: pointer;
+
+            @media (min-width: $md) {
+                height: 36px;
+                font-weight: normal;
+                font-size: 16px;
+            }
+
+            @media (min-width: $lg) {
+                margin-right: 35px;
+
+                &:hover {
+                    color: $color-accent;
+                }
+            }
+
+            @media (min-width: $xl) {
+                font-size: 18px;
+                color: $color-text-primary;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 30px;
+                width: 0;
+                z-index: 0;
+                height: 4px;
+                background: $color-accent;
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0);
+                opacity: 0;
+                border-radius: 999px;
+                transition: all .5s ease-out;
+
+                @media (min-width: $md) {
+                    top: 33px;
+                }
+            }
+
+            &.active {
+                color: $color-accent;
+                cursor: default;
+
+                &::before {
+                    opacity: 1;
+                    width: 100%;
+                    box-shadow: 0 0 30px rgba(255, 255, 255, 0.56);
+                }
+            }
+        }
+    }
+
+    &__calculator {
+        display: none;
+        opacity: 1;
+        top: 0;
+        position: relative;
+        transition: $anim-card;
+
+        &.active {
+            display: block;
+        }
+
+        &.hidden {
+            opacity: 0;
+            top: 25px;
+            transition: all .3s linear;
+        }
+
+        &_rent {
+            .calc__body-controllers .label-controll_date {
+                @media (min-width: $lg) {
+                    margin-bottom: 44px;
+                }
+
+                @media (min-width: $xl) {
+                    margin-bottom: 48px;
+                }
+            }
+
+            .calculating {
+                margin-top: 12px;
+
+                @media (min-width: $md) {
+                    margin-top: 24px;
+                }
+
+                @media (min-width: $xl) {
+                    margin-top: 12px;
+                }
+            }
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: 0;
+        opacity: 1;
+        transition: $anim-card;
+        transition-delay: 1s;
+
+        &.animation-element {
+            top: 100px;
+            opacity: 0;
+        }
+
+        @media (min-width: $lg) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &-controllers {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .label-controll {
+                @media (min-width: $lg) {
+                    margin-right: 0;
+                    margin-bottom: 30px;
+                }
+
+                @media (min-width: $xl) {
+                    margin-bottom: 48px;
+                }
+            }
+
+            .label-controll__help {
+                @media (min-width: $lg) {
+                    position: absolute;
+                    top: 62px;
+                    right: -40px;
+                }
+
+                @media (min-width: $xl) {
+                    position: relative;
+                    top: auto;
+                    right: auto;
+                }
+            }
+
+            .label-controll__caption {
+                @media (min-width: $xl) {
+                    width: 220px;
+                }
+            }
+
+            .label-controll__content {
+                @media (min-width: $xl) {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        &-picture {
+            position: relative;
+
+            @media (min-width: $lg) {
+                display: block;
+                width: 445px;
+            }
+
+            @media (min-width: $xl) {
+                width: 624px;
+            }
+        }
+
+        &-image {
+            width: 100%;
+
+            @media (min-width: $lg) {
+                width: 445px;
+                position: sticky;
+                top: 150px;
+            }
+
+            @media (min-width: $xl) {
+                width: 624px;
+            }
+
+            //&.sticky {
+            //    @media (min-width: $lg) {
+            //        position: fixed;
+            //        top: 150px;
+            //    }
+            //}
+            //
+            //&.sticky.sticky_bottom {
+            //    @media (min-width: $lg) {
+            //        position: absolute;
+            //        top: initial;
+            //        bottom: 0;
+            //        left: 0 !important;
+            //    }
+            //}
+
+            &-body {
+                display: none;
+
+                @media (min-width: $lg) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    width: 445px;
+                    height: 268px;
+                    background: $color-back-primary ;
+                    box-shadow:
+                            -14px -28px 30px rgba(35, 33, 58, 0.15),
+                            14px 28px 30px rgba(4, 5, 14, 0.3),
+                            -6px -6px 30px rgba(35, 33, 58, 0.15),
+                            6px 6px 30px rgba(0, 2, 12, 0.3);
+                    border-radius: 12px;
+                }
+
+                @media (min-width: $xl) {
+                    width: 624px;
+                    height: 376px;
+                    margin-top: 0;
+                    margin-bottom: 68px;
+                }
+            }
+        }
+    }
+
+    &__collapse-controllers {
+        margin-bottom: 44px;
+
+        @media (min-width: $lg) {
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: $xl) {
+            margin-bottom: 54px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            cursor: pointer;
+            margin-top: 8px;
+
+            .text {
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 160%;
+                color: $color-text-secondary;
+                margin-right: 9px;
+                transition: all .2s linear;
+            }
+
+            .icon {
+                position: relative;
+                width: 16px;
+                height: 16px;
+                margin-top: 1px;
+                transition: all .3s linear;
+                transform: scale(1, 1);
+            }
+
+            @media (min-width: $lg) {
+                &:hover {
+                    .text {
+                        color: $color-accent;
+                    }
+
+                    .icon svg path {
+                        stroke: $color-accent;
+                    }
+                }
+            }
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: auto;
+            max-height: 0;
+            padding: 0;
+            opacity: 0;
+            margin-top: 10px;
+            transition: all .9s;
+        }
+
+        &.hidden {
+            .body {
+                overflow: hidden;
+            }
+        }
+
+        &.open {
+
+            .btn {
+                .icon {
+                    transform: scale(1, -1);
+                }
+            }
+
+            .body {
+                padding-top: 36px;
+                max-height: 900px;
+                opacity: 1;
+                margin-top: 0;
+            }
+        }
+
+        .label-controll:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__results {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        max-height: 0;
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        position: relative;
+        transition: all .3s ease-out;
+
+        @media (min-width: $md) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @media (min-width: $lg) {
+            display: flex;
+            margin-top: 0 !important;
+            padding-top: 48px !important;
+            padding-bottom: 0 !important;
+            max-height: initial !important;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        @media (min-width: $xl) {
+            padding-top: 0 !important;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            border-radius: 12px;
+            background: $color-back-secondary;
+            box-shadow:
+                    -20px -27px 40px rgba(35, 33, 58, 0.35),
+                    20px 27px 40px rgba(4, 5, 14, 0.17),
+                    inset -2px -2px 5px rgba(52, 40, 62, 0.3),
+                    inset 2px 2px 5px rgba(0, 2, 12, 0.8);
+            transition: all 1s cubic-bezier(0.33, 1, 0.68, 1);
+
+            @media (min-width: $lg) {
+                display: none;
+            }
+        }
+
+        &-sum {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 34px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 2s cubic-bezier(0.33, 1, 0.68, 1);
+
+            @media (min-width: $md) {
+                flex-direction: row;
+                align-items: baseline;
+                margin-bottom: 0;
+            }
+
+            @media (min-width: $lg) {
+                margin-bottom: 26px;
+            }
+
+            @media (min-width: $xl) {
+                margin-bottom: 0;
+            }
+
+            .txt {
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 130%;
+                letter-spacing: 0.02em;
+                color: $color-accent;
+                margin-top: 24px;
+                margin-bottom: 12px;
+
+                @media (min-width: $md) {
+                    margin: 0 12px 0 0;
+                }
+
+                @media (min-width: $lg) {
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 160%;
+                    color: $color-text-primary;
+                }
+
+                @media (min-width: $xl) {
+                    font-size: 18px;
+                }
+            }
+
+            .number {
+                font-weight: bold;
+                font-size: 26px;
+                line-height: 130%;
+                letter-spacing: 0.02em;
+                color: $color-text-primary;
+                opacity: 0;
+                transform: translateX(10px);
+                transition: all 1s cubic-bezier(0.33, 1, 0.68, 1);
+
+                @media (min-width: $lg) {
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 130%;
+                    letter-spacing: 0.02em;
+                    color: $color-text-primary;
+                }
+
+                @media (min-width: $xl) {
+                    font-weight: bold;
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .btn {
+            padding-left: 28px;
+            padding-right: 28px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition:
+                    opacity 2s cubic-bezier(0.33, 1, 0.68, 1) .5s,
+                    transform 2s cubic-bezier(0.33, 1, 0.68, 1) .5s,
+                    color .3s linear,
+                    box-shadow .3s linear,
+                    background-color .3s linear,
+                    border-color .3s linear;
+        }
+
+        &.visible {
+            max-height: 250px;
+            margin-top: 68px;
+            padding-top: 36px;
+
+            @media (min-width: $md) {
+                max-height: 200px;
+                padding-top: 68px;
+                padding-bottom: 36px;
+            }
+
+            &::before {
+                width: 100%;
+                opacity: 1;
+            }
+
+            .calc__results-sum,
+            .btn {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .number {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        &.visible.hidden {
+
+            &::before {
+                width: 0;
+                opacity: 0;
+            }
+
+            .calc__results-sum,
+            .btn {
+                opacity: 0;
+                transform: translateY(10px);
+                transition: all .5s ease-in;
+            }
+        }
+    }
+
+    button.calculating {
+        color: $color-accent !important;
+
+        &:focus {
+            box-shadow:
+                    -14px -28px 30px rgba(35, 33, 58, 0.35),
+                    14px 28px 30px rgba(4, 5, 14, 0.3),
+                    inset 4px 4px 24px rgba(4, 2, 19, 0.5),
+                    inset -4px -4px 24px rgba(255, 255, 255, 0.06);
+        }
+
+        &:hover {
+            color: #9A5BFF !important;
+            box-shadow:
+                    -8px -16px 30px rgba(35, 33, 58, 0.35),
+                    8px 16px 30px rgba(4, 5, 14, 0.3);
+        }
+    }
+
+    .calc-rent-days-controller {
+        .input-suffix__units {
+            width: 37px;
+        }
+
+        .custom-input input {
+            width: 34px;
+        }
+
+        .label-controll__help {
+            @media (min-width: $lg) {
+                right: auto !important;
+                left: 189px;
+            }
+
+            @media (min-width: $xl) {
+                left: 394px;
+                position: absolute;
+                top: 23px;
+            }
+        }
+    }
+
+    .calc-rent-technician-controller {
+        margin-bottom: 34px;
+
+        @media (min-width: $md) {
+            margin-top: 10px;
+        }
+
+        @media (min-width: $lg) {
+            margin-bottom: 30px;
+            padding-bottom: 6px;
+        }
+
+        @media (min-width: $xl) {
+            margin-top: 0;
+            padding-bottom: 0;
+            margin-bottom: 48px !important;
+        }
+
+        & + .label-controll {
+            @media (min-width: $lg) {
+                padding-bottom: 6px;
+            }
+
+            @media (min-width: $xl) {
+                padding-bottom: 0;
+                margin-bottom: 48px !important;
+            }
+        }
+    }
+}
+
+.calc__calculator {
+
+    &_outside-screen {
+        .calc__body-image img {
+            width: 300px;
+            margin-top: -36px;
+            margin-left: 29px;
+
+            @media (min-width: $xl) {
+                width: 350px;
+                margin-top: -40px;
+                margin-left: 30px;
+            }
+        }
+    }
+
+    &_inside-screen {
+        .calc__body-image img {
+            width: 240px;
+            margin-top: -10px;
+            margin-left: 34px;
+
+            @media (min-width: $xl) {
+                width: 324px;
+                margin-top: -17px;
+                margin-left: 50px;
+            }
+        }
+    }
+
+    &_rent {
+        .calc__body-image img {
+            width: 300px;
+            margin-top: 5px;
+            margin-left: -10px;
+
+            @media (min-width: $xl) {
+                width: 324px;
+                margin-top: -17px;
+                margin-left: 50px;
+            }
+        }
+    }
+
+    &_media-facade {
+        .calc__body-image img {
+            width: 220px;
+            margin-top: 0;
+            margin-left: 0;
+
+            @media (min-width: $xl) {
+                width: 300px;
+                margin-top: 0;
+                margin-left: 0;
+            }
+        }
+    }
+
+    .input-suffix {
+        margin-right: 24px;
+
+        input {
+            width: 67px;
+        }
+    }
+
+    .custom-range {
+        @media (min-width: $md) {
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: $lg) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__controller {
+            @media (min-width: $md) {
+                max-width: 250px;
+            }
+
+            @media (min-width: $lg) {
+                margin-top: 24px;
+                width: 250px;
+            }
+
+            @media (min-width: $xl) {
+                width: 295px;
+                max-width: 295px;
+            }
+        }
+    }
+
+    .cabin-type {
+        height: auto;
+        max-height: 0;
+        margin-bottom: 0;
+        opacity: 0;
+        transform: translateY(-5px);
+        transition:
+                max-height .4s ease-out 0s,
+                margin-bottom .4s ease-out 0s,
+                opacity .3s linear 0s,
+                transform .3s linear 0s;
+
+        &.hidden {
+            display: none;
+        }
+
+        &.visible {
+            max-height: 160px;
+            margin-bottom: 34px;
+            opacity: 1;
+            transform: translateY(0);
+            transition:
+                    max-height .4s ease-out 0s,
+                    margin-bottom .4s ease-out 0s,
+                    opacity .3s linear .1s,
+                    transform .3s linear .1s;
+
+            @media (min-width: $lg) {
+                max-height: 110px;
+                margin-bottom: 30px;
+            }
+
+            @media (min-width: $xl) {
+                max-height: 70px;
+                margin-bottom: 48px;
+            }
+        }
+    }
+}
+
+[data-calc-type-pic="#outsideScreen"] {
+    @media (min-width: $md) {
+        background-position: 100px center !important;
+    }
+}
+
+[data-calc-type-pic="#mediaFacade"] {
+    background-size: 65% !important;
+
+    @media (min-width: $md) {
+        background-size: 50% !important;
+        background-position: 181px 100px!important;
+    }
+}
+
+[data-calc-type-pic="#rentScreen"] {
+    background-size: 65% !important;
+
+    @media (min-width: $md) {
+        background-size: 57% !important;
+        background-position: 135px 90px !important;
+    }
+}
+
+[data-calc-type-pic="#insideScreen"] {
+    @media (min-width: $md) {
+        background-position: 174px center !important;
+    }
+}

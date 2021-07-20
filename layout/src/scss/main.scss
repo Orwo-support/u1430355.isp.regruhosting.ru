@@ -1,0 +1,84 @@
+// Include vendor styles
+@import "../css/loading-bar.min.css";
+
+// Include template styles
+@import "variables";
+@import "fonts";
+@import "layout";
+@import "debug-grid";
+@import "../pug/templates/header/header";
+@import "../pug/templates/footer/footer";
+
+// Include components styles
+@import "../pug/comps/loader/loader";
+@import "../pug/comps/offer/offer";
+@import "../pug/comps/list/list";
+@import "../pug/comps/projects/projects";
+@import "../pug/comps/clients/clients";
+@import "../pug/comps/faq/faq";
+@import "../pug/comps/feedback/feedback";
+@import "../pug/comps/work/work";
+@import "../pug/comps/callback/callback";
+@import "../pug/comps/types/types";
+@import "../pug/comps/banner/banner";
+@import "../pug/comps/banner-content/banner-content";
+@import "../pug/comps/form-order/form-order";
+@import "../pug/comps/typical-solutions/typical-solutions";
+@import "../pug/comps/ready-cabins/ready-cabins";
+@import "../pug/comps/custom-cursor/custom-cursor";
+@import "../pug/comps/galary-modal/gallery-modal";
+@import "../pug/comps/help-modal/help-modal";
+@import "../pug/comps/custom-selects/custom-selects";
+@import "../pug/comps/custom-slider-radio/custom-slider-radio";
+@import "../pug/comps/custom-slider-tabs/custom-slider-tabs";
+@import "../pug/comps/tab-list/tab-list";
+@import "../pug/comps/project-description/project-description";
+@import "../pug/comps/single-work/single-work";
+@import "../pug/comps/tab-list/tab-list-article-list";
+@import "../pug/comps/link-list/link-list";
+@import "../pug/comps/article-news/article-news";
+@import "../pug/comps/news-list/news-list";
+@import "../pug/comps/delivery/delivery";
+@import "../pug/comps/payment/payment";
+@import "../pug/comps/installment-calc/installment-calc";
+@import "../pug/comps/custom-input/custom-input";
+@import "../pug/comps/custom-range/custom-range";
+@import "../pug/comps/about-offer/about-offer";
+@import "../pug/comps/work-with/work-with";
+@import "../pug/comps/warranty/warranty";
+@import "../pug/comps/certificates/certificates";
+@import "../pug/comps/payment-ways/payment-ways";
+@import "../pug/comps/contacts/contacts";
+@import "../pug/comps/quiz/quiz";
+@import "../pug/comps/scroll-to-page-start/scroll-to-page-start";
+@import "../pug/comps/datepicker/datepicker";
+@import "../pug/comps/custom-checkbox/custom-checkbox";
+@import "../pug/comps/calc/calc";
+@import "../pug/comps/calc-results/calc-results";
+
+// Include page styles
+@import "../pug/pages/index/index";
+@import "../pug/pages/rent/rent";
+@import "../pug/pages/installation/installation";
+@import "../pug/pages/projection/projection";
+@import "../pug/pages/led-screen/led-screen";
+@import "../pug/pages/ticker/ticker";
+@import "../pug/pages/scoreboard/scoreboard";
+@import "../pug/pages/media-facade/media-facade";
+@import "../pug/pages/videobanner/videobanner";
+@import "../pug/pages/videocube/videocube";
+@import "../pug/pages/led-ball/led-ball";
+@import "../pug/pages/mediabort/mediabort";
+@import "../pug/pages/store-screen/store-screen";
+@import "../pug/pages/sport-screen/sport-screen";
+@import "../pug/pages/conf-screen/conf-screen";
+@import "../pug/pages/street-screen/street-screen";
+@import "../pug/pages/our-works/our-works";
+@import "../pug/pages/single-work/single-work";
+@import "../pug/pages/knowledge-base/knowledge-base";
+@import "../pug/pages/single-article-news/single-article-news";
+@import "../pug/pages/payment-delivery/payment-delivery";
+@import "../pug/pages/about/about";
+@import "../pug/pages/privacy-policy/privacy-policy";
+@import "../pug/pages/calc/calc";
+@import "../pug/pages/calc-results/calc-results";

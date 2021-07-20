@@ -1,0 +1,16 @@
+//- Include used template for this page
+extends ../../templates/default
+
+//- VARIABLES FOR INCLUDE THIS IN USED TEMPLATE
+block variables
+    - const title       = 'Рузультаты рассчёта калькулятора | Ekranika'
+    - const description = 'Write description for the page here'
+    - const keywords    = 'Write keywords for the page here'
+    - const pageClass   = 'page-calc-results'
+
+block content
+    // В зависимости от того с какого калькулятора пришли данные оборачивать контетн в блок
+    // с одним из кдассов .calc_outside-screen, .calc_inside-screen, .calc_media-facade, .calc_rent
+    .calc_outside-screen
+        include ../../comps/calc-results/calc-results-list
+        include ../../comps/calc-results/calc-results-form

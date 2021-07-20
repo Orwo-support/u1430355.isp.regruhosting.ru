@@ -1,0 +1,11 @@
+# Ignore code editor files
+/.idea/
+
+# Ignore node modules files
+/layout/node_modules/
+
+# Ignore preproduction bjild directory
+/layout/dist/
+
+# Ignored Bitrix core files
+/bitrix/
