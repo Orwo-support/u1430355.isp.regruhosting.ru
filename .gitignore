@@ -9,3 +9,6 @@
 
 # Ignored Bitrix core files
 /bitrix/
+
+# Ignore sever property file
+/.htaccess
