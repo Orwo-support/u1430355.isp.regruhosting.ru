@@ -30,11 +30,11 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
 
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.ea6b8ad8cdcc394fcfed.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.ea6b8ad8cdcc394fcfed.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.cf33da185ffa16ecf55f.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.cf33da185ffa16ecf55f.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.ea6b8ad8cdcc394fcfed.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.ea6b8ad8cdcc394fcfed.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.cf33da185ffa16ecf55f.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.cf33da185ffa16ecf55f.js");
         ?>
 
         <!-- Добавить только для страницы О компании-->
@@ -48,8 +48,15 @@
         </div>
         <div class="loader" id="spinner">
             <div class="spinner">
-                <div><div><div><div></div></div></div><div><div><div></div></div></div></div>
+                <div>
+                    <div><div><div></div></div></div>
+                    <div><div><div></div></div></div>
+                </div>
             </div>
+        </div>
+        <div class="cursor" id="cursor"></div>
+        <div class="loading-container">
+            <div class="ldBar label-center" id="loading" data-preset="circle" data-duration="2"></div>
         </div>
 
 
@@ -110,7 +117,7 @@
                 </div>
             </div>
         </div>
-        <div class="cursor" id="cursor"></div>
+
 -->
 
         <!-- Добавлять только на странице где нужен вывод галерени
@@ -124,19 +131,43 @@
         </div>
 -->
 
-        <div class="loading-container">
-            <div class="ldBar label-center" id="loading" data-preset="circle" data-duration="2"></div>
-        </div>
 
 
 
 
 
 
-<!--    Сюда нужно вставить Квиз из включаемой области-->
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <?
+            if ($APPLICATION->GetCurPage() == '/') {
+                $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    Array(
+                        "AREA_FILE_SHOW" => "file",
+                        "AREA_FILE_SUFFIX" => "inc",
+                        "EDIT_TEMPLATE" => "",
+                        "PATH" => "/include/quiz.php"
+                    )
+                );
+            }
+        ?>
         <header class="header" id="header">
             <a class="header__logo" href="/">
                 <img class="logo-mob" src="/img/mob-logo.svg" alt="">
