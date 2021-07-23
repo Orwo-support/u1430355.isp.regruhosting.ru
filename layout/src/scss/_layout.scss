@@ -52,7 +52,6 @@ body {
     @media (min-width: $xl) {
 
     }
-
 }
 
 .container {
@@ -130,9 +129,6 @@ body {
         width: calc(100% + 40px);
         margin-left: -40px;
         padding-left: 40px;
-    }
-
-    @media (min-width: $xl) {
     }
 }
 
@@ -266,8 +262,8 @@ a.link,
 //- Buttons
 .btn,
 a.btn,
-button.btn,
-input.btn {
+.button.btn,
+.input.btn {
     display: inline-block;
     align-items: center;
     border-radius: 999px;
@@ -886,8 +882,8 @@ input.btn {
 }
 
 //- Controllers
-input,
-textarea {
+.input,
+.textarea {
     min-width: 144px;
     height: 46px;
     background-color: $color-back-primary;
@@ -917,13 +913,9 @@ textarea {
                 inset -4px -4px 24px rgba(255, 255, 255, 0.06),
                 0px 0px 0px 2px rgba(70,51,112,1);
     }
-
-    &.inactive {
-
-    }
 }
 
-textarea {
+.textarea {
     resize: none;
     border-radius: 24px;
     overflow: initial;
@@ -931,19 +923,19 @@ textarea {
     text-overflow: initial;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-textarea:-webkit-autofill:active {
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active,
+.textarea:-webkit-autofill,
+.textarea:-webkit-autofill:hover,
+.textarea:-webkit-autofill:focus,
+.textarea:-webkit-autofill:active {
     transition: all 5000s linear 0s;
     transition-property: background-color, color;
 }
 
-input[type="checkbox"]:checked + .checker {
+.input[type="checkbox"]:checked + .checker {
     .check {
         opacity: 1;
     }
@@ -954,12 +946,12 @@ input[type="checkbox"]:checked + .checker {
 }
 
 /* удаление иконки очистки поля в IE */
-input[type="text"]::-ms-clear {
+.input[type="text"]::-ms-clear {
     display: none;
 }
 
 /* удаление иконки отображения пароля в IE */
-input[type="password"]::-ms-reveal {
+.input[type="password"]::-ms-reveal {
     display: none;
 }
 
@@ -1017,8 +1009,8 @@ input[type="password"]::-ms-reveal {
         width: 100%;
         margin-bottom: 34px;
 
-        input,
-        textarea {
+        .input,
+        .textarea {
             width: 100%;
 
             @media (min-width: $xl) {
@@ -1030,14 +1022,14 @@ input[type="password"]::-ms-reveal {
             }
         }
 
-        input {
+        .input {
             @media (min-width: $xl) {
                 height: 80px;
                 padding: 24px 24px 24px 92px;
             }
         }
 
-        textarea {
+        .textarea {
             @media (min-width: $xl) {
                 padding: 24px 24px 24px 92px;
             }
@@ -1270,24 +1262,24 @@ input[type="password"]::-ms-reveal {
 }
 
 input {
-outline: 0;
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
+    outline: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+.input[type="number"]::-webkit-outer-spin-button,
+.input[type="number"]::-webkit-inner-spin-button {
 -webkit-appearance: none; // Yeah, yeah everybody write about it
 }
 
-input[type='number'],
-input[type="number"]:hover,
-input[type="number"]:focus {
+.input[type='number'],
+.input[type="number"]:hover,
+.input[type="number"]:focus {
 appearance: none;
 -moz-appearance: textfield;
 }
-input, textarea {
+.input, .textarea {
 &::-webkit-input-placeholder {
     color: #3A374B;
     opacity: 1;

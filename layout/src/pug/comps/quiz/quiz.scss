@@ -403,7 +403,7 @@
         flex-direction: column;
         align-items: flex-start;
 
-        input[type="radio"]:checked + label::after {
+        .input[type="radio"]:checked + label::after {
             opacity: 1;
         }
 
@@ -411,7 +411,7 @@
             flex-direction: row;
             justify-content: space-between;
 
-            input[type="radio"]:checked + label {
+            .input[type="radio"]:checked + label {
                 cursor: default;
                 
                 &::before {
@@ -915,7 +915,7 @@
                     inset 5px 6px 20px rgba(0, 2, 12, 0.5);
         }
 
-        input {
+        .input {
             width: 25px;
             margin-right: 2px;
 
@@ -1222,8 +1222,8 @@
     }
 
     .form-order {
-        input,
-        textarea {
+        .input,
+        .textarea {
             background: $color-back-secondary;
             box-shadow:
                     -10px -10px 30px rgba(35, 33, 58, 0.35),
@@ -1327,7 +1327,7 @@
                 height: 43px;
                 margin-bottom: 49px;
 
-                input {
+                .input {
                     height: 44px;
                     padding: 11px 12px 11px 44px;
                     font-weight: normal;
@@ -1342,7 +1342,7 @@
             @media (min-width: $lg) and (max-width: $xl - 1) {
                 height: auto;
 
-                textarea {
+                .textarea {
                     font-weight: normal;
                     font-size: 14px;
                     line-height: 160%;

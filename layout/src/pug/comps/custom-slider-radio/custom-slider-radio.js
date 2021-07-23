@@ -6,7 +6,7 @@ $(document).ready(function () {
     const radioBtns = $('.radio-group label');
 
     window.initRadioMarker = function () {
-        const btns = $("input[type='radio']:checked + label");
+        const btns = $(".input[type='radio']:checked + label");
 
         if (btns.length > 0) {
             for (let i = 0; i < btns.length; i++) {

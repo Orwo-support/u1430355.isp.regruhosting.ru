@@ -14,12 +14,12 @@
         }
     }
 
-    input, textarea {
+    .input, .textarea {
         padding-left: 40px;
         padding-right: 16px;
     }
 
-    textarea {
+    .textarea {
         height: 90px;
 
         @media (min-width: $md) {
@@ -63,7 +63,7 @@
             height: 80px;
             margin-bottom: 48px;
 
-            input {
+            .input {
                 height: 80px;
                 padding: 23px 24px 23px 92px;
                 color: $color-text-secondary;
@@ -95,7 +95,7 @@
         @media (min-width: $lg) {
             height: 253px;
 
-            textarea {
+            .textarea {
                 height: 253px;
                 padding: 23px 24px 23px 92px;
                 color: $color-text-secondary;

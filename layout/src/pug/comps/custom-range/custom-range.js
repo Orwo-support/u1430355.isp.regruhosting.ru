@@ -1,7 +1,7 @@
 import $ from "jquery";
 
 $(document).ready(function () {
-    const ranges = $('input[type="range"]');
+    const ranges = $('.input[type="range"]');
 
     window.setRange = function (controller, setValue = true) {
 

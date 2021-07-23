@@ -1,6 +1,6 @@
 @import "../../../scss/variables";
 
-input[type='radio'] {
+.input[type='radio'] {
     display: none;
 }
 
@@ -122,7 +122,7 @@ input[type='radio'] {
         }
     }
 
-    input[type='radio']:checked + label {
+    .input[type='radio']:checked + label {
 
         &::after {
             opacity: 1;

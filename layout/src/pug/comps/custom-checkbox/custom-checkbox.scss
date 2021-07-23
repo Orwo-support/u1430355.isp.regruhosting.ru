@@ -74,7 +74,7 @@
         }
     }
 
-    input[type="checkbox"]:checked ~ .custom-checkbox__checkmark {
+    .input[type="checkbox"]:checked ~ .custom-checkbox__checkmark {
         background-color: $color-accent;
         box-shadow:
                 inset 2px 2px 3px rgba(49, 4, 38, 0.4),

@@ -260,7 +260,7 @@ function setCabinTypeMarker () {
     function setMarker() {
         let radio = $(getActiveMainCalc()).find('.calc-cabin-type');
         let marker = $(radio).children('.marker');
-        let label = $(radio).find('input:checked + label');
+        let label = $(radio).find('.input:checked + label');
         let width = $(label).innerWidth();
         let left = $(label).position().left;
 
