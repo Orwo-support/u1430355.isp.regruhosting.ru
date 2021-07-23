@@ -11,4 +11,4 @@
 /bitrix/
 
 # Ignore sever property file
-.htaccess
+/.htaccess
