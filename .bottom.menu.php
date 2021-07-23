@@ -1,0 +1,60 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Калькулятор", 
+		"/kalkulyator/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Рассрочка", 
+		"/dostavka-i-oplata/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Портфолио", 
+		"/nashi-raboty/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"О компании",
+		"/o-nas-garantiya-kontakty/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Готовые кабинеты", 
+		"/svetodiodnyy-ekran/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"База знаний", 
+		"/baza-znaniy/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+    Array(
+        "Сертификаты",
+        "/o-nas-garantiya-kontakty/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Контакты",
+        "/o-nas-garantiya-kontakty/",
+        Array(),
+        Array(),
+        ""
+    )
+);
+?>

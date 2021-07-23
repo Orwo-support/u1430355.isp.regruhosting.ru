@@ -1,0 +1,57 @@
+//- Variables from pages
+block variables
+
+doctype html
+html(lang="ru")
+    head
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+        meta(name="robots" content="no-index, follow")
+
+        link(rel="shortcut icon" href="img/favicon.ico" type="image/x-icon")
+
+        meta(name="description" content=description)
+        meta(name="keywords" content=keywords)
+        title #{title}
+
+        // API Яндекс карт подключать только на страницаъ с картой
+        script(src="https://api-maps.yandex.ru/2.1/?apikey=4c74d479-972b-4c76-81e7-b1bc63268173&lang=ru_RU")
+
+    body(class=pageClass)
+        //- Loader
+        include ../comps/loader/loader
+
+        //- Debug grid
+        .debug-grid
+            .container
+
+        //- Modals
+        // Добавлять мадальные сообщения только на страницах с соответствующими формами
+        include ../comps/callback/modal
+        include ../comps/form-order/modal
+
+        // Дабавить только на странице вывода результатов калькулятора
+        include ../comps/calc-results/modal
+
+        //- Custom cursor
+        include ../comps/custom-cursor/custom-cursor
+
+        //- Gallery modal
+        include ../comps/galary-modal/gallery-modal
+
+        //- Loading bar
+        .loading-container
+            .ldBar.label-center#loading(data-preset="circle", data-duration="2")
+
+        //- Quiz
+        // Добавлять Quiz только на тех страница, на которых он используется!!!
+        include ../comps/quiz/quiz
+
+        header.header#header
+            include header/header
+        main.main
+            block content
+        footer.footer#footer
+            include footer/footer
+            include ../comps/scroll-to-page-start/scroll-to-page-start

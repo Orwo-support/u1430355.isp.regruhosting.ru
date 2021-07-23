@@ -1,0 +1,91 @@
+@import "../../../scss/variables";
+
+.loader {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    position: fixed;
+    top: calc(50% - 50px);
+    left: -1000vw;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateY(-25px);
+    transition: left 0s linear .4s,
+                opacity .4s linear 0s,
+                transform .4s linear 0s;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+        left: calc(50% - 50px);
+        transition: left 0s linear 0s,
+                    opacity .4s linear 0s,
+                    transform .4s linear 0s;
+    }
+}
+
+.spinner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+    
+    > div {
+        transform: translate(0px,-9.5px);
+        
+        > div {
+            animation: spinner-animation-first 1.6666666666666667s linear infinite;
+            transform-origin: 50px 50px;
+            
+            > div {
+                position: absolute;
+                transform: translate(50px, 38.6px);
+                
+                > div {
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 50%;
+                    background: #ab78ff;
+                    animation: spinner-animation-second 1.6666666666666667s linear infinite;
+                }
+            }
+
+            &:last-child {
+                animation-delay: -0.8333333333333334s;
+                
+                > div {
+                    
+                    > div {
+                        animation-delay: -0.8333333333333334s;
+                        background: #9a5bff;
+                    }
+                }
+            }
+        }
+    }
+    
+    div {
+        box-sizing: content-box;
+    }
+}
+
+@keyframes spinner-animation-first {
+    0%, 100% { animation-timing-function: cubic-bezier(0.2 0 0.8 0.8); }
+    50%      { animation-timing-function: cubic-bezier(0.2 0.2 0.8 1); }
+    0%       { transform: rotate(0deg); }
+    50%      { transform: rotate(180deg); }
+    100%     { transform: rotate(360deg); }
+}
+
+@keyframes spinner-animation-second {
+    0%, 100% { animation-timing-function: cubic-bezier(0.2 0 0.8 0.8); }
+    50%      { animation-timing-function: cubic-bezier(0.2 0.2 0.8 1); }
+    0%       { transform: translate(-19px,-19px) scale(0); }
+    50%      { transform: translate(-19px,-19px) scale(1); }
+    100%     { transform: translate(-19px,-19px) scale(0); }
+}

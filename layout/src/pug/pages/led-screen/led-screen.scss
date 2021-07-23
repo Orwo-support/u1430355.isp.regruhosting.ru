@@ -1,0 +1,34 @@
+@import "../../../scss/variables";
+
+.page-led-screen {
+    .banner-content__slide:first-child .paragraph {
+        @media (min-width: $xl) {
+            max-width: 60%;
+        }
+    }
+
+    .banner-content .slide-nums {
+        @media (min-width: $xl) {
+            top: 313px;
+        }
+    }
+
+    .banner-content #btnBannerProjectsPrev,
+    .banner-content #btnBannerProjectsNext {
+        @media (min-width: $xl) {
+            top: 291px;
+        }
+    }
+
+    .banner-content__text_two-column .paragraph {
+        @media (min-width: $xl) {
+            padding-right: 0;
+        }
+    }
+
+    .banner-content__text_two-column .paragraph:last-child {
+        @media (min-width: $xl) {
+            padding-left: 64px;
+        }
+    }
+}

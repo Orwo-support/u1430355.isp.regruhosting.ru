@@ -1,0 +1,26 @@
+.label-controll
+    .label-controll__caption Срок рассрочки
+    .label-controll__body
+        .label-controll__content
+
+            .custom-range
+                .input-suffix.custom-input#installment
+                    input.input.value(
+                        type="text"
+                        data-calc-property="installment"
+                        value="12"
+                    )
+                    span.input-suffix__delimiter
+                    span.input-suffix__units мес
+
+                .custom-range__controller
+                    span.status-bar
+                    spna.slider
+                    input.input.custom-range__slide(
+                        type="range"
+                        step="1"
+                        min="12"
+                        max="36"
+                        value="12"
+                        data-calc-property="installment"
+                    )

@@ -1,0 +1,58 @@
+//- Animation functions
+$transition             : all .2s;
+$anim-el                : all 7s   cubic-bezier(0, 0.55, 0.45, 1);
+$anim-title             : all 2s cubic-bezier(0, 0.55, 0.45, 1);
+$anim-card              : all 2.5s cubic-bezier(0.33, 1, 0.68, 1);
+
+// Colors
+$color-back-primary     : #0B0D19;
+$color-back-secondary   : #0D101F;
+$color-accent           : #AB78FF;
+$color-icons            : #F6F0FF;
+$color-text-primary     : #D9D9D9;
+$color-text-secondary   : #A3A3A3;
+$color-text-inactive    : #80758F;
+$color-icons-inactive   : #3A374B;
+
+// Media
+$sm                     : 320px;
+$md                     : 768px;
+$lg                     : 1320px; // 1366px
+$xl                     : 1860px; // 1920px
+$xxl                    : 2520px; // 2560px;
+
+// Fonts
+$font-primary           : 'Montserrat', sans-serif;
+
+@mixin title-animation {
+    opacity: 1;
+    transform: translateX(0);
+    transition: $anim-title;
+
+    &.animation-element {
+        opacity: 0;
+        transform: translateX(70px);
+    }
+}
+
+@mixin title-link-animation {
+    opacity: 1;
+    transform: translateX(0);
+    transition: $anim-title;
+
+    &.animation-element {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+@mixin card-animation {
+    transform: translateY(0);
+    opacity: 1;
+    transition: $anim-card;
+
+    &.animation-element {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}

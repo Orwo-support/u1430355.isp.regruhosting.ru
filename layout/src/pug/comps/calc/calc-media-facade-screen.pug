@@ -1,0 +1,32 @@
+// Для активного элемента добавлять класс active
+.calc__calculator.calc__calculator_media-facade.hidden#mediaFacade
+    .container
+
+        .calc__body.animation-element
+            form.calc__body-controllers(action="/calc-results.html" method="POST")
+                include ../custom-slider-radio/custom-slider-radio-media-faced-type
+                include ../custom-selects/suffix-select-calc-media-faced-pixel-step
+                include ../custom-range/custom-range-calc-width
+                include ../custom-range/custom-range-calc-height
+
+                .calc__collapse-controllers.hidden
+                    .btn
+                        span.text Дополнительно
+                        span.icon
+                            include ../../../img/icon-ts.svg
+                    .body
+                        include ../custom-selects/suffix-select-calc-outside-screen-content-controller
+                        include ../custom-slider-radio/custom-slider-radio-mediafaced-system-controll
+                        include ../custom-checkbox/custom-checkbox-calc-outside-screen-brightness-sensor
+                        include ../custom-checkbox/custom-checkbox-calc-outside-screen-electrical-project
+                        include ../custom-checkbox/custom-checkbox-calc-outside-screen-steel-construction-project
+                        include ../custom-checkbox/custom-checkbox-calc-outside-screen-switchboard
+                        include ../custom-checkbox/custom-checkbox-calc-outside-screen-additional-spare
+                        include ../custom-selects/suffix-select-calc-ouside-screen-extended-warranty
+                        include ../custom-selects/suffix-select-calc-ouside-screen-advanced-service
+
+                button.btn.btn_secondary.calculating(type="submit") Рассчитать стоимость
+
+            .calc__body-picture
+                .calc__body-image
+                    img(src="/img/calc-media-facade.png" alt="")

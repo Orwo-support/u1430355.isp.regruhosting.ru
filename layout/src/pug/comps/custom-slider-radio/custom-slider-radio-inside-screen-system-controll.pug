@@ -1,0 +1,17 @@
+.label-controll
+    .label-controll__help.help-button(data-help-modal-id="helpModalInsideScreenSystemControll")
+        include ../../../img/icon-help.svg
+        include ../../comps/help-modal/help-modal-inside-screen-system-controll
+
+    .label-controll__caption Система управления
+    .label-controll__body
+        .label-controll__content
+            .radio-group.calc-system-controll(data-controller-type="radio-group")
+                .marker
+                // Если нужно чтобы при инициализации был выбран какой-то пункт, добавить checked='' в соответсвующий input
+                // Список значений формировать динамически из параметров элементв на стороне сервера
+                // Тип свойства в сторе data-calc-property НЕ ТРОГАТЬ! именно так оно указано в JS
+                input.input#calcInsideScreenSystemControllController(type='radio' name='system-controll-inside-screen' value='' checked)
+                label.filter-controller(for='calcInsideScreenSystemControllController' data-calc-property="SUType" data-calc-value="controller") Контроллер
+                input.input#calcInsideScreenSystemControllProcessor(type='radio' name='system-controll-inside-screen' value='')
+                label.filter-controller(for='calcInsideScreenSystemControllProcessor' data-calc-property="SUType" data-calc-value="processor") Видеопроцессор

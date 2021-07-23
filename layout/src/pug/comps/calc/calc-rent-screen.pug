@@ -1,0 +1,32 @@
+// Для активного элемента добавлять класс active
+.calc__calculator.calc__calculator_rent.hidden#rentScreen
+    .container
+
+        .calc__subtitle.animation-element У нас можно взять в аренду экран на мероприятие с установкой под ключ
+
+        .calc__body.animation-element
+            .calc__body-controllers
+                include ../custom-slider-radio/custom-slider-radio-rent-execution
+                include ../custom-slider-radio/custom-slider-radio-calc-rent-pixel-step
+                include ../custom-range/custom-range-calc-rent-width
+                include ../custom-range/custom-range-calc-rent-height
+                include ../custom-slider-radio/custom-slider-radio-rent-construction
+                include ../custom-slider-radio/custom-slider-radio-rent-system-controll
+                include ../custom-range/custom-range-calc-rent-rent-days
+                include ../datepicker/datepicker-calc-rent
+                include ../custom-checkbox/custom-checkbox-calc-rent-technician
+                include ../custom-checkbox/custom-checkbox-calc-rent-delivery
+
+                button.btn.btn_secondary.calculating Рассчитать стоимость
+
+            .calc__body-picture
+                .calc__body-image
+                    .calc__body-image-body
+                        img(src="/img/calc-media-facade.png" alt="")
+
+                    form.calc__results.calc-results-form(action="/calc-results.html" method="POST")
+                        input.calc-results-input(type="hidden" name="calc-results" value="")
+                        .calc__results-sum
+                            .txt Итого:
+                            .number.calc-results-number 0 ₽
+                        button.btn.btn_primary.not-focused(type="submit") Посмотреть спецификацию
