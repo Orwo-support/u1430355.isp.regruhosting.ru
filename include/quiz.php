@@ -33,7 +33,7 @@
                         Перезвоним вам в ближайшее время
                     </div>
                     <div class="pic">
-                        <img src="/img/icon-modal-phone.svg" alt="">
+                        <img class="pic" src="/img/icon-modal-phone.svg" alt="">
                     </div>
                     <div class="btn btn_primary btn-quiz-toggle btn-reset-quiz">
                         Закрыть окно
@@ -53,13 +53,13 @@
                                 <input id="quizLocationOutside" type="radio" name="location" value="">
                                 <label class="quiz__card" for="quizLocationOutside" data-quiz-property="location" data-quiz-value="outside">
                                     <div class="active-background"></div>
-                                    <img class="picture" src="/img/quiz-location-outside.png" alt="">
+                                    <img class="picture pic" src="/img/quiz-location-outside.png" alt="">
                                     <span class="text">На улице</span>
                                 </label>
                                 <input id="quizLocationInside" type="radio" name="location" value="">
                                 <label class="quiz__card" for="quizLocationInside" data-quiz-property="location" data-quiz-value="inside">
                                     <div class="active-background"></div>
-                                    <img class="picture" src="/img/quiz-location-inside.png" alt="">
+                                    <img class="picture pic" src="/img/quiz-location-inside.png" alt="">
                                     <span class="text">В помещении</span>
                                 </label>
                             </div>
@@ -77,7 +77,7 @@
                         <div class="quiz__slide-controllers">
                             <div class="quiz__slider-group">
                                 <div class="quiz__card">
-                                    <img class="picture" src="/img/quiz-distance.png" alt="">
+                                    <img class="picture pic" src="/img/quiz-distance.png" alt="">
                                     <span class="text text_warning" id="distanceText">
                                         Выберите расстояние до экрана!
                                     </span>
@@ -146,7 +146,7 @@
                         <div class="quiz__slide-controllers">
                             <div class="quiz__slider-group">
                                 <div class="quiz__card">
-                                    <img class="picture" src="/img/quiz-size.png" alt="">
+                                    <img class="picture pic" src="/img/quiz-size.png" alt="">
                                     <span class="text text_warning" id="sizeText">
                                         Выберите размеры экрана!
                                     </span>
@@ -208,13 +208,13 @@
                                 <input id="quizRent" type="radio" name="contract" value="">
                                 <label class="quiz__card" for="quizRent" data-quiz-property="contract" data-quiz-value="rent">
                                     <div class="active-background"></div>
-                                    <img class="picture" src="/img/quiz-rent.png" alt="">
+                                    <img class="picture pic" src="/img/quiz-rent.png" alt="">
                                     <span class="text">Нужна аренда</span>
                                 </label>
                                 <input id="quizBuy" type="radio" name="contract" value="">
                                 <label class="quiz__card" for="quizBuy" data-quiz-property="contract" data-quiz-value="buy">
                                     <div class="active-background"></div>
-                                    <img class="picture" src="/img/quiz-buy.png" alt="">
+                                    <img class="picture pic" src="/img/quiz-buy.png" alt="">
                                     <span class="text">Куплю сразу</span>
                                 </label>
                             </div>
@@ -239,7 +239,7 @@
                                                 <div class="controller controller__input">
                                                     <label class="label label__icon">
                                                         <span class="controller-icon icon-human">
-                                                            <img src="/img/icon-person.svg" alt="">
+                                                            <img class="pic" src="/img/icon-person.svg" alt="">
                                                         </span>
                                                         <input type="text" placeholder="Константин Константинопольский" name="quizName" id="quizName">
                                                     </label>
@@ -250,17 +250,17 @@
                                                 <div class="controller controller__input single-valid-warning">
                                                     <label class="label label__icon">
                                                         <span class="controller-icon icon-phone">
-                                                            <img src="/img/icon-phone.svg" alt="">
+                                                            <img class="pic" src="/img/icon-phone.svg" alt="">
                                                         </span>
                                                         <input type="text" placeholder="+7 900 000 00 00" name="quizPhone" id="quizPhone">
                                                     </label>
                                                     <div class="validator validator__cross">
-                                                        <img class="valid" src="/img/icon-validator-cross-valid.svg" alt="">
-                                                        <img class="invalid" src="/img/icon-validator-cross-invalid.svg" alt="">
+                                                        <img class="valid pic" src="/img/icon-validator-cross-valid.svg" alt="">
+                                                        <img class="invalid pic" src="/img/icon-validator-cross-invalid.svg" alt="">
                                                     </div>
                                                     <div class="validator validator__check">
-                                                        <img class="valid" src="/img/icon-validator-check-valid.svg" alt="">
-                                                        <img class="invalid" src="/img/icon-validator-check-invalid.svg" alt="">
+                                                        <img class="valid pic" src="/img/icon-validator-check-valid.svg" alt="">
+                                                        <img class="invalid pic" src="/img/icon-validator-check-invalid.svg" alt="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -270,7 +270,7 @@
                                                 <label class="controller-label">Комментарий</label>
                                                 <div class="controller-wrap">
                                                     <span class="controller-icon icon-msg">
-                                                        <img src="/img/icon-message.svg" alt="">
+                                                        <img class="pic" src="/img/icon-message.svg" alt="">
                                                     </span>
                                                     <textarea placeholder="Напишите что-нибудь" name="quizMessage" id="quizMessage"></textarea>
                                                 </div>

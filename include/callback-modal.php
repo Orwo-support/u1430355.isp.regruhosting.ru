@@ -6,7 +6,7 @@
                 <div class="modal__subtitle">Перезвоним вам в ближайшее время</div>
             </div>
             <div class="modal__body">
-                <img class="modal-img" src="/img/icon-modal-phone.svg" alt="">
+                <img class="modal-img pic" src="/img/icon-modal-phone.svg" alt="">
             </div>
             <div class="modal__footer">
                 <button class="btn btn_primary not-focused modal__close">

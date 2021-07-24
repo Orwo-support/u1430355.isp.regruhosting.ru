@@ -8,7 +8,7 @@
                     .controller.controller__input
                         label.label.label__icon
                             span.controller-icon.icon-human
-                                img(src="/img/icon-person.svg" alt="")
+                                img.pic(src="/img/icon-person.svg" alt="")
                             input.input(type="text" placeholder="Константин Константинопольский" name="quizName" id="quizName")
 
 
@@ -18,21 +18,21 @@
                     .controller.controller__input.single-valid-warning
                         label.label.label__icon
                             span.controller-icon.icon-phone
-                                img(src="/img/icon-phone.svg" alt="")
+                                img.pic(src="/img/icon-phone.svg" alt="")
                             input.input(type="text" placeholder="+7 900 000 00 00" name="quizPhone" id="quizPhone")
                         .validator.validator__cross
-                            img.valid(src="/img/icon-validator-cross-valid.svg" alt="")
-                            img.invalid(src="/img/icon-validator-cross-invalid.svg" alt="")
+                            img.pic.valid(src="/img/icon-validator-cross-valid.svg" alt="")
+                            img.pic.invalid(src="/img/icon-validator-cross-invalid.svg" alt="")
                         .validator.validator__check
-                            img.valid(src="/img/icon-validator-check-valid.svg" alt="")
-                            img.invalid(src="/img/icon-validator-check-invalid.svg" alt="")
+                            img.pic.valid(src="/img/icon-validator-check-valid.svg" alt="")
+                            img.pic.invalid(src="/img/icon-validator-check-invalid.svg" alt="")
 
             .form-order__comments
                 .controller-group
                     label.controller-label Комментарий
                     .controller-wrap
                         span.controller-icon.icon-msg
-                            img(src="/img/icon-message.svg" alt="")
+                            img.pic(src="/img/icon-message.svg" alt="")
                         textarea.textarea(placeholder="Напишите что-нибудь" name="quizMessage" id="quizMessage")
 
 

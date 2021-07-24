@@ -11,7 +11,7 @@ section.section.section_callback
             .callback__subtitle.animation-element Укажите ваш мобильный номер телефона и мы перезвоним в течение 5 минут
 
         .callback__background-pic.animation-element
-            img(src="/img/callback-pic.png" alt="")
+            img.pic(src="/img/callback-pic.png" alt="")
 
         .container-endless
             .endless
@@ -21,14 +21,14 @@ section.section.section_callback
                         .controller.controller__input
                             label.label.label__icon
                                 span.icon
-                                    img(src="/img/icon-phone.svg" alt="")
+                                    img.pic(src="/img/icon-phone.svg" alt="")
                                 input.input#callbackPhone(type="text" placeholder="+7 900 000 00 00" name="phone")
                             .validator.validator__cross
-                                img.valid(src="/img/icon-validator-cross-valid.svg" alt="")
-                                img.invalid(src="/img/icon-validator-cross-invalid.svg" alt="")
+                                img.pic.valid(src="/img/icon-validator-cross-valid.svg" alt="")
+                                img.pic.invalid(src="/img/icon-validator-cross-invalid.svg" alt="")
                             .validator.validator__check
-                                img.valid(src="/img/icon-validator-check-valid.svg" alt="")
-                                img.invalid(src="/img/icon-validator-check-invalid.svg" alt="")
+                                img.pic.valid(src="/img/icon-validator-check-valid.svg" alt="")
+                                img.pic.invalid(src="/img/icon-validator-check-invalid.svg" alt="")
 
                     .callback__actions
                         button.btn.btn_primary(type="submit") Отправить номер

@@ -3,7 +3,7 @@
         <footer class="footer" id="footer">
             <div class="footer__logotype">
                 <a class="logo" href="/">
-                    <img src="/img/logo.svg" alt="">
+                    <img class="pic" src="/img/logo.svg" alt="">
                 </a>
                 <span class="designed">
                     <?$APPLICATION->IncludeComponent(
@@ -94,8 +94,8 @@
                         false
                     );?>
                     <a class="logo" href="/">
-                        <img class="logo-mob" src="/img/mob-logo.svg" alt="">
-                        <img class="logo-desc" src="/img/logo.svg" alt="">
+                        <img class="logo-mob pic" src="/img/mob-logo.svg" alt="">
+                        <img class="logo-desc pic" src="/img/logo.svg" alt="">
                     </a>
                 </div>
                 <?$APPLICATION->IncludeComponent("bitrix:menu", "bottom", Array(

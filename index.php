@@ -18,17 +18,17 @@ $APPLICATION->SetTitle('Главная');
                     </div>
                     <div class="swiper-slide">
                         <div class="slider__picture" data-swiper-parallax-opacity="0" data-swiper-parallax="-200" data-swiper-parallax-duration="1000">
-                            <img class="image picture-man" src="/img/slider-back-1.jpg" alt="">
+                            <img class="image picture-man pic" src="/img/slider-back-1.jpg" alt="">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="slider__picture" data-swiper-parallax-opacity="0" data-swiper-parallax="-200" data-swiper-parallax-duration="1000">
-                            <img class="image" src="/img/slider-back-2.jpg" alt="">
+                            <img class="image pic" src="/img/slider-back-2.jpg" alt="">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="slider__picture" data-swiper-parallax-opacity="0" data-swiper-parallax="-200" data-swiper-parallax-duration="1000">
-                            <img class="image" src="/img/slider-back-3.jpg" alt="">
+                            <img class="image pic" src="/img/slider-back-3.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -498,7 +498,7 @@ $APPLICATION->SetTitle('Главная');
                                     Подбор экрана и комплектующих
                                 </div>
                                 <div class="work__day animation-element">
-                                    <img src="/img/icon-clock.svg" alt="">
+                                    <img class="pic" src="/img/icon-clock.svg" alt="">
                                     <span>1 день</span>
                                 </div>
                                 <div class="work__content animation-element">
@@ -522,7 +522,7 @@ $APPLICATION->SetTitle('Главная');
                                     Согласование проекта
                                 </div>
                                 <div class="work__day animation-element">
-                                    <img src="/img/icon-clock.svg" alt="">
+                                    <img class="pic" src="/img/icon-clock.svg" alt="">
                                     <span>3 дня</span>
                                 </div>
                                 <div class="work__content animation-element">
@@ -547,7 +547,7 @@ $APPLICATION->SetTitle('Главная');
                                     Изготовление и прошивка
                                 </div>
                                 <div class="work__day animation-element">
-                                    <img src="/img/icon-clock.svg" alt="">
+                                    <img class="pic" src="/img/icon-clock.svg" alt="">
                                     <span>7 - 10 дней</span>
                                 </div>
                                 <div class="work__content animation-element">
@@ -572,7 +572,7 @@ $APPLICATION->SetTitle('Главная');
                                     Доставка на объект клиента
                                 </div>
                                 <div class="work__day animation-element">
-                                    <img src="/img/icon-clock.svg" alt="">
+                                    <img class="pic" src="/img/icon-clock.svg" alt="">
                                     <span>3 дня</span>
                                 </div>
                                 <div class="work__content animation-element">
@@ -595,7 +595,7 @@ $APPLICATION->SetTitle('Главная');
                                     Сборка и монтаж оборудования
                                 </div>
                                 <div class="work__day animation-element">
-                                    <img src="/img/icon-clock.svg" alt="">
+                                    <img class="pic" src="/img/icon-clock.svg" alt="">
                                     <span>2 дня</span>
                                 </div>
                                 <div class="work__content animation-element">
@@ -620,7 +620,7 @@ $APPLICATION->SetTitle('Главная');
                                     Запуск LED экрана
                                 </div>
                                 <div class="work__day animation-element">
-                                    <img src="/img/icon-clock.svg" alt="">
+                                    <img class="pic" src="/img/icon-clock.svg" alt="">
                                     <span>1 день</span>
                                 </div>
                                 <div class="work__content animation-element">
@@ -968,7 +968,7 @@ $APPLICATION->SetTitle('Главная');
                 </div>
             </div>
             <div class="callback__background-pic animation-element">
-                <img src="/img/callback-pic.png" alt="">
+                <img class="pic" src="/img/callback-pic.png" alt="">
             </div>
             <div class="container-endless">
                 <div class="endless">
@@ -978,17 +978,17 @@ $APPLICATION->SetTitle('Главная');
                             <div class="controller controller__input">
                                 <label class="label label__icon">
                                 <span class="icon">
-                                    <img src="/img/icon-phone.svg" alt="">
+                                    <img class="pic" src="/img/icon-phone.svg" alt="">
                                 </span>
                                     <input class="input" id="callbackPhone" type="text" placeholder="+7 900 000 00 00" name="phone">
                                 </label>
                                 <div class="validator validator__cross">
-                                    <img class="valid" src="/img/icon-validator-cross-valid.svg" alt="">
-                                    <img class="invalid" src="/img/icon-validator-cross-invalid.svg" alt="">
+                                    <img class="valid pic" src="/img/icon-validator-cross-valid.svg" alt="">
+                                    <img class="invalid pic" src="/img/icon-validator-cross-invalid.svg" alt="">
                                 </div>
                                 <div class="validator validator__check">
-                                    <img class="valid" src="/img/icon-validator-check-valid.svg" alt="">
-                                    <img class="invalid" src="/img/icon-validator-check-invalid.svg" alt="">
+                                    <img class="valid pic" src="/img/icon-validator-check-valid.svg" alt="">
+                                    <img class="invalid pic" src="/img/icon-validator-check-invalid.svg" alt="">
                                 </div>
                             </div>
                         </div>

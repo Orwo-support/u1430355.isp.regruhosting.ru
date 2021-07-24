@@ -2,10 +2,11 @@ import $ from "jquery";
 import IMask from "imask";
 
 $(document).ready(function () {
-    // Show order form
-    $(() => $('.show-order-form')
-        .toArray()
-        .forEach(addHandlerClickToBtnShowOrderForm));
+    if ($('.page-calc-results')[0]) {
+        // Show order form
+        $(() => $('.show-order-form')
+            .toArray()
+            .forEach(addHandlerClickToBtnShowOrderForm));
 
         function addHandlerClickToBtnShowOrderForm(el) {
             $(el).on(
@@ -29,23 +30,23 @@ $(document).ready(function () {
             $('body,html').animate({scrollTop: scrollTo}, 500);
         }
 
-    // Add mask to the calc phone input
-    let maskCalcPhone;
+        // Add mask to the calc phone input
+        let maskCalcPhone;
 
-    if ($('#calcFormPhone')[0] !== undefined) {
-        let phone = document.getElementById('calcFormPhone');
-        let controller = $(phone).closest('.controller');
+        if ($('#calcFormPhone')[0] !== undefined) {
+            let phone = document.getElementById('calcFormPhone');
+            let controller = $(phone).closest('.controller');
 
-        maskCalcPhone = IMask(
-            phone,
-            {
-                mask: '+{7} 000 000 00 00',
-            }
-        );
+            maskCalcPhone = IMask(
+                phone,
+                {
+                    mask: '+{7} 000 000 00 00',
+                }
+            );
 
-        // Let's add handler function on phone change
-        maskCalcPhone.on("accept", () => calcPhoneHandler(maskCalcPhone, controller));
-    }
+            // Let's add handler function on phone change
+            maskCalcPhone.on("accept", () => calcPhoneHandler(maskCalcPhone, controller));
+        }
 
         function calcPhoneHandler(mask, controller) {
             if (validPhone(mask.unmaskedValue)) {
@@ -92,10 +93,10 @@ $(document).ready(function () {
             }
         }
 
-    // Submit calc order form
-    $(() => $('.form-order__submit')
-        .toArray()
-        .forEach(addHandlerClickOnBtnOrderForm));
+        // Submit calc order form
+        $(() => $('.form-order__submit')
+            .toArray()
+            .forEach(addHandlerClickOnBtnOrderForm));
 
         function addHandlerClickOnBtnOrderForm(el) {
             $(el).on(
@@ -149,10 +150,10 @@ $(document).ready(function () {
             modalOpen($('#calcForm'));
         }
 
-    // Toggle visible for download formats dropdown
-    $(() => $('.calc__specification-result-download')
-        .toArray()
-        .forEach(addHandlerToSpecificationDownBtn));
+        // Toggle visible for download formats dropdown
+        $(() => $('.calc__specification-result-download')
+            .toArray()
+            .forEach(addHandlerToSpecificationDownBtn));
 
         function addHandlerToSpecificationDownBtn(el) {
             $(el).on(
@@ -185,4 +186,5 @@ $(document).ready(function () {
                 $(btn).removeClass('is-hover');
             }
         }
+    }
 });
