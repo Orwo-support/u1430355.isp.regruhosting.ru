@@ -174,34 +174,53 @@
                 <img class="logo-mob" src="/img/mob-logo.svg" alt="">
                 <img class="logo-desc" src="/img/logo.svg" alt="">
             </a>
-            <?/*$APPLICATION->IncludeComponent(
+            <?$APPLICATION->IncludeComponent(
                 "bitrix:menu",
-                "main_menu",
-                array(
-                    "ALLOW_MULTI_SELECT" => "N",
-                    "CHILD_MENU_TYPE" => "submain",
-                    "DELAY" => "N",
-                    "MAX_LEVEL" => "2",
-                    "MENU_CACHE_GET_VARS" => array(
+                "main",
+                Array(
+                    "ALLOW_MULTI_SELECT" => "N", // Разрешить несколько активных пунктов одновременно
+                    "CHILD_MENU_TYPE" => "left", // Тип меню для остальных уровней
+                    "DELAY" => "N",	// Откладывать выполнение шаблона меню
+                    "MAX_LEVEL" => "1",	// Уровень вложенности меню
+                    "MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
+                        0 => "",
                     ),
-                    "MENU_CACHE_TIME" => "3600",
-                    "MENU_CACHE_TYPE" => "N",
-                    "MENU_CACHE_USE_GROUPS" => "Y",
-                    "ROOT_MENU_TYPE" => "main",
-                    "USE_EXT" => "N",
-                    "COMPONENT_TEMPLATE" => "main_menu"
+                    "MENU_CACHE_TIME" => "3600", // Время кеширования (сек.)
+                    "MENU_CACHE_TYPE" => "N", // Тип кеширования
+                    "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+                    "ROOT_MENU_TYPE" => "main",	// Тип меню для первого уровня
+                    "USE_EXT" => "N", // Подключать файлы с именами вида .тип_меню.menu_ext.php
                 ),
                 false
-            );*/?>
+            );?>
             <div class="header__action-group">
                 <div class="header__btns-group">
                     <div class="btn btn_ghost">
                         <div class="icon-pic">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 3.1H5.2M3.1 5.2V1M10.8 3.1H15M11.5 15H15M11.5 11.5H15M1 11.5L4.5 15M1 15L4.5 11.5" stroke="#AB78FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg width="16"
+                                 height="16"
+                                 viewBox="0 0 16 16"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 3.1H5.2M3.1 5.2V1M10.8 3.1H15M11.5 15H15M11.5 11.5H15M1 11.5L4.5 15M1 15L4.5 11.5"
+                                      stroke="#AB78FF"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
                         </div>
                         <div class="arr">
                             Калькулятор
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg width="16"
+                                 height="16"
+                                 viewBox="0 0 16 16"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 12L10 8L6 4"
+                                      stroke="#AB78FF"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
                         </div>
                     </div>
                     <div class="btn btn_calltoaction">
@@ -209,15 +228,25 @@
                     </div>
                 </div>
                 <div class="nav-toggler" id="navToggler">
-                    <span class="top-line">
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 2" style="enable-background:new 0 0 16 2" xml:space="preserve"><g><path d="M15.3,2H0.6C0.3,2,0,1.5,0,0.9S0.3,0,0.6,0h14.6C15.6,0,16,0.4,16,1.1S15.6,2,15.3,2z"/></g></svg>
-                    </span>
-                    <span class="middle-line">
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 2" style="enable-background:new 0 0 16 2" xml:space="preserve"><g><path d="M15.3,2H0.6C0.3,2,0,1.5,0,0.9S0.3,0,0.6,0h14.6C15.6,0,16,0.4,16,1.1S15.6,2,15.3,2z"/></g></svg>
-                    </span>
-                    <span class="bottom-line">
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 2" style="enable-background:new 0 0 16 2" xml:space="preserve"><g><path d="M15.3,2H0.6C0.3,2,0,1.5,0,0.9S0.3,0,0.6,0h14.6C15.6,0,16,0.4,16,1.1S15.6,2,15.3,2z"/></g></svg>
-                    </span>
+                    <? for ($i = 0; $i < 3; $i++) { ?>
+                        <?
+                            if ($i == 0) $navToggleClass = 'top-line';
+                            if ($i == 1) $navToggleClass = 'middle-line';
+                            if ($i == 2) $navToggleClass = 'bottom-line';
+                        ?>
+                        <span class="<?=$navToggleClass;?>">
+                            <svg id="Layer_1"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 16 2"
+                                 style="enable-background:new 0 0 16 2"
+                                 xml:space="preserve">
+                                <g>
+                                    <path d="M15.3,2H0.6C0.3,2,0,1.5,0,0.9S0.3,0,0.6,0h14.6C15.6,0,16,0.4,16,1.1S15.6,2,15.3,2z"/>
+                                </g>
+                            </svg>
+                        </span>
+                    <? } ?>
                 </div>
             </div>
             <span id="navLine"></span>
