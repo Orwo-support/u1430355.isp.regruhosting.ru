@@ -116,11 +116,15 @@
                 <?endif?>
             <?endforeach?>
             <li class="nav__item nav__item_icon">
-                <div class="icon icon_calc"><img class="pic" src="/img/icon-calc-signs.svg" alt=""></div>
-                <a>Калькулятор</a>
+                <div class="icon icon_calc">
+                    <img class="pic" src="/img/icon-calc-signs.svg" alt="">
+                </div>
+                <a href="/kalkulyator/">Калькулятор</a>
             </li>
             <li class="nav__item nav__item_icon">
-                <div class="icon icon_mail"><img class="pic" src="/img/icon-mail.svg" alt=""></div>
+                <div class="icon icon_mail">
+                    <img class="pic" src="/img/icon-mail.svg" alt="">
+                </div>
                 <a>Оформить заявку</a>
             </li>
         </ul>

@@ -209,7 +209,7 @@
                                       stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <div class="arr">
+                        <a href="/kalkulyator/" class="arr">
                             Калькулятор
                             <svg width="16"
                                  height="16"
@@ -221,7 +221,7 @@
                                       stroke-linecap="round"
                                       stroke-linejoin="round"/>
                             </svg>
-                        </div>
+                        </a>
                     </div>
                     <div class="btn btn_calltoaction">
                         Оформить заявку
