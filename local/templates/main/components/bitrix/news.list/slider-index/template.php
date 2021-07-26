@@ -104,7 +104,6 @@ $this->setFrameMode(true);
                         <div class="number">0<?=$INDEX_SLIDER_COUNT?></div>
                     </div>
                 </div>
-
                 <div class="btn btn_icon-outlined not-focused" id="btnSliderPrev">
                     <svg width="14"
                          height="26"

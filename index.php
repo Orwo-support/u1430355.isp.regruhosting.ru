@@ -70,277 +70,137 @@ $APPLICATION->SetTitle('Главная');
 	),
 	false
 );?>
+<?$APPLICATION->IncludeComponent("bitrix:news.list", "our-offers", Array(
+	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
+		"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации
+		"AJAX_MODE" => "N",	// Включить режим AJAX
+		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+		"AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
+		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+		"AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+		"CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
+		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"CHECK_DATES" => "Y",	// Показывать только активные на данный момент элементы
+		"DETAIL_URL" => "",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
+		"DISPLAY_BOTTOM_PAGER" => "N",	// Выводить под списком
+		"DISPLAY_DATE" => "Y",	// Выводить дату элемента
+		"DISPLAY_NAME" => "Y",	// Выводить название элемента
+		"DISPLAY_PICTURE" => "Y",	// Выводить изображение для анонса
+		"DISPLAY_PREVIEW_TEXT" => "Y",	// Выводить текст анонса
+		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
+		"FIELD_CODE" => array(	// Поля
+			0 => "NAME",
+			1 => "DETAIL_TEXT",
+			2 => "DETAIL_PICTURE",
+			3 => "",
+		),
+		"FILTER_NAME" => "",	// Фильтр
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",	// Скрывать ссылку, если нет детального описания
+		"IBLOCK_ID" => "6",	// Код информационного блока
+		"IBLOCK_TYPE" => "offer",	// Тип информационного блока (используется только для проверки)
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",	// Включать инфоблок в цепочку навигации
+		"INCLUDE_SUBSECTIONS" => "Y",	// Показывать элементы подразделов раздела
+		"MESSAGE_404" => "",	// Сообщение для показа (по умолчанию из компонента)
+		"NEWS_COUNT" => "30",	// Количество новостей на странице
+		"PAGER_BASE_LINK_ENABLE" => "N",	// Включить обработку ссылок
+		"PAGER_DESC_NUMBERING" => "N",	// Использовать обратную навигацию
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",	// Время кеширования страниц для обратной навигации
+		"PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
+		"PAGER_SHOW_ALWAYS" => "N",	// Выводить всегда
+		"PAGER_TEMPLATE" => ".default",	// Шаблон постраничной навигации
+		"PAGER_TITLE" => "Новости",	// Название категорий
+		"PARENT_SECTION" => "",	// ID раздела
+		"PARENT_SECTION_CODE" => "",	// Код раздела
+		"PREVIEW_TRUNCATE_LEN" => "",	// Максимальная длина анонса для вывода (только для типа текст)
+		"PROPERTY_CODE" => array(	// Свойства
+			0 => "",
+			1 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",	// Устанавливать заголовок окна браузера
+		"SET_LAST_MODIFIED" => "N",	// Устанавливать в заголовках ответа время модификации страницы
+		"SET_META_DESCRIPTION" => "N",	// Устанавливать описание страницы
+		"SET_META_KEYWORDS" => "N",	// Устанавливать ключевые слова страницы
+		"SET_STATUS_404" => "N",	// Устанавливать статус 404
+		"SET_TITLE" => "N",	// Устанавливать заголовок страницы
+		"SHOW_404" => "N",	// Показ специальной страницы
+		"SORT_BY1" => "SORT",	// Поле для первой сортировки новостей
+		"SORT_BY2" => "ACTIVE_FROM",	// Поле для второй сортировки новостей
+		"SORT_ORDER1" => "ASC",	// Направление для первой сортировки новостей
+		"SORT_ORDER2" => "DESC",	// Направление для второй сортировки новостей
+		"STRICT_SECTION_CHECK" => "N",	// Строгая проверка раздела для показа списка
+	),
+	false
+);?>
+<?$APPLICATION->IncludeComponent("bitrix:news.list", "partners-choice", Array(
+	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
+		"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
+		"AJAX_MODE" => "N",	// Включить режим AJAX
+		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+		"AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
+		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+		"AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+		"CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
+		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"CHECK_DATES" => "Y",	// Показывать только активные на данный момент элементы
+		"DETAIL_URL" => "",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
+		"DISPLAY_BOTTOM_PAGER" => "N",	// Выводить под списком
+		"DISPLAY_DATE" => "Y",	// Выводить дату элемента
+		"DISPLAY_NAME" => "Y",	// Выводить название элемента
+		"DISPLAY_PICTURE" => "Y",	// Выводить изображение для анонса
+		"DISPLAY_PREVIEW_TEXT" => "Y",	// Выводить текст анонса
+		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
+		"FIELD_CODE" => array(	// Поля
+			0 => "PREVIEW_TEXT",
+			1 => "DETAIL_TEXT",
+			2 => "",
+		),
+		"FILTER_NAME" => "",	// Фильтр
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",	// Скрывать ссылку, если нет детального описания
+		"IBLOCK_ID" => "7",	// Код информационного блока
+		"IBLOCK_TYPE" => "lists",	// Тип информационного блока (используется только для проверки)
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",	// Включать инфоблок в цепочку навигации
+		"INCLUDE_SUBSECTIONS" => "Y",	// Показывать элементы подразделов раздела
+		"MESSAGE_404" => "",	// Сообщение для показа (по умолчанию из компонента)
+		"NEWS_COUNT" => "10",	// Количество новостей на странице
+		"PAGER_BASE_LINK_ENABLE" => "N",	// Включить обработку ссылок
+		"PAGER_DESC_NUMBERING" => "N",	// Использовать обратную навигацию
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",	// Время кеширования страниц для обратной навигации
+		"PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
+		"PAGER_SHOW_ALWAYS" => "N",	// Выводить всегда
+		"PAGER_TEMPLATE" => ".default",	// Шаблон постраничной навигации
+		"PAGER_TITLE" => "Новости",	// Название категорий
+		"PARENT_SECTION" => "",	// ID раздела
+		"PARENT_SECTION_CODE" => "",	// Код раздела
+		"PREVIEW_TRUNCATE_LEN" => "",	// Максимальная длина анонса для вывода (только для типа текст)
+		"PROPERTY_CODE" => array(	// Свойства
+			0 => "",
+			1 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",	// Устанавливать заголовок окна браузера
+		"SET_LAST_MODIFIED" => "N",	// Устанавливать в заголовках ответа время модификации страницы
+		"SET_META_DESCRIPTION" => "N",	// Устанавливать описание страницы
+		"SET_META_KEYWORDS" => "N",	// Устанавливать ключевые слова страницы
+		"SET_STATUS_404" => "N",	// Устанавливать статус 404
+		"SET_TITLE" => "N",	// Устанавливать заголовок страницы
+		"SHOW_404" => "N",	// Показ специальной страницы
+		"SORT_BY1" => "SORT",	// Поле для первой сортировки новостей
+		"SORT_BY2" => "ACTIVE_FROM",	// Поле для второй сортировки новостей
+		"SORT_ORDER1" => "ASC",	// Направление для первой сортировки новостей
+		"SORT_ORDER2" => "DESC",	// Направление для второй сортировки новостей
+		"STRICT_SECTION_CHECK" => "N",	// Строгая проверка раздела для показа списка
+	),
+	false
+);?>
 
 
 
 
 
-<section class="section section_offer">
-    <div class="offer">
-        <div class="container">
-            <h2 class="section__title animation-element">
-                <span class="title">Мы предлагаем</span>
-                <span class="section__link animation-element">
-                <a class="revers" href="">
-                    Выбрать готовые кабинеты
-                    <svg width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9"><path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-                </a>
-            </span>
-            </h2>
-        </div>
-        <div class="container-endless">
-            <div class="endless offer__list swiper-container" id="offerSlider">
-                <div class="offer__list__wrap swiper-wrapper">
-                    <div class="offer__slide swiper-slide">
-                        <a class="offer__card animation-element" href="">
-                            <div class="offer__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                            <div class="offer__caption">Светодиодный экран</div>
-                            <div class="offer__content">
-                                Устройство для передачи статической и динамической
-                                информации высокой яркости и насыщенностим
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offer__slide swiper-slide">
-                        <a class="offer__card animation-element" href="">
-                            <div class="offer__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                            <div class="offer__caption">Бегущая строка</div>
-                            <div class="offer__content">
-                                Один из самых популярных и доступных видов наружной
-                                рекламы
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offer__slide swiper-slide">
-                        <a class="offer__card animation-element" href="">
-                            <div class="offer__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                            <div class="offer__caption">Электронное табло</div>
-                            <div class="offer__content">
-                                Светодиодный экран с большим шагом пикселя. С его помощью транслируют
-                                повтор моментов в спортивных соревнованиях и матчах
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offer__slide swiper-slide">
-                        <a class="offer__card animation-element" href="">
-                            <div class="offer__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                            <div class="offer__caption">Медиаборт</div>
-                            <div class="offer__content">
-                                широкоформатный светодиодный экран, транслирующий
-                                рекламу и информировацию для зрителей, преимущественно на
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offer__slide swiper-slide">
-                        <a class="offer__card animation-element" href="">
-                            <div class="offer__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                            <div class="offer__caption">Светодиодный экран</div>
-                            <div class="offer__content">
-                                Устройство для передачи статической и динамической
-                                информации высокой яркости и насыщенностим
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offer__slide swiper-slide">
-                        <a class="offer__card animation-element" href="">
-                            <div class="offer__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                            <div class="offer__caption">
-                                Бегущая строка<div class="offer__content">Один из самых
-                                    популярных и доступных видов наружной рекламы</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offer__slide swiper-slide">
-                        <a class="offer__card animation-element" href="">
-                            <div class="offer__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                            <div class="offer__caption">Электронное табло</div>
-                            <div class="offer__content">
-                                Светодиодный экран с большим шагом пикселя. С его помощью транслируют
-                                повтор моментов в спортивных соревнованиях и матчах
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offer__slide swiper-slide">
-                        <a class="offer__card animation-element" href="">
-                            <div class="offer__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                            <div class="offer__caption">Медиаборт</div>
-                            <div class="offer__content">
-                                широкоформатный светодиодный экран, транслирующий
-                                рекламу и информировацию для зрителей, преимущественно на
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_next" id="btnOfferSliderNext">
-                <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999998 25L13 13L1 1" stroke="#80758F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_prev" id="btnOfferSliderPrev">
-                <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999998 25L13 13L1 1" stroke="#80758F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section section_list">
-    <div class="list__background"></div>
-    <div class="list">
-        <div class="container">
-            <h2 class="section__title animation-element">Почему партнеры выбирают Экранику</h2>
-        </div>
-        <div class="container-endless-fix">
-            <div class="endless list__list swiper-container" id="listSlider">
-                <div class="list__list__wrap swiper-wrapper">
-                    <div class="list__slide swiper-slide">
-                        <div class="list__card">
-                            <div class="list__num">
-                                <span class="back"></span>
-                                <span class="number">
-                                <span class="img img_1 animation-element"></span>
-                            </span>
-                            </div>
-                            <div class="list__title animation-element">
-                                Компания - производитель с собственным складом
-                            </div>
-                            <div class="list__content animation-element">
-                                Ценовые предложения без посредников и торговых надбавок.
-                                Даем рассрочку без переплат для постоянных партнеров
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list__slide swiper-slide">
-                        <div class="list__card">
-                            <div class="list__num">
-                                <span class="back"></span>
-                                <span class="number">
-                                <span class="img img_2 animation-element"></span>
-                            </span>
-                            </div>
-                            <div class="list__title animation-element">Быстрая доставка по России и СНГ</div>
-                            <div class="list__content animation-element">
-                                Доставляем по Москве и области ― в течение одного — двух дней.
-                                По России и СНГ ― отправляем комфортным перевозчиком, на выбор клиента
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list__slide swiper-slide">
-                        <div class="list__card">
-                            <div class="list__num">
-                                <span class="back"></span>
-                                <span class="number">
-                                <span class="img img_3 animation-element"></span>
-                            </span>
-                            </div>
-                            <div class="list__title animation-element">Гарантийное обслуживание 3 года</div>
-                            <div class="list__content animation-element">
-                                Даем гарантию на все виды готовых
-                                изделий, кроме блоков питания. Сотрудничаем с зарекомендованными поставщиками из
-                                КНР. Наделены опытными и обученными на заводах — производителях специалистами.
-                                Получаем поддержку представителей компаний Qiangli и Novastar
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list__slide swiper-slide">
-                        <div class="list__card">
-                            <div class="list__num">
-                                <span class="back"></span>
-                                <span class="number">
-                                <span class="img img_4 animation-element"></span>
-                            </span>
-                            </div>
-                            <div class="list__title animation-element">
-                                Полный цикл работ и расширенная поддержка
-                            </div>
-                            <div class="list__content animation-element">
-                                Разработаем проект, произведем монтаж,
-                                гарантийное и послегарантийное обслуживание. Предоставим персонального менеджера
-                                для оперативного решения комплексных вопросов по услугам сервисного центра и
-                                технической поддержки заводов — производителей
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list__slide swiper-slide">
-                        <div class="list__card">
-                            <div class="list__num">
-                                <span class="back"></span>
-                                <span class="number">
-                                <span class="img img_5 animation-element"></span>
-                            </span>
-                            </div>
-                            <div class="list__title animation-element">
-                                Круглосуточная техподдержка
-                            </div>
-                            <div class="list__content animation-element">
-                                Возникли неполадки ― сразу набирайте
-                                наш номер телефона. Ответим на вопросы, вернем технику в строй за считанные
-                                часы, причем независимо от того, где она была куплена
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list__slide swiper-slide">
-                        <div class="list__card">
-                            <div class="list__num">
-                                <span class="back"></span>
-                                <span class="number">
-                                <span class="img img_6 animation-element"></span>
-                            </span>
-                            </div>
-                            <div class="list__title animation-element">28 моделей готовых кабинета в сборе</div>
-                            <div class="list__content animation-element">
-                                Благодаря такому решению, выполним заказ в срок от 4 дней.
-                                Отправим готовый экран с уже необходимыми клиенту
-                                размерами, конфигурацией и шагом пикселя
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list__slide swiper-slide">
-                        <div class="list__card">
-                            <div class="list__num">
-                                <span class="back"></span>
-                                <span class="number">
-                                <span class="img img_7 animation-element"></span>
-                            </span>
-                            </div>
-                            <div class="list__title animation-element">Аренда готовых медиаэкранов</div>
-                            <div class="list__content animation-element">
-                                Удобное и экономически выгодное решение
-                                для оценки возможностей LED экрана на желаемой площадке перед его покупкой.
-                                Привезем, смонтируем, подключим, настроим и будем следить за работой техники до
-                                завершения ивента
-                            </div>
-                        </div>
-                    </div><!-- Для полседнего элемента обязательно добавить .lets-meet-->
-                    <div class="list__slide swiper-slide lets-meet">
-                        <div class="list__card">
-                            <span class="text animation-element">Давайте знакомиться</span>
-                            <div class="link-container animation-element">
-                                <a class="link revers" href="">
-                                    О компании
-                                    <svg width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9"><path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <section class="section section_projects">
     <div class="projects">
         <div class="container">
