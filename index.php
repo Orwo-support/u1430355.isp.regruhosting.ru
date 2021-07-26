@@ -736,402 +736,67 @@ $APPLICATION->SetTitle('Главная');
     </div>
 </section>
 
-
-
-<section class="section section_faq">
-    <div class="faq">
-        <div class="container">
-            <h2 class="section__title animation-element">
-                <span class="title">Отвечаем на вопросы</span>
-                <span class="section__link animation-element">
-                <a class="revers" href="">
-                    База знаний
-                    <svg width="12"
-                         height="17"
-                         viewBox="0 0 12 17"
-                         fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <g opacity="0.9">
-                            <path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289"
-                                  stroke="#AB78FF"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </g>
-                    </svg>
-                </a>
-            </span>
-            </h2>
-            <!-- При инициализации первым 5 элементам добавить класссы .display и .show-->
-            <div class="faq__list animation-element">
-                <div class="faq__item display show">
-                    <div class="faq__caption">
-                        Что нужно знать для подбора экрана?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Основные критерии, которые необходимо
-                                учитывать перед арендой или приобретением
-                                светодиодного экрана:
-                            </p>
-                            <ul>
-                                <li>
-                                    <span>Яркость</span>
-                                    <p>Попадание прямых солнечных лучей на экран может вызвать эффект засветки
-                                        изображения. Для исключения подобных явлений уличные LED-панели должны
-                                        иметь яркость не менее 5000 Нит. Внутри помещений достаточно 800 Нит</p>
-                                </li>
-                                <li>
-                                    <span>Цветопередача</span>
-                                    <p>На сегодняшний день применяются две основные группы светодиодных экранов:
-                                        монохромные, с одноцветным выводом изображения (в большинстве случаев
-                                        применяются для передачи текстовой и графической информации) и
-                                        полноцветные, передающие всю цветовую гамму</p>
-                                </li>
-                                <li>
-                                    <span>Разрешение и оптимальное расстояние просмотра</span>
-                                    <p>Плотность пикселей непосредственно влияет на качество отображаемого
-                                        изображения на экране. Чем выше разрешение, тем ближе положение, с
-                                        которого картинка будет восприниматься целостно, без разбивки на
-                                        отдельные точки</p>
-                                    <p>Важный параметр, от которого зависит разрешение – шаг пикселя (расстояние
-                                        между центральными точками двух рядом стоящих пикселей). От него же
-                                        зависит расстояние просмотра. Усредненный расчет для определения
-                                        минимального удаления зрителя от экрана делается по формуле Px1000, где
-                                        P = шаг пикселя в мм</p>
-                                    <p>Оптимальное значение P внутри помещений составляет от 0,5 мм (Full HD
-                                        качество) до 4, максимум 10. В наружных конструкциях применяются
-                                        LED-панели с шагом от 4 до 20 мм</p>
-                                </li>
-                                <li>
-                                    <span>Угол обзора</span>
-                                    <p>Угол обзора светодиодных экранов зависит от типа конструкции светодиода.
-                                        Поверхностный SMD монтаж позволяет применять светодиоды нового поколения
-                                        с расширением угла обзора до 140° в обеих плоскостях</p>
-                                </li>
-                                <li>
-                                    <span>Потребляемая мощность и напряжение</span>
-                                    <p>Перед установкой LED-панелей необходимо уточнить параметры электросетей
-                                        здания или помещения по допустимым нагрузкам. Средний диапазон мощности,
-                                        потребляемой от сети, составляет от 350 до 650 Вт в зависимости от
-                                        модели экрана</p>
-                                </li>
-                                <li>
-                                    <span>Монтажная конструкция</span>
-                                    <p>Светодиодные панели собираются из отдельных модулей (кабинетов) разных
-                                        типовых размеров. Полностью собранное оборудование должно иметь
-                                        идеальную геометрию без видимых границ между блоками. Для уличных
-                                        экранов обязательным условием является прочность конструкции,
-                                        соответствующая ветровой нагрузке конкретного региона</p>
-                                </li>
-                                <li>
-                                    <span>Надежность и безопасность</span>
-                                    <p>Уличные светодиодные панели имеют класс защиты IP65, предотвращающий
-                                        повреждения от попадания твердых предметов, а также исключающий
-                                        попадание воды и пыли к узлам электрооборудования</p>
-                                    <p>Для внутренних экранов достаточен класс IP31, защищающий от попадания
-                                        мелких (от 2,5 мм) предметов и капель воды. В зависимости от региона и
-                                        места монтажа светодиодные панели могут оснащаться системами охлаждения
-                                        и подогрева</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="faq__description-footer">
-                            <p>
-                                Не знаете какой экран выбрать? Пройдите опрос из 4-х простых вопросов, на
-                                основании ответов на которые, мы подберем для вас именнно то, что наиболее
-                                подходит под ваши потребности
-                            </p>
-                            <div class="btn btn_primary">Пройти опрос</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item display show">
-                    <div class="faq__caption">
-                        Как подобрать шаг пикселя?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item display show">
-                    <div class="faq__caption">
-                        В чем разница между уличным и внутренним?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item display show">
-                    <div class="faq__caption">
-                        Как посмотреть варианты экранов?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item display show">
-                    <div class="faq__caption">
-                        Как подобрать управление?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Как происходит оплата?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Как происходит установка?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Как происходит доставка?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Сколько времени занимает установка?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Сколько служит экран?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Какая гарантия?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Сколько весит экран?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        На что ставят экран в помещении или на улице?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Разница между фронтальным и тыльным обслуживанием?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Как управлять контентом?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Где заказать видеоряд?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Как происходит постпродажное обслуживание?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Что делать, если наступил гарантийный случай?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__caption">
-                        Что делать, если повредили экран?
-                        <div class="faq__toggler"></div>
-                    </div>
-                    <div class="faq__description">
-                        <div class="faq__description-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus commodi
-                                consectetur, cum eaque enim eos esse excepturi fugit incidunt iusto laboriosam,
-                                minus nobis quaerat quis reprehenderit sequi totam ullam, vel!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="faq__more">
-            <span class="points points_left">
-                <span class="point"></span>
-                <span class="point"></span>
-                <span class="point"></span>
-            </span>
-                <span class="text">Ещё вопросы</span>
-                <span class="points points_right">
-                <span class="point"></span>
-                <span class="point"></span>
-                <span class="point"></span>
-            </span>
-            </div>
-        </div>
-    </div>
-</section>
+<?$APPLICATION->IncludeComponent("bitrix:news.list", "faq", Array(
+	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
+		"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации
+		"AJAX_MODE" => "N",	// Включить режим AJAX
+		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+		"AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
+		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+		"AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+		"CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
+		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"CHECK_DATES" => "Y",	// Показывать только активные на данный момент элементы
+		"DETAIL_URL" => "",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
+		"DISPLAY_BOTTOM_PAGER" => "N",	// Выводить под списком
+		"DISPLAY_DATE" => "Y",	// Выводить дату элемента
+		"DISPLAY_NAME" => "Y",	// Выводить название элемента
+		"DISPLAY_PICTURE" => "Y",	// Выводить изображение для анонса
+		"DISPLAY_PREVIEW_TEXT" => "Y",	// Выводить текст анонса
+		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
+		"FIELD_CODE" => array(	// Поля
+			0 => "NAME",
+			1 => "DETAIL_TEXT",
+			2 => "",
+		),
+		"FILTER_NAME" => "",	// Фильтр
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",	// Скрывать ссылку, если нет детального описания
+		"IBLOCK_ID" => "10",	// Код информационного блока
+		"IBLOCK_TYPE" => "faq",	// Тип информационного блока (используется только для проверки)
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",	// Включать инфоблок в цепочку навигации
+		"INCLUDE_SUBSECTIONS" => "Y",	// Показывать элементы подразделов раздела
+		"MESSAGE_404" => "",	// Сообщение для показа (по умолчанию из компонента)
+		"NEWS_COUNT" => "50",	// Количество новостей на странице
+		"PAGER_BASE_LINK_ENABLE" => "N",	// Включить обработку ссылок
+		"PAGER_DESC_NUMBERING" => "N",	// Использовать обратную навигацию
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",	// Время кеширования страниц для обратной навигации
+		"PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
+		"PAGER_SHOW_ALWAYS" => "N",	// Выводить всегда
+		"PAGER_TEMPLATE" => ".default",	// Шаблон постраничной навигации
+		"PAGER_TITLE" => "Новости",	// Название категорий
+		"PARENT_SECTION" => "",	// ID раздела
+		"PARENT_SECTION_CODE" => "",	// Код раздела
+		"PREVIEW_TRUNCATE_LEN" => "",	// Максимальная длина анонса для вывода (только для типа текст)
+		"PROPERTY_CODE" => array(	// Свойства
+			0 => "",
+			1 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",	// Устанавливать заголовок окна браузера
+		"SET_LAST_MODIFIED" => "N",	// Устанавливать в заголовках ответа время модификации страницы
+		"SET_META_DESCRIPTION" => "N",	// Устанавливать описание страницы
+		"SET_META_KEYWORDS" => "N",	// Устанавливать ключевые слова страницы
+		"SET_STATUS_404" => "N",	// Устанавливать статус 404
+		"SET_TITLE" => "N",	// Устанавливать заголовок страницы
+		"SHOW_404" => "N",	// Показ специальной страницы
+		"SORT_BY1" => "SORT",	// Поле для первой сортировки новостей
+		"SORT_BY2" => "ACTIVE_FROM",	// Поле для второй сортировки новостей
+		"SORT_ORDER1" => "ASC",	// Направление для первой сортировки новостей
+		"SORT_ORDER2" => "DESC",	// Направление для второй сортировки новостей
+		"STRICT_SECTION_CHECK" => "N",	// Строгая проверка раздела для показа списка
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
 <? require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php'); ?>

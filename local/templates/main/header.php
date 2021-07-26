@@ -30,8 +30,8 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
 
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.75a9ca78aa2ded35d827.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.75a9ca78aa2ded35d827.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.4fed0b00ab7332c024ab.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.4fed0b00ab7332c024ab.css");
 
             Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.75a9ca78aa2ded35d827.js");
             Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.75a9ca78aa2ded35d827.js");
