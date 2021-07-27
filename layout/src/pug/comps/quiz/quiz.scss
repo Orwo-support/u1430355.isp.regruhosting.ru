@@ -209,6 +209,7 @@
 
         .pic {
             display: none;
+            z-index: -1;
 
             @media (min-width: $lg) {
                 display: block;

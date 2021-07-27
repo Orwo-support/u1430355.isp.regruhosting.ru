@@ -1,0 +1,154 @@
+@import "../../../scss/variables";
+
+.video-modal__background {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: -9999px;
+    opacity: 0;
+    position: fixed;
+    z-index: 999;
+    overflow: hidden;
+    outline: 0;
+    background-color: rgba(0,0,0,.5);
+    backdrop-filter: blur(0);
+    transition:
+            left 0s linear .15s,
+            opacity .15s linear 0s,
+            backdrop-filter .15s linear 0s;
+
+    &.visible {
+        left: 0;
+        opacity: 1;
+        backdrop-filter: blur(4px);
+        transition:
+                left 0s linear 0s,
+                opacity .15s linear 0s,
+                backdrop-filter .15s linear 0s;
+    }
+}
+
+.video-modal__content {
+    top: 50%;
+    left: -9999px;
+    opacity: 0;
+    transform: translate(-50%, -60%);
+    position: fixed;
+    z-index: 9999;
+    overflow: hidden;
+    outline: 0;
+    background-color: rgba(0,0,0,1);
+    transition:
+            left 0s linear .15s,
+            opacity .15s linear 0s,
+            transform .15s linear 0s;
+
+    &.visible {
+        left: 50%;
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        transition:
+                left 0s linear 0s,
+                opacity .15s linear 0s,
+                transform .3s linear 0s;
+    }
+}
+
+.video-modal__wrap {
+    width: 300px;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+
+    @media (min-width: $md) {
+        width: 500px;
+    }
+
+    @media (min-width: $lg) {
+        width: 700px;
+    }
+
+    @media (min-width: $xl) {
+        width: 1000px;
+    }
+
+    @media (min-width: $xxl) {
+        width: 1300px;
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-width: 0;
+        outline-width: 0;
+    }
+}
+
+.video-modal__close {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 50%;
+    background: $color-back-secondary;
+    transition: transform .2s ease-out;
+    box-shadow:
+            inset 4px 4px 24px rgba(4, 2, 19, 0.5),
+            inset -4px -4px 24px rgba(255, 255, 255, 0.06);
+
+    @media (min-width: $md) {
+        width: 48px;
+        height: 48px;
+        top: 24px;
+        right: 24px;
+    }
+
+    @media (min-width: $lg) {
+        width: 50px;
+        height: 50px;
+
+        &:hover {
+            .picture {
+                transform: rotate(180deg);
+            }
+            svg path {
+                stroke: $color-accent ;
+            }
+        }
+    }
+
+    .picture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform .3s;
+        transform: rotate(0deg);
+    }
+
+    svg {
+        width: 73px;
+        position: absolute;
+        top: calc(50% + 3px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @media (min-width: $md) {
+            width: 102px;
+            top: calc(50% + 4px);
+        }
+
+        path {
+            transition: $transition;
+        }
+    }
+}
+

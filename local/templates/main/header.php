@@ -30,11 +30,11 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
 
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.4fed0b00ab7332c024ab.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.4fed0b00ab7332c024ab.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.4bbbb288d23ac6e34f22.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.4bbbb288d23ac6e34f22.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.75a9ca78aa2ded35d827.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.75a9ca78aa2ded35d827.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.4bbbb288d23ac6e34f22.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.4bbbb288d23ac6e34f22.js");
         ?>
 
         <!-- Добавить только для страницы О компании-->
@@ -141,34 +141,42 @@
 
 
 
-        <?
-            if ($APPLICATION->GetCurPage() == '/') {
-                $APPLICATION->IncludeComponent(
-                    "bitrix:main.include",
-                    "",
-                    Array(
-                        "AREA_FILE_SHOW" => "file",
-                        "AREA_FILE_SUFFIX" => "inc",
-                        "EDIT_TEMPLATE" => "",
-                        "PATH" => "/include/callback-modal.php"
-                    )
-                );
-            }
-        ?>
-        <?
-            if ($APPLICATION->GetCurPage() == '/') {
-                $APPLICATION->IncludeComponent(
-                    "bitrix:main.include",
-                    "",
-                    Array(
-                        "AREA_FILE_SHOW" => "file",
-                        "AREA_FILE_SUFFIX" => "inc",
-                        "EDIT_TEMPLATE" => "",
-                        "PATH" => "/include/quiz.php"
-                    )
-                );
-            }
-        ?>
+        <?if ($APPLICATION->GetCurPage() == '/') {
+            $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => "/include/callback-modal.php"
+                )
+            );
+        }?>
+        <?if ($APPLICATION->GetCurPage() == '/') {
+            $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => "/include/video-modal.php"
+                )
+            );
+        }?>
+        <?if ($APPLICATION->GetCurPage() == '/') {
+            $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => "/include/quiz.php"
+                )
+            );
+        }?>
         <header class="header" id="header">
             <a class="header__logo" href="/">
                 <img class="logo-mob pic" src="/img/mob-logo.svg" alt="">
