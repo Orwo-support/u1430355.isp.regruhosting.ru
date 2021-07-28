@@ -1,7 +1,7 @@
 <div class="quiz" id="quiz">
     <div class="quiz__dialog">
-        <form class="quiz__content" id="quizForm" action="http://ekranika.develop/utilities/handle-quiz-form.php"
-              name="add_quiz_data" method="POST" enctype="multipart/form-data">
+        <form class="quiz__content" id="quizForm" action="/utilities/handle-quiz-form.php" name="add_quiz_data"
+              method="POST" enctype="multipart/form-data">
             <div class="quiz__button-close btn-quiz-toggle btn-reset-quiz">
                 <div class="button">
                     <svg width="102" height="122" viewBox="0 0 102 122" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -159,15 +159,22 @@
                                                                   name="location" value=""><label class="quiz__card"
                                                                                                   for="quizLocationOutside"
                                                                                                   data-quiz-property="location"
-                                                                                                  data-quiz-value="outside">
-                                    <div class="active-background"></div>
-                                    <img class="picture" src="/img/quiz-location-outside.png" alt=""><span class="text">На улице</span></label><input
-                                        class="input" id="quizLocationInside" type="radio" name="location" value=""><label
-                                        class="quiz__card" for="quizLocationInside" data-quiz-property="location"
-                                        data-quiz-value="inside">
-                                    <div class="active-background"></div>
-                                    <img class="picture" src="/img/quiz-location-inside.png" alt=""><span class="text">В помещении</span></label>
-                            </div>
+                                                                                                  data-quiz-value="outside"><span
+                                            class="active-background"></span><img class="picture"
+                                                                                  src="/img/quiz-location-outside.png"
+                                                                                  alt=""><span
+                                            class="text">На улице</span></label><input class="input"
+                                                                                       id="quizLocationInside"
+                                                                                       type="radio" name="location"
+                                                                                       value=""><label
+                                        class="quiz__card"
+                                        for="quizLocationInside"
+                                        data-quiz-property="location"
+                                        data-quiz-value="inside"><span
+                                            class="active-background"></span><img class="picture"
+                                                                                  src="/img/quiz-location-inside.png"
+                                                                                  alt=""><span
+                                            class="text">В помещении</span></label></div>
                         </div>
                     </div>
                     <div class="quiz__slide" data-quiz-property="distance" id="quizSlide_2">
@@ -193,11 +200,11 @@
                                                                 class="input-suffix__units"
                                                                 id="quizDistanceUnits">метры</span></div>
                                                     <div class="custom-range__controller"><span
-                                                                class="status-bar"></span>
-                                                        <spna class="slider"></spna>
-                                                        <input class="input custom-range__slide" type="range" step="1"
-                                                               min="1" max="50" value="1"
-                                                               data-calc-property="quizDistance"></div>
+                                                                class="status-bar"></span><span
+                                                                class="slider"></span><input
+                                                                class="input custom-range__slide" type="range" step="1"
+                                                                min="1" max="50" value="1"
+                                                                data-calc-property="quizDistance"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -351,7 +358,8 @@
                         <div class="quiz__slide-controllers">
                             <div class="quiz__slider-group">
                                 <div class="quiz__card"><img class="picture" src="/img/quiz-size.png" alt=""><span
-                                            class="text text_warning" id="sizeText">Выберите размеры экрана!</span></div>
+                                            class="text text_warning" id="sizeText">Выберите размеры экрана!</span>
+                                </div>
                                 <div class="quiz__sliders">
                                     <div class="label-controll">
                                         <div class="label-controll__caption">Ширина</div>
@@ -365,11 +373,11 @@
                                                                 class="input-suffix__units"
                                                                 id="quizSizeWidthUnits">метры</span></div>
                                                     <div class="custom-range__controller"><span
-                                                                class="status-bar"></span>
-                                                        <spna class="slider"></spna>
-                                                        <input class="input custom-range__slide" type="range" step="1"
-                                                               min="1" max="100" value="1"
-                                                               data-calc-property="quizSizeWidth"></div>
+                                                                class="status-bar"></span><span
+                                                                class="slider"></span><input
+                                                                class="input custom-range__slide" type="range" step="1"
+                                                                min="1" max="100" value="1"
+                                                                data-calc-property="quizSizeWidth"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -386,11 +394,11 @@
                                                                 class="input-suffix__units"
                                                                 id="quizSizeHeightUnits">метры</span></div>
                                                     <div class="custom-range__controller"><span
-                                                                class="status-bar"></span>
-                                                        <spna class="slider"></spna>
-                                                        <input class="input custom-range__slide" type="range" step="1"
-                                                               min="1" max="100" value="1"
-                                                               data-calc-property="quizSizeHeight"></div>
+                                                                class="status-bar"></span><span
+                                                                class="slider"></span><input
+                                                                class="input custom-range__slide" type="range" step="1"
+                                                                min="1" max="100" value="1"
+                                                                data-calc-property="quizSizeHeight"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -409,17 +417,17 @@
                                                                   name="contract" value=""><label class="quiz__card"
                                                                                                   for="quizRent"
                                                                                                   data-quiz-property="contract"
-                                                                                                  data-quiz-value="rent">
-                                    <div class="active-background"></div>
-                                    <img class="picture" src="/img/quiz-rent.png" alt=""><span
-                                            class="text">Нужна аренда</span></label><input class="input" id="quizBuy"
-                                                                                           type="radio" name="contract"
-                                                                                           value=""><label class="quiz__card"
-                                                                                                           for="quizBuy"
-                                                                                                           data-quiz-property="contract"
-                                                                                                           data-quiz-value="buy">
-                                    <div class="active-background"></div>
-                                    <img class="picture" src="/img/quiz-buy.png" alt=""><span
+                                                                                                  data-quiz-value="rent"><span
+                                            class="active-background"></span><img class="picture"
+                                                                                  src="/img/quiz-rent.png"
+                                                                                  alt=""><span
+                                            class="text">Нужна аренда</span></label><input
+                                        class="input" id="quizBuy" type="radio" name="contract" value=""><label
+                                        class="quiz__card" for="quizBuy" data-quiz-property="contract"
+                                        data-quiz-value="buy"><span class="active-background"></span><img
+                                            class="picture"
+                                            src="/img/quiz-buy.png"
+                                            alt=""><span
                                             class="text">Куплю сразу</span></label></div>
                         </div>
                     </div>
@@ -454,12 +462,14 @@
                                                 <div class="validator validator__cross"><img class="pic valid"
                                                                                              src="/img/icon-validator-cross-valid.svg"
                                                                                              alt=""><img
-                                                            class="pic invalid" src="/img/icon-validator-cross-invalid.svg"
+                                                            class="pic invalid"
+                                                            src="/img/icon-validator-cross-invalid.svg"
                                                             alt=""></div>
                                                 <div class="validator validator__check"><img class="pic valid"
                                                                                              src="/img/icon-validator-check-valid.svg"
                                                                                              alt=""><img
-                                                            class="pic invalid" src="/img/icon-validator-check-invalid.svg"
+                                                            class="pic invalid"
+                                                            src="/img/icon-validator-check-invalid.svg"
                                                             alt=""></div>
                                             </div>
                                         </div>
@@ -468,7 +478,8 @@
                                         <div class="controller-group"><label
                                                     class="controller-label">Комментарий</label>
                                             <div class="controller-wrap"><span class="controller-icon icon-msg"><img
-                                                            class="pic" src="/img/icon-message.svg" alt=""></span><textarea
+                                                            class="pic" src="/img/icon-message.svg"
+                                                            alt=""></span><textarea
                                                         class="textarea" placeholder="Напишите что-нибудь"
                                                         name="quizMessage" id="quizMessage"></textarea></div>
                                         </div>
