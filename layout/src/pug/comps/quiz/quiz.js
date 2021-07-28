@@ -24,7 +24,7 @@ $(document).ready(function () {
          * @location {string} like inside or outside
          * @contract {string} rent or buy
          * @size {boolean} is size of screen selected
-         * @sizeHeight {number}  from 1 to 100
+         * @sizeHeight {number} from 1 to 100
          * @sizeWidth {number} from 1 to 100
          */
         window.QUIZ_STATE = {
@@ -698,7 +698,6 @@ $(document).ready(function () {
         function handleQuizContacts () {
             setContactsToQuizState();
             sendQuizDataToTheServe();
-            showQuizEpilogue();
             resetQuizScrollTop();
         }
 
@@ -783,9 +782,9 @@ $(document).ready(function () {
             );
         })();
 
-        function resetQuizData () {
+        function resetQuizData (fail) {
             // Reset data only if user is on last slide (epilogue)
-            if ($('#quizEpilogue').css('display') === 'block') {
+            if ($('#quizEpilogue').css('display') === 'block' || fail) {
                 let firstQuestion = $('#quizSlide_1');
                 let lastQuestion = $('#quizSlide_5');
 
@@ -846,10 +845,50 @@ $(document).ready(function () {
         }
 
         function sendQuizDataToTheServe () {
+            // console.log(QUIZ_STATE);
+            $(SPINNER).addClass('visible');
 
-            // Sending data to server
-            console.log('Sending data to server...')
-            console.log(QUIZ_STATE);
+            $.post(
+                $('#quizForm').attr('action'),
+                {
+                    name: QUIZ_STATE.contactsName,
+                    phone: QUIZ_STATE.contactsPhone,
+                    message: QUIZ_STATE.contactsMessage,
+                    width: QUIZ_STATE.sizeWidth,
+                    height: QUIZ_STATE.sizeHeight,
+                    location: QUIZ_STATE.location,
+                    distance: QUIZ_STATE.distance,
+                    contract: QUIZ_STATE.contract,
+                },
+                "json"
+            ).done(response => {
+                if (JSON.parse(response).IS_ERRORS) {
+                    resetFailQuiz(response);
+                } else {
+                    // console.log(JSON.parse(response));
+                    showQuizEpilogue();
+                }
+            }).fail(xhr => {
+                resetFailQuiz(xhr);
+            }).always(() => {
+                $(SPINNER).removeClass('visible');
+            });
+
+            function resetFailQuiz(data) {
+                alert('Сообщение не отправлено. ' +
+                    'Произошла ошибка. ' +
+                    'Перезагрузите страницу ' +
+                    'и попробуйте отправить данные немного позже');
+                console.log(data);
+                $('#quiz').removeClass('visible');
+                $('#quizQuestions').css('display', 'none');
+                $('#quizForm').removeClass('hide hidden');
+                $('body').removeClass('modal-open');
+                $('body').attr('style', 'overflow-y: auto;');
+                $('#header').removeClass('quiz-open');
+                $('#header').attr('style', '');
+                resetQuizData(true);
+            }
         }
 
         (function handleScrollOnQuiz () {

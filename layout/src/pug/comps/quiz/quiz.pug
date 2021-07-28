@@ -1,6 +1,10 @@
 .quiz#quiz
     .quiz__dialog
-        form.quiz__content(action="/" method="POST")#quizForm
+        form.quiz__content#quizForm(
+            action="http://ekranika.develop/utilities/handle-quiz-form.php"
+            name="add_quiz_data"
+            method="POST"
+            enctype="multipart/form-data")
             .quiz__button-close.btn-quiz-toggle.btn-reset-quiz
                 .button
                     include ../../../img/icon-cross.svg

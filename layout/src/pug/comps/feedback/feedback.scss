@@ -297,14 +297,23 @@
     }
 
     &__socials {
+        width: 110%;
         margin-top: 34px;
         height: 48px;
 
+        @media (min-width: $md) {
+            width: auto;
+        }
+
         .social-icon {
-            margin-right: 16px;
+            margin-right: 10px;
 
             &:last-child {
                 margin-right: 0;
+            }
+
+            @media (min-width: $md) {
+                margin-right: 16px;
             }
         }
 

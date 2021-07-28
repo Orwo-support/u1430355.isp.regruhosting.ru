@@ -85,17 +85,32 @@ $(document).ready(function () {
         }
 
         if (callbackFormValid) {
-            // Reset form
-            $(callbackPhoneController).removeClass('valid input checked');
-            maskCallback.unmaskedValue = '';
-            $('#calbackModal .modal__close').focus();
-
-
-            // !!!!!!!!!!!!!!!!!!!!!!!   Send data to server
-
-
-            modalOpen(this);
+            $(SPINNER).addClass('visible');
+            $.post(
+                this.action,
+                $(this).serializeArray(),
+                "json"
+            ).done(response => {
+                if (JSON.parse(response).IS_ERRORS) {
+                    alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                } else {
+                    $(callbackPhoneController).removeClass('valid input checked');
+                    maskCallback.unmaskedValue = '';
+                    $('#calbackModal .modal__close').focus();
+                    modalOpen(this);
+                }
+            })
+            .fail(err => {
+                alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                console.log('Request error on callback form!')
+                console.log(err)
+            })
+            .always(() => {
+                setTimeout(
+                    () => $(SPINNER).removeClass('visible'),
+                    1000
+                );
+            });
         }
-
     });
 });
