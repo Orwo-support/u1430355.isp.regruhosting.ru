@@ -1,6 +1,7 @@
 <div class="quiz" id="quiz">
     <div class="quiz__dialog">
-        <form class="quiz__content" action="/" method="POST" id="quizForm">
+        <form class="quiz__content" id="quizForm" action="http://ekranika.develop/utilities/handle-quiz-form.php"
+              name="add_quiz_data" method="POST" enctype="multipart/form-data">
             <div class="quiz__button-close btn-quiz-toggle btn-reset-quiz">
                 <div class="button">
                     <svg width="102" height="122" viewBox="0 0 102 122" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -161,8 +162,7 @@
                                                                                                   data-quiz-value="outside">
                                     <div class="active-background"></div>
                                     <img class="picture" src="/img/quiz-location-outside.png" alt=""><span class="text">На улице</span></label><input
-                                        class="input" id="quizLocationInside" type="radio" name="location"
-                                        value=""><label
+                                        class="input" id="quizLocationInside" type="radio" name="location" value=""><label
                                         class="quiz__card" for="quizLocationInside" data-quiz-property="location"
                                         data-quiz-value="inside">
                                     <div class="active-background"></div>
@@ -351,8 +351,7 @@
                         <div class="quiz__slide-controllers">
                             <div class="quiz__slider-group">
                                 <div class="quiz__card"><img class="picture" src="/img/quiz-size.png" alt=""><span
-                                            class="text text_warning" id="sizeText">Выберите размеры экрана!</span>
-                                </div>
+                                            class="text text_warning" id="sizeText">Выберите размеры экрана!</span></div>
                                 <div class="quiz__sliders">
                                     <div class="label-controll">
                                         <div class="label-controll__caption">Ширина</div>
@@ -415,11 +414,10 @@
                                     <img class="picture" src="/img/quiz-rent.png" alt=""><span
                                             class="text">Нужна аренда</span></label><input class="input" id="quizBuy"
                                                                                            type="radio" name="contract"
-                                                                                           value=""><label
-                                        class="quiz__card"
-                                        for="quizBuy"
-                                        data-quiz-property="contract"
-                                        data-quiz-value="buy">
+                                                                                           value=""><label class="quiz__card"
+                                                                                                           for="quizBuy"
+                                                                                                           data-quiz-property="contract"
+                                                                                                           data-quiz-value="buy">
                                     <div class="active-background"></div>
                                     <img class="picture" src="/img/quiz-buy.png" alt=""><span
                                             class="text">Куплю сразу</span></label></div>
@@ -432,64 +430,55 @@
                         </div>
                         <div class="quiz__slide-controllers">
                             <div class="form-order">
-                                <form class="form-order__form" id="orderForm" action="/" method="POST"
-                                      data-target="#orderModal">
-                                    <div class="form-order__data">
-                                        <div class="form-order__user-data animation-element">
-                                            <div class="controller-group"><label class="controller-label">Как вас
-                                                    зовут?</label>
-                                                <div class="controller controller__input"><label
-                                                            class="label label__icon"><span
-                                                                class="controller-icon icon-human"><img class="pic"
-                                                                                                        src="/img/icon-person.svg"
-                                                                                                        alt=""></span><input
-                                                                class="input" type="text"
-                                                                placeholder="Константин Константинопольский"
-                                                                name="quizName"
-                                                                id="quizName"></label></div>
-                                            </div>
-                                            <div class="controller-group controller-group__validation"><label
-                                                        class="controller-label">Номер телефона</label>
-                                                <div class="controller controller__input single-valid-warning"><label
-                                                            class="label label__icon"><span
-                                                                class="controller-icon icon-phone"><img class="pic"
-                                                                                                        src="/img/icon-phone.svg"
-                                                                                                        alt=""></span><input
-                                                                class="input" type="text" placeholder="+7 900 000 00 00"
-                                                                name="quizPhone" id="quizPhone"></label>
-                                                    <div class="validator validator__cross"><img class="pic valid"
-                                                                                                 src="/img/icon-validator-cross-valid.svg"
-                                                                                                 alt=""><img
-                                                                class="pic invalid"
-                                                                src="/img/icon-validator-cross-invalid.svg" alt="">
-                                                    </div>
-                                                    <div class="validator validator__check"><img class="pic valid"
-                                                                                                 src="/img/icon-validator-check-valid.svg"
-                                                                                                 alt=""><img
-                                                                class="pic invalid"
-                                                                src="/img/icon-validator-check-invalid.svg" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="form-order__data">
+                                    <div class="form-order__user-data animation-element">
+                                        <div class="controller-group"><label class="controller-label">Как вас
+                                                зовут?</label>
+                                            <div class="controller controller__input"><label
+                                                        class="label label__icon"><span
+                                                            class="controller-icon icon-human"><img class="pic"
+                                                                                                    src="/img/icon-person.svg"
+                                                                                                    alt=""></span><input
+                                                            class="input" type="text" placeholder="Напишите Ваше Имя"
+                                                            name="quizName" id="quizName"></label></div>
                                         </div>
-                                        <div class="form-order__comments">
-                                            <div class="controller-group"><label
-                                                        class="controller-label">Комментарий</label>
-                                                <div class="controller-wrap"><span class="controller-icon icon-msg"><img
-                                                                class="pic" src="/img/icon-message.svg"
-                                                                alt=""></span><textarea
-                                                            class="textarea" placeholder="Напишите что-нибудь"
-                                                            name="quizMessage" id="quizMessage"></textarea></div>
+                                        <div class="controller-group controller-group__validation"><label
+                                                    class="controller-label">Номер телефона</label>
+                                            <div class="controller controller__input single-valid-warning"><label
+                                                        class="label label__icon"><span
+                                                            class="controller-icon icon-phone"><img class="pic"
+                                                                                                    src="/img/icon-phone.svg"
+                                                                                                    alt=""></span><input
+                                                            class="input" type="text" placeholder="+7 900 000 00 00"
+                                                            name="quizPhone" id="quizPhone"></label>
+                                                <div class="validator validator__cross"><img class="pic valid"
+                                                                                             src="/img/icon-validator-cross-valid.svg"
+                                                                                             alt=""><img
+                                                            class="pic invalid" src="/img/icon-validator-cross-invalid.svg"
+                                                            alt=""></div>
+                                                <div class="validator validator__check"><img class="pic valid"
+                                                                                             src="/img/icon-validator-check-valid.svg"
+                                                                                             alt=""><img
+                                                            class="pic invalid" src="/img/icon-validator-check-invalid.svg"
+                                                            alt=""></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-order__actions">
-                                        <div class="form-order__actions-group"><span class="form-order__privacy">Нажимая на кнопку “Отправить заявку”, я даю согласие на<a
-                                                        class="revers"
-                                                        href="/">обработку моих персональных данных</a></span>
+                                    <div class="form-order__comments">
+                                        <div class="controller-group"><label
+                                                    class="controller-label">Комментарий</label>
+                                            <div class="controller-wrap"><span class="controller-icon icon-msg"><img
+                                                            class="pic" src="/img/icon-message.svg" alt=""></span><textarea
+                                                        class="textarea" placeholder="Напишите что-нибудь"
+                                                        name="quizMessage" id="quizMessage"></textarea></div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                                <div class="form-order__actions">
+                                    <div class="form-order__actions-group"><span class="form-order__privacy">Нажимая на кнопку “Отправить заявку”, я даю согласие на<a
+                                                    class="revers" href="/politika-konfidentsialnosti/">обработку моих персональных данных</a></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

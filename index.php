@@ -501,76 +501,18 @@ $APPLICATION->SetTitle('Главная');
 	),
 	false
 );?>
-
-
-
-
-<section class="section section_callback">
-    <div class="callback">
-        <div class="container">
-            <h2 class="section__title animation-element">
-                <span class="title">Связаться с нами</span>
-                <span class="section__link animation-element">
-                <a class="revers" href="">
-                    Открыть контакты
-                    <svg width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9"><path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-                    </a>
-            </span>
-            </h2>
-            <div class="callback__title animation-element">
-                Заинтересовались светодиодным оборудованием?
-            </div>
-            <div class="callback__subtitle animation-element">
-                Укажите ваш мобильный номер телефона и мы
-                перезвоним в течение 5 минут
-            </div>
-        </div>
-        <div class="callback__background-pic animation-element">
-            <img class="pic" src="/img/callback-pic.png" alt="">
-        </div>
-        <div class="container-endless">
-            <div class="endless">
-                <form class="callback__form animation-element" id="callbackForm" action="/" method="POST" data-target="#calbackModal">
-                    <div class="callback__data">
-                        <!-- Для валидного значения меняем класс у controller на valid-->
-                        <div class="controller controller__input">
-                            <label class="label label__icon">
-                            <span class="icon">
-                                <img class="pic" src="/img/icon-phone.svg" alt="">
-                            </span>
-                                <input class="input" id="callbackPhone" type="text" placeholder="+7 900 000 00 00" name="phone">
-                            </label>
-                            <div class="validator validator__cross">
-                                <img class="valid pic" src="/img/icon-validator-cross-valid.svg" alt="">
-                                <img class="invalid pic" src="/img/icon-validator-cross-invalid.svg" alt="">
-                            </div>
-                            <div class="validator validator__check">
-                                <img class="valid pic" src="/img/icon-validator-check-valid.svg" alt="">
-                                <img class="invalid pic" src="/img/icon-validator-check-invalid.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="callback__actions">
-                        <button class="btn btn_primary" type="submit">
-                            Отправить номер
-                        </button>
-                        <span class="privacy">
-                        Нажимая на кнопку “Отправить номер”, я даю согласие на
-                        <a class="revers" href="" target="_blank">
-                            обработку моих персональных данных
-                        </a>
-                    </span>
-                    </div>
-                    <span class="send-mail">
-                    Или напишите нам
-                    <a href="mailto:info@ekranika.ru">info@ekranika.ru</a>
-                </span>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
+<?if($APPLICATION->GetCurPage() == '/') {
+    $APPLICATION->IncludeComponent(
+        "bitrix:main.include",
+        "",
+        Array(
+            "AREA_FILE_SHOW" => "file",
+            "AREA_FILE_SUFFIX" => "inc",
+            "EDIT_TEMPLATE" => "",
+            "PATH" => "/include/callback-form.php"
+        )
+    );
+}?>
 <?$APPLICATION->IncludeComponent("bitrix:news.list", "faq", Array(
 	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
 		"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации

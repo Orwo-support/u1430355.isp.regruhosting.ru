@@ -30,11 +30,11 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
 
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.4bbbb288d23ac6e34f22.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.4bbbb288d23ac6e34f22.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.12022a46d95f70bfa574.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.12022a46d95f70bfa574.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.4bbbb288d23ac6e34f22.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.4bbbb288d23ac6e34f22.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.2f67f8be3d32865aecaf.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.2f67f8be3d32865aecaf.js");
         ?>
 
         <!-- Добавить только для страницы О компании-->
