@@ -85,12 +85,17 @@ $(document).ready(function () {
         }
 
         if (callbackFormValid) {
+            // console.log($(this).serializeArray());
+
             $(SPINNER).addClass('visible');
+
             $.post(
                 this.action,
                 $(this).serializeArray(),
                 "json"
             ).done(response => {
+                // console.log(JSON.parse(response));
+
                 if (JSON.parse(response).IS_ERRORS) {
                     alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
                 } else {
@@ -99,16 +104,14 @@ $(document).ready(function () {
                     $('#calbackModal .modal__close').focus();
                     modalOpen(this);
                 }
-            })
-            .fail(err => {
+            }).fail(err => {
                 alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
-                console.log('Request error on callback form!')
-                console.log(err)
-            })
-            .always(() => {
+                console.log('Request error on callback form!');
+                console.log(err);
+            }).always(() => {
                 setTimeout(
                     () => $(SPINNER).removeClass('visible'),
-                    1000
+                    300
                 );
             });
         }

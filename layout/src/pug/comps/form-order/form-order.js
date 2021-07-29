@@ -76,21 +76,37 @@ $(document).ready(function () {
         }
 
         if (isFormValid) {
-            const name = $('#name').val();
-            const phone = $('#phone').val();
-            const message = $('#message').val();
+            // console.log($(this).serializeArray());
 
-            // Reset form
-            $(controller).removeClass('valid input checked');
-            maskFormOrder.unmaskedValue = '';
-            $('#orderModal .modal__close').focus();
+            $(SPINNER).addClass('visible');
 
+            $.post(
+                this.action,
+                $(this).serializeArray(),
+                "json"
+            ).done(response => {
+                // console.log(JSON.parse(response));
 
-            // !!!!!!!!!!!!!!!!!!!!!!!   Send data to server
-
-
-            modalOpen(this);
+                if (JSON.parse(response).IS_ERRORS) {
+                    alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                } else {
+                    $(controller).removeClass('valid input checked');
+                    maskFormOrder.unmaskedValue = '';
+                    $(this).find('#name').val('');
+                    $(this).find('#message').val('');
+                    $('#orderModal .modal__close').focus();
+                    modalOpen(this);
+                }
+            }).fail(err => {
+                alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                console.log('Request error on order form!');
+                console.log(err);
+            }).always(() => {
+                setTimeout(
+                    () => $(SPINNER).removeClass('visible'),
+                    300
+                );
+            });
         }
-
     });
 });

@@ -4,7 +4,12 @@ section.section.section_form-order
             h2.section__title.animation-element Поможем подобрать оборудование
 
         .container
-            form.form-order__form#orderForm(action="/" method="POST" data-target="#orderModal")
+            form.form-order__form#orderForm(
+                name="form-order"
+                method="POST"
+                enctype="multipart/form-data"
+                data-target="#orderModal"
+                action="/utilities/handle-order-form.php")
                 .form-order__data
 
                     .form-order__user-data.animation-element
