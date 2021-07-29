@@ -45,7 +45,7 @@ $PROP['QUIZ_CONTRACT'] = $PROP['QUIZ_CONTRACT'] == 'buy'
     ? 'Покупка'
     : 'Аренда';
 
-// Основные поля элемента
+// Основные поля добавлямого в инфоблок элемента
 $fields = array(
     "DATE_CREATE" => date("d.m.Y H:i:s"), // Передаем дату создания
     "CREATED_BY" => $GLOBALS['USER']->GetID(), // Передаем ID пользователя добавившего сообщение

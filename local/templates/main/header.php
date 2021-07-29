@@ -33,17 +33,25 @@
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.340e4ea5ad4360470a96.css");
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.340e4ea5ad4360470a96.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.2f67f8be3d32865aecaf.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.2f67f8be3d32865aecaf.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.205d253e4e26c42c8c15.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.205d253e4e26c42c8c15.js");
         ?>
 
         <!-- Добавить только для страницы О компании-->
         <!-- <script src="https://api-maps.yandex.ru/2.1/?apikey=4c74d479-972b-4c76-81e7-b1bc63268173&amp;lang=ru_RU"></script>-->
 	</head>
     <body class="<?
-        if ($APPLICATION->GetCurPage() == '/') echo 'page-index';
-        if ($APPLICATION->GetCurPage() == '/politika-konfidentsialnosti/') echo 'page-privacy-policy';
-    ?>">
+        switch ($APPLICATION->GetCurPage()) {
+            case '/':
+                echo 'page-index';
+                break;
+            case '/politika-konfidentsialnosti/':
+                echo 'page-privacy-policy';
+                break;
+            case '/dostavka-i-oplata/':
+                echo 'page-payment-delivery';
+                break;
+        }?>">
         <div id="panel">
             <?$APPLICATION->ShowPanel();?>
         </div>
@@ -57,35 +65,15 @@
         </div>
         <div class="cursor" id="cursor"></div>
         <div class="loading-container">
-            <div class="ldBar label-center" id="loading" data-preset="circle" data-duration="2"></div>
+            <div class="ldBar label-center"
+                 id="loading"
+                 data-preset="circle"
+                 data-duration="2"></div>
         </div>
 
 
 
 
-
-
-        <!-- Добавлять мадальные сообщения только на страницах с соответствующими формами
-
-        <div class="modal" id="orderModal" data-source-reset="#orderForm">
-            <div class="modal__dialog">
-                <div class="modal__content">
-                    <div class="modal__header">
-                        <div class="modal__title">Заявка отправлена</div>
-                        <div class="modal__subtitle">Перезвоним вам в ближайшее время</div>
-                    </div>
-                    <div class="modal__body">
-                        <img class="modal-img pic" src="/img/icon-modal-phone.svg" alt="">
-                    </div>
-                    <div class="modal__footer">
-                        <button class="btn btn_primary not-focused modal__close">
-                            Закрыть окно
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
--->
         <!-- Дабавить только на странице вывода результатов калькулятора или перенести на страницу с выводом результатов калькулятора
         <div class="modal" id="calcModal" data-source-reset="">
             <div class="modal__dialog">
@@ -121,27 +109,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <?if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') {
+            $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => "/include/order-modal.php"
+                )
+            );
+        }?>
         <?if ($APPLICATION->GetCurPage() == '/') {
             $APPLICATION->IncludeComponent(
                 "bitrix:main.include",

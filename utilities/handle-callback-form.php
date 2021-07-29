@@ -18,7 +18,7 @@ if (get_magic_quotes_gpc()) {
     $PROP['CALLBACK_FROM'] = stripcslashes($PROP['CALLBACK_FROM']);
 }
 
-// Основные поля элемента
+// Основные поля добавлямого в инфоблок элемента
 $fields = array(
     "DATE_CREATE" => date("d.m.Y H:i:s"), // Передаем дату создания
     "CREATED_BY" => $GLOBALS['USER']->GetID(), // Передаем ID пользователя добавившего сообщение

@@ -3,29 +3,41 @@
 CModule::IncludeModule('iblock');
 
 $el = new CIBlockElement; // создаём свой класс
-$iblock_id = 12; // ID инфоблока в который добавляем новый элемент
+$iblock_id = 17; // ID инфоблока в который добавляем новый элемент
 
 // Массив для свойств, полученных из формы запроса
 $PROP = array();
 
 // Имена свойств в массиве $PROP должны соответствовать
 // свойствам инфоблока в который будет добавлен новый элемент
-$PROP['CALLBACK_PHONE'] = htmlspecialchars(strip_tags(trim($_POST['phone'])));
-$PROP['CALLBACK_FROM'] = htmlspecialchars(strip_tags(trim($_POST['from'])));
+$PROP['REQUEST_PHONE'] = htmlspecialchars(strip_tags(trim($_POST['phone'])));
+$PROP['REQUEST_MESSAGE'] = htmlspecialchars(strip_tags(trim($_POST['message'])));
+$PROP['REQUEST_FROM_NAME'] = htmlspecialchars(strip_tags(trim($_POST['fromname'])));
+$PROP['REQUEST_FROM_LINK'] = htmlspecialchars(strip_tags(trim($_POST['fromlink'])));
 
 if (get_magic_quotes_gpc()) {
-    $PROP['CALLBACK_PHONE'] = stripcslashes($PROP['CALLBACK_PHONE']);
-    $PROP['CALLBACK_FROM'] = stripcslashes($PROP['CALLBACK_FROM']);
+    $PROP['REQUEST_PHONE'] = stripcslashes($PROP['REQUEST_PHONE']);
+    $PROP['REQUEST_MESSAGE'] = stripcslashes($PROP['REQUEST_MESSAGE']);
+    $PROP['REQUEST_FROM_NAME'] = stripcslashes($PROP['REQUEST_FROM_NAME']);
+    $PROP['REQUEST_FROM_LINK'] = stripcslashes($PROP['REQUEST_FROM_LINK']);
 }
 
-// Основные поля элемента
+$REQUEST_USER_NAME = strip_tags($_REQUEST['name']) == ''
+    ? 'Не указано'
+    : strip_tags($_REQUEST['name']);
+
+$PROP['REQUEST_MESSAGE'] = $PROP['REQUEST_MESSAGE'] == ''
+    ? 'Отсутствует'
+    : $PROP['REQUEST_MESSAGE'];
+
+// Основные поля добавлямого в инфоблок элемента
 $fields = array(
     "DATE_CREATE" => date("d.m.Y H:i:s"), // Передаем дату создания
     "CREATED_BY" => $GLOBALS['USER']->GetID(), // Передаем ID пользователя добавившего сообщение
     "IBLOCK_SECTION_ID" => false, // ID разделов. В нашем случае false, т.к. нет подразделов
     "IBLOCK_ID" => $iblock_id, // ID информационного блока он 12-ый в нашем случае
     "PROPERTY_VALUES" => $PROP, // Передаем массив значении для свойств
-    "NAME" => "Ekranika", // Не может быть пустой строкой
+    "NAME" => $REQUEST_USER_NAME, // Не может быть пустой строкой
     "ACTIVE" => "Y", // поумолчанию делаем активным или ставим N для отключении поумолчанию
     "PREVIEW_TEXT" => "", // текс для анонса
     "PREVIEW_PICTURE" => "", // изображение для анонса
