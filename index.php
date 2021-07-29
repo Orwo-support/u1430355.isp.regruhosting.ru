@@ -1,7 +1,4 @@
-<?
-require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
-$APPLICATION->SetTitle('Главная');
-?>
+<?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"slider-index", 
@@ -195,114 +192,73 @@ $APPLICATION->SetTitle('Главная');
 	),
 	false
 );?>
-
-
-
-
-
-
-<section class="section section_projects">
-    <div class="projects">
-        <div class="container">
-            <h2 class="section__title animation-element">
-                <span class="title">Реализованные проекты</span>
-                <span class="section__link animation-element">
-                <a class="revers" href="">
-                    Смотреть портфолио
-                    <svg width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9"><path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-                </a>
-            </span>
-            </h2>
-        </div>
-        <div class="container-endless">
-            <div class="endless projects__list swiper-container" id="projectsSlider">
-                <div class="projects__list__wrap swiper-wrapper">
-                    <div class="projects__slide swiper-slide">
-                        <a class="projects__card animation-element" href="">
-                            <div class="projects__place">г. Москва<br>Конференц-зал</div>
-                            <div class="projects__params">
-                                <div class="screen">Экран 13,11 м<sup>2</sup></div>
-                                <div class="pixels">Шаг пикселя 2,5 мм</div>
-                            </div>
-                            <div class="projects__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="projects__slide swiper-slide">
-                        <a class="projects__card animation-element" href="">
-                            <div class="projects__place">Экспоцентр Москва</div>
-                            <div class="projects__params">
-                                <div class="screen">Экран Absen 48 м<sup>2</sup></div>
-                                <div class="pixels">Шаг пикселя 3,9 мм</div>
-                            </div>
-                            <div class="projects__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="projects__slide swiper-slide">
-                        <a class="projects__card animation-element" href="">
-                            <div class="projects__place">Ассоциация банков<br>России</div>
-                            <div class="projects__params">
-                                <div class="screen">Экран Absen 18 м<sup>2</sup></div>
-                                <div class="pixels">Шаг пикселя 3,9 мм</div>
-                            </div>
-                            <div class="projects__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="projects__slide swiper-slide">
-                        <a class="projects__card" href="">
-                            <div class="projects__place">г. Москва<br>Конференц-зал</div>
-                            <div class="projects__params">
-                                <div class="screen">Экран 13,11 м<sup>2</sup></div>
-                                <div class="pixels">Шаг пикселя 2,5 мм</div>
-                            </div>
-                            <div class="projects__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="projects__slide swiper-slide">
-                        <a class="projects__card" href="">
-                            <div class="projects__place">Экспоцентр Москва</div>
-                            <div class="projects__params">
-                                <div class="screen">Экран Absen 48 м<sup>2</sup></div>
-                                <div class="pixels">Шаг пикселя 3,9 мм</div>
-                            </div>
-                            <div class="projects__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="projects__slide swiper-slide">
-                        <a class="projects__card" href="">
-                            <div class="projects__place">Ассоциация банков<br>России</div>
-                            <div class="projects__params">
-                                <div class="screen">Экран Absen 18 м<sup>2</sup></div>
-                                <div class="pixels">Шаг пикселя 3,9 мм</div>
-                            </div>
-                            <div class="projects__pic">
-                                <div class="image" style="background-image: url('/img/placeholder-img.jpg')"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_prev" id="btnProjectsPrev">
-                <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999998 25L13 13L1 1" stroke="#80758F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_next" id="btnProjectsNext">
-                <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999998 25L13 13L1 1" stroke="#80758F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
+<?$APPLICATION->IncludeComponent(
+	"bitrix:news.list", 
+	"our-works", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_DATE" => "N",
+		"DISPLAY_NAME" => "N",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"FILTER_NAME" => "",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "14",
+		"IBLOCK_TYPE" => "content",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"INCLUDE_SUBSECTIONS" => "Y",
+		"MESSAGE_404" => "",
+		"NEWS_COUNT" => "30",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "Новости",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(
+			0 => "WORK_CITY",
+			1 => "WORK_SCREEN_TYPE",
+			2 => "WORK_PIXEL_STEP",
+			3 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_META_KEYWORDS" => "N",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "N",
+		"SHOW_404" => "N",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC",
+		"STRICT_SECTION_CHECK" => "N",
+		"COMPONENT_TEMPLATE" => "our-works"
+	),
+	false
+);?>
 <?$APPLICATION->IncludeComponent("bitrix:news.list", "work-on-the-order", Array(
 	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
 		"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
@@ -576,4 +532,4 @@ $APPLICATION->SetTitle('Главная');
 	),
 	false
 );?>
-<? require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php'); ?>
+<?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');?>

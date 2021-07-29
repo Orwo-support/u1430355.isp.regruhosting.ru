@@ -486,7 +486,7 @@
                                     </div>
                                 </div>
                                 <div class="form-order__actions">
-                                    <div class="form-order__actions-group"><span class="form-order__privacy">Нажимая на кнопку “Отправить заявку”, я даю согласие на<a
+                                    <div class="form-order__actions-group"><span class="form-order__privacy">Нажимая на кнопку “Отправить заявку”, я даю согласие на <a
                                                     class="revers" href="/politika-konfidentsialnosti/">обработку моих персональных данных</a></span>
                                     </div>
                                 </div>
