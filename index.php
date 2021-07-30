@@ -259,7 +259,7 @@
 	),
 	false
 );?>
-<?$APPLICATION->IncludeComponent("bitrix:news.list", "work-on-the-order", Array(
+<?$APPLICATION->IncludeComponent("bitrix:news.list", "stages-of-work", Array(
 	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
 		"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
 		"AJAX_MODE" => "N",	// Включить режим AJAX
@@ -465,7 +465,7 @@
             "AREA_FILE_SHOW" => "file",
             "AREA_FILE_SUFFIX" => "inc",
             "EDIT_TEMPLATE" => "",
-            "PATH" => "/include/callback-form.php"
+            "PATH" => "/components/callback-form.php"
         )
     );
 }?>

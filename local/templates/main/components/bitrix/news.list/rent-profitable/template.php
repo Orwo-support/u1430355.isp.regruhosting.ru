@@ -14,7 +14,6 @@ $this->setFrameMode(true);
 //debug($arResult['ITEMS']);
 ?>
 <section class="section section_list">
-    <div class="list__background"></div>
     <div class="list">
         <div class="container">
             <h2 class="h2 section__title animation-element">
@@ -47,45 +46,6 @@ $this->setFrameMode(true);
                             </div>
                         </div>
                     <?endforeach;?>
-                    <?
-                        if ($APPLICATION->GetCurPage() == '/') {
-                            $SHOW_ACTION_LINK = true;
-                        } else {
-                            $SHOW_ACTION_LINK = false;
-                        }
-
-                        $ACTION_LIST_TITLE = $APPLICATION->GetCurPage() == '/'
-                            ? 'Давайте знакомиться'
-                            : '';
-
-                        $ACTION_LIST_LINK_URL = $APPLICATION->GetCurPage() == '/'
-                            ? '/o-nas-garantiya-kontakty/'
-                            : '';
-                    ?>
-                    <?if($SHOW_ACTION_LINK):?>
-                        <div class="list__slide swiper-slide lets-meet">
-                            <div class="list__card">
-                                <span class="text animation-element"><?=$ACTION_LIST_TITLE;?></span>
-                                <div class="link-container animation-element">
-                                    <a class="link revers" href="<?=$ACTION_LIST_LINK_URL;?>">
-                                        О компании
-                                        <svg width="12"
-                                             height="17"
-                                             viewBox="0 0 12 17"
-                                             fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <g opacity="0.9">
-                                                <path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289"
-                                                      stroke="#AB78FF"
-                                                      stroke-linecap="round"
-                                                      stroke-linejoin="round"/>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    <?endif;?>
                 </div>
             </div>
         </div>

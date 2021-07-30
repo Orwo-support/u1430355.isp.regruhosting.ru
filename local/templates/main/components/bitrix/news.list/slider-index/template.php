@@ -16,7 +16,7 @@ $this->setFrameMode(true);
 <?$INDEX_SLIDER_COUNT = count($arResult["ITEMS"]);?>
 <section class="section section_slider">
     <div class="slider">
-        <div class="slider__background-image <?=$INDEX_SLIDER_COUNT > 1 ? 'swiper-container' : '';?>" id="bannerPictureSlider">
+        <div class="slider__background-image<?=$INDEX_SLIDER_COUNT > 1 ? ' swiper-container' : '';?>" id="bannerPictureSlider">
             <?if($INDEX_SLIDER_COUNT > 1):?>
                 <div class="swiper-wrapper">
             <?endif;?>
@@ -94,7 +94,7 @@ $this->setFrameMode(true);
                     <div class="slide-nums__current">
                         <div class="slide-nums__scrolled">
                             <?for($s = 1; $s <= $INDEX_SLIDER_COUNT; $s++):?>
-                                <div class="slide-nums__number <?=$s == 1 ? 'active' : ''?>">
+                                <div class="slide-nums__number<?=$s == 1 ? ' active' : ''?>">
                                     0<?=$s?>
                                 </div>
                             <?endfor;?>

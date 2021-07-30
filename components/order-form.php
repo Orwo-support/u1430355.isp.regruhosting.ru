@@ -1,11 +1,13 @@
-<section class="section section_form-order">
+<section class="section section_form-order" data-go-to-place-anchor="#order-form">
     <div class="form-order">
         <div class="container">
             <h2 class="h2 section__title animation-element">
                 <?
-                if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/')
-                    print 'Поможем подобрать оборудование';
-
+                    if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') {
+                        print 'Поможем подобрать оборудование';
+                    } elseif ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/') {
+                        print 'Оставьте заявку, мы поможем с выбором';
+                    }
                 ?>
             </h2>
         </div>
@@ -21,6 +23,7 @@
                        value="https://ekranika.ru<?=$APPLICATION->GetCurPage()?>">
                 <input type="hidden" name="fromname" value="<?
                     if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') print 'Доставка и оплата';
+                    if ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/') print 'Аренда свтодиодных экранов';
                 ?>">
                 <div class="form-order__data">
                     <div class="form-order__user-data animation-element">
@@ -83,8 +86,7 @@
                                 <textarea class="textarea"
                                           placeholder="Напишите что-нибудь"
                                           name="message"
-                                          id="message">
-                                </textarea>
+                                          id="message"></textarea>
                             </div>
                         </div>
                     </div>

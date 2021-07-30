@@ -322,4 +322,35 @@ $(document).ready(function () {
 
         return resultForm;
     };
+
+    // Scroll to place on the some page
+    $('[data-go-to-place-link="true"]').each((idx, el) => {
+        $(el).on(
+            'click',
+            handleClickOnGoToPlaceLink
+        );
+    });
+
+    function handleClickOnGoToPlaceLink(evt) {
+        evt.preventDefault();
+
+        let target = $(this).data('goToPlaceTarget'),
+            offsetTop = $('[data-go-to-place-anchor="' + target + '"]')
+                .offset()
+                .top + getScrollDelta();
+
+        $('html, body').animate(
+            { scrollTop: offsetTop},
+            1000
+        );
+
+        function getScrollDelta () {
+            if (window.getScreenType() === 'sm') return -100;
+            else if (window.getScreenType() === 'md') return 0;
+            else if (window.getScreenType() === 'lg') return -150;
+            else if (window.getScreenType() === 'xl') return -120;
+            else if (window.getScreenType() === 'xxl') return -200;
+            return 0;
+        }
+    }
 });
