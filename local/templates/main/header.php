@@ -35,10 +35,11 @@
 
             Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.9a2a725d76d5517ff34d.js");
             Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.9a2a725d76d5517ff34d.js");
-        ?>
 
-        <!-- Добавить только для страницы О компании-->
-        <!-- <script src="https://api-maps.yandex.ru/2.1/?apikey=4c74d479-972b-4c76-81e7-b1bc63268173&amp;lang=ru_RU"></script>-->
+            if ($APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
+                Asset::getInstance()->addJs('https://api-maps.yandex.ru/2.1/?apikey=4c74d479-972b-4c76-81e7-b1bc63268173&amp;lang=ru_RU');
+            }
+        ?>
 	</head>
     <body class="<?
         switch ($APPLICATION->GetCurPage()) {
