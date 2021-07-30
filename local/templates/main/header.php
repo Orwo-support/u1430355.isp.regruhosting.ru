@@ -79,32 +79,18 @@
                  data-preset="circle"
                  data-duration="2"></div>
         </div>
-
-
-
-
-        <!-- Дабавить только на странице вывода результатов калькулятора или перенести на страницу с выводом результатов калькулятора
-        <div class="modal" id="calcModal" data-source-reset="">
-            <div class="modal__dialog">
-                <div class="modal__content">
-                    <div class="modal__header">
-                        <div class="modal__title">Заявка отправлена</div>
-                        <div class="modal__subtitle">Перезвоним вам в ближайшее время</div>
-                    </div>
-                    <div class="modal__body">
-                        <img class="modal-img pic" src="/img/icon-modal-phone.svg" alt="">
-                    </div>
-                    <div class="modal__footer">
-                        <button class="btn btn_primary not-focused modal__close">
-                            Закрыть окно
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
--->
-
+        <?if ($APPLICATION->GetCurPage() == '/rezultaty-raschyetov-kalkulyatora/') {
+            $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => "/comps/calc-results-modal.php"
+                )
+            );
+        }?>
         <?if ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
                 || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/'
                 || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/') {
