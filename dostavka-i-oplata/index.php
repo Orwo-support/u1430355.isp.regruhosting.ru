@@ -323,7 +323,7 @@ $APPLICATION->SetTitle("Доставка и оплата");
         "AREA_FILE_SHOW" => "file",
         "AREA_FILE_SUFFIX" => "inc",
         "EDIT_TEMPLATE" => "",
-        "PATH" => "/components/order-form.php"
+        "PATH" => "/comps/order-form.php"
     )
 );?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
