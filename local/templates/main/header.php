@@ -57,6 +57,9 @@
             case '/proektirovanie-svetodiodnykh-ekranov/':
                 echo 'page-projection';
                 break;
+            case '/montazh-svetodiodnykh-ekranov/':
+                echo 'page-installation';
+                break;
         }?>">
         <div id="panel">
             <?$APPLICATION->ShowPanel();?>
@@ -103,7 +106,8 @@
 -->
 
         <?if ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
-                || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/') {
+                || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/'
+                || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/') {
             $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
@@ -117,7 +121,8 @@
         }?>
         <?if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/'
                 || $APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
-                || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/') {
+                || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/'
+                || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/') {
             $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
