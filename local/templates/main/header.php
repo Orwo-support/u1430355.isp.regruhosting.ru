@@ -54,6 +54,9 @@
             case '/arenda-svetodiodnykh-ekranov/':
                 echo 'page-rent';
                 break;
+            case '/proektirovanie-svetodiodnykh-ekranov/':
+                echo 'page-projection';
+                break;
         }?>">
         <div id="panel">
             <?$APPLICATION->ShowPanel();?>
@@ -99,7 +102,8 @@
 
 -->
 
-        <?if ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/') {
+        <?if ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
+                || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/') {
             $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
@@ -107,12 +111,13 @@
                     "AREA_FILE_SHOW" => "file",
                     "AREA_FILE_SUFFIX" => "inc",
                     "EDIT_TEMPLATE" => "",
-                    "PATH" => "/components/gallery-modal.php"
+                    "PATH" => "/comps/gallery-modal.php"
                 )
             );
         }?>
         <?if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/'
-            || $APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/') {
+                || $APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
+                || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/') {
             $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
@@ -120,7 +125,7 @@
                     "AREA_FILE_SHOW" => "file",
                     "AREA_FILE_SUFFIX" => "inc",
                     "EDIT_TEMPLATE" => "",
-                    "PATH" => "/components/order-modal.php"
+                    "PATH" => "/comps/order-modal.php"
                 )
             );
         }?>
@@ -132,7 +137,7 @@
                     "AREA_FILE_SHOW" => "file",
                     "AREA_FILE_SUFFIX" => "inc",
                     "EDIT_TEMPLATE" => "",
-                    "PATH" => "/components/callback-modal.php"
+                    "PATH" => "/comps/callback-modal.php"
                 )
             );
         }?>
@@ -144,7 +149,7 @@
                     "AREA_FILE_SHOW" => "file",
                     "AREA_FILE_SUFFIX" => "inc",
                     "EDIT_TEMPLATE" => "",
-                    "PATH" => "/components/video-modal.php"
+                    "PATH" => "/comps/video-modal.php"
                 )
             );
         }?>
@@ -156,7 +161,7 @@
                     "AREA_FILE_SHOW" => "file",
                     "AREA_FILE_SUFFIX" => "inc",
                     "EDIT_TEMPLATE" => "",
-                    "PATH" => "/components/quiz.php"
+                    "PATH" => "/comps/quiz.php"
                 )
             );
         }?>

@@ -5,7 +5,8 @@
                 <?
                     if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') {
                         print 'Поможем подобрать оборудование';
-                    } elseif ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/') {
+                    } elseif ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
+                                || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/') {
                         print 'Оставьте заявку, мы поможем с выбором';
                     }
                 ?>
@@ -22,8 +23,13 @@
                 <input type="hidden" name="fromlink"
                        value="https://ekranika.ru<?=$APPLICATION->GetCurPage()?>">
                 <input type="hidden" name="fromname" value="<?
-                    if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') print 'Доставка и оплата';
-                    if ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/') print 'Аренда свтодиодных экранов';
+                    if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') {
+                        print 'Доставка и оплата';
+                    } else if ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/') {
+                        print 'Аренда свтодиодных экранов';
+                    } else if ($APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/') {
+                        print 'Проективование свтодиодных экранов';
+                    }
                 ?>">
                 <div class="form-order__data">
                     <div class="form-order__user-data animation-element">

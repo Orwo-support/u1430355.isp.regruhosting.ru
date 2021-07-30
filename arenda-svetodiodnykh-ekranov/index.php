@@ -4,7 +4,7 @@ $APPLICATION->SetTitle("Аренда светодиодных экранов");
 ?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
-	"slider-rent", 
+	"slider-content",
 	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
