@@ -130,7 +130,7 @@
 	),
 	false
 );?>
-<?$APPLICATION->IncludeComponent("bitrix:news.list", "partners-choice", Array(
+<?$APPLICATION->IncludeComponent("bitrix:news.list", "list-with-action", Array(
 	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
 		"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
 		"AJAX_MODE" => "N",	// Включить режим AJAX

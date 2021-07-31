@@ -43,7 +43,12 @@ $RENT_SLIDER_COUNT = count($arResult["ITEMS"]);
                                          data-swiper-parallax-opacity="0">
                                         <?=$arItem["PREVIEW_TEXT"]?>
                                     </div>
-                                    <div class="banner-content__text"
+                                    <div class="<?
+                                        if ($arItem['PROPERTIES']['SLIDER_ITEM_CUSTOM_CLASSES']['VALUE']) {
+                                            print $arItem['PROPERTIES']['SLIDER_ITEM_CUSTOM_CLASSES']['VALUE'];
+                                        } else {
+                                            print 'banner-content__text';
+                                        }?>"
                                          data-swiper-parallax-x="-700"
                                          data-swiper-parallax-opacity="0"
                                          data-swiper-parallax-duration="700">

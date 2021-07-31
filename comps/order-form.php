@@ -7,7 +7,8 @@
                         print 'Поможем подобрать оборудование';
                     } elseif ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
                                 || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/'
-                                || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/') {
+                                || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/'
+                                || $APPLICATION->GetCurPage() == '/svetodiodnyy-ekran/') {
                         print 'Оставьте заявку, мы поможем с выбором';
                     }
                 ?>
@@ -32,6 +33,8 @@
                         print 'Проективование свтодиодных экранов';
                     } else if ($APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/') {
                         print 'Монтаж светодиодных экранов';
+                    } else if ($APPLICATION->GetCurPage() == '/svetodiodnyy-ekran/') {
+                        print 'Светодиодный экра';
                     }
                 ?>">
                 <div class="form-order__data">

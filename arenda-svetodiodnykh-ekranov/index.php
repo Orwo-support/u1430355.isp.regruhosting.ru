@@ -4,7 +4,7 @@ $APPLICATION->SetTitle("Аренда светодиодных экранов");
 ?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
-	"slider-content",
+	"slider-content", 
 	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -63,13 +63,13 @@ $APPLICATION->SetTitle("Аренда светодиодных экранов");
 		"SORT_ORDER1" => "ASC",
 		"SORT_ORDER2" => "DESC",
 		"STRICT_SECTION_CHECK" => "N",
-		"COMPONENT_TEMPLATE" => "slider-rent"
+		"COMPONENT_TEMPLATE" => "slider-content"
 	),
 	false
 );?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
-	"rent-profitable", 
+	"list-content",
 	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -129,7 +129,7 @@ $APPLICATION->SetTitle("Аренда светодиодных экранов");
 		"SORT_ORDER1" => "ASC",
 		"SORT_ORDER2" => "DESC",
 		"STRICT_SECTION_CHECK" => "N",
-		"COMPONENT_TEMPLATE" => "rent-profitable"
+		"COMPONENT_TEMPLATE" => "list-content"
 	),
 	false
 );?>

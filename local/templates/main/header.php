@@ -61,6 +61,9 @@
             case '/montazh-svetodiodnykh-ekranov/':
                 echo 'page-installation';
                 break;
+            case '/svetodiodnyy-ekran/':
+                echo 'page-led-screen';
+                break;
         }?>">
         <div id="panel">
             <?$APPLICATION->ShowPanel();?>
