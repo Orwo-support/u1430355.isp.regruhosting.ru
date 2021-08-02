@@ -198,9 +198,6 @@
         color: $color-text-secondary;
         margin-bottom: 12px;
         padding-right: 6px;
-        overflow: hidden;
-        min-height: 104px;
-        max-height: 104px;
 
         @media (min-width: $md) {
             font-weight: normal;
@@ -208,16 +205,12 @@
             line-height: 160%;
             margin-bottom: 16px;
             padding-right: 0;
-            min-height: 84px;
-            max-height: 84px;
         }
 
         @media (min-width: $lg) {
             font-weight: bold;
             font-size: 24px;
             line-height: 130%;
-            min-height: 93px;
-            max-height: 93px;
         }
 
         @media (min-width: $xl) {
@@ -229,14 +222,9 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 24px;
-        overflow: hidden;
-        min-height: 57px;
-        max-height: 57px;
 
         @media (min-width: $xl) {
             margin-bottom: 34px;
-            min-height: 82px;
-            max-height: 82px;
         }
 
         span {

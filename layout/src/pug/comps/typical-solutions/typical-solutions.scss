@@ -155,6 +155,8 @@
     &__dots {
         display: flex;
         justify-content: center;
+        min-height: 16px;
+        max-height: 16px;
 
         .dot {
             position: relative;
@@ -232,7 +234,7 @@
             line-height: 160%;
             color: $color-text-inactive;
 
-            &:nth-child(3) {
+            &.price {
                 color: $color-text-primary;
             }
 
