@@ -4,12 +4,9 @@
             <h2 class="h2 section__title animation-element">
                 <?
                     if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') {
-                        print 'Поможем подобрать оборудование';
-                    } elseif ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
-                                || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/'
-                                || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/'
-                                || $APPLICATION->GetCurPage() == '/svetodiodnyy-ekran/') {
-                        print 'Оставьте заявку, мы поможем с выбором';
+                        echo 'Поможем подобрать оборудование';
+                    } else {
+                        echo 'Оставьте заявку, мы поможем с выбором';
                     }
                 ?>
             </h2>
@@ -25,16 +22,22 @@
                 <input type="hidden" name="fromlink"
                        value="https://ekranika.ru<?=$APPLICATION->GetCurPage()?>">
                 <input type="hidden" name="fromname" value="<?
-                    if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') {
-                        print 'Доставка и оплата';
-                    } else if ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/') {
-                        print 'Аренда свтодиодных экранов';
-                    } else if ($APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/') {
-                        print 'Проективование свтодиодных экранов';
-                    } else if ($APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/') {
-                        print 'Монтаж светодиодных экранов';
-                    } else if ($APPLICATION->GetCurPage() == '/svetodiodnyy-ekran/') {
-                        print 'Светодиодный экра';
+                    switch ($APPLICATION->GetCurPage()) {
+                        case '/dostavka-i-oplata/': echo 'Доставка и оплата'; break;
+                        case '/arenda-svetodiodnykh-ekranov/': echo 'Аренда свтодиодных экранов'; break;
+                        case '/proektirovanie-svetodiodnykh-ekranov/': echo 'Проективование свтодиодных экранов'; break;
+                        case '/montazh-svetodiodnykh-ekranov/': echo 'Монтаж светодиодных экранов'; break;
+                        case '/svetodiodnyy-ekran/': echo 'Светодиодный экра'; break;
+                        case '/elektronnoe-tablo/': echo 'Электронное табло'; break;
+                        case '/mediabort/': echo 'Медиаборт'; break;
+                        case '/svetodiodnyy-shar/': echo 'Светодиодный шар'; break;
+                        case '/videokub/': echo 'Видеокуб'; break;
+                        case '/reklamnyy-videobanner/': echo 'Рекламный видеобаннер'; break;
+                        case '/mediafasad/': echo 'Медиафасад'; break;
+                        case '/ekrany-dlya-tts-i-bts/': echo 'Экраны для ТЦ и БЦ'; break;
+                        case '/ekrany-dlya-sportivnykh-meropriyatiy/': echo 'Экраны для спортивных мероприятий'; break;
+                        case '/ekrany-dlya-konferentsiy/': echo 'Экраны для конференций'; break;
+                        case '/reklamnye-ulichnye-ekrany/': echo 'Рекламные уличные экраны'; break;
                     }
                 ?>">
                 <div class="form-order__data">

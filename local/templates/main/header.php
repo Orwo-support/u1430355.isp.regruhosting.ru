@@ -30,11 +30,11 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
 
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.45d8b154d46c53bc6bb2.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.45d8b154d46c53bc6bb2.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.18fe0289db86ddc31c13.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.18fe0289db86ddc31c13.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.9a2a725d76d5517ff34d.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.9a2a725d76d5517ff34d.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.18fe0289db86ddc31c13.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.18fe0289db86ddc31c13.js");
 
             if ($APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
                 Asset::getInstance()->addJs('https://api-maps.yandex.ru/2.1/?apikey=4c74d479-972b-4c76-81e7-b1bc63268173&amp;lang=ru_RU');
@@ -43,27 +43,24 @@
 	</head>
     <body class="<?
         switch ($APPLICATION->GetCurPage()) {
-            case '/':
-                echo 'page-index';
-                break;
-            case '/politika-konfidentsialnosti/':
-                echo 'page-privacy-policy';
-                break;
-            case '/dostavka-i-oplata/':
-                echo 'page-payment-delivery';
-                break;
-            case '/arenda-svetodiodnykh-ekranov/':
-                echo 'page-rent';
-                break;
-            case '/proektirovanie-svetodiodnykh-ekranov/':
-                echo 'page-projection';
-                break;
-            case '/montazh-svetodiodnykh-ekranov/':
-                echo 'page-installation';
-                break;
-            case '/svetodiodnyy-ekran/':
-                echo 'page-led-screen';
-                break;
+            case '/': echo 'page-index'; break;
+            case '/politika-konfidentsialnosti/': echo 'page-privacy-policy'; break;
+            case '/dostavka-i-oplata/': echo 'page-payment-delivery'; break;
+            case '/arenda-svetodiodnykh-ekranov/': echo 'page-rent'; break;
+            case '/proektirovanie-svetodiodnykh-ekranov/': echo 'page-projection'; break;
+            case '/montazh-svetodiodnykh-ekranov/': echo 'page-installation'; break;
+            case '/svetodiodnyy-ekran/': echo 'page-led-screen'; break;
+            case '/begushchaya-stroka/': echo 'page-ticker'; break;
+            case '/elektronnoe-tablo/': echo 'page-scoreboard'; break;
+            case '/mediabort/': echo 'page-mediabort'; break;
+            case '/svetodiodnyy-shar/': echo 'page-led-ball'; break;
+            case '/videokub/': echo 'page-videocube'; break;
+            case '/videokub/': echo 'page-videobanner'; break;
+            case '/mediafasad/': echo 'page-media-facade'; break;
+            case '/ekrany-dlya-tts-i-bts/': echo 'page-store-screen'; break;
+            case '/ekrany-dlya-sportivnykh-meropriyatiy/': echo 'page-sport-screen'; break;
+            case '/ekrany-dlya-konferentsiy/': echo 'page-conf-screen'; break;
+            case '/reklamnye-ulichnye-ekrany/': echo 'page-street-screen'; break;
         }?>">
         <div id="panel">
             <?$APPLICATION->ShowPanel();?>
@@ -112,7 +109,19 @@
         <?if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/'
                 || $APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
                 || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/'
-                || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/') {
+                || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/'
+                || $APPLICATION->GetCurPage() == '/svetodiodnyy-ekran/'
+                || $APPLICATION->GetCurPage() == '/elektronnoe-tablo/'
+                || $APPLICATION->GetCurPage() == '/mediabort/'
+                || $APPLICATION->GetCurPage() == '/svetodiodnyy-shar/'
+                || $APPLICATION->GetCurPage() == '/videokub/'
+                || $APPLICATION->GetCurPage() == '/mediafasad/'
+                || $APPLICATION->GetCurPage() == '/ekrany-dlya-sportivnykh-meropriyatiy/'
+                || $APPLICATION->GetCurPage() == '/ekrany-dlya-tts-i-bts/'
+                || $APPLICATION->GetCurPage() == '/reklamnyy-videobanner/'
+                || $APPLICATION->GetCurPage() == '/begushchaya-stroka/'
+                || $APPLICATION->GetCurPage() == '/ekrany-dlya-konferentsiy/'
+                || $APPLICATION->GetCurPage() == '/reklamnye-ulichnye-ekrany/') {
             $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",

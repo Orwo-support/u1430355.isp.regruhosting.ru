@@ -13,16 +13,16 @@
 $this->setFrameMode(true);
 //debug($arResult['ITEMS']);
 ?>
-<section class="section section_ready-cabins">
-    <?//Удалил из div.ready-cabins (прямо под комментом) data-filter-state="{&quot;executionType&quot;:&quot;&quot;,&quot;pixelStep&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;}"?>
-    <div class="ready-cabins">
+<section class="section section_typical-solutions">
+    <?//Удалил из div#ready-cabins (прямо под комментом) data-filter-state="{&quot;executionType&quot;:&quot;&quot;,&quot;pixelStep&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;}"?>
+    <div class="typical-solutions">
         <div class="container">
-            <h2 class="h2 section__title animation-element">
+            <h2 class="section__title animation-element">
                 <span class="title"><?=$arResult['DESCRIPTION']?></span>
             </h2>
         </div>
-        <div class="container-endless filter">
-            <div class="endless ready-cabins__controlls animation-element">
+        <div class="container-endless-fix filter">
+            <div class="endless typical-solutions__controlls animation-element">
                 <div class="label-controll">
                     <div class="label-controll__help help-button"
                          data-help-modal-id="helpModalTypicalSolutions">
@@ -43,15 +43,13 @@ $this->setFrameMode(true);
                                     <div class="help-modal__close" id="close">
                                         <svg width="98" height="126" viewBox="0 0 98 126" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_ddddd)"><path d="M45 59L49 63M49 63L53 67M49 63L53 59M49 63L45 67" stroke="#F6F0FF" stroke-linecap="round" stroke-linejoin="round"/></g><defs><filter id="filter0_ddddd" x="0.5" y="0.5" width="97" height="125" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="6" dy="6"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.00784314 0 0 0 0 0.0470588 0 0 0 0.3 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-6" dy="-6"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0 0.227451 0 0 0 0.15 0"/><feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="14" dy="28"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.0156863 0 0 0 0 0.0196078 0 0 0 0 0.054902 0 0 0 0.3 0"/><feBlend mode="normal" in2="effect2_dropShadow" result="effect3_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-14" dy="-28"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0 0.227451 0 0 0 0.15 0"/><feBlend mode="normal" in2="effect3_dropShadow" result="effect4_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="8"/><feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.48 0"/><feBlend mode="normal" in2="effect4_dropShadow" result="effect5_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect5_dropShadow" result="shape"/></filter></defs></svg>
                                     </div>
-                                    <?$APPLICATION->IncludeComponent(
-                                        "bitrix:main.include",
-                                        "",
-                                        Array(
-                                            "AREA_FILE_SHOW" => "file",
-                                            "AREA_FILE_SUFFIX" => "inc",
-                                            "EDIT_TEMPLATE" => "",
-                                            "PATH" => "/include/help-modal-execution-type.php"
-                                        )
+                                    <?$APPLICATION->IncludeComponent("bitrix:main.include", "typical-solutions", Array(
+                                        "AREA_FILE_SHOW" => "file",	// Показывать включаемую область
+                                        "AREA_FILE_SUFFIX" => "inc",
+                                        "EDIT_TEMPLATE" => "",	// Шаблон области по умолчанию
+                                        "PATH" => "/include/help-modal-execution-type.php",	// Путь к файлу области
+                                    ),
+                                        false
                                     );?>
                                 </div>
                             </div>
@@ -65,15 +63,15 @@ $this->setFrameMode(true);
                                  data-controller-type="radio-group">
                                 <div class="marker"></div><?
                                     /*
-                                        Если нужно чтобы при инициализации был выбран какой-то пункт,
-                                        добавить checked='' в соответсвующий input
+                                    Если нужно чтобы при инициализации был выбран какой-то пункт,
+                                    добавить checked='' в соответсвующий input
 
-                                        Список значений формировать динамически
-                                        из параметров элемента на стороне сервера
+                                    Список значений формировать динамически
+                                    из параметров элементв на стороне сервера
 
-                                        Тип свойства фильтра data-filter-property НЕ ТРОГАТЬ!
-                                        именно так оно указано в JS
-                                    */
+                                    Тип свойства фильтра data-filter-property НЕ ТРОГАТЬ!
+                                    именно так оно указано в JS
+                                */
                                 ?><input class="input"
                                        id="typeVertical"
                                        type="radio"
@@ -91,6 +89,56 @@ $this->setFrameMode(true);
                                        for="typeHorizontal"
                                        data-filter-property="executionType"
                                        data-filter-value="horizontal">Горизонтальный</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="label-controll">
+                    <div class="label-controll__caption">Тип решения</div>
+                    <div class="label-controll__body">
+                        <div class="label-controll__content">
+                            <div class="select-simple custom-select"
+                                 id="solutionType"
+                                 data-controller-type="custom-select">
+                                <?//Если есть значение по умолчанию добавить его в .select-suffix__selected-item.selected?>
+                                <div class="select-simple__selected-item selected"></div>
+                                <div class="select-simple__arr"></div>
+                                <div class="custom-select__container">
+                                    <div class="custom-select__list scroller"><?
+                                        /*
+                                            Если есть значение по умолчанию
+                                            добавить .active соответствующему значению
+
+                                            Список значений формировать динамически
+                                            из параметров элемента на стороне сервера
+
+                                            Тип свойства фильтра data-filter-property НЕ ТРОГАТЬ!
+                                            именно так оно указано в JS
+                                        */
+
+                                        $SOLUTION_TYPE_ARR = [];
+
+                                        foreach ($arResult["ITEMS"] as $arItem) {
+                                            $VALUE = $arItem['PROPERTIES']['SOLUTION_TYPE']['VALUE'];
+                                            $PROP = $arItem['PROPERTIES']['SOLUTION_TYPE']['VALUE_XML_ID'];
+
+                                            $SOLUTION_TYPE_ARR[$PROP] = $VALUE;
+                                        }
+
+                                        asort($SOLUTION_TYPE_ARR);
+
+                                        ?><div class="custom-select__item filter-controller"
+                                             data-filter-property="solutionType"
+                                             data-filter-value="">
+                                            Сбросить
+                                        </div>
+                                        <?foreach ($SOLUTION_TYPE_ARR as $prop=>$val):?>
+                                            <div class="custom-select__item filter-controller"
+                                                 data-filter-property="solutionType"
+                                                 data-filter-value="<?=$prop?>"><?=$val?></div>
+                                        <?endforeach;?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -214,8 +262,9 @@ $this->setFrameMode(true);
 
                                         sort($WIDTH_ARR);
 
-                                      ?><div class="custom-select__item filter-controller"
-                                             data-filter-property="width" data-filter-value="">Сбросить</div>
+                                        ?><div class="custom-select__item filter-controller"
+                                             data-filter-property="width"
+                                             data-filter-value="">Сбросить</div>
                                         <?foreach ($WIDTH_ARR as $WIDTH):?>
                                             <div class="custom-select__item filter-controller"
                                                  data-filter-property="width"
@@ -229,120 +278,123 @@ $this->setFrameMode(true);
                 </div>
             </div>
         </div>
-        <div class="container" id="notRcFilterResults">
-            <div class="ready-cabins__not-results">
-                <div class="ready-cabins__not-results-text">
+        <div class="container" id="notFilterTsResults">
+            <div class="typical-solutions__not-results">
+                <div class="typical-solutions__not-results-text">
                     Нет элементов удовлетворящих выбранным значениям
                 </div>
-                <div class="ready-cabins__not-results-btn">
-                    <div class="btn btn_primary" id="resetRcFilter">
+                <div class="typical-solutions__not-results-btn">
+                    <div class="btn btn_primary" id="resetTsFilter">
                         Сбросить фильтр
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container-endless" id="rcSlider">
-            <div class="endless ready-cabins__list swiper-container" id="readyCabinsSlider">
-                <div class="ready-cabins__list__wrap swiper-wrapper">
+        <div class="container-endless" id="tsSlider">
+            <div class="endless typical-solutions__list swiper-container" id="typicalSolutionsSlider">
+                <div class="typical-solutions__list__wrap swiper-wrapper">
                     <?foreach($arResult["ITEMS"] as $arItem):?>
                         <?
                         $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
                         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
                         ?>
-                        <div class="ready-cabins__slide swiper-slide"
+                        <div class="typical-solutions__slide swiper-slide"
                              id="<?=$this->GetEditAreaId($arItem['ID']);?>"
-                             <?
-                                $FILTER_PROP_EXECUTION_TYPE = $arItem['PROPERTIES']['EXECUTION_TYPE']['VALUE_XML_ID'];
+                            <?
+                            $FILTER_PROP_EXECUTION_TYPE = $arItem['PROPERTIES']['EXECUTION_TYPE']['VALUE_XML_ID'];
 
-                                $FILTER_PROP_WIDTH = $arItem['PROPERTIES']['WIDTH']['VALUE'];
+                            $FILTER_PROP_SOLUTION_TYPE = $arItem['PROPERTIES']['SOLUTION_TYPE']['VALUE_XML_ID'];
 
-                                $FILTER_PROP_PIXEL_STEP = str_replace(
-                                    '.',
-                                    ',',
-                                    $arItem['PROPERTIES']['PIXEL_STEP']['VALUE']);
+                            $FILTER_PROP_WIDTH = $arItem['PROPERTIES']['WIDTH']['VALUE'];
 
-                                $FILTER_PROPS_STR = '{"executionType":"'
-                                    . $FILTER_PROP_EXECUTION_TYPE . '","pixelStep":"'
-                                    . $FILTER_PROP_PIXEL_STEP . '","width":"'
-                                    . $FILTER_PROP_WIDTH . '"}';
-                             ?>
+                            $FILTER_PROP_PIXEL_STEP = str_replace(
+                                '.',
+                                ',',
+                                $arItem['PROPERTIES']['PIXEL_STEP']['VALUE']);
+
+                            $FILTER_PROPS_STR = '{"executionType":"'
+                                . $FILTER_PROP_EXECUTION_TYPE . '","pixelStep":"'
+                                . $FILTER_PROP_PIXEL_STEP . '","width":"'
+                                . $FILTER_PROP_WIDTH . '","solutionType":"'
+                                . $FILTER_PROP_SOLUTION_TYPE .'"}';
+                            ?>
                              data-filter-props='<?=$FILTER_PROPS_STR?>'>
-                            <div class="ready-cabins__card animation-element">
-                                <div class="ready-cabins__gallery gallery">
-                                    <div class="ready-cabins__pics">
-                                        <?foreach ($arItem['PROPERTIES']['GALLERY_PHOTOS']['VALUE'] as $key=>$img):?>
-                                            <?$IMG_PATH = CFile::GetPath($img);?>
-                                            <div class="image<?=$key == 0 ? ' active' : '';?>"
-                                                 style="background-image: url(<?=$IMG_PATH?>)"></div>
-                                        <?endforeach;?>
-                                        <?$COUNT_OF_IMG = count($arItem['PROPERTIES']['GALLERY_PHOTOS']['VALUE'])?>
-                                        <?if($COUNT_OF_IMG > 1):?>
-                                            <div class="typical-solutions__pics-prev slider-gallery-controller"
-                                                 data-direction="prev">
-                                                <svg width="12"
-                                                     height="17"
-                                                     viewBox="0 0 12 17"
-                                                     fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <g opacity="0.9">
-                                                        <path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289"
-                                                              stroke="#AB78FF"
-                                                              stroke-linecap="round"
-                                                              stroke-linejoin="round"/>
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                            <div class="typical-solutions__pics-next slider-gallery-controller"
-                                                 data-direction="next">
-                                                <svg width="12"
-                                                     height="17"
-                                                     viewBox="0 0 12 17"
-                                                     fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <g opacity="0.9">
-                                                        <path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289"
-                                                              stroke="#AB78FF"
-                                                              stroke-linecap="round"
-                                                              stroke-linejoin="round"/>
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                        <?endif;?>
-                                    </div>
-                                    <div class="ready-cabins__dots">
-                                        <?if ($COUNT_OF_IMG > 1) :?>
-                                            <?for ($i = 0; $i < $COUNT_OF_IMG; $i++):?>
-                                                <div class="dot<?=$i == 0 ? ' active': '';?>"></div>
-                                            <?endfor;?>
-                                        <?endif;?>
-                                    </div>
-                                </div>
-                                <div class="ready-cabins__caption"><?=$arItem['NAME']?></div>
-                                <div class="ready-cabins__params">
-                                    <?if($arItem['PROPERTIES']['BRIGHTNESS']['VALUE']):?>
-                                        <span>Яркость: <?=$arItem['PROPERTIES']['BRIGHTNESS']['VALUE']?></span>
-                                    <?endif;?>
-                                    <?if($arItem['PROPERTIES']['WEIGHT']['VALUE']):?>
-                                        <span>Вес кабинета: <?=$arItem['PROPERTIES']['WEIGHT']['VALUE']?></span>
-                                    <?endif;?>
-                                    <?if($arItem['PROPERTIES']['PRICE']['VALUE']):?>
-                                        <span class="price">Цена/кабинет: <?=$arItem['PROPERTIES']['PRICE']['VALUE']?></span>
+                            <div class="typical-solutions__card animation-element">
+                            <div class="typical-solutions__gallery gallery">
+                                <div class="typical-solutions__pics">
+                                    <?foreach ($arItem['PROPERTIES']['GALLERY_PHOTOS']['VALUE'] as $key=>$img):?>
+                                        <?$IMG_PATH = CFile::GetPath($img);?>
+                                        <div class="image<?=$key == 0 ? ' active' : '';?>"
+                                             style="background-image: url(<?=$IMG_PATH?>)"></div>
+                                    <?endforeach;?>
+                                    <?$COUNT_OF_IMG = count($arItem['PROPERTIES']['GALLERY_PHOTOS']['VALUE'])?>
+                                    <?if($COUNT_OF_IMG > 1):?>
+                                        <div class="typical-solutions__pics-prev slider-gallery-controller"
+                                             data-direction="prev">
+                                            <svg width="12"
+                                                 height="17"
+                                                 viewBox="0 0 12 17"
+                                                 fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <g opacity="0.9">
+                                                    <path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289"
+                                                          stroke="#AB78FF"
+                                                          stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="typical-solutions__pics-next slider-gallery-controller"
+                                             data-direction="next">
+                                            <svg width="12"
+                                                 height="17"
+                                                 viewBox="0 0 12 17"
+                                                 fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <g opacity="0.9">
+                                                    <path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289"
+                                                          stroke="#AB78FF"
+                                                          stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                </g>
+                                            </svg>
+                                        </div>
                                     <?endif;?>
                                 </div>
-                                <div class="ready-cabins__actions">
-                                    <a class="btn btn_primary"
-                                       data-go-to-place-link="true"
-                                       data-go-to-place-target="#order-form"
-                                       href=""></a>
-                                    <a class="revers" href="/kalkulyator/">Рассчитать</a>
+                                <div class="typical-solutions__dots">
+                                    <?if ($COUNT_OF_IMG > 1) :?>
+                                        <?for ($i = 0; $i < $COUNT_OF_IMG; $i++):?>
+                                            <div class="dot<?=$i == 0 ? ' active': '';?>"></div>
+                                        <?endfor;?>
+                                    <?endif;?>
                                 </div>
                             </div>
+                            <div class="typical-solutions__caption"><?=$arItem['NAME']?></div>
+                            <div class="typical-solutions__params">
+                                <?if($arItem['PROPERTIES']['BRIGHTNESS']['VALUE']):?>
+                                    <span>Яркость: <?=$arItem['PROPERTIES']['BRIGHTNESS']['VALUE']?></span>
+                                <?endif;?>
+                                <?if($arItem['PROPERTIES']['WEIGHT']['VALUE']):?>
+                                    <span>Вес кабинета: <?=$arItem['PROPERTIES']['WEIGHT']['VALUE']?></span>
+                                <?endif;?>
+                                <?if($arItem['PROPERTIES']['PRICE']['VALUE']):?>
+                                    <span class="price">Цена/кабинет: <?=$arItem['PROPERTIES']['PRICE']['VALUE']?></span>
+                                <?endif;?>
+                            </div>
+                            <div class="typical-solutions__actions">
+                                <a class="btn btn_primary"
+                                   data-go-to-place-link="true"
+                                   data-go-to-place-target="#order-form"
+                                   href=""></a>
+                                <a class="revers" href="/kalkulyator/">Рассчитать</a>
+                            </div>
                         </div>
+                    </div>
                     <?endforeach;?>
                 </div>
             </div>
             <div class="btn btn_icon-outlined lite-background slider-controller slider-controller_prev"
-                 id="btnRcPrev">
+                 id="btnTsPrev">
                 <svg width="14"
                      height="26"
                      viewBox="0 0 14 26"
@@ -356,7 +408,7 @@ $this->setFrameMode(true);
                 </svg>
             </div>
             <div class="btn btn_icon-outlined lite-background slider-controller slider-controller_next"
-                 id="btnRcNext">
+                 id="btnTSNext">
                 <svg width="14"
                      height="26"
                      viewBox="0 0 14 26"
