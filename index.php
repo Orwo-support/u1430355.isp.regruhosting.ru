@@ -465,7 +465,7 @@
             "AREA_FILE_SHOW" => "file",
             "AREA_FILE_SUFFIX" => "inc",
             "EDIT_TEMPLATE" => "",
-            "PATH" => "/components/callback-form.php"
+            "PATH" => "/comps/callback-form.php"
         )
     );
 }?>

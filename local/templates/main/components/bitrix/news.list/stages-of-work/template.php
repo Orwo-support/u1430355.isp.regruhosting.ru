@@ -20,7 +20,7 @@ $this->setFrameMode(true);
     <div class="work work-num-animation">
         <div class="container">
             <h2 class="h2 section__title animation-element"><?=$arResult["DESCRIPTION"]?></h2>
-            <?if($APPLICATION->GetCurPage() === '/'):?>
+            <?if($APPLICATION->GetCurPage() === '/' || $APPLICATION->GetCurPage() === '/nashi-raboty/'):?>
                 <div class="work__steps animation-element">6 шагов до наслаждения яркостью</div>
             <?endif;?>
         </div>

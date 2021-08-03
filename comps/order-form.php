@@ -5,6 +5,8 @@
                 <?
                     if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') {
                         echo 'Поможем подобрать оборудование';
+                    } elseif ($APPLICATION->GetCurPage() == '/nashi-raboty/') {
+                        echo 'Задайте нам вопрос';
                     } else {
                         echo 'Оставьте заявку, мы поможем с выбором';
                     }
@@ -38,6 +40,7 @@
                         case '/ekrany-dlya-sportivnykh-meropriyatiy/': echo 'Экраны для спортивных мероприятий'; break;
                         case '/ekrany-dlya-konferentsiy/': echo 'Экраны для конференций'; break;
                         case '/reklamnye-ulichnye-ekrany/': echo 'Рекламные уличные экраны'; break;
+                        case '/nashi-raboty/': echo 'Наши работы'; break;
                     }
                 ?>">
                 <div class="form-order__data">
@@ -53,7 +56,8 @@
                                            type="text"
                                            placeholder="Напишите Ваше имя"
                                            name="name"
-                                           id="name">
+                                           id="name"
+                                           tabindex="1">
                                 </label>
                             </div>
                         </div>
@@ -68,7 +72,8 @@
                                            type="text"
                                            placeholder="+7 900 000 00 00"
                                            name="phone"
-                                           id="phone">
+                                           id="phone"
+                                           tabindex="2">
                                 </label>
                                 <div class="validator validator__cross">
                                     <img class="pic valid"
@@ -101,7 +106,8 @@
                                 <textarea class="textarea"
                                           placeholder="Напишите что-нибудь"
                                           name="message"
-                                          id="message"></textarea>
+                                          id="message"
+                                          tabindex="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -115,7 +121,9 @@
                                   target="_blank">обработку моих персональных данных</a>
                         </span>
                         <div class="form-order__button">
-                            <button class="btn btn_primary form-order__submit" type="submit">
+                            <button class="btn btn_primary form-order__submit"
+                                    type="submit"
+                                    tabindex="4">
                                 Отправить заявку
                             </button>
                         </div>

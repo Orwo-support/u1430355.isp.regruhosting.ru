@@ -1,142 +1,32 @@
 <div class="quiz" id="quiz">
     <div class="quiz__dialog">
-        <form class="quiz__content" id="quizForm" action="/utilities/handle-quiz-form.php" name="add_quiz_data"
-              method="POST" enctype="multipart/form-data">
+        <form class="quiz__content"
+              id="quizForm"
+              action="/utilities/handle-quiz-form.php"
+              name="add_quiz_data"
+              method="POST"
+              enctype="multipart/form-data">
             <div class="quiz__button-close btn-quiz-toggle btn-reset-quiz">
                 <div class="button">
-                    <svg width="102" height="122" viewBox="0 0 102 122" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g filter="url(#filter0_ddddd)">
-                            <path d="M45 51L51 57M51 57L57 63M51 57L57 51M51 57L45 63" stroke="#80758F"
-                                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                        <defs>
-                            <filter id="filter0_ddddd" x="0.25" y="-7.75" width="101.5" height="129.5"
-                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                                <feOffset dx="6" dy="6"/>
-                                <feGaussianBlur stdDeviation="15"/>
-                                <feColorMatrix type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0.00784314 0 0 0 0 0.0470588 0 0 0 0.3 0"/>
-                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                                <feOffset dx="-6" dy="-6"/>
-                                <feGaussianBlur stdDeviation="15"/>
-                                <feColorMatrix type="matrix"
-                                               values="0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0 0.227451 0 0 0 0.15 0"/>
-                                <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                                <feOffset dx="14" dy="28"/>
-                                <feGaussianBlur stdDeviation="15"/>
-                                <feColorMatrix type="matrix"
-                                               values="0 0 0 0 0.0156863 0 0 0 0 0.0196078 0 0 0 0 0.054902 0 0 0 0.3 0"/>
-                                <feBlend mode="normal" in2="effect2_dropShadow" result="effect3_dropShadow"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                                <feOffset dx="-14" dy="-28"/>
-                                <feGaussianBlur stdDeviation="15"/>
-                                <feColorMatrix type="matrix"
-                                               values="0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0 0.227451 0 0 0 0.15 0"/>
-                                <feBlend mode="normal" in2="effect3_dropShadow" result="effect4_dropShadow"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                                <feOffset/>
-                                <feGaussianBlur stdDeviation="8"/>
-                                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.48 0"/>
-                                <feBlend mode="normal" in2="effect4_dropShadow" result="effect5_dropShadow"/>
-                                <feBlend mode="normal" in="SourceGraphic" in2="effect5_dropShadow" result="shape"/>
-                            </filter>
-                        </defs>
-                    </svg>
+                    <svg width="102" height="122" viewBox="0 0 102 122" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_ddddd)"><path d="M45 51L51 57M51 57L57 63M51 57L57 51M51 57L45 63" stroke="#80758F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><defs><filter id="filter0_ddddd" x="0.25" y="-7.75" width="101.5" height="129.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="6" dy="6"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.00784314 0 0 0 0 0.0470588 0 0 0 0.3 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-6" dy="-6"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0 0.227451 0 0 0 0.15 0"/><feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="14" dy="28"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.0156863 0 0 0 0 0.0196078 0 0 0 0 0.054902 0 0 0 0.3 0"/><feBlend mode="normal" in2="effect2_dropShadow" result="effect3_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-14" dy="-28"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0 0.227451 0 0 0 0.15 0"/><feBlend mode="normal" in2="effect3_dropShadow" result="effect4_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="8"/><feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.48 0"/><feBlend mode="normal" in2="effect4_dropShadow" result="effect5_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect5_dropShadow" result="shape"/></filter></defs></svg>
                 </div>
             </div>
             <div class="quiz__prolog" id="quizProlog">
                 <div class="pic">
-                    <svg width="218" height="354" viewBox="0 0 218 354" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g filter="url(#filter0_dd)">
-                            <g filter="url(#filter1_ii)">
-                                <path d="M109.015 269.485C106.659 269.485 104.745 271.394 104.77 273.744C104.77 276.094 106.684 278.003 109.04 278.003C111.396 278.003 113.31 276.094 113.31 273.744C113.335 271.394 111.42 269.485 109.015 269.485"
-                                      stroke="#AB78FF" stroke-width="34" stroke-linecap="round"
-                                      stroke-linejoin="round"/>
-                            </g>
-                            <g filter="url(#filter2_ii)">
-                                <path d="M109.041 203.024V197.149C109.041 177.884 120.968 167.456 132.944 159.452C144.625 151.619 156.331 141.386 156.331 122.513C156.331 96.4675 135.177 75.3667 109.066 75.3667C82.9542 75.3667 61.7754 96.4186 61.7754 122.464"
-                                      stroke="#AB78FF" stroke-width="34" stroke-linecap="round"
-                                      stroke-linejoin="round"/>
-                            </g>
-                        </g>
-                        <defs>
-                            <filter id="filter0_dd" x="0" y="0" width="218.13" height="354" filterUnits="userSpaceOnUse"
-                                    color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                                <feOffset dx="14" dy="28"/>
-                                <feGaussianBlur stdDeviation="15"/>
-                                <feColorMatrix type="matrix"
-                                               values="0 0 0 0 0.0156863 0 0 0 0 0.0196078 0 0 0 0 0.054902 0 0 0 0.3 0"/>
-                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                                <feOffset dx="-14" dy="-28"/>
-                                <feGaussianBlur stdDeviation="15"/>
-                                <feColorMatrix type="matrix"
-                                               values="0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0 0.227451 0 0 0 0.35 0"/>
-                                <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
-                                <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
-                            </filter>
-                            <filter id="filter1_ii" x="85.7695" y="250.484" width="49.5408" height="48.5187"
-                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                <feOffset dx="-2" dy="-2"/>
-                                <feGaussianBlur stdDeviation="15"/>
-                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/>
-                                <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                <feOffset dx="5" dy="4"/>
-                                <feGaussianBlur stdDeviation="5"/>
-                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                                <feColorMatrix type="matrix"
-                                               values="0 0 0 0 0.191667 0 0 0 0 0.014375 0 0 0 0 0.149999 0 0 0 0.5 0"/>
-                                <feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
-                            </filter>
-                            <filter id="filter2_ii" x="42.7754" y="56.3667" width="135.556" height="167.658"
-                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                <feOffset dx="-2" dy="-2"/>
-                                <feGaussianBlur stdDeviation="15"/>
-                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/>
-                                <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                <feOffset dx="5" dy="4"/>
-                                <feGaussianBlur stdDeviation="5"/>
-                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                                <feColorMatrix type="matrix"
-                                               values="0 0 0 0 0.191667 0 0 0 0 0.014375 0 0 0 0 0.149999 0 0 0 0.5 0"/>
-                                <feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
-                            </filter>
-                        </defs>
-                    </svg>
+                    <svg width="218" height="354" viewBox="0 0 218 354" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_dd)"><g filter="url(#filter1_ii)"><path d="M109.015 269.485C106.659 269.485 104.745 271.394 104.77 273.744C104.77 276.094 106.684 278.003 109.04 278.003C111.396 278.003 113.31 276.094 113.31 273.744C113.335 271.394 111.42 269.485 109.015 269.485" stroke="#AB78FF" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#filter2_ii)"><path d="M109.041 203.024V197.149C109.041 177.884 120.968 167.456 132.944 159.452C144.625 151.619 156.331 141.386 156.331 122.513C156.331 96.4675 135.177 75.3667 109.066 75.3667C82.9542 75.3667 61.7754 96.4186 61.7754 122.464" stroke="#AB78FF" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/></g></g><defs><filter id="filter0_dd" x="0" y="0" width="218.13" height="354" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="14" dy="28"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.0156863 0 0 0 0 0.0196078 0 0 0 0 0.054902 0 0 0 0.3 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-14" dy="-28"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0 0.227451 0 0 0 0.35 0"/><feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/></filter><filter id="filter1_ii" x="85.7695" y="250.484" width="49.5408" height="48.5187" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dx="-2" dy="-2"/><feGaussianBlur stdDeviation="15"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dx="5" dy="4"/><feGaussianBlur stdDeviation="5"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.191667 0 0 0 0 0.014375 0 0 0 0 0.149999 0 0 0 0.5 0"/><feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/></filter><filter id="filter2_ii" x="42.7754" y="56.3667" width="135.556" height="167.658" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dx="-2" dy="-2"/><feGaussianBlur stdDeviation="15"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dx="5" dy="4"/><feGaussianBlur stdDeviation="5"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.191667 0 0 0 0 0.014375 0 0 0 0 0.149999 0 0 0 0.5 0"/><feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/></filter></defs></svg>
                 </div>
-                <div class="title">Как определить какой именно экран, подойдет лучше всего?</div>
+                <div class="title">
+                    Как определить какой именно экран, подойдет лучше всего?
+                </div>
                 <div class="content">
-                    <div class="subtitle">Предлагаем пройти тест из 5 вопросов, на основании ответов на которые, мы
+                    <div class="subtitle">
+                        Предлагаем пройти тест из 5 вопросов,
+                        на основании ответов на которые, мы
                         бесплатно подберем нужную вам конфигурацию
                     </div>
-                    <div class="btn btn_primary" id="btnQuizQuestionsStart">Пройти тест</div>
+                    <div class="btn btn_primary" id="btnQuizQuestionsStart">
+                        Пройти тест
+                    </div>
                 </div>
             </div>
             <div class="quiz__epilogue" id="quizEpilogue">
@@ -151,7 +41,8 @@
                 <div class="quiz__body">
                     <div class="quiz__slide active" data-quiz-property="location" id="quizSlide_1">
                         <div class="quiz__slide-title">Где будет стоять экран?</div>
-                        <div class="quiz__slide-subtitle">Уличные экраны, в отличии от внутренних, защищены от
+                        <div class="quiz__slide-subtitle">
+                            Уличные экраны, в отличии от внутренних, защищены от
                             воздействий внешней среды и светят ярче солнечного света
                         </div>
                         <div class="quiz__slide-controllers">
@@ -440,54 +331,69 @@
                             <div class="form-order">
                                 <div class="form-order__data">
                                     <div class="form-order__user-data animation-element">
-                                        <div class="controller-group"><label class="controller-label">Как вас
-                                                зовут?</label>
-                                            <div class="controller controller__input"><label
-                                                        class="label label__icon"><span
-                                                            class="controller-icon icon-human"><img class="pic"
-                                                                                                    src="/img/icon-person.svg"
-                                                                                                    alt=""></span><input
-                                                            class="input" type="text" placeholder="Напишите Ваше Имя"
-                                                            name="quizName" id="quizName"></label></div>
+                                        <div class="controller-group">
+                                            <label class="controller-label">Как вас зовут?</label>
+                                            <div class="controller controller__input">
+                                                <label class="label label__icon">
+                                                    <span class="controller-icon icon-human">
+                                                        <img class="pic" src="/img/icon-person.svg" alt="">
+                                                    </span>
+                                                    <input class="input"
+                                                           type="text"
+                                                           placeholder="Напишите Ваше Имя"
+                                                           name="quizName"
+                                                           id="quizName"
+                                                           tabindex="1">
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="controller-group controller-group__validation"><label
-                                                    class="controller-label">Номер телефона</label>
-                                            <div class="controller controller__input single-valid-warning"><label
-                                                        class="label label__icon"><span
-                                                            class="controller-icon icon-phone"><img class="pic"
-                                                                                                    src="/img/icon-phone.svg"
-                                                                                                    alt=""></span><input
-                                                            class="input" type="text" placeholder="+7 900 000 00 00"
-                                                            name="quizPhone" id="quizPhone"></label>
-                                                <div class="validator validator__cross"><img class="pic valid"
-                                                                                             src="/img/icon-validator-cross-valid.svg"
-                                                                                             alt=""><img
-                                                            class="pic invalid"
-                                                            src="/img/icon-validator-cross-invalid.svg"
-                                                            alt=""></div>
-                                                <div class="validator validator__check"><img class="pic valid"
-                                                                                             src="/img/icon-validator-check-valid.svg"
-                                                                                             alt=""><img
-                                                            class="pic invalid"
-                                                            src="/img/icon-validator-check-invalid.svg"
-                                                            alt=""></div>
+                                        <div class="controller-group controller-group__validation">
+                                            <label class="controller-label">Номер телефона</label>
+                                            <div class="controller controller__input single-valid-warning">
+                                                <label class="label label__icon">
+                                                    <span class="controller-icon icon-phone">
+                                                        <img class="pic" src="/img/icon-phone.svg" alt="">
+                                                    </span>
+                                                    <input class="input"
+                                                           type="text"
+                                                           placeholder="+7 900 000 00 00"
+                                                           id="quizPhone"
+                                                           tabindex="2">
+                                                </label>
+                                                <div class="validator validator__cross">
+                                                    <img class="pic valid" src="/img/icon-validator-cross-valid.svg" alt="">
+                                                    <img class="pic invalid" src="/img/icon-validator-cross-invalid.svg" alt="">
+                                                </div>
+                                                <div class="validator validator__check">
+                                                    <img class="pic valid" src="/img/icon-validator-check-valid.svg" alt="">
+                                                    <img class="pic invalid" src="/img/icon-validator-check-invalid.svg" alt=""></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-order__comments">
-                                        <div class="controller-group"><label
-                                                    class="controller-label">Комментарий</label>
-                                            <div class="controller-wrap"><span class="controller-icon icon-msg"><img
-                                                            class="pic" src="/img/icon-message.svg"
-                                                            alt=""></span><textarea
-                                                        class="textarea" placeholder="Напишите что-нибудь"
-                                                        name="quizMessage" id="quizMessage"></textarea></div>
+                                        <div class="controller-group">
+                                            <label class="controller-label">Комментарий</label>
+                                            <div class="controller-wrap">
+                                                <span class="controller-icon icon-msg">
+                                                    <img class="pic" src="/img/icon-message.svg" alt="">
+                                                </span>
+                                                <textarea class="textarea"
+                                                          placeholder="Напишите что-нибудь"
+                                                          name="quizMessage"
+                                                          id="quizMessage"
+                                                          tabindex="3"></textarea>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-order__actions">
-                                    <div class="form-order__actions-group"><span class="form-order__privacy">Нажимая на кнопку “Отправить заявку”, я даю согласие на <a
-                                                    class="revers" href="/politika-konfidentsialnosti/">обработку моих персональных данных</a></span>
+                                    <div class="form-order__actions-group">
+                                        <span class="form-order__privacy">
+                                            Нажимая на кнопку “Отправить заявку”, я даю согласие на
+                                            <a class="revers"
+                                               href="/politika-konfidentsialnosti/"
+                                               target="_blank">обработку моих персональных данных</a>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -496,7 +402,9 @@
                 </div>
                 <div class="quiz__footer">
                     <div class="quiz__btn-next">
-                        <div class="btn btn_primary not-focused" id="quizBtnNextStep">Следующий вопрос</div>
+                        <button class="btn btn_primary not-focused"
+                                id="quizBtnNextStep"
+                                tabindex="4">Следующий вопрос</button>
                     </div>
                     <div class="quiz__btn-prev">
                         <div class="btn btn_icon-outlined not-focused" id="quizBtnPrevStep">

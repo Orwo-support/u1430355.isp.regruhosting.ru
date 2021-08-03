@@ -7,7 +7,7 @@
                     label.label.label__icon
                         span.controller-icon.icon-human
                             img.pic(src="/img/icon-person.svg" alt="")
-                        input.input(type="text" placeholder="Напишите Ваше Имя" name="quizName" id="quizName")
+                        input.input(type="text" placeholder="Напишите Ваше Имя" name="quizName" id="quizName" tabindex="1")
 
             .controller-group.controller-group__validation
                 label.controller-label Номер телефона
@@ -16,7 +16,7 @@
                     label.label.label__icon
                         span.controller-icon.icon-phone
                             img.pic(src="/img/icon-phone.svg" alt="")
-                        input.input(type="text" placeholder="+7 900 000 00 00" name="quizPhone" id="quizPhone")
+                        input.input(type="text" placeholder="+7 900 000 00 00" name="quizPhone" id="quizPhone" tabindex="2")
                     .validator.validator__cross
                         img.pic.valid(src="/img/icon-validator-cross-valid.svg" alt="")
                         img.pic.invalid(src="/img/icon-validator-cross-invalid.svg" alt="")
@@ -29,7 +29,7 @@
                 .controller-wrap
                     span.controller-icon.icon-msg
                         img.pic(src="/img/icon-message.svg" alt="")
-                    textarea.textarea(placeholder="Напишите что-нибудь" name="quizMessage" id="quizMessage")
+                    textarea.textarea(placeholder="Напишите что-нибудь" name="quizMessage" id="quizMessage" tabindex="3")
     .form-order__actions
         .form-order__actions-group
             span.form-order__privacy
