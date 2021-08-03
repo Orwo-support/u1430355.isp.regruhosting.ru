@@ -61,6 +61,7 @@
             case '/ekrany-dlya-sportivnykh-meropriyatiy/': echo 'page-sport-screen'; break;
             case '/ekrany-dlya-konferentsiy/': echo 'page-conf-screen'; break;
             case '/reklamnye-ulichnye-ekrany/': echo 'page-street-screen'; break;
+            case '/o-nas-garantiya-kontakty/': echo 'page-about'; break;
         }
 
         if(preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {

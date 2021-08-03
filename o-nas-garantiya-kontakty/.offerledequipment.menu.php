@@ -1,0 +1,60 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Светодиодные экраны", 
+		"/svetodiodnyy-ekran/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Электронное табло", 
+		"/elektronnoe-tablo/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Видеобаннер", 
+		"/reklamnyy-videobanner/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Светодиодный шар", 
+		"/svetodiodnyy-shar/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Бегущая строка", 
+		"/begushchaya-stroka/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Медиаборт", 
+		"/mediabort/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Видеокуб", 
+		"/videokub/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Медиафасад", 
+		"/mediafasad/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
