@@ -50,7 +50,8 @@ $this->setFrameMode(true);
                                         Экран <?=$arItem['PROPERTIES']['WORK_SCREEN_TYPE']['VALUE']?>
                                     </div>
                                     <div class="pixels">
-                                        Шаг пикселя <?=$arItem['PROPERTIES']['WORK_PIXEL_STEP']['VALUE']?></div>
+                                        Шаг пикселя <?=$arItem['PROPERTIES']['WORK_PIXEL_STEP']['VALUE']?>
+                                    </div>
                                 </div>
                                 <div class="projects__pic">
                                     <div class="image" style="background-image: url(<?=$arItem['PREVIEW_PICTURE']['SRC']?>)"></div>

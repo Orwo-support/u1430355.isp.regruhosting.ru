@@ -402,7 +402,7 @@
                 </div>
                 <div class="quiz__footer">
                     <div class="quiz__btn-next">
-                        <button class="btn btn_primary not-focused"
+                        <button class="btn btn_primary"
                                 id="quizBtnNextStep"
                                 tabindex="4">Следующий вопрос</button>
                     </div>
