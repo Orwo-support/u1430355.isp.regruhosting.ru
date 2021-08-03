@@ -46,7 +46,7 @@ $this->setFrameMode(true);
                         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
                         ?>
                         <div class="offer__slide swiper-slide" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-                            <a class="offer__card animation-element" href="">
+                            <a class="offer__card animation-element" href="<?=$arItem["PROPERTIES"]["TARGET_LINK"]['VALUE']?>">
                                 <div class="offer__pic">
                                     <div class="image" style="background-image: url(<?=$arItem["DETAIL_PICTURE"]["SRC"]?>)"></div>
                                 </div>
