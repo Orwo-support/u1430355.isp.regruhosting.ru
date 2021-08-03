@@ -208,7 +208,7 @@
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
+		"DETAIL_URL" => "#SITE_DIR#/nashi-raboty/#ELEMENT_CODE#/",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "N",
 		"DISPLAY_NAME" => "N",

@@ -19,7 +19,7 @@ $APPLICATION->SetTitle("Наши работы");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"DETAIL_ACTIVE_DATE_FORMAT" => "j F Y",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_FIELD_CODE" => array(
@@ -82,7 +82,7 @@ $APPLICATION->SetTitle("Наши работы");
 		"PAGER_TEMPLATE" => ".default",
 		"PAGER_TITLE" => "Новости",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"SEF_MODE" => "N",
+		"SEF_MODE" => "Y",
 		"SET_LAST_MODIFIED" => "Y",
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "N",
@@ -100,9 +100,11 @@ $APPLICATION->SetTitle("Наши работы");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "nashi-raboty",
-		"VARIABLE_ALIASES" => array(
-			"SECTION_ID" => "SECTION_ID",
-			"ELEMENT_ID" => "ELEMENT_ID",
+		"SEF_FOLDER" => "/nashi-raboty/",
+		"SEF_URL_TEMPLATES" => array(
+			"news" => "",
+			"section" => "",
+			"detail" => "#ELEMENT_CODE#/",
 		)
 	),
 	false

@@ -5,8 +5,9 @@
                 <?
                     if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') {
                         echo 'Поможем подобрать оборудование';
-                    } elseif ($APPLICATION->GetCurPage() == '/nashi-raboty/') {
-                        echo 'Задайте нам вопрос';
+                    } elseif (preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
+                        if ($_SERVER["REQUEST_URI"] === '/nashi-raboty/') echo 'Задайте нам вопрос';
+                        else echo 'Поможем подобрать оборудование';
                     } else {
                         echo 'Оставьте заявку, мы поможем с выбором';
                     }
@@ -40,9 +41,12 @@
                         case '/ekrany-dlya-sportivnykh-meropriyatiy/': echo 'Экраны для спортивных мероприятий'; break;
                         case '/ekrany-dlya-konferentsiy/': echo 'Экраны для конференций'; break;
                         case '/reklamnye-ulichnye-ekrany/': echo 'Рекламные уличные экраны'; break;
-                        case '/nashi-raboty/': echo 'Наши работы'; break;
                     }
-                ?>">
+
+                    if(preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
+                        if ($_SERVER["REQUEST_URI"] === '/nashi-raboty/') echo 'Наши работы';
+                        else echo 'Страница отдельной работы';
+                    }?>">
                 <div class="form-order__data">
                     <div class="form-order__user-data animation-element">
                         <div class="controller-group">

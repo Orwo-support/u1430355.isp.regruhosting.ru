@@ -61,7 +61,11 @@
             case '/ekrany-dlya-sportivnykh-meropriyatiy/': echo 'page-sport-screen'; break;
             case '/ekrany-dlya-konferentsiy/': echo 'page-conf-screen'; break;
             case '/reklamnye-ulichnye-ekrany/': echo 'page-street-screen'; break;
-            case '/nashi-raboty/': echo 'page-our-works'; break;
+        }
+
+        if(preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
+            if ($_SERVER["REQUEST_URI"] === '/nashi-raboty/') echo 'page-our-works';
+            else echo 'page-single-work';
         }?>">
         <div id="panel">
             <?$APPLICATION->ShowPanel();?>
@@ -123,7 +127,7 @@
                 || $APPLICATION->GetCurPage() == '/begushchaya-stroka/'
                 || $APPLICATION->GetCurPage() == '/ekrany-dlya-konferentsiy/'
                 || $APPLICATION->GetCurPage() == '/reklamnye-ulichnye-ekrany/'
-                || $APPLICATION->GetCurPage() == '/nashi-raboty/') {
+                || preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
             $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
@@ -147,7 +151,8 @@
                 )
             );
         }?>
-        <?if ($APPLICATION->GetCurPage() == '/') {
+        <?if ($APPLICATION->GetCurPage() == '/'
+                || preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
             $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
