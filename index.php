@@ -461,18 +461,7 @@
 	),
 	false
 );?>
-<?if($APPLICATION->GetCurPage() == '/') {
-    $APPLICATION->IncludeComponent(
-        "bitrix:main.include",
-        "",
-        Array(
-            "AREA_FILE_SHOW" => "file",
-            "AREA_FILE_SUFFIX" => "inc",
-            "EDIT_TEMPLATE" => "",
-            "PATH" => "/comps/callback-form.php"
-        )
-    );
-}?>
+<?include_once($_SERVER["DOCUMENT_ROOT"]."/comps/callback-form.php");?>
 <?$APPLICATION->IncludeComponent("bitrix:news.list", "faq", Array(
 	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
 		"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации

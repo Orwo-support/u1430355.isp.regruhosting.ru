@@ -14,7 +14,9 @@ $this->setFrameMode(true);
 //debug($arResult['ITEMS']);
 ?>
 <section class="section section_list">
-    <div class="list__background"></div>
+    <?if($APPLICATION->GetCurPage() == '/'):?>
+        <div class="list__background"></div>
+    <?endif;?>
     <div class="list">
         <div class="container">
             <h2 class="h2 section__title animation-element">
@@ -47,28 +49,25 @@ $this->setFrameMode(true);
                             </div>
                         </div>
                     <?endforeach;?>
-                    <?
-                        if ($APPLICATION->GetCurPage() == '/') {
-                            $SHOW_ACTION_LINK = true;
-                        } else {
-                            $SHOW_ACTION_LINK = false;
-                        }
-
-                        $ACTION_LIST_TITLE = $APPLICATION->GetCurPage() == '/'
-                            ? 'Давайте знакомиться'
-                            : '';
-
-                        $ACTION_LIST_LINK_URL = $APPLICATION->GetCurPage() == '/'
-                            ? '/o-nas-garantiya-kontakty/'
-                            : '';
-                    ?>
-                    <?if($SHOW_ACTION_LINK):?>
+                    <? switch ($APPLICATION->GetCurPage()) {
+                        case '/':
+                            $ACTION_LIST_TITLE = 'Давайте знакомиться';
+                            $ACTION_LIST_LINK_NAME = 'О компании';
+                            $ACTION_LIST_LINK_URL = '/o-nas-garantiya-kontakty/';
+                            break;
+                        case '/o-nas-garantiya-kontakty/':
+                            $ACTION_LIST_TITLE = 'Наши проекты';
+                            $ACTION_LIST_LINK_NAME = 'Смотреть портфолио';
+                            $ACTION_LIST_LINK_URL = '/nashi-raboty/';
+                            break;
+                    }?>
+                    <?if(isset($ACTION_LIST_TITLE)):?>
                         <div class="list__slide swiper-slide lets-meet">
                             <div class="list__card">
                                 <span class="text animation-element"><?=$ACTION_LIST_TITLE;?></span>
                                 <div class="link-container animation-element">
                                     <a class="link revers" href="<?=$ACTION_LIST_LINK_URL;?>">
-                                        О компании
+                                        <?=$ACTION_LIST_LINK_NAME;?>
                                         <svg width="12"
                                              height="17"
                                              viewBox="0 0 12 17"

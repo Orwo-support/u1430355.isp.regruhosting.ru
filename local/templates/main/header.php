@@ -87,30 +87,13 @@
                  data-duration="2"></div>
         </div>
         <?if ($APPLICATION->GetCurPage() == '/rezultaty-raschyetov-kalkulyatora/') {
-            $APPLICATION->IncludeComponent(
-                "bitrix:main.include",
-                "",
-                Array(
-                    "AREA_FILE_SHOW" => "file",
-                    "AREA_FILE_SUFFIX" => "inc",
-                    "EDIT_TEMPLATE" => "",
-                    "PATH" => "/comps/calc-results-modal.php"
-                )
-            );
+            include_once($_SERVER["DOCUMENT_ROOT"]."/comps/calc-results-modal.php");
         }?>
         <?if ($APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
                 || $APPLICATION->GetCurPage() == '/proektirovanie-svetodiodnykh-ekranov/'
-                || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/') {
-            $APPLICATION->IncludeComponent(
-                "bitrix:main.include",
-                "",
-                Array(
-                    "AREA_FILE_SHOW" => "file",
-                    "AREA_FILE_SUFFIX" => "inc",
-                    "EDIT_TEMPLATE" => "",
-                    "PATH" => "/comps/gallery-modal.php"
-                )
-            );
+                || $APPLICATION->GetCurPage() == '/montazh-svetodiodnykh-ekranov/'
+                || $APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
+            include_once($_SERVER["DOCUMENT_ROOT"]."/comps/gallery-modal.php");
         }?>
         <?if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/'
                 || $APPLICATION->GetCurPage() == '/arenda-svetodiodnykh-ekranov/'
@@ -129,53 +112,18 @@
                 || $APPLICATION->GetCurPage() == '/ekrany-dlya-konferentsiy/'
                 || $APPLICATION->GetCurPage() == '/reklamnye-ulichnye-ekrany/'
                 || preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
-            $APPLICATION->IncludeComponent(
-                "bitrix:main.include",
-                "",
-                Array(
-                    "AREA_FILE_SHOW" => "file",
-                    "AREA_FILE_SUFFIX" => "inc",
-                    "EDIT_TEMPLATE" => "",
-                    "PATH" => "/comps/order-modal.php"
-                )
-            );
+            include_once($_SERVER["DOCUMENT_ROOT"]."/comps/order-modal.php");
         }?>
-        <?if ($APPLICATION->GetCurPage() == '/') {
-            $APPLICATION->IncludeComponent(
-                "bitrix:main.include",
-                "",
-                Array(
-                    "AREA_FILE_SHOW" => "file",
-                    "AREA_FILE_SUFFIX" => "inc",
-                    "EDIT_TEMPLATE" => "",
-                    "PATH" => "/comps/callback-modal.php"
-                )
-            );
+        <?if ($APPLICATION->GetCurPage() == '/'
+                || $APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
+            include_once($_SERVER["DOCUMENT_ROOT"]."/comps/callback-modal.php");
         }?>
         <?if ($APPLICATION->GetCurPage() == '/'
                 || preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
-            $APPLICATION->IncludeComponent(
-                "bitrix:main.include",
-                "",
-                Array(
-                    "AREA_FILE_SHOW" => "file",
-                    "AREA_FILE_SUFFIX" => "inc",
-                    "EDIT_TEMPLATE" => "",
-                    "PATH" => "/comps/video-modal.php"
-                )
-            );
+            include_once($_SERVER["DOCUMENT_ROOT"]."/comps/video-modal.php");
         }?>
         <?if ($APPLICATION->GetCurPage() == '/') {
-            $APPLICATION->IncludeComponent(
-                "bitrix:main.include",
-                "",
-                Array(
-                    "AREA_FILE_SHOW" => "file",
-                    "AREA_FILE_SUFFIX" => "inc",
-                    "EDIT_TEMPLATE" => "",
-                    "PATH" => "/comps/quiz.php"
-                )
-            );
+            include_once($_SERVER["DOCUMENT_ROOT"]."/comps/quiz.php");
         }?>
         <header class="header" id="header">
             <a class="header__logo" href="/">
