@@ -102,9 +102,9 @@
     &__addres {
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
 
         @media (min-width: $md) {
-            justify-content: space-around;
             max-width: 350px;
         }
 
@@ -123,7 +123,7 @@
     }
 
     &__addres-item {
-        margin-bottom: 25px;
+        margin-bottom: 24px;
         padding-left: 36px;
         position: relative;
         transition: $anim-card;
@@ -141,7 +141,7 @@
         }
 
         @media (min-width: $md) {
-            margin-bottom: 0;
+            margin-bottom: 16px;
         }
 
         @media (min-width: $lg) {
@@ -149,6 +149,11 @@
             flex-direction: column;
             align-items: flex-start;
             padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: $xl) {
+            margin-bottom: 40px;
         }
     }
 
