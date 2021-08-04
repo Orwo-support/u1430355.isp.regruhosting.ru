@@ -2021,3 +2021,21 @@ filter: grayscale(0) blur(0);
 .cursor-default {
     cursor: default !important;
 }
+
+// Anchor links
+.place-target-container {
+    position: relative;
+}
+
+.place-target-anchor {
+    position: absolute;
+    top: -100px;
+
+    @media (min-width: $md) {
+        top: -160px;
+    }
+
+    @media (min-width: $xl) {
+        top: -170px;
+    }
+}
