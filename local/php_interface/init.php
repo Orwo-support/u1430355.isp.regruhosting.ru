@@ -28,6 +28,16 @@ function normalizeDate($date) {
         . $arDate['year'];
 };
 
+function normalizedPhone($notNormalPhone) {
+    $phoneWithoutLetter = preg_replace('~\D+~','', $notNormalPhone);
+
+    $cleanedPhone = $phoneWithoutLetter[0] == '7' || $phoneWithoutLetter[0] == '8'
+        ? substr($phoneWithoutLetter, 1)
+        : $phoneWithoutLetter;
+
+    return '+7' . $cleanedPhone;
+}
+
 function getNextPage($arResult, $curPage, $templateUrl) {
     $NavPageNomer = $arResult["NAV_RESULT"]->NavPageNomer; // Номер текущей страницы
     $NavPageCount = $arResult["NAV_RESULT"]->NavPageCount; // Количество страниц

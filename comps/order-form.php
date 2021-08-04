@@ -5,6 +5,8 @@
                 <?
                     if ($APPLICATION->GetCurPage() == '/dostavka-i-oplata/') {
                         echo 'Поможем подобрать оборудование';
+                    } elseif ($APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
+                        echo 'Задайте нам вопрос';
                     } elseif (preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
                         if ($_SERVER["REQUEST_URI"] === '/nashi-raboty/') echo 'Задайте нам вопрос';
                         else echo 'Поможем подобрать оборудование';
@@ -41,6 +43,7 @@
                         case '/ekrany-dlya-sportivnykh-meropriyatiy/': echo 'Экраны для спортивных мероприятий'; break;
                         case '/ekrany-dlya-konferentsiy/': echo 'Экраны для конференций'; break;
                         case '/reklamnye-ulichnye-ekrany/': echo 'Рекламные уличные экраны'; break;
+                        case '/o-nas-garantiya-kontakty/': echo 'О нас, Гарантия, Контакты'; break;
                     }
 
                     if(preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {

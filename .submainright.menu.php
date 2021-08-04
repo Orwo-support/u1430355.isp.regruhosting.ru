@@ -1,6 +1,13 @@
 <?
 $aMenuLinks = Array(
 	Array(
+		"Новая страница", 
+		"/novaya-stranitsa.php", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Аренда под ключ", 
 		"/arenda-svetodiodnykh-ekranov/", 
 		Array(), 
@@ -15,7 +22,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Проектирование",
+		"Проектирование", 
 		"/proektirovanie-svetodiodnykh-ekranov/", 
 		Array(), 
 		Array(), 

@@ -163,6 +163,9 @@ $APPLICATION->SetTitle("Доставка и оплата");
         </div>
     </div>
 </section>
+<div class="place-target-container">
+    <span id="rassrochka" class="place-target-anchor"></span>
+</div>
 <section class="section section_payment">
     <div class="payment">
         <div class="container">
@@ -316,14 +319,5 @@ $APPLICATION->SetTitle("Доставка и оплата");
         </div>
     </div>
 </section>
-<?$APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    Array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "",
-        "PATH" => "/comps/order-form.php"
-    )
-);?>
+<?include_once($_SERVER["DOCUMENT_ROOT"]."/comps/order-form.php");?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

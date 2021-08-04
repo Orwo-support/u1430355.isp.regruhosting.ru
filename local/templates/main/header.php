@@ -30,8 +30,8 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
 
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.669ada1d1bc22d0d1608.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.669ada1d1bc22d0d1608.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.8ad67350555b634faf14.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.8ad67350555b634faf14.css");
 
             Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.669ada1d1bc22d0d1608.js");
             Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.669ada1d1bc22d0d1608.js");
@@ -111,6 +111,7 @@
                 || $APPLICATION->GetCurPage() == '/begushchaya-stroka/'
                 || $APPLICATION->GetCurPage() == '/ekrany-dlya-konferentsiy/'
                 || $APPLICATION->GetCurPage() == '/reklamnye-ulichnye-ekrany/'
+                || $APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/'
                 || preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
             include_once($_SERVER["DOCUMENT_ROOT"]."/comps/order-modal.php");
         }?>

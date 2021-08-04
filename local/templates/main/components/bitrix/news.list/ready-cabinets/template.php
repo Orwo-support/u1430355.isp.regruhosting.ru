@@ -16,6 +16,9 @@ $this->setFrameMode(true);
 <section class="section section_ready-cabins">
     <?//Удалил из div.ready-cabins (прямо под комментом) data-filter-state="{&quot;executionType&quot;:&quot;&quot;,&quot;pixelStep&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;}"?>
     <div class="ready-cabins">
+        <div class="place-target-container">
+            <span id="gotovye-kabinety" class="place-target-anchor"></span>
+        </div>
         <div class="container">
             <h2 class="h2 section__title animation-element">
                 <span class="title"><?=$arResult['DESCRIPTION']?></span>

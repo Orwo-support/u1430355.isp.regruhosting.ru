@@ -2,7 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"28 моделей готовых кабинета", 
-		"/svetodiodnyy-ekran/#", 
+		"/svetodiodnyy-ekran/#gotovye-kabinety", 
 		Array(), 
 		Array(), 
 		"" 

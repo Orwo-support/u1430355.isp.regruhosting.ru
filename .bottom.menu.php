@@ -9,7 +9,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Рассрочка", 
-		"/dostavka-i-oplata/", 
+		"/dostavka-i-oplata/#rassrochka", 
 		Array(), 
 		Array(), 
 		"" 
@@ -22,15 +22,15 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"О компании",
-		"/o-nas-garantiya-kontakty/",
-		Array(),
-		Array(),
-		""
+		"О компании", 
+		"/o-nas-garantiya-kontakty/#o-kompanii", 
+		Array(), 
+		Array(), 
+		"" 
 	),
 	Array(
 		"Готовые кабинеты", 
-		"/svetodiodnyy-ekran/", 
+		"/svetodiodnyy-ekran/#gotovye-kabinety", 
 		Array(), 
 		Array(), 
 		"" 
@@ -42,19 +42,19 @@ $aMenuLinks = Array(
 		Array(), 
 		"" 
 	),
-    Array(
-        "Сертификаты",
-        "/o-nas-garantiya-kontakty/",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Контакты",
-        "/o-nas-garantiya-kontakty/",
-        Array(),
-        Array(),
-        ""
-    )
+	Array(
+		"Сертификаты", 
+		"/o-nas-garantiya-kontakty/#sertifikaty", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"/o-nas-garantiya-kontakty/#kontakty", 
+		Array(), 
+		Array(), 
+		"" 
+	)
 );
 ?>

@@ -1,1 +1,1 @@
-<a class="phone" href="tel:84999388779">+7 499 938 87 79</a>
+<a class="phone" href="tel:+74999388779">+7 499 938 87 79</a>
