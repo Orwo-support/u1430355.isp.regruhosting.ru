@@ -3,7 +3,7 @@ function debug ($data) {
     print '<pre>' . print_r($data, 1) . '</pre>';
 }
 
-function normalizeDate($date) {
+function normalizeDate ($date) {
     $arrMonths = [
         'января',
         'февраля',
@@ -28,7 +28,7 @@ function normalizeDate($date) {
         . $arDate['year'];
 };
 
-function normalizedPhone($notNormalPhone) {
+function normalizedPhone ($notNormalPhone) {
     $phoneWithoutLetter = preg_replace('~\D+~','', $notNormalPhone);
 
     $cleanedPhone = $phoneWithoutLetter[0] == '7' || $phoneWithoutLetter[0] == '8'
@@ -38,7 +38,7 @@ function normalizedPhone($notNormalPhone) {
     return '+7' . $cleanedPhone;
 }
 
-function getNextPage($arResult, $curPage, $templateUrl) {
+function getNextPage ($arResult, $curPage, $templateUrl) {
     $NavPageNomer = $arResult["NAV_RESULT"]->NavPageNomer; // Номер текущей страницы
     $NavPageCount = $arResult["NAV_RESULT"]->NavPageCount; // Количество страниц
     $NavRecordCount = $arResult["NAV_RESULT"]->NavRecordCount; // Общее количество элементов
@@ -61,7 +61,7 @@ function getNextPage($arResult, $curPage, $templateUrl) {
  * Обработка отправки сообщения из формы Колбэка
  * Отправка сообщения менеджеру компании */
 // Регистрируем обработчик
-AddEventHandler(
+AddEventHandler (
     "iblock",
     "OnAfterIBlockElementAdd",
     Array("handleCallbackForm", "OnAfterIBlockElementAddHandler")
@@ -102,7 +102,7 @@ class handleCallbackForm {
  * Обработка отправки сообщения из формы Заполненного Квиза
  * Отправка сообщения менеджеру компании */
 // Регистрируем обработчик
-AddEventHandler(
+AddEventHandler (
     "iblock",
     "OnAfterIBlockElementAdd",
     Array("handleQuizForm", "OnAfterIBlockElementAddHandler")
@@ -144,11 +144,10 @@ class handleQuizForm {
 }
 
 /*
- * Обработка отправки сообщения из
- * формы Запроса к мендежеру сайта
+ * Обработка отправки сообщения из формы Запроса к мендежеру сайта
  * Отправка сообщения менеджеру компании */
 // Регистрируем обработчик
-AddEventHandler(
+AddEventHandler (
     "iblock",
     "OnAfterIBlockElementAdd",
     Array("handleRequestForm", "OnAfterIBlockElementAddHandler")

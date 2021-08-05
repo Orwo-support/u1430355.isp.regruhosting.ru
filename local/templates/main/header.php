@@ -62,11 +62,16 @@
             case '/ekrany-dlya-konferentsiy/': echo 'page-conf-screen'; break;
             case '/reklamnye-ulichnye-ekrany/': echo 'page-street-screen'; break;
             case '/o-nas-garantiya-kontakty/': echo 'page-about'; break;
+            case '/baza-znaniy/': echo 'page-knowledge-base'; break;
         }
 
         if(preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
             if ($_SERVER["REQUEST_URI"] === '/nashi-raboty/') echo 'page-our-works';
             else echo 'page-single-work';
+        }
+
+        if(preg_match('/stati/', $_SERVER["REQUEST_URI"])) {
+            echo 'page-single-article-news';
         }?>">
         <div id="panel">
             <?$APPLICATION->ShowPanel();?>

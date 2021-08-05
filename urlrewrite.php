@@ -1,11 +1,27 @@
 <?php
 $arUrlRewrite=array (
-  2 => 
+  4 => 
   array (
     'CONDITION' => '#^/nashi-raboty/#',
     'RULE' => '',
     'ID' => 'bitrix:news',
     'PATH' => '/nashi-raboty/index.php',
+    'SORT' => 100,
+  ),
+  6 => 
+  array (
+    'CONDITION' => '#^/novosti/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/novosti/index.php',
+    'SORT' => 100,
+  ),
+  5 => 
+  array (
+    'CONDITION' => '#^/stati/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/stati/index.php',
     'SORT' => 100,
   ),
   0 => 
