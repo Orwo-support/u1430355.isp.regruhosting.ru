@@ -195,6 +195,7 @@
         width: 90%;
         margin-left: 5%;
         height: 138px;
+        max-height: 150px;
         background: $color-back-primary;
         border-radius: 12px;
         box-shadow:
@@ -207,7 +208,7 @@
         color: $color-text-secondary;
         cursor: pointer;
         margin-top: 48px;
-        transition: background-color .2s, box-shadow .2s;
+        transition: all .2s linear;
         padding: 0 48px;
 
         .points {
@@ -229,6 +230,12 @@
 
         @media (min-width: $xl) {
             display: flex;
+        }
+
+        &.hidden {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
         }
     }
 }

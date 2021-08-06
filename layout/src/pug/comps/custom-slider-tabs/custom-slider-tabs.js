@@ -58,6 +58,20 @@ $(document).ready(function () {
                     setTimeout(function () {
                         $(tabTargetId).addClass('show');
                     }, 300);
+
+                    // Toggle button show more items
+                    let itemList = $(tabTargetId)
+                        .find('.tab-list__list__wrap')[0];
+
+                    let buttonGetMoreItems = $(tabTargetId)
+                        .closest('.section_tab-list')
+                        .find('.tab-list__get-data');
+
+                    if (itemList.dataset.nextPageUrl === 'null') {
+                        $(buttonGetMoreItems).addClass('hidden');
+                    } else {
+                        $(buttonGetMoreItems).removeClass('hidden');
+                    }
                 }
             });
         }
