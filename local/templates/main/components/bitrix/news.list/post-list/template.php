@@ -11,7 +11,6 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
 /*
  * В файле result_modifier.php (находится в папке шаблона)
  * отредактировал $arResult таким образом, что в $arResult['ITEMS']
@@ -19,15 +18,13 @@ $this->setFrameMode(true);
  * все элменты данного раздела
  * */
 
-//debug($arResult);
+//debug($arResult['ITEMS']);
 ?>
 <section class="section section_tab-list">
-    <div class="tab-list">
+    <div class="tab-list article-list">
         <div class="container">
             <h2 class="h2 section__title animation-element">
-                <span class="title">
-                    <?=$arResult['NAME']?>
-                </span>
+                <span class="title">Полезные статьи</span>
             </h2>
         </div>
         <div class="tabs animation-element">
@@ -53,12 +50,12 @@ $this->setFrameMode(true);
                 </div>
             </div>
         </div>
-        <div class="tabs-items">
+        <div class="tabs-items" id="aricleList">
             <?foreach($arResult["ITEMS"] as $key => $arSection):?>
                 <?if(!empty($arSection['ELEMENTS'])):?>
                     <?/*
                        * Формируем идентификаторы для
-                       * построения слайдеров с элементами (работами)
+                       * построения слайдеров с элементами (статьями)
                        * ЗНАЧЕНИЯ ПЕРЕМЕННЫХ НЕ ТРОГАТЬ!!!
                        * Именно так они запсаны
                        * в инициализаторах слайдеров в JS!
@@ -71,60 +68,50 @@ $this->setFrameMode(true);
                        * */?>
                     <?switch ($arSection['CODE']) {
                         case 'ticker':
-                            $BUTTON_PREV_ID = 'btnTabListTickerPrev';
-                            $BUTTON_NEXT_ID = 'btnTabListTickerNext';
-                            $SLIDER_CONTAINER_ID = 'tabListOurWorkTickerSlider';
+                            $SLIDER_CONTAINER_ID = 'tabListTickerSlider';
+
                             break;
                         case 'mediaFacade':
-                            $BUTTON_PREV_ID = 'btnTabListMediaFacadePrev';
-                            $BUTTON_NEXT_ID = 'btnTabListMediaFacadeNext';
-                            $SLIDER_CONTAINER_ID = 'tabListOurWorkMediaFacadeSlider';
+                            $SLIDER_CONTAINER_ID = 'tabListMediaFacadeSlider';
                             break;
                         case 'outerLedScreen':
-                            $BUTTON_PREV_ID = 'btnTabListOuterLedScreenPrev';
-                            $BUTTON_NEXT_ID = 'btnTabListOuterLedScreenNext';
-                            $SLIDER_CONTAINER_ID = 'tabListOurWorkOuterLedScreenSlider';
+                            $SLIDER_CONTAINER_ID = 'tabListOuterLedScreenSlider';
                             break;
                         case 'innerLedScreen':
-                            $BUTTON_PREV_ID = 'btnTabListInnerLedScreenPrev';
-                            $BUTTON_NEXT_ID = 'btnTabListInnerLedScreenNext';
-                            $SLIDER_CONTAINER_ID = 'tabListOurWorkInnerLedScreenSlider';
+                            $SLIDER_CONTAINER_ID = 'tabListInnerLedScreenSlider';
                             break;
                         case 'rent':
-                            $BUTTON_PREV_ID = 'btnTabListRentPrev';
-                            $BUTTON_NEXT_ID = 'btnTabListRentNext';
-                            $SLIDER_CONTAINER_ID = 'tabListOurWorkRentSlider';
+                            $SLIDER_CONTAINER_ID = 'tabListRentSlider';
                             break;
-                    }?>
-                    <div class="container-endless tabs-item<?= $key == 0 ? ' visible show' : '';?>"
+                    }
+
+                    $NEXT_PAGE_URL = '/utilities/get-next-'.$arSection['CODE'].'-articles-page.php?PAGEN_1=2';?>
+                    <div class="container-endless tabs-item animation-element<?= $key == 0 ? ' visible show' : '';?>"
                          id="<?=$arSection['CODE']?>">
-                        <div class="endless tab-list__list swiper-container"
-                             id="<?=$SLIDER_CONTAINER_ID?>">
-                            <div class="tab-list__list__wrap swiper-wrapper">
+                        <div class="endless tab-list__list swiper-container" id="<?=$SLIDER_CONTAINER_ID?>">
+                            <div class="tab-list__list__wrap swiper-wrapper"
+                                data-next-page-url="<?=$arSection['COUNT_OF_ITEMS'] > 4 ? $NEXT_PAGE_URL : 'null'?>">
                                 <?foreach($arSection['ELEMENTS'] as $arItem):?>
                                     <?
                                     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
                                     $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
                                     ?>
-                                    <div class="tab-list__slide swiper-slide"
+                                    <div class="article-list__slide swiper-slide"
                                          id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-                                        <a class="tab-list__card<?= $key == 0 ? ' animation-element' : '';?>"
-                                           href="<?=$arItem["DETAIL_PAGE_URL"]?>">
-                                            <div class="tab-list__place">
-                                                <?=$arItem['PREVIEW_TEXT']?>
-                                                <br>
-                                                <?=$arItem['PROPERTIES']['WORK_CITY']['VALUE']?>
+                                        <a class="article-list__card" href="<?=$arItem["DETAIL_PAGE_URL"]?>">
+                                            <div class="article-list__pic">
+                                                <div class="image"
+                                                     style="background-image: url(<?=$arItem['PREVIEW_PICTURE']['SRC']?>)"></div>
                                             </div>
-                                            <div class="tab-list__params">
-                                                <div class="screen">
-                                                    Экран <?=$arItem['PROPERTIES']['WORK_SCREEN_TYPE']['VALUE']?>
+                                            <div class="article-list__date"><?=explode(" ", $arItem['DATE_CREATE'])[0]?></div>
+                                            <div class="article-list__caption"><?=fixPostPreviewText($arItem['PREVIEW_TEXT'])?></div>
+                                            <div class="article-list_time">
+                                                <div class="icon">
+                                                    <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M9.05691 4.68684C13.6479 2.78484 18.9109 4.96584 20.8129 9.55684C22.7149 14.1478 20.5339 19.4108 15.9429 21.3128C11.3519 23.2148 6.08891 21.0338 4.18691 16.4428C2.28591 11.8518 4.46591 6.58884 9.05691 4.68684" stroke="#AB78FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12.2179 8.98483V13.6358L15.8739 15.8648" stroke="#AB78FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>
                                                 </div>
-                                                <div class="pixels">
-                                                    Шаг пикселя <?=$arItem['PROPERTIES']['WORK_PIXEL_STEP']['VALUE']?>
-                                                </div>
-                                            </div>
-                                            <div class="tab-list__pic">
-                                                <div class="image" style="background-image: url(<?=$arItem['PREVIEW_PICTURE']['SRC']?>)"></div>
+                                                <span class="content">
+                                                    <?=$arItem['PROPERTIES']['ARTICLE_TIME_READING']['VALUE']?>
+                                                </span>
                                             </div>
                                         </a>
                                     </div>
@@ -132,7 +119,7 @@ $this->setFrameMode(true);
                             </div>
                         </div>
                         <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_prev"
-                             id="<?=$BUTTON_PREV_ID?>">
+                             id="btnTabListTickerPrev">
                             <svg width="14"
                                  height="26"
                                  viewBox="0 0 14 26"
@@ -146,7 +133,7 @@ $this->setFrameMode(true);
                             </svg>
                         </div>
                         <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_next"
-                             id="<?=$BUTTON_NEXT_ID?>">
+                             id="btnTabListTickerNext">
                             <svg width="14"
                                  height="26"
                                  viewBox="0 0 14 26"
@@ -164,71 +151,19 @@ $this->setFrameMode(true);
             <?endforeach;?>
         </div>
     </div>
+    <?=$COUNT_OF_ITEMS_AT_FIRST_SECTION?>
+    <button class="tab-list__get-data<?=$arResult["ITEMS"][0]['COUNT_OF_ITEMS'] > 4 ? '' : ' hidden'?>"
+            data-list-id="#aricleList">
+        <span class="points points_left">
+            <span class="point"></span>
+            <span class="point"></span>
+            <span class="point"></span>
+        </span>
+        <span class="text">Еще статьи</span>
+        <span class="points points_right">
+            <span class="point"></span>
+            <span class="point"></span>
+            <span class="point"></span>
+        </span>
+    </button>
 </section>
-<?$APPLICATION->IncludeComponent(
-    "bitrix:news.list",
-    "stages-of-work",
-    array(
-        "ACTIVE_DATE_FORMAT" => "d.m.Y",
-        "ADD_SECTIONS_CHAIN" => "Y",
-        "AJAX_MODE" => "N",
-        "AJAX_OPTION_ADDITIONAL" => "",
-        "AJAX_OPTION_HISTORY" => "N",
-        "AJAX_OPTION_JUMP" => "N",
-        "AJAX_OPTION_STYLE" => "Y",
-        "CACHE_FILTER" => "N",
-        "CACHE_GROUPS" => "Y",
-        "CACHE_TIME" => "36000000",
-        "CACHE_TYPE" => "A",
-        "CHECK_DATES" => "Y",
-        "DETAIL_URL" => "",
-        "DISPLAY_BOTTOM_PAGER" => "N",
-        "DISPLAY_DATE" => "Y",
-        "DISPLAY_NAME" => "Y",
-        "DISPLAY_PICTURE" => "Y",
-        "DISPLAY_PREVIEW_TEXT" => "Y",
-        "DISPLAY_TOP_PAGER" => "N",
-        "FIELD_CODE" => array(
-            0 => "PREVIEW_TEXT",
-            1 => "DETAIL_TEXT",
-            2 => "",
-        ),
-        "FILTER_NAME" => "",
-        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "53",
-        "IBLOCK_TYPE" => "work_stages",
-        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-        "INCLUDE_SUBSECTIONS" => "Y",
-        "MESSAGE_404" => "",
-        "NEWS_COUNT" => "7",
-        "PAGER_BASE_LINK_ENABLE" => "N",
-        "PAGER_DESC_NUMBERING" => "N",
-        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-        "PAGER_SHOW_ALL" => "N",
-        "PAGER_SHOW_ALWAYS" => "N",
-        "PAGER_TEMPLATE" => ".default",
-        "PAGER_TITLE" => "Новости",
-        "PARENT_SECTION" => "",
-        "PARENT_SECTION_CODE" => "",
-        "PREVIEW_TRUNCATE_LEN" => "",
-        "PROPERTY_CODE" => array(
-            0 => "WORK_DAYS",
-            1 => "",
-        ),
-        "SET_BROWSER_TITLE" => "N",
-        "SET_LAST_MODIFIED" => "N",
-        "SET_META_DESCRIPTION" => "N",
-        "SET_META_KEYWORDS" => "N",
-        "SET_STATUS_404" => "N",
-        "SET_TITLE" => "N",
-        "SHOW_404" => "N",
-        "SORT_BY1" => "SORT",
-        "SORT_BY2" => "ACTIVE_FROM",
-        "SORT_ORDER1" => "ASC",
-        "SORT_ORDER2" => "DESC",
-        "STRICT_SECTION_CHECK" => "N",
-        "COMPONENT_TEMPLATE" => "stages-of-work"
-    ),
-    false
-);?>
-<?include_once($_SERVER["DOCUMENT_ROOT"]."/comps/order-form.php");?>

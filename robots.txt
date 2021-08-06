@@ -1,2 +1,5 @@
 User-agent: *
 Disallow: /
+
+User-agent: *
+Disallow: /utilities/get-next-articles-page.php

@@ -16,7 +16,7 @@
  * неоьходимость их налчия в выводимх данных.
  *
  * */?>
-<?$GLOBALS['arrFilter']=array("SECTION_ID" => 6);?>
+<?$GLOBALS['arrFilter']=array("SECTION_ID" => 7);?>
 <?$APPLICATION->IncludeComponent(
     "bitrix:news.list",
     "ajax-request-article-list",
