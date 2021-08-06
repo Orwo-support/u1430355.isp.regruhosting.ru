@@ -48,7 +48,7 @@ $this->setFrameMode(true);
                                         <?=explode(" ", $arItem['DATE_CREATE'])[0]?>
                                     </div>
                                     <div class="news-list__caption">
-                                        <?=$arItem['PREVIEW_TEXT']?>
+                                        <?=fixPostPreviewText($arItem['PREVIEW_TEXT'])?>
                                     </div>
                                     <div class="news-list_time">
                                         <div class="icon">

@@ -70,7 +70,8 @@
             else echo 'page-single-work';
         }
 
-        if(preg_match('/stati/', $_SERVER["REQUEST_URI"])) {
+        if(preg_match('/stati/', $_SERVER["REQUEST_URI"])
+            || preg_match('/novosti/', $_SERVER["REQUEST_URI"])) {
             echo 'page-single-article-news';
         }?>">
         <div id="panel">

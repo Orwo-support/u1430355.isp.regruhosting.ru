@@ -57,6 +57,16 @@ function getNextPage ($arResult, $curPage, $templateUrl) {
     );
 }
 
+function fixPostPreviewText ($text) {
+    if (strlen($text) > 110) {
+        $arrText = explode(" ", mb_strimwidth($text, 0, 110));
+        array_pop($arrText);
+        return implode(" ", $arrText) . '&nbsp;...';
+    }
+
+    return $text;
+}
+
 /*
  * Обработка отправки сообщения из формы Колбэка
  * Отправка сообщения менеджеру компании */
