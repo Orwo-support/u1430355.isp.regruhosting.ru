@@ -37,6 +37,7 @@ export let calcPrice = {
             "comment": "5000 nits.35w  1/8 scan, SMD2727,реком пит 4,5v"
         },
         {
+
             "name": "Светодиодный модуль QIANGLI",
             "pixels": "Q6,66",
             "type": "",

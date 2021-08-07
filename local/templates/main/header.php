@@ -63,6 +63,7 @@
             case '/reklamnye-ulichnye-ekrany/': echo 'page-street-screen'; break;
             case '/o-nas-garantiya-kontakty/': echo 'page-about'; break;
             case '/baza-znaniy/': echo 'page-knowledge-base'; break;
+            case '/kalkulyator/': echo 'page-calc'; break;
         }
 
         if(preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {
@@ -190,26 +191,23 @@
                         Оформить заявку
                     </div>
                 </div>
-                <div class="nav-toggler" id="navToggler">
-                    <? for ($i = 0; $i < 3; $i++) { ?>
-                        <?
-                            if ($i == 0) $navToggleClass = 'top-line';
-                            if ($i == 1) $navToggleClass = 'middle-line';
-                            if ($i == 2) $navToggleClass = 'bottom-line';
-                        ?>
-                        <span class="<?=$navToggleClass;?>">
-                            <svg id="Layer_1"
-                                 xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                 viewBox="0 0 16 2"
-                                 style="enable-background:new 0 0 16 2"
-                                 xml:space="preserve">
-                                <g>
-                                    <path d="M15.3,2H0.6C0.3,2,0,1.5,0,0.9S0.3,0,0.6,0h14.6C15.6,0,16,0.4,16,1.1S15.6,2,15.3,2z"/>
-                                </g>
-                            </svg>
-                        </span>
-                    <? } ?>
+                <div class="nav-toggler" id="navToggler"><?
+                    for ($i = 0; $i < 3; $i++) { ?><?
+                        if ($i == 0) $navToggleClass = 'top-line';
+                        if ($i == 1) $navToggleClass = 'middle-line';
+                        if ($i == 2) $navToggleClass = 'bottom-line';
+                    ?><span class="<?=$navToggleClass;?>">
+                        <svg id="Layer_1"
+                             xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 16 2"
+                             style="enable-background:new 0 0 16 2"
+                             xml:space="preserve">
+                            <g>
+                                <path d="M15.3,2H0.6C0.3,2,0,1.5,0,0.9S0.3,0,0.6,0h14.6C15.6,0,16,0.4,16,1.1S15.6,2,15.3,2z"/>
+                            </g>
+                        </svg>
+                    </span><?}?>
                 </div>
             </div>
             <span id="navLine"></span>
