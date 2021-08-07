@@ -17,21 +17,24 @@ $this->setFrameMode(true);
  * теперь лежат разделы, которые в массиве ELEMENTS хранят
  * все элменты данного раздела
  * */
-
+//debug($arParams);
 //debug($arResult['ITEMS']);
 ?>
 <section class="section section_tab-list">
     <div class="tab-list article-list">
         <div class="container">
             <h2 class="h2 section__title animation-element">
-                <span class="title">Полезные статьи</span>
+                <span class="title"><?=$arParams['LOCAL_SECTION_TITLE']?></span>
             </h2>
         </div>
         <div class="tabs animation-element">
             <div class="container-endless-fix">
                 <div class="endless tabs__controlls">
                     <div class="slider-tabs">
-                        <div class="slider-tabs__container swiper-container" id="ourWorksSlider">
+                        <div class="slider-tabs__container swiper-container" id="<?
+                            if ($arParams['IBLOCK_ID'] == 60) echo 'ourWorksSlider';
+                            elseif ($arParams['IBLOCK_ID'] == 61) echo 'ourNewsSlider';
+                        ?>">
                             <div class="slider-tabs__wrap swiper-wrapper">
                                 <div class="marker"></div>
                                 <?foreach($arResult['ITEMS'] as $key => $arSection):?>
@@ -50,12 +53,14 @@ $this->setFrameMode(true);
                 </div>
             </div>
         </div>
-        <div class="tabs-items" id="aricleList">
+        <div class="tabs-items" id="<?=$arParams['LOCAL_TAB_ID']?>">
             <?foreach($arResult["ITEMS"] as $key => $arSection):?>
                 <?if(!empty($arSection['ELEMENTS'])):?>
                     <?/*
                        * Формируем идентификаторы для
-                       * построения слайдеров с элементами (статьями)
+                       * построения слайдеров с элементами
+                       * (статьями/новостями)
+                       *
                        * ЗНАЧЕНИЯ ПЕРЕМЕННЫХ НЕ ТРОГАТЬ!!!
                        * Именно так они запсаны
                        * в инициализаторах слайдеров в JS!
@@ -64,12 +69,14 @@ $this->setFrameMode(true);
                        * обязательно отредактировать
                        * в /layout/src/js/swiper.js
                        * Далее пересобрать бандл и
-                       * переподключить в хедере.
+                       * переподключить в прологе
+                       * используемого шаблона
+                       * (local/templates/main/header.php).
                        * */?>
+
                     <?switch ($arSection['CODE']) {
                         case 'ticker':
                             $SLIDER_CONTAINER_ID = 'tabListTickerSlider';
-
                             break;
                         case 'mediaFacade':
                             $SLIDER_CONTAINER_ID = 'tabListMediaFacadeSlider';
@@ -83,9 +90,19 @@ $this->setFrameMode(true);
                         case 'rent':
                             $SLIDER_CONTAINER_ID = 'tabListRentSlider';
                             break;
+                        case 'newsCompany':
+                            $SLIDER_CONTAINER_ID = 'tabListNewsCompanySlider';
+                            break;
+                        case 'newsPartners':
+                            $SLIDER_CONTAINER_ID = 'tabListNewsPartnersSlider';
+                            break;
                     }
 
-                    $NEXT_PAGE_URL = '/utilities/get-next-'.$arSection['CODE'].'-articles-page.php?PAGEN_1=2';?>
+                    if ($arParams['IBLOCK_ID'] == 60) $COMPONENT_TYPE_NAME = 'articles';
+                    elseif ($arParams['IBLOCK_ID'] == 61) $COMPONENT_TYPE_NAME = 'news';
+
+                    $NEXT_PAGE_URL = '/utilities/get-next-'.$arSection['CODE'].'-'.$COMPONENT_TYPE_NAME.'-page.php?PAGEN_1=2';?>
+
                     <div class="container-endless tabs-item animation-element<?= $key == 0 ? ' visible show' : '';?>"
                          id="<?=$arSection['CODE']?>">
                         <div class="endless tab-list__list swiper-container" id="<?=$SLIDER_CONTAINER_ID?>">
@@ -109,17 +126,50 @@ $this->setFrameMode(true);
                                                 <div class="icon">
                                                     <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M9.05691 4.68684C13.6479 2.78484 18.9109 4.96584 20.8129 9.55684C22.7149 14.1478 20.5339 19.4108 15.9429 21.3128C11.3519 23.2148 6.08891 21.0338 4.18691 16.4428C2.28591 11.8518 4.46591 6.58884 9.05691 4.68684" stroke="#AB78FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12.2179 8.98483V13.6358L15.8739 15.8648" stroke="#AB78FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>
                                                 </div>
-                                                <span class="content">
-                                                    <?=$arItem['PROPERTIES']['ARTICLE_TIME_READING']['VALUE']?>
-                                                </span>
+                                                <span class="content"><?
+                                                    if ($arParams['IBLOCK_ID'] == 60)
+                                                        echo $arItem['PROPERTIES']['ARTICLE_TIME_READING']['VALUE'];
+                                                    elseif ($arParams['IBLOCK_ID'] == 61) $COMPONENT_TYPE_NAME = 'news';
+                                                        echo $arItem['PROPERTIES']['NEWS_TIME_READING']['VALUE'];
+                                                    ?></span>
                                             </div>
                                         </a>
                                     </div>
                                 <?endforeach;?>
                             </div>
                         </div>
+                        <?switch ($arSection['CODE']) {
+                            case 'ticker':
+                                $SLIDER_CONTROLLER_PREV_ID = 'btnTabListTickerPrev';
+                                $SLIDER_CONTROLLER_NEXT_ID = 'btnTabListTickerNext';
+                                break;
+                            case 'mediaFacade':
+                                $SLIDER_CONTROLLER_PREV_ID = 'btnTabListMediaFacadePrev';
+                                $SLIDER_CONTROLLER_NEXT_ID = 'btnTabListMediaFacadeNext';
+                                break;
+                            case 'outerLedScreen':
+                                $SLIDER_CONTROLLER_PREV_ID = 'btnTabListOuterLedScreenPrev';
+                                $SLIDER_CONTROLLER_NEXT_ID = 'btnTabListOuterLedScreenNext';
+                                break;
+                            case 'innerLedScreen':
+                                $SLIDER_CONTROLLER_PREV_ID = 'btnTabListInnerLedScreenPrev';
+                                $SLIDER_CONTROLLER_NEXT_ID = 'btnTabListInnerLedScreenNext';
+                                break;
+                            case 'rent':
+                                $SLIDER_CONTROLLER_PREV_ID = 'btnTabListRentPrev';
+                                $SLIDER_CONTROLLER_NEXT_ID = 'btnTabListRentNext';
+                                break;
+                            case 'newsCompany':
+                                $SLIDER_CONTROLLER_PREV_ID = 'btnTabListNewsCompanyPrev';
+                                $SLIDER_CONTROLLER_NEXT_ID = 'btnTabListNewsCompanyNext';
+                                break;
+                            case 'newsPartners':
+                                $SLIDER_CONTROLLER_PREV_ID = 'btnTabListNewsPartnersPrev';
+                                $SLIDER_CONTROLLER_NEXT_ID = 'btnTabListNewsPartnersNext';
+                                break;
+                        }?>
                         <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_prev"
-                             id="btnTabListTickerPrev">
+                             id="<?=$SLIDER_CONTROLLER_PREV_ID?>">
                             <svg width="14"
                                  height="26"
                                  viewBox="0 0 14 26"
@@ -133,7 +183,7 @@ $this->setFrameMode(true);
                             </svg>
                         </div>
                         <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_next"
-                             id="btnTabListTickerNext">
+                             id="<?=$SLIDER_CONTROLLER_NEXT_ID?>">
                             <svg width="14"
                                  height="26"
                                  viewBox="0 0 14 26"
@@ -151,15 +201,16 @@ $this->setFrameMode(true);
             <?endforeach;?>
         </div>
     </div>
-    <?=$COUNT_OF_ITEMS_AT_FIRST_SECTION?>
     <button class="tab-list__get-data<?=$arResult["ITEMS"][0]['COUNT_OF_ITEMS'] > 4 ? '' : ' hidden'?>"
-            data-list-id="#aricleList">
+            data-list-id="#<?=$arParams['LOCAL_TAB_ID']?>">
         <span class="points points_left">
             <span class="point"></span>
             <span class="point"></span>
             <span class="point"></span>
         </span>
-        <span class="text">Еще статьи</span>
+        <span class="text"><?
+            if ($arParams['IBLOCK_ID'] == 60) echo 'Еще статьи';
+            elseif ($arParams['IBLOCK_ID'] == 61) echo 'Еще новости';?></span>
         <span class="points points_right">
             <span class="point"></span>
             <span class="point"></span>

@@ -20,6 +20,10 @@
         $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 
+        $TIME_READING = $arItem['PROPERTIES']['ARTICLE_TIME_READING']['VALUE'] != ''
+            ? $arItem['PROPERTIES']['ARTICLE_TIME_READING']['VALUE']
+            : $arItem['PROPERTIES']['NEWS_TIME_READING']['VALUE'];
+
         $arr = [
             'ID' => $this->GetEditAreaId($arItem['ID']),
             'TRANSITION_DELAY' => $key + 1,
@@ -27,7 +31,7 @@
             'PICTURE_SRC' => $arItem['PREVIEW_PICTURE']['SRC'],
             'DATE' => explode(" ", $arItem['DATE_CREATE'])[0],
             'CAPTION' => fixPostPreviewText($arItem['PREVIEW_TEXT']),
-            'ARTICLE_TIME_READING' => $arItem['PROPERTIES']['ARTICLE_TIME_READING']['VALUE']
+            'ARTICLE_TIME_READING' => $TIME_READING,
         ];
 
         $arResponse[] = $arr;
