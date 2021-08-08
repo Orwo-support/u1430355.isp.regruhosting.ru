@@ -570,8 +570,8 @@ function printDop_MD (state) {
 
 function getExRate_MD(state, fPrintResults) {
     let request = $.ajax({
-        // Exchange rates from the website of the Central Bank
-        url: "https://www.cbr-xml-daily.ru/daily_json.js",
+        // Exchange rates of Central Bank Russia
+        url: "http://u1430355.isp.regruhosting.ru/utilities/exchange-rate.php?get=true",
     });
 
     request.done(
@@ -591,11 +591,11 @@ function getExRate_MD(state, fPrintResults) {
 function setRubSum_MD(state, response, fPrintResult) {
     let rates = JSON.parse(response);
 
-    state.ExchangeRate = parseFloat(rates.Valute.USD.Value);
+    state.ExchangeRate = parseFloat(rates.value.replace("," , "."));
 
     if (isDebugMainCalcResults) {
         console.log('ExchangeRate - Обменный курс на момент рассчёта:', state.ExchangeRate);
-        console.log('ExchangeRate + 1% - Обменный курс + 1%:', state.ExchangeRate * 1.01);
+        console.log('ExchangeRate + 1% - Обменный курс + 1%:', (state.ExchangeRate * 1.01).toFixed(4));
     }
 
     state.RubSum = state.$Sum * (state.ExchangeRate * 1.01);
@@ -613,7 +613,7 @@ function setRubSum_MD(state, response, fPrintResult) {
 
 function handleErrorOnRequestExRate(jqXHR, textStatus) {
     console.log('Произошла ошибка при попытке запросить курс доллара!');
-    console.log('URL: https://ntart.ru/tempius/dollar/get.php');
+    console.log('URL: http://u1430355.isp.regruhosting.ru/utilities/exchange-rate.php?get=true');
     console.log(jqXHR);
     console.log(textStatus);
 
