@@ -32,14 +32,14 @@ $aMenuLinks = Array(
 		"О нас", 
 		"/o-nas-garantiya-kontakty/#o-kompanii", 
 		Array(), 
-		Array(), 
+		Array("class"=>"nav-link-about-us"), 
 		"" 
 	),
 	Array(
 		"Контакты", 
 		"/o-nas-garantiya-kontakty/#kontakty", 
 		Array(), 
-		Array(), 
+		Array("class"=>"nav-link-contacts"), 
 		"" 
 	)
 );

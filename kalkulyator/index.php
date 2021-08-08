@@ -716,8 +716,9 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
                                 <img class="pic" src="/img/calc-location-outside.png" alt="">
                             </div>
                             <form class="calc__results calc-results-form"
-                                  action="/calc-results.html"
-                                  method="POST">
+                                  action="/rezultaty-raschyetov-kalkulyatora/"
+                                  method="POST"
+                                  enctype="multipart/form-data">
                                 <input class="calc-results-input" type="hidden" name="calc-results" value="">
                                 <div class="calc__results-sum">
                                     <div class="txt">Итого:</div>
@@ -2027,7 +2028,10 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
                         <div class="calc__body-image">
                             <div class="calc__body-image-body"><img class="pic" src="/img/quiz-location-inside.png"
                                                                     alt=""></div>
-                            <form class="calc__results calc-results-form" action="/calc-results.html" method="POST">
+                            <form class="calc__results calc-results-form"
+                                  action="/rezultaty-raschyetov-kalkulyatora/"
+                                  method="POST"
+                                  enctype="multipart/form-data">
                                 <input class="calc-results-input" type="hidden" name="calc-results" value="">
                                 <div class="calc__results-sum">
                                     <div class="txt">Итого:</div>
@@ -2892,7 +2896,10 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
                         <div class="calc__body-image">
                             <div class="calc__body-image-body"><img class="pic" src="/img/calc-media-facade.png"
                                                                     alt=""></div>
-                            <form class="calc__results calc-results-form" action="/calc-results.html" method="POST">
+                            <form class="calc__results calc-results-form"
+                                  action="/rezultaty-raschyetov-kalkulyatora/"
+                                  method="POST"
+                                  enctype="multipart/form-data">
                                 <input class="calc-results-input" type="hidden" name="calc-results" value="">
                                 <div class="calc__results-sum">
                                     <div class="txt">Итого:</div>

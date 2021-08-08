@@ -87,7 +87,7 @@
                     </li>
                 <?else:?>
                     <li class="nav__item">
-                        <a class="<?=$arItem["SELECTED"] ? 'active' : '';?>"
+                        <a class="<?=$arItem["SELECTED"] ? 'active' : '';?><?=$arItem["PARAMS"]["class"]?>"
                            href="<?=$arItem["LINK"]?>">
                             <?=$arItem["TEXT"]?>
                         </a>
@@ -102,7 +102,7 @@
                                     <?foreach($arResult as $arItem):?>
                                         <?if($arItem["ITEM_INDEX"] > 2):?>
                                             <li class="nav__dropitem">
-                                                <a class="<?=$arItem["SELECTED"] ? 'active' : '';?>"
+                                                <a class="<?=$arItem["SELECTED"] ? 'active' : '';?><?=$arItem["PARAMS"]["class"]?>"
                                                    href="<?=$arItem["LINK"]?>">
                                                     <?=$arItem["TEXT"]?>
                                                 </a>
