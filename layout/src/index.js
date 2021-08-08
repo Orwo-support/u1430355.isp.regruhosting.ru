@@ -34,6 +34,7 @@ import './pug/comps/datepicker/datepicker';
 import './pug/comps/custom-input/custom-input';
 import './pug/comps/custom-checkbox/custom-checkbox';
 import './pug/comps/video-modal/video-modal';
+import './pug/pages/about/about';
 
 // Include vendor styles
 import 'normalize.css';
