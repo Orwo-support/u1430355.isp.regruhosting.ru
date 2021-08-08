@@ -44,7 +44,3 @@ import 'swiper/swiper-bundle.css';
 
 // Includes custom styles
 import './scss/main.scss';
-
-
-// !!!!!!!!!!!!!!!!!!!!!!  Временный файл удалить перед сборкой на битриксе
-import './js/temp';
