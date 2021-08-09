@@ -67,6 +67,22 @@ function fixPostPreviewText ($text) {
     return $text;
 }
 
+// Get word form for years
+function getYearsWordForm ($num) {
+    $cases = [2, 0, 1, 1, 1, 2];
+        $forms = ['год', 'года', 'лет'];
+
+        $resultForm = $forms[ ($num%100 > 4 && $num%100 < 20)
+        ? 2
+        : $cases[ ($num%10 < 5)
+            ? $num%10
+            : 5
+        ]
+    ];
+
+    return $resultForm;
+};
+
 /*
  * Обработка отправки сообщения из формы Колбэка
  * Отправка сообщения менеджеру компании */
