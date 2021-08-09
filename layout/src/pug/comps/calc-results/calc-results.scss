@@ -33,6 +33,14 @@
             &-wrap::after {
                 width: 100%;
             }
+
+            &__slide {
+                cursor: default;
+            }
+
+            &__button {
+                cursor: pointer;
+            }
         }
 
         &-title {
@@ -299,6 +307,8 @@
 
                 @media (min-width: $xl) {
                     margin-bottom: 16px;
+                    width: 100%;
+                    text-align: center;
                 }
 
                 span:first-child {
