@@ -308,7 +308,15 @@
                 @media (min-width: $xl) {
                     margin-bottom: 16px;
                     width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
                     text-align: center;
+                    justify-content: center;
+
+                    span:first-child {
+                        display: flex;
+                        align-items: flex-end;
+                    }
                 }
 
                 span:first-child {
