@@ -172,12 +172,20 @@
 
             &-sum {
                 margin-bottom: 16px;
+                display: flex;
+                flex-wrap: wrap;
+
+                @media (min-width: $md) {
+                    padding-right: 30px;
+                }
 
                 @media (min-width: $lg) {
                     display: none;
                 }
 
                 span:first-child {
+                    display: flex;
+                    align-items: flex-end;
                     font-weight: normal;
                     font-size: 14px;
                     line-height: 160%;
@@ -995,7 +1003,13 @@
                 }
 
                 &-sum {
+                    @media (min-width: $xl) {
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+
                     span:first-child {
+
                         font-weight: normal;
                         font-size: 16px;
                         line-height: 160%;
@@ -1003,6 +1017,8 @@
                         margin-right: 18px;
 
                         @media (min-width: $xl) {
+                            display: flex;
+                            align-items: flex-end;
                             font-size: 18px;
                             margin-right: 12px;
                         }
