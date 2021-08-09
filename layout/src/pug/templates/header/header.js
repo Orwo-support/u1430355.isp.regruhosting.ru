@@ -60,4 +60,14 @@ $(document).ready(function () {
         );
     }
 
+    $('.header .nav__item')
+        .toArray()
+        .forEach(closeNavAfterClickOnMenuItem);
+
+    function closeNavAfterClickOnMenuItem(el) {
+        $(el).click(() => {
+            $('#header').removeClass('nav-visible hover-with-quiz');
+            $('.nav__item.dropdown').removeClass('drop-visible');
+        })
+    }
 });
