@@ -10,7 +10,12 @@
         <?
             Asset::getInstance()->addString('<meta name="viewport" content="width=device-width, initial-scale=1.0">');
             Asset::getInstance()->addString('<meta http-equiv="X-UA-Compatible" content="ie=edge">');
-            Asset::getInstance()->addString('<meta name="robots" content="index, follow">');
+
+            if ($APPLICATION->GetCurPage() == '/rezultaty-raschyetov-kalkulyatora/') {
+                Asset::getInstance()->addString('<meta name="robots" content="noindex">');
+            } else  {
+                Asset::getInstance()->addString('<meta name="robots" content="index, follow">');
+            }
 
             Asset::getInstance()->addString('<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">');
             Asset::getInstance()->addString('<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">');
@@ -64,6 +69,7 @@
             case '/o-nas-garantiya-kontakty/': echo 'page-about'; break;
             case '/baza-znaniy/': echo 'page-knowledge-base'; break;
             case '/kalkulyator/': echo 'page-calc'; break;
+            case '/rezultaty-raschyetov-kalkulyatora/': echo 'page-calc-results'; break;
         }
 
         if(preg_match('/nashi-raboty/', $_SERVER["REQUEST_URI"])) {

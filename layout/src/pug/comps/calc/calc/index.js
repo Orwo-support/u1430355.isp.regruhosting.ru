@@ -288,5 +288,23 @@ $(document).ready(
                     .hasClass('visible');
             }
         }
+
+        const paramsGET = window
+            .location
+            .search
+            .replace('?','')
+            .split('&')
+            .reduce(
+                (p,e) => {
+                    let a = e.split('=');
+                    p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+                    return p;
+                },
+                {}
+            );
+
+        if (paramsGET['calc']) {
+            window.MAIN_CALC_STATE.calcType = paramsGET['calc'];
+        }
     }
 );

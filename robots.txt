@@ -3,3 +3,6 @@ Disallow: /
 
 User-agent: *
 Disallow: /utilities/get-next-articles-page.php
+
+User-agent: *
+Disallow: /rezultaty-raschyetov-kalkulyatora/
