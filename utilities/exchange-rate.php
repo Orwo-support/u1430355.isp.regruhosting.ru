@@ -1,7 +1,7 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
   define("VALUT_USD_ID", "R01235");
-  define("IS_DEBUG", true);
+  define("IS_DEBUG", false);
   $ARR_CURRENT_EXCHANGE_RATE = Array();
 
   function filterValutes ($arrSingleValut) {
@@ -42,11 +42,6 @@
     }
   }
   
-  if (IS_DEBUG) {
-    echo 'Текущий курс USD в БД:';
-    debug($ARR_CURRENT_EXCHANGE_RATE);
-  }
-
   // Если пришла переменна $_GET['get'] значит нужно просто отдать тукущий курс
   if (isset($_GET['get']) and $_GET['get'] == 'true') {
       
@@ -58,6 +53,11 @@
     
   } else {
     
+    if (IS_DEBUG) {
+      echo 'Текущий курс USD в БД:';
+      debug($ARR_CURRENT_EXCHANGE_RATE);
+    }
+    
     // Что бы не делать лишних запросов к серверу ЦБР, 
     // заправшиваем даанные только с 7.00 утра до 19.00 вечера по МСК
     if (intval(date('H')) >= 7 and intval(date('H')) <= 19) {
@@ -68,45 +68,40 @@
         echo '<br>';
         echo 'Текущее время: '. date('d.m.Y - h:i:s');
         echo '<br>';
-        echo 'Выполняем запрос данных ...';
+        echo 'Определяем есть ли обновлённый курс и если есть, то обновляем ...';
       }
       
       // Дата последнего обновления курса в БД
       $dateDBUpdate = date('d.m.Y', strtotime($ARR_CURRENT_EXCHANGE_RATE['dateEntryCreate']));
-      
-      if (IS_DEBUG) {
-        echo '<br><br>';
-        echo 'Дата последнего обновления курса в БД: ' . $dateDBUpdate;
-      }
-      
       // Текущая дата
       $currentDate = date('d.m.Y');
       // Текущая дата плюс один день
       $currentDatePusOneDay = date('d.m.Y', strtotime($currentDate . '+ 1 days'));
       
       if (IS_DEBUG) {
+        echo '<br><br>';
+        echo 'Дата последнего обновления курса в БД: ' . $dateDBUpdate;
         echo '<br>';
         echo 'Текущая дата: ' . $currentDate;
         echo '<br>';
         echo 'Текущая дата плюс один день: ' . $currentDatePusOneDay;
-
       }
       
       /*
        * Если дата обновления курса в БД не равна текущей 
        * дате (т.е. сегодня курс ещё не обновляли),
        * делаем запрос курса на сайт ЦБР
+       *
        */
-      if (strtotime($dateDBUpdate) == strtotime($currentDate))  {
+      if (strtotime($dateDBUpdate) != strtotime($currentDate))  {
         
         if (IS_DEBUG) {
           echo '<br><br>';
           echo 'Текущая дата и дата когда был добавлен последний (актуальный) курс в БД не равны.';
           echo '<br>';
           echo 'Выполняем запрос данных на сервер ЦБР ...';
-        }
-        
-        
+        } 
+
         $file       = file_get_contents("https://www.cbr.ru/scripts/XML_daily.asp");
         $xml        = simplexml_load_string($file);
         $arr        = json_decode(json_encode($xml), true);
@@ -141,7 +136,7 @@
         
         /*
          * Если дата обновления курса из запроса к ЦБР
-         * равна текущей + 1 день (т.е. это курс за сегодня),
+         * равна текущей + 1 день (т.е. это курс за сегодня и на завтрашний день),
          * добавляем новый курс в БД
          * 
          * !Курс публикуется на слудующую дата и в ответе сервера 
@@ -196,10 +191,8 @@
           
           if ($ID = $el->Add($fields)) {
             if (IS_DEBUG) {
-              echo '<br>';
-              echo 'Так как дата курса, полученного с сайта ЦБР, РАВНА текущей + 1 день, т.е. полученный курс USD - обновлённый курс';
-              echo '<br>';
-              echo 'ДОБАВЛЯЕМ полученный курс USD в БД';
+              echo '<br><br>';
+              echo 'Новый курс был удачно добавлен в БД';
               echo '<br>';
               echo 'ИД курса USD, добавленного в БД: ' . $ID;
             }
@@ -208,12 +201,10 @@
               echo '<br>';
               echo 'Ошибка обновлённого курса USD в БД.';
               
-              $to      = 'anar.n.agaev@gmail.com';
+              $to = 'anar.n.agaev@gmail.com';
               $subject = 'Error of adding current USD exchange rate to DB';
               $message = 'Error of adding current USD exchange rate to DB on ekranika.ru web site!';
-              $headers = 'From: ekrfnika@ekranika' . "\r\n" .
-                  'Reply-To: info@ekranika' . "\r\n" .
-                  'X-Mailer: PHP/' . phpversion();
+              $headers = 'From: ekrfnika@ekranika' . "\r\n" . 'Reply-To: info@ekranika' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 
               mail($to, $subject, $message, $headers);
             }
@@ -225,6 +216,13 @@
               echo '<br>';
               echo 'НЕ ДОБАВЛЯЕМ полученный курс USD в БД';
             }
+        }
+      } else {
+        if (IS_DEBUG) {
+          echo '<br><br>';
+          echo 'Текущая дата и дата когда был добавлен последний (актуальный) курс в БД равны, т.е. в БД хранится актуальный курс USD.';
+          echo '<br>';
+          echo 'НЕ ЗАПРАШИВАЕМ данных с сервера ЦБР!';
         }
       }
     }
