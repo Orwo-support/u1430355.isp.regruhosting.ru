@@ -7,6 +7,16 @@ if (get_magic_quotes_gpc()) $CALC_RESULTS = stripcslashes($CALC_RESULTS);
 $CALC_RESULTS = json_decode($CALC_RESULTS);
 
 //debug($CALC_RESULTS);
+
+if ($CALC_RESULTS->calcType == 'rentScreen') {
+    $NITS = $CALC_RESULTS->execution == 'inner' ? '800' : '5000';
+} else {
+    $ARR_BY_NITS = explode('nits', $CALC_RESULTS->Mod->comment, 2);
+    $ARR_BY_TAP = explode(' ', $ARR_BY_NITS);
+    $COUNT_OF_STRINGS = count($ARR_BY_TAP);
+    if ($COUNT_OF_STRINGS == 0) $NITS = $ARR_BY_NITS[0];
+    else $NITS = $ARR_BY_TAP[$COUNT_OF_STRINGS - 1];
+}
 ?>
 <div class="<?
     switch ($CALC_RESULTS->calcType) {
@@ -47,12 +57,34 @@ $CALC_RESULTS = json_decode($CALC_RESULTS);
             <div class="calc__specification-list">
                 <div class="calc__specification-list-title">Спецификация</div>
                 <div class="calc__specification-list-short">
-                    <?// На забыть добавить короткую спецификацию?>
                     <ul>
-                        <li>Уличный светодиодный экран 2720 x 3420 мм</li>
-                        <li>Комплектующие в сборе</li>
-                        <li>Гарантийное обслуживание</li>
-                        <li>Страховка</li>
+                        <?if ($CALC_RESULTS->calcType == 'rentScreen'):?>
+                            <li><?
+                                echo $CALC_RESULTS->execution == 'inner' ? 'Внутренний' : 'Внешний';
+                                echo ' LED экран ';
+                                echo $CALC_RESULTS->pixelStep . 'мм. размер ';
+                                echo ($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000;
+                                echo 'м.кв.';
+                                echo ' (' . $CALC_RESULTS->width . ' x ' . $CALC_RESULTS->height . ')';
+                                ?></li>
+                            <li>Яркость: <?=$NITS?> Нит</li>
+                            <li>Срок аренды: <?=$CALC_RESULTS->rentDays?> <?=getDaysWordForm($CALC_RESULTS->rentDays)?></li>
+                            <li>Управление: <?=$CALC_RESULTS->systemControl == 'controller' ? 'Контроллер' : 'Видеопроцессор';?></li>
+                        <?else:?>
+                            <li><?
+                                echo $CALC_RESULTS->location == 'outdoor' ? 'Уличный' : 'Внутренний';
+                                echo ' LED экран, размер ';
+                                echo ($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000;
+                                echo 'м.кв.';
+                                echo ' (' . $CALC_RESULTS->width . ' x ' . $CALC_RESULTS->height . ' мм.)';
+                                ?></li>
+                            <li>Шаг пикселя: <?=$CALC_RESULTS->pixelStep?> мм.</li>
+                            <li>Тип экрана: <?=$CALC_RESULTS->executionType == 'monolithic' ? 'Монолитный' : 'Кабинетный';?></li>
+                            <li>Яркость: <?=$NITS?> Нит</li>
+                            <?if($CALC_RESULTS->UK):?>
+                                <li>Управление: <?= $CALC_RESULTS->UK == 'place' ? 'На месте' : 'Удалённо';?></li>
+                            <?endif;?>
+                        <?endif;?>
                     </ul>
                 </div>
                 <div class="calc__specification-list-sum">
@@ -72,9 +104,14 @@ $CALC_RESULTS = json_decode($CALC_RESULTS);
                         <th>#</th>
                         <th>Наименование</th>
                         <th>Единица измерения</th>
-                        <th>Количество</th>
+                        <th>Значение</th>
                     </tr>
                     <?if($CALC_RESULTS->calcType == 'outsideScreen' or $CALC_RESULTS->calcType == 'insideScreen'):?>
+                        <tr>
+                            <td><?=$PARAM_LIST_COUNTER++?></td>
+                            <td>Область применения</td>
+                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->location == 'outdoor' ? 'Уличный' : 'Внутренний';?></td>
+                        </tr>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
                             <td>Тип экрана</td>
@@ -83,163 +120,65 @@ $CALC_RESULTS = json_decode($CALC_RESULTS);
                         <?if($CALC_RESULTS->executionType == 'cabinet'):?>
                             <tr>
                                 <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Используемый кабинет</td>
-                                <td colspan="2" class="long-txt"><?
-                                    echo $CALC_RESULTS->Cab->name;
-                                    echo $CALC_RESULTS->Cab->location ? ', '.$CALC_RESULTS->Cab->location : '';
-                                    ?></td>
-                            </tr
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
                                 <td>Количество кабинетов</td>
                                 <td>шт.</td>
                                 <td><?=$CALC_RESULTS->QCab?></td>
                             </tr>
                             <tr>
                                 <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Размер одного кабинета</td>
+                                <td>Размер кабинета</td>
                                 <td>мм.</td>
-                                <td><?=$CALC_RESULTS->sizeType[0] . 'x' . $CALC_RESULTS->sizeType[1]?></td>
+                                <td><?=$CALC_RESULTS->sizeType[0] . ' x ' . $CALC_RESULTS->sizeType[1]?></td>
                             </tr>
                         <?endif;?>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Разрешение экрана</td>
-                            <td>пиксели</td>
+                            <td>Шаг пикселя</td>
+                            <td>мм.</td>
                             <td><?=$CALC_RESULTS->pixelStep?></td>
                         </tr>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Ширина экрана</td>
-                            <td>мм.</td>
-                            <td><?=$CALC_RESULTS->width?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Высота экрана</td>
-                            <td>мм.</td>
-                            <td><?=$CALC_RESULTS->height?></td>
-                        </tr>
-                        <?if($CALC_RESULTS->executionType == 'monolithic'):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Количество модулей в ширину</td>
-                                <td>шт.</td>
-                                <td><?=$CALC_RESULTS->QModW?></td>
-                            </tr>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Количество модулей в высоту</td>
-                                <td>шт.</td>
-                                <td><?=$CALC_RESULTS->QModH?></td>
-                            </tr>
-                        <?endif;?>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Количество модулей в изделии</td>
-                            <td>шт.</td>
-                            <td><?=$CALC_RESULTS->QModSum?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Используемый светодиодный модуль</td>
-                            <td colspan="2" class="long-txt"><?
-                                echo $CALC_RESULTS->Mod->name;
-                                echo $CALC_RESULTS->Mod->pixels ? ' '.$CALC_RESULTS->Mod->pixels : '';
-                                echo $CALC_RESULTS->Mod->type ? ' '.$CALC_RESULTS->Mod->type : '';
-                                echo $CALC_RESULTS->Mod->size ? ' '.$CALC_RESULTS->Mod->size : '';
-                                echo $CALC_RESULTS->Mod->outdoor ? ' '.$CALC_RESULTS->Mod->outdoor : '';
+                            <td>Разрешение экрана</td>
+                            <td>пиксели</td>
+                            <td><?
+                                echo (intval($CALC_RESULTS->width / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))));
+                                echo ' x ';
+                                echo (intval($CALC_RESULTS->height / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))));
                             ?></td>
                         </tr>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Количество блоков питания</td>
+                            <td>Яркость </td>
+                            <td>нит</td>
+                            <td><?=$NITS?></td>
+                        </tr>
+                        <tr>
+                            <td><?=$PARAM_LIST_COUNTER++?></td>
+                            <td>Площадь экрана</td>
+                            <td>кв.м.</td>
+                            <td><?
+                                echo ($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000;
+                                echo ' (' . $CALC_RESULTS->width . ' x ' . $CALC_RESULTS->height . ')';
+                            ?></td>
+                        </tr>
+                        <tr>
+                            <td><?=$PARAM_LIST_COUNTER++?></td>
+                            <td>Количество модулей</td>
                             <td>шт.</td>
-                            <td><?=$CALC_RESULTS->QBp?></td>
+                            <td><?
+                                echo $CALC_RESULTS->QModSum;
+                                if ($CALC_RESULTS->executionType == 'monolithic') {
+                                   echo ' (' . $CALC_RESULTS->QModW . ' x ' . $CALC_RESULTS->QModH . ')';
+                                } else {
+                                    echo ' (' . ($CALC_RESULTS->width / 320) . ' x ' . ($CALC_RESULTS->height / 160) . ')';
+                                }
+                            ?></td>
                         </tr>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Используемый блок питания</td>
-                            <td colspan="2" class="long-txt"><?
-                                echo $CALC_RESULTS->Bp->name;
-                                echo $CALC_RESULTS->Bp->model ? ' '.$CALC_RESULTS->Bp->model : '';
-                                echo $CALC_RESULTS->Bp->modification ? ' '.$CALC_RESULTS->Bp->modification : '';
-                                ?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Количество принимающих карт</td>
-                            <td>шт.</td>
-                            <td><?=$CALC_RESULTS->QRv?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Используемая принимающая карта</td>
-                            <td colspan="2" class="long-txt"><?
-                                echo $CALC_RESULTS->Rv->name;
-                                echo $CALC_RESULTS->Rv->model ? ' '.$CALC_RESULTS->Rv->model : '';
-                                ?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Количество магнитов</td>
-                            <td>шт.</td>
-                            <td><?=$CALC_RESULTS->QMag?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Используемый магнитный держатель</td>
-                            <td colspan="2" class="long-txt"><?
-                                echo $CALC_RESULTS->Mag->name;
-                                echo $CALC_RESULTS->Mag->model ? ' '.$CALC_RESULTS->Mag->model : '';
-                                ?></td>
-                        </tr>
-                        <?if($CALC_RESULTS->executionType == 'monolithic'):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Используемый профиль</td>
-                                <td colspan="2" class="long-txt"><?
-                                    echo $CALC_RESULTS->Pr->name;
-                                    echo $CALC_RESULTS->Pr->model ? ' '.$CALC_RESULTS->Pr->model : '';
-                                    echo $CALC_RESULTS->Pr->color ? ' '.$CALC_RESULTS->Pr->color : '';
-                                    ?></td>
-                            </tr>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Используемый уголок</td>
-                                <td colspan="2" class="long-txt"><?
-                                    echo $CALC_RESULTS->Ug->name;
-                                    echo $CALC_RESULTS->Ug->model ? ' '.$CALC_RESULTS->Ug->model : '';
-                                    ?></td>
-                            </tr>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Количество направляющих</td>
-                                <td>м.</td>
-                                <td><?=$CALC_RESULTS->QNa?></td>
-                            </tr>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Используемые направляющие</td>
-                                <td colspan="2" class="long-txt"><?
-                                    echo $CALC_RESULTS->Na->name;
-                                    echo $CALC_RESULTS->Na->model ? ' '.$CALC_RESULTS->Ug->model : '';
-                                    ?></td>
-                            </tr>
-                        <?endif;?>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Количество металлоконструкции</td>
-                            <td>м.кв.</td>
-                            <td><?=$CALC_RESULTS->QMk?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Используемая система управления</td>
-                            <td colspan="2" class="long-txt"><?
-                                echo $CALC_RESULTS->SU->name;
-                                echo $CALC_RESULTS->SU->model ? ' '.$CALC_RESULTS->SU->model : '';
-                                ?></td>
+                            <td>Производитель модуля</td>
+                            <td colspan="2" class="long-txt">Qiangli</td>
                         </tr>
                         <?if($CALC_RESULTS->RG):?>
                             <tr>
@@ -257,81 +196,92 @@ $CALC_RESULTS = json_decode($CALC_RESULTS);
                                 <td><?=$CALC_RESULTS->RS?></td>
                             </tr>
                         <?endif;?>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Управление контентом</td>
-                            <td colspan="2" class="long-txt"><?= $CALC_RESULTS->UK == 'place' ? 'На месте' : 'Удалённо';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Датчик яркости</td>
-                            <td colspan="2" class="long-txt"><?= $CALC_RESULTS->DY == '1' ? 'Нужен' : 'Не нужен';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Электротехнический проект</td>
-                            <td colspan="2" class="long-txt"><?= $CALC_RESULTS->EP == '1' ? 'Нужен' : 'Не нужен';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Электрощитовая</td>
-                            <td colspan="2" class="long-txt"><?= $CALC_RESULTS->ESH == '1' ? 'Нужна' : 'Не нужна';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Проект металлоконструкции</td>
-                            <td colspan="2" class="long-txt"><?= $CALC_RESULTS->PM == '1' ? 'Нужен' : 'Не нужен';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Комплект запасных частей</td>
-                            <td colspan="2" class="long-txt"><?= $CALC_RESULTS->ZCH == '1' ? 'Нужен' : 'Не нужен';?></td>
-                        </tr>
+                        <?if($CALC_RESULTS->UK):?>
+                            <tr>
+                                <td><?=$PARAM_LIST_COUNTER++?></td>
+                                <td>Управление контентом</td>
+                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->UK == 'place' ? 'На месте' : 'Удалённо';?></td>
+                            </tr>
+                        <?endif;?>
+                        <?if($CALC_RESULTS->DY):?>
+                            <tr>
+                                <td><?=$PARAM_LIST_COUNTER++?></td>
+                                <td>Датчик яркости</td>
+                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->DY == '1' ? 'Нужен' : 'Не нужен';?></td>
+                            </tr>
+                        <?endif;?>
+                        <?if($CALC_RESULTS->EP):?>
+                            <tr>
+                                <td><?=$PARAM_LIST_COUNTER++?></td>
+                                <td>Электротехнический проект</td>
+                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->EP == '1' ? 'Нужен' : 'Не нужен';?></td>
+                            </tr>
+                        <?endif;?>
+                        <?if($CALC_RESULTS->ESH):?>
+                            <tr>
+                                <td><?=$PARAM_LIST_COUNTER++?></td>
+                                <td>Электрощитовая</td>
+                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->ESH == '1' ? 'Нужна' : 'Не нужна';?></td>
+                            </tr>
+                        <?endif;?>
+                        <?if($CALC_RESULTS->PM):?>
+                            <tr>
+                                <td><?=$PARAM_LIST_COUNTER++?></td>
+                                <td>Проект металлоконструкции</td>
+                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->PM == '1' ? 'Нужен' : 'Не нужен';?></td>
+                            </tr>
+                        <?endif;?>
+                        <?if($CALC_RESULTS->ZCH):?>
+                            <tr>
+                                <td><?=$PARAM_LIST_COUNTER++?></td>
+                                <td>Комплект запасных частей</td>
+                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->ZCH == '1' ? 'Нужен' : 'Не нужен';?></td>
+                            </tr>
+                        <?endif;?>
                     <?endif;?>
 
                     <?if($CALC_RESULTS->calcType == 'rentScreen'):?>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Исполнение</td>
+                            <td>Область применения</td>
                             <td colspan="2" class="long-txt"><?=$CALC_RESULTS->execution == 'inner' ? 'Внутренний' : 'Внешний';?></td>
                         </tr>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
                             <td>Шаг пикселя</td>
-                            <td>пиксели</td>
+                            <td>мм.</td>
                             <td><?=$CALC_RESULTS->pixelStep?></td>
                         </tr>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Ширина экрана</td>
-                            <td>мм.</td>
-                            <td><?=$CALC_RESULTS->width?></td>
+                            <td>Яркость </td>
+                            <td>нит</td>
+                            <td><?=$NITS?></td>
                         </tr>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Высота экрана</td>
-                            <td>мм.</td>
-                            <td><?=$CALC_RESULTS->height?></td>
+                            <td>Размер экрана</td>
+                            <td>кв.м.</td>
+                            <td><?
+                                echo ($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000;
+                                echo ' (' . $CALC_RESULTS->width . ' x ' . $CALC_RESULTS->height . ')';
+                            ?></td>
                         </tr>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Количество кабинетов в экране</td>
-                            <td>шт.</td>
-                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->QCabSum?></td>
+                            <td>Разрешение экрана</td>
+                            <td>пиксели</td>
+                            <td><?
+                                echo (intval($CALC_RESULTS->width / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))));
+                                echo ' x ';
+                                echo (intval($CALC_RESULTS->height / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))));
+                            ?></td>
                         </tr>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
                             <td>Конструкция</td>
                             <td colspan="2" class="long-txt"><?=$CALC_RESULTS->construction == 'floor' ? 'Напольная' : 'Подвесная';?></td>
                         </tr>
-                        <?if($CALC_RESULTS->supportsNumber):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Количество опор</td>
-                                <td>шт.</td>
-                                <td colspan="2" class="long-txt"><?=$CALC_RESULTS->supportsNumber?></td>
-                            </tr>
-                        <?endif;?>
                         <tr>
                             <td><?=$PARAM_LIST_COUNTER++?></td>
                             <td>Система управления</td>
@@ -343,27 +293,27 @@ $CALC_RESULTS = json_decode($CALC_RESULTS);
                             <td>дни</td>
                             <td><?=$CALC_RESULTS->rentDays?></td>
                         </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Дата начала аренды</td>
-                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->dateStart ? normalizeDate($CALC_RESULTS->dateStart) : 'Не указана';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Техник для управления видео</td>
-                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->technician ? 'Нужен' : 'Не нужен';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Доставка за пределы Москвы</td>
-                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->delivery == 0 ? 'Не нужна' : 'Нужна';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Стоимость дня аренды (без учёта скидки)</td>
-                            <td>руб.</td>
-                            <td colspan="2" class="long-txt"><?=number_format($CALC_RESULTS->costPerDay, 2, ',', ' ')?></td>
-                        </tr>
+                        <?if($CALC_RESULTS->dateStart):?>
+                            <tr>
+                                <td><?=$PARAM_LIST_COUNTER++?></td>
+                                <td>Дата начала аренды</td>
+                                <td colspan="2" class="long-txt"><?=$CALC_RESULTS->dateStart ? normalizeDate($CALC_RESULTS->dateStart) : 'Не указана';?></td>
+                            </tr>
+                        <?endif;?>
+                        <?if($CALC_RESULTS->technician):?>
+                            <tr>
+                                <td><?=$PARAM_LIST_COUNTER++?></td>
+                                <td>Техник для управления видео</td>
+                                <td colspan="2" class="long-txt"><?=$CALC_RESULTS->technician ? 'Нужен' : 'Не нужен';?></td>
+                            </tr>
+                        <?endif;?>
+                        <?if($CALC_RESULTS->delivery):?>
+                            <tr>
+                                <td><?=$PARAM_LIST_COUNTER++?></td>
+                                <td>Доставка за пределы Москвы</td>
+                                <td colspan="2" class="long-txt"><?=$CALC_RESULTS->delivery == 0 ? 'Не нужна' : 'Нужна';?></td>
+                            </tr>
+                        <?endif;?>
                     <?endif;?>
                 </table>
             </div>
@@ -525,13 +475,35 @@ $CALC_RESULTS = json_decode($CALC_RESULTS);
                 </div>
                 <div class="calc__order-result-list">
                     <div class="calc__order-result-list-title">Спецификация</div>
-                    <?// На забыть добавить короткую спецификацию?>
                     <div class="calc__order-result-list-short">
                         <ul>
-                            <li>Уличный светодиодный экран 2720 x 3420 мм</li>
-                            <li>Комплектующие в сборе</li>
-                            <li>Гарантийное обслуживание</li>
-                            <li>Страховка</li>
+                            <?if ($CALC_RESULTS->calcType == 'rentScreen'):?>
+                                <li><?
+                                    echo $CALC_RESULTS->execution == 'inner' ? 'Внутренний' : 'Внешний';
+                                    echo ' LED экран ';
+                                    echo $CALC_RESULTS->pixelStep . 'мм. размер ';
+                                    echo ($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000;
+                                    echo 'м.кв.';
+                                    echo ' (' . $CALC_RESULTS->width . ' x ' . $CALC_RESULTS->height . ')';
+                                    ?></li>
+                                <li>Яркость: <?=$NITS?> Нит</li>
+                                <li>Срок аренды: <?=$CALC_RESULTS->rentDays?> <?=getDaysWordForm($CALC_RESULTS->rentDays)?></li>
+                                <li>Управление: <?=$CALC_RESULTS->systemControl == 'controller' ? 'Контроллер' : 'Видеопроцессор';?></li>
+                            <?else:?>
+                                <li><?
+                                    echo $CALC_RESULTS->location == 'outdoor' ? 'Уличный' : 'Внутренний';
+                                    echo ' LED экран, размер ';
+                                    echo ($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000;
+                                    echo 'м.кв.';
+                                    echo ' (' . $CALC_RESULTS->width . ' x ' . $CALC_RESULTS->height . ' мм.)';
+                                    ?></li>
+                                <li>Шаг пикселя: <?=$CALC_RESULTS->pixelStep?> мм.</li>
+                                <li>Тип экрана: <?=$CALC_RESULTS->executionType == 'monolithic' ? 'Монолитный' : 'Кабинетный';?></li>
+                                <li>Яркость: <?=$NITS?> Нит</li>
+                                <?if($CALC_RESULTS->UK):?>
+                                    <li>Управление: <?= $CALC_RESULTS->UK == 'place' ? 'На месте' : 'Удалённо';?></li>
+                                <?endif;?>
+                            <?endif;?>
                         </ul>
                     </div>
                     <div class="calc__order-result-list-sum">
