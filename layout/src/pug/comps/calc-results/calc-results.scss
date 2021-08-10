@@ -242,12 +242,12 @@
                 }
 
                 th:nth-child(2),
-                tr:nth-child(2) {
-                    width: 580px;
+                td:nth-child(2) {
+                    width: 400px;
                     text-align: left;
 
                     @media (min-width: $xl) {
-                        width: 490px;
+                        width: 350px;
                     }
                 }
 
