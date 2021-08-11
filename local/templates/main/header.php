@@ -35,11 +35,11 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
 
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.03d47b9293e6ab931122.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.03d47b9293e6ab931122.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.df7c9cbd4bde78b1ae7e.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.df7c9cbd4bde78b1ae7e.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.1b02826dfc0c02121d5c.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.1b02826dfc0c02121d5c.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.df7c9cbd4bde78b1ae7e.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.df7c9cbd4bde78b1ae7e.js");
 
             if ($APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
                 Asset::getInstance()->addJs('https://api-maps.yandex.ru/2.1/?apikey=4c74d479-972b-4c76-81e7-b1bc63268173&amp;lang=ru_RU');
@@ -60,7 +60,7 @@
             case '/mediabort/': echo 'page-mediabort'; break;
             case '/svetodiodnyy-shar/': echo 'page-led-ball'; break;
             case '/videokub/': echo 'page-videocube'; break;
-            case '/videokub/': echo 'page-videobanner'; break;
+            case '/reklamnyy-videobanner/': echo 'page-videobanner'; break;
             case '/mediafasad/': echo 'page-media-facade'; break;
             case '/ekrany-dlya-tts-i-bts/': echo 'page-store-screen'; break;
             case '/ekrany-dlya-sportivnykh-meropriyatiy/': echo 'page-sport-screen'; break;
@@ -99,6 +99,7 @@
                  data-preset="circle"
                  data-duration="2"></div>
         </div>
+        <?include_once($_SERVER["DOCUMENT_ROOT"]."/comps/set-order-form-modal.php");?>
         <?if ($APPLICATION->GetCurPage() == '/rezultaty-raschyetov-kalkulyatora/') {
             include_once($_SERVER["DOCUMENT_ROOT"]."/comps/calc-results-modal.php");
         }?>
@@ -193,7 +194,7 @@
                             </svg>
                         </a>
                     </div>
-                    <div class="btn btn_calltoaction">
+                    <div class="btn btn_calltoaction show-set-order-form">
                         Оформить заявку
                     </div>
                 </div>

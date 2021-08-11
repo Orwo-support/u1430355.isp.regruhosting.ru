@@ -125,7 +125,7 @@
                 <div class="icon icon_mail">
                     <img class="pic" src="/img/icon-mail.svg" alt="">
                 </div>
-                <a>Оформить заявку</a>
+                <a class="show-set-order-form">Оформить заявку</a>
             </li>
         </ul>
     </div>

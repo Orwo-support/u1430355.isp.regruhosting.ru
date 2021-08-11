@@ -365,11 +365,19 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                         </a>
                     </div>
                 </div>
-                <a class="calc__specification-result-share" href="">
+                <a class="calc__specification-result-share"
+                   id="calcSpecificationShareLink"
+                   href=""
+                   data-share-link="">
                     <span class="icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.76217 9.92072L4.72253 10.9604C2.42582 13.2571 2.42582 16.9808 4.72253 19.2775C7.01924 21.5742 10.7429 21.5742 13.0396 19.2775L14.0793 18.2378M9.92072 5.76217L10.9604 4.72253C13.2571 2.42582 16.9808 2.42582 19.2775 4.72253C21.5742 7.01924 21.5742 10.7429 19.2775 13.0396L18.2378 14.0793M9.92072 14.0793L14.0793 9.92072" stroke="#F6F0FF" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
                     Поделиться спецификацией
+                    <span class="message" id="calcSpecificationShareMsg">
+                        Ссылка на pdf файл спецификации скопирована.
+                        Теперь Вы можете поделиться ей в социальных
+                        сетях или отправить по электронной почте.
+                    </span>
                 </a>
                 <div class="calc__specification-result-recalc">
                     <a class="btn reset-calc-section" href="/kalkulyator/<?
