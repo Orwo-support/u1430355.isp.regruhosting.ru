@@ -35,6 +35,7 @@ import './pug/comps/custom-input/custom-input';
 import './pug/comps/custom-checkbox/custom-checkbox';
 import './pug/comps/video-modal/video-modal';
 import './pug/pages/about/about';
+import './pug/comps/set-order/set-order';
 
 // Include vendor styles
 import 'normalize.css';

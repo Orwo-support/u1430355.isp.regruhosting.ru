@@ -1,0 +1,70 @@
+.order-form-modal#setOrderFormModal
+    .order-form-modal__dialog#setOrderFormContent
+        .order-form-modal__content
+
+            .form-order
+                .container
+                    h2.h2.section__title Оставьте заявку, мы поможем с выбором
+
+                .container
+                    form.form-order__form#setOrderForm(action="http://ekranika.develop/utilities/handle-set-order-form.php" method="POST" enctype="multipart/form-data")
+                        input(type="hidden" name="fromname" value="Главная страница")
+                        input(type="hidden" name="fromlink" value="http://ekranika.develop")
+                        .form-order__data
+
+                            .form-order__user-data
+                                .controller-group
+                                    label.controller-label Как вас зовут?
+                                    .controller.controller__input
+                                        label.label.label__icon
+                                            span.controller-icon.icon-human
+                                                img.pic(src="/img/icon-person.svg" alt="")
+                                            input.input(type="text" placeholder="Напишите Ваше имя" name="name" id="setOrderFormName" tabindex="1")
+
+                                .controller-group
+                                    label.controller-label Номер телефона
+                                    // Для валидного значения меняем класс у controller на valid
+                                    .controller.controller__input.single-valid-warning
+                                        label.label.label__icon
+                                            span.controller-icon.icon-phone
+                                                img(src="/img/icon-phone.svg" alt="")
+                                            input.input(type="text" placeholder="+7 900 000 00 00" name="phone" id="setOrderFormPhone" tabindex="2")
+                                        .validator.validator__cross
+                                            img.valid(src="/img/icon-validator-cross-valid.svg" alt="")
+                                            img.invalid(src="/img/icon-validator-cross-invalid.svg" alt="")
+                                        .validator.validator__check
+                                            img.valid(src="/img/icon-validator-check-valid.svg" alt="")
+                                            img.invalid(src="/img/icon-validator-check-invalid.svg" alt="")
+
+                            .form-order__comments
+                                .controller-group
+                                    label.controller-label Комментарий
+                                    .controller-wrap
+                                        span.controller-icon.icon-msg
+                                            img(src="/img/icon-message.svg" alt="")
+                                        textarea.textarea(placeholder="Напишите что-нибудь" name="message" id="setOrderFormMessage" tabindex="3")
+
+                        .form-order__actions
+                            .form-order__actions-group
+                                span.form-order__privacy
+                                    | Нажимая на кнопку “Отправить заявку”, я даю согласие на
+                                    a.revers(href="/politika-konfidentsialnosti/" target="_blank") обработку моих персональных данных
+                                .form-order__button
+                                    button.btn.btn_primary.form-order__submit(type="submit" tabindex="4") Отправить заявку
+
+                            span.form-order__note Перезвоним в течение рабочего дня и поможем определиться с типом оборудования для аренды или покупки
+
+            .order-form-modal__close-bnt.btn-set-order-modal-close
+                .icon
+                    include ../../../img/icon-cross.svg
+
+    .modal#setOrderFormModalResult
+        .modal__dialog
+            .modal__content
+                .modal__header
+                    .modal__title Заявка отправлена
+                    .modal__subtitle Перезвоним вам в ближайшее время
+                .modal__body
+                    img.modal-img(src="/img/icon-modal-phone.svg" alt="")
+                .modal__footer
+                    button.btn.btn_primary.not-focused.btn-set-order-modal-close Закрыть окно
