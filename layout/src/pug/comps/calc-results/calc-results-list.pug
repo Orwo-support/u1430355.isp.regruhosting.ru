@@ -56,10 +56,11 @@
                             include ../../../img/icon-download-btn.svg
                         span.txt Txt
 
-            a(href="").calc__specification-result-share
+            a.calc__specification-result-share#calcSpecificationShareLink(href="" data-share-link="http://ekranika.develop/link-of-the-share-pdf-file/")
                 span.icon
                     include ../../../img/icon-share.svg
                 | Поделиться спецификацией
+                span.message#calcSpecificationShareMsg Ссылка на pdf файл спецификации скопирована. Теперь Вы можете поделиться ей в социальных сетях или отправить по электронной почте.
             .calc__specification-result-recalc
                 a.btn.reset-calc-section(href="/calc.html")
                     span.icon
