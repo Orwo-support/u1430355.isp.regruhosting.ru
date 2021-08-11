@@ -228,3 +228,45 @@ class handleRequestForm {
         }
     }
 }
+
+/*
+ * Обработка отправки сообщения из формы Оформить заявку,
+ * расположенной на каждой странице сайта */
+// Регистрируем обработчик
+AddEventHandler (
+    "iblock",
+    "OnAfterIBlockElementAdd",
+    Array("handleSetOrderForm", "OnAfterIBlockElementAddHandler")
+);
+class handleSetOrderForm {
+    /*
+     * Создаем обработчик события "OnAfterIBlockElementAdd"
+     * который слушает редактирование инфоблока Запросы/Форма оформить заявку
+     * с идентификатором 73.
+     *
+     * В массиве $arSend перезаписываем стандартные макросы
+     * почтового сообщения и добавляем свои в сответствии
+     * со свойствами инфоблока.
+     *
+     * Макросы, перезаписываемые в массив $arSend сохраняют
+     * свойтсва массива $arFields['PROPERTY_VALUES']
+     * в соответсвии с именами свойств, указанными
+     * в редактируемом инфоблоке
+     */
+    function OnAfterIBlockElementAddHandler(&$arFields) {
+        if ($arFields["IBLOCK_ID"] == 73) {
+
+            $arSend = array(
+                'AUTHOR' => $arFields['NAME'],
+                'PHONE' => $arFields['PROPERTY_VALUES']['REQUEST_PHONE'],
+                'MESSAGE' => $arFields['PROPERTY_VALUES']['REQUEST_MESSAGE'],
+                'FROM_PAGE_NAME' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_NAME'],
+                'FROM_PAGE_LINK' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_LINK'],
+            );
+
+            // Первым параметром дложно идти почтовое событие,
+            // созданное для данного handler(а)
+            CEvent::Send('SET_ORDER_FORM',SITE_ID, $arSend);
+        }
+    }
+}

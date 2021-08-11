@@ -103,7 +103,7 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                     <tr>
                         <th>#</th>
                         <th>Наименование</th>
-                        <th>Единица измерения</th>
+                        <th>Единицы измерения</th>
                         <th>Значение</th>
                     </tr>
                     <?if($CALC_RESULTS->calcType == 'outsideScreen' or $CALC_RESULTS->calcType == 'insideScreen'):?>
