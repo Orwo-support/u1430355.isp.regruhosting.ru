@@ -12,3 +12,12 @@
 
 # Ignore sever property file
 /.htaccess
+
+# Ignore sever property file
+/calc-results-files/pdf/
+
+# Ignore sever property file
+/calc-results-files/xls/
+
+# Ignore sever property file
+/calc-results-files/txt/
