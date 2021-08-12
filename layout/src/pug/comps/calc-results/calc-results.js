@@ -135,19 +135,38 @@ $(document).ready(function () {
         }
 
         function submitCalcForm() {
-            // Reset form data
-            $('#calcForm .controller').removeClass('valid input checked');
-            $('#calcFormName').val('');
-            $('#calcFormMail').val('');
-            $('#calcFormMessage').val('');
-            maskCalcPhone.unmaskedValue = '';
-            $('#calcModal .modal__close').focus();
+            const form = $('#calcForm'),
+                action = $(form).attr('action');
 
+            $(SPINNER).addClass('visible');
 
-            // !!!!!!!!!!!!!!!!!!!!!!!   Send data to server
+            $.post(
+                action,
+                $(form).serializeArray(),
+                "json"
+            ).done(response => {
+                // console.log(JSON.parse(response));
 
-            // Show modal if form has send finished well
-            modalOpen($('#calcForm'));
+                if (JSON.parse(response).IS_ERRORS) {
+                    alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                } else {
+                    $(SPINNER).removeClass('visible');
+
+                    setTimeout(() => {
+                        modalOpen($('#calcForm'));
+                        $('#calcForm .controller').removeClass('valid input checked');
+                        $('#calcFormName').val('');
+                        $('#calcFormMail').val('');
+                        $('#calcFormMessage').val('');
+                        maskCalcPhone.unmaskedValue = '';
+                        $('#calcModal .modal__close').focus();
+                    }, 700);
+                }
+            }).fail(err => {
+                alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                console.log('Request error on set calc results form!');
+                console.log(err);
+            }).always(() => $(SPINNER).removeClass('visible'));
         }
 
         // Toggle visible for download formats dropdown

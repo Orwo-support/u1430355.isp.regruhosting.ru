@@ -1,0 +1,21 @@
+{
+    "name": "ekranika/phpexel",
+    "description": "PHPOffice/PHPExcel",
+    "require": {
+        "phpoffice/phpexcel": "^1.8"
+    },
+    "require-dev": {
+        "phpoffice/phpexcel": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ekranika\\Phpexel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anar.N.Agaev",
+            "email": "anar.n.agaev@gmail.com"
+        }
+    ]
+}

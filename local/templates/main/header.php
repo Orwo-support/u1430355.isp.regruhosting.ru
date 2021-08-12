@@ -35,11 +35,11 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
 
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.df7c9cbd4bde78b1ae7e.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.df7c9cbd4bde78b1ae7e.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.4c25bd73021131a98d68.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.4c25bd73021131a98d68.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.df7c9cbd4bde78b1ae7e.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.df7c9cbd4bde78b1ae7e.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.4306e8f21b06f221194b.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.4306e8f21b06f221194b.js");
 
             if ($APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
                 Asset::getInstance()->addJs('https://api-maps.yandex.ru/2.1/?apikey=4c74d479-972b-4c76-81e7-b1bc63268173&amp;lang=ru_RU');

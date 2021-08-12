@@ -17,6 +17,239 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
     if ($COUNT_OF_STRINGS == 0) $NITS = $ARR_BY_NITS[0];
     else $NITS = $ARR_BY_TAP[$COUNT_OF_STRINGS - 1];
 }
+
+$NITS = str_replace(" ", '', $NITS);
+
+$arParamsList = array();
+if ($CALC_RESULTS->calcType == 'outsideScreen' or $CALC_RESULTS->calcType == 'insideScreen') {
+    array_push($arParamsList, [
+        'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Область применения', // name of current parameter
+        'units' => '', // units of current parameter
+        'value' => $CALC_RESULTS->location == 'outdoor' ? 'Уличный' : 'Внутренний' // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Тип экрана', // name of current parameter
+        'units' => '', // units of current parameter
+        'value' => $CALC_RESULTS->executionType == 'monolithic' ? 'Монолитный' : 'Кабинетный' // value of current parameter
+    ]);
+    if ($CALC_RESULTS->executionType == 'cabinet') {
+        array_push($arParamsList, [
+            'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Количество кабинетов', // name of current parameter
+            'units' => 'шт.', // units of current parameter
+            'value' => $CALC_RESULTS->QCab // value of current parameter
+        ]);
+        array_push($arParamsList, [
+            'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Размер кабинета', // name of current parameter
+            'units' => 'мм.', // units of current parameter
+            'value' => $CALC_RESULTS->sizeType[0] . ' x ' . $CALC_RESULTS->sizeType[1] // value of current parameter
+        ]);
+    }
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Шаг пикселя', // name of current parameter
+        'units' => 'мм.', // units of current parameter
+        'value' => $CALC_RESULTS->pixelStep // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Разрешение экрана', // name of current parameter
+        'units' => 'пиксели', // units of current parameter
+        'value' => (intval($CALC_RESULTS->width / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))))
+            . ' x '
+            . (intval($CALC_RESULTS->height / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep)))) // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Яркость', // name of current parameter
+        'units' => 'Нит', // units of current parameter
+        'value' => $NITS // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Площадь экрана', // name of current parameter
+        'units' => 'кв.м.', // units of current parameter
+        'value' => (($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000)
+            . ' ('
+            . $CALC_RESULTS->width
+            . ' x '
+            . $CALC_RESULTS->height
+            . ')' // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Количество модулей', // name of current parameter
+        'units' => 'шт.', // units of current parameter
+        'value' => $CALC_RESULTS->QModSum
+            . ($CALC_RESULTS->executionType == 'monolithic'
+                ? ' (' . $CALC_RESULTS->QModW . ' x ' . $CALC_RESULTS->QModH . ')'
+                : ' (' . ($CALC_RESULTS->width / 320) . ' x ' . ($CALC_RESULTS->height / 160) . ')') // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Производитель модуля', // name of current parameter
+        'units' => '', // units of current parameter
+        'value' => '"Qiangli"' // value of current parameter
+    ]);
+    if ($CALC_RESULTS->RG) {
+        array_push($arParamsList, [
+            'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Расширенная гарантия', // name of current parameter
+            'units' => 'лет', // units of current parameter
+            'value' => $CALC_RESULTS->RG // value of current parameter
+        ]);
+    }
+    if ($CALC_RESULTS->RS) {
+        array_push($arParamsList, [
+            'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Расширенный сервис', // name of current parameter
+            'units' => 'лет', // units of current parameter
+            'value' => $CALC_RESULTS->RS // value of current parameter
+        ]);
+    }
+    if ($CALC_RESULTS->UK) {
+        array_push($arParamsList, [
+            'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Управление контентом', // name of current parameter
+            'units' => '', // units of current parameter
+            'value' => $CALC_RESULTS->UK == 'place' ? 'На месте' : 'Удалённо' // value of current parameter
+        ]);
+    }
+    if ($CALC_RESULTS->DY) {
+        array_push($arParamsList, [
+            'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Датчик яркости', // name of current parameter
+            'units' => '', // units of current parameter
+            'value' => $CALC_RESULTS->DY == '1' ? 'Нужен' : 'Не нужен' // value of current parameter
+        ]);
+    }
+    if ($CALC_RESULTS->EP) {
+        array_push($arParamsList, [
+            'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Электротехнический проект', // name of current parameter
+            'units' => '', // units of current parameter
+            'value' => $CALC_RESULTS->EP == '1' ? 'Нужен' : 'Не нужен' // value of current parameter
+        ]);
+    }
+    if ($CALC_RESULTS->ESH) {
+        array_push($arParamsList, [
+            'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Электрощитовая', // name of current parameter
+            'units' => '', // units of current parameter
+            'value' => $CALC_RESULTS->ESH == '1' ? 'Нужна' : 'Не нужна' // value of current parameter
+        ]);
+    }
+    if ($CALC_RESULTS->PM) {
+        array_push($arParamsList, [
+            'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Проект металлоконструкции', // name of current parameter
+            'units' => '', // units of current parameter
+            'value' => $CALC_RESULTS->PM == '1' ? 'Нужен' : 'Не нужен' // value of current parameter
+        ]);
+    }
+    if ($CALC_RESULTS->ZCH) {
+        array_push($arParamsList, [
+            'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Комплект запасных частей', // name of current parameter
+            'units' => '', // units of current parameter
+            'value' => $CALC_RESULTS->ZCH == '1' ? 'Нужен' : 'Не нужен' // value of current parameter
+        ]);
+    }
+}
+
+if ($CALC_RESULTS->calcType == 'rentScreen') {
+    array_push($arParamsList, [
+        'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Область применения', // name of current parameter
+        'units' => '', // units of current parameter
+        'value' => $CALC_RESULTS->execution == 'inner' ? 'Внутренний' : 'Внешний' // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Шаг пикселя', // name of current parameter
+        'units' => 'мм.', // units of current parameter
+        'value' => $CALC_RESULTS->pixelStep // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Яркость', // name of current parameter
+        'units' => 'Нит', // units of current parameter
+        'value' => $NITS // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Размер экрана', // name of current parameter
+        'units' => 'кв.м.', // units of current parameter
+        'value' => (($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000)
+        . ' ('
+        . $CALC_RESULTS->width
+        . ' x '
+        . $CALC_RESULTS->height . ')' // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Разрешение экрана', // name of current parameter
+        'units' => 'пиксели', // units of current parameter
+        'value' => (intval($CALC_RESULTS->width / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))))
+            . ' x '
+            . (intval($CALC_RESULTS->height / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))))// value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Конструкция', // name of current parameter
+        'units' => '', // units of current parameter
+        'value' => $CALC_RESULTS->construction == 'floor' ? 'Напольная' : 'Подвесная' // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Система управления', // name of current parameter
+        'units' => '', // units of current parameter
+        'value' => $CALC_RESULTS->systemControl == 'controller' ? 'Контроллер' : 'Видеопроцессор' // value of current parameter
+    ]);
+    array_push($arParamsList, [
+        'combined' => false, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+        'name' => 'Срок аренды', // name of current parameter
+        'units' => 'дни', // units of current parameter
+        'value' => $CALC_RESULTS->rentDays // value of current parameter
+    ]);
+    if($CALC_RESULTS->dateStart) {
+        array_push($arParamsList, [
+            'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Дата начала аренды', // name of current parameter
+            'units' => '', // units of current parameter
+            'value' => $CALC_RESULTS->dateStart ? normalizeDate($CALC_RESULTS->dateStart) : 'Не указана' // value of current parameter
+        ]);
+    }
+    if($CALC_RESULTS->technician) {
+        array_push($arParamsList, [
+            'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Техник для управления видео', // name of current parameter
+            'units' => '', // units of current parameter
+            'value' => $CALC_RESULTS->technician ? 'Нужен' : 'Не нужен' // value of current parameter
+        ]);
+    }
+    if($CALC_RESULTS->delivery) {
+        array_push($arParamsList, [
+            'combined' => true, // is combined value on last two columns or not (<td colspan="2" class="long-txt">)
+            'name' => 'Доставка за пределы Москвы', // name of current parameter
+            'units' => '', // units of current parameter
+            'value' => $CALC_RESULTS->delivery == 0 ? 'Не нужна' : 'Нужна' // value of current parameter
+        ]);
+    }
+}
+
+if ($CALC_RESULTS->calcType == 'rentScreen') {
+    $finalCost = number_format($CALC_RESULTS->cost, 2, ',', ' ') . ' ₽';
+} else {
+    $finalCost =  number_format($CALC_RESULTS->RubSum, 2, ',', ' ') . ' ₽';
+}
+
+$ARR_FILES_PATHS = makeFilesFromCalcResults($arParamsList, $finalCost); // [$PDF_FILE_PATH, $XLS_FILE_PATH, $TXT_FILE_PATH]
+
+//debug($arParamsList);
 ?>
 <div class="<?
     switch ($CALC_RESULTS->calcType) {
@@ -54,6 +287,7 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                               data-target-tab-id="#rentScreen">Аренда</span></a>
                 </div>
             </div>
+            <?//Короткий список для показа на тач устройсвах?>
             <div class="calc__specification-list">
                 <div class="calc__specification-list-title">Спецификация</div>
                 <div class="calc__specification-list-short">
@@ -97,6 +331,7 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                         }?> ₽</span>
                 </div>
             </div>
+
             <div class="calc__specification-table scroller">
                 <?$PARAM_LIST_COUNTER = 1;?>
                 <table>
@@ -106,217 +341,22 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                         <th>Единицы измерения</th>
                         <th>Значение</th>
                     </tr>
-                    <?if($CALC_RESULTS->calcType == 'outsideScreen' or $CALC_RESULTS->calcType == 'insideScreen'):?>
+                    <?foreach ($arParamsList as $key => $arParam):?>
                         <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Область применения</td>
-                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->location == 'outdoor' ? 'Уличный' : 'Внутренний';?></td>
+                            <td><?=$key + 1?></td>
+                            <td><?=$arParam['name']?></td>
+                            <?if($arParam['combined']):?>
+                                <td colspan="2" class="long-txt"><?=$arParam['value']?></td>
+                            <?else:?>
+                                <td><?=$arParam['units']?></td>
+                                <td><?=$arParam['value']?></td>
+                            <?endif;?>
                         </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Тип экрана</td>
-                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->executionType == 'monolithic' ? 'Монолитный' : 'Кабинетный';?></td>
-                        </tr>
-                        <?if($CALC_RESULTS->executionType == 'cabinet'):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Количество кабинетов</td>
-                                <td>шт.</td>
-                                <td><?=$CALC_RESULTS->QCab?></td>
-                            </tr>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Размер кабинета</td>
-                                <td>мм.</td>
-                                <td><?=$CALC_RESULTS->sizeType[0] . ' x ' . $CALC_RESULTS->sizeType[1]?></td>
-                            </tr>
-                        <?endif;?>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Шаг пикселя</td>
-                            <td>мм.</td>
-                            <td><?=$CALC_RESULTS->pixelStep?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Разрешение экрана</td>
-                            <td>пиксели</td>
-                            <td><?
-                                echo (intval($CALC_RESULTS->width / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))));
-                                echo ' x ';
-                                echo (intval($CALC_RESULTS->height / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))));
-                            ?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Яркость </td>
-                            <td>нит</td>
-                            <td><?=$NITS?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Площадь экрана</td>
-                            <td>кв.м.</td>
-                            <td><?
-                                echo ($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000;
-                                echo ' (' . $CALC_RESULTS->width . ' x ' . $CALC_RESULTS->height . ')';
-                            ?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Количество модулей</td>
-                            <td>шт.</td>
-                            <td><?
-                                echo $CALC_RESULTS->QModSum;
-                                if ($CALC_RESULTS->executionType == 'monolithic') {
-                                   echo ' (' . $CALC_RESULTS->QModW . ' x ' . $CALC_RESULTS->QModH . ')';
-                                } else {
-                                    echo ' (' . ($CALC_RESULTS->width / 320) . ' x ' . ($CALC_RESULTS->height / 160) . ')';
-                                }
-                            ?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Производитель модуля</td>
-                            <td colspan="2" class="long-txt">Qiangli</td>
-                        </tr>
-                        <?if($CALC_RESULTS->RG):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Расширенная гарантия</td>
-                                <td>лет</td>
-                                <td><?=$CALC_RESULTS->RG?></td>
-                            </tr>
-                        <?endif;?>
-                        <?if($CALC_RESULTS->RG):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Расширенный сервис</td>
-                                <td>лет</td>
-                                <td><?=$CALC_RESULTS->RS?></td>
-                            </tr>
-                        <?endif;?>
-                        <?if($CALC_RESULTS->UK):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Управление контентом</td>
-                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->UK == 'place' ? 'На месте' : 'Удалённо';?></td>
-                            </tr>
-                        <?endif;?>
-                        <?if($CALC_RESULTS->DY):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Датчик яркости</td>
-                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->DY == '1' ? 'Нужен' : 'Не нужен';?></td>
-                            </tr>
-                        <?endif;?>
-                        <?if($CALC_RESULTS->EP):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Электротехнический проект</td>
-                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->EP == '1' ? 'Нужен' : 'Не нужен';?></td>
-                            </tr>
-                        <?endif;?>
-                        <?if($CALC_RESULTS->ESH):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Электрощитовая</td>
-                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->ESH == '1' ? 'Нужна' : 'Не нужна';?></td>
-                            </tr>
-                        <?endif;?>
-                        <?if($CALC_RESULTS->PM):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Проект металлоконструкции</td>
-                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->PM == '1' ? 'Нужен' : 'Не нужен';?></td>
-                            </tr>
-                        <?endif;?>
-                        <?if($CALC_RESULTS->ZCH):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Комплект запасных частей</td>
-                                <td colspan="2" class="long-txt"><?= $CALC_RESULTS->ZCH == '1' ? 'Нужен' : 'Не нужен';?></td>
-                            </tr>
-                        <?endif;?>
-                    <?endif;?>
-
-                    <?if($CALC_RESULTS->calcType == 'rentScreen'):?>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Область применения</td>
-                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->execution == 'inner' ? 'Внутренний' : 'Внешний';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Шаг пикселя</td>
-                            <td>мм.</td>
-                            <td><?=$CALC_RESULTS->pixelStep?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Яркость </td>
-                            <td>нит</td>
-                            <td><?=$NITS?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Размер экрана</td>
-                            <td>кв.м.</td>
-                            <td><?
-                                echo ($CALC_RESULTS->width * $CALC_RESULTS->height) / 1000000;
-                                echo ' (' . $CALC_RESULTS->width . ' x ' . $CALC_RESULTS->height . ')';
-                            ?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Разрешение экрана</td>
-                            <td>пиксели</td>
-                            <td><?
-                                echo (intval($CALC_RESULTS->width / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))));
-                                echo ' x ';
-                                echo (intval($CALC_RESULTS->height / floatval(str_replace(',','.', $CALC_RESULTS->pixelStep))));
-                            ?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Конструкция</td>
-                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->construction == 'floor' ? 'Напольная' : 'Подвесная';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Система управления</td>
-                            <td colspan="2" class="long-txt"><?=$CALC_RESULTS->systemControl == 'controller' ? 'Контроллер' : 'Видеопроцессор';?></td>
-                        </tr>
-                        <tr>
-                            <td><?=$PARAM_LIST_COUNTER++?></td>
-                            <td>Срок аренды</td>
-                            <td>дни</td>
-                            <td><?=$CALC_RESULTS->rentDays?></td>
-                        </tr>
-                        <?if($CALC_RESULTS->dateStart):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Дата начала аренды</td>
-                                <td colspan="2" class="long-txt"><?=$CALC_RESULTS->dateStart ? normalizeDate($CALC_RESULTS->dateStart) : 'Не указана';?></td>
-                            </tr>
-                        <?endif;?>
-                        <?if($CALC_RESULTS->technician):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Техник для управления видео</td>
-                                <td colspan="2" class="long-txt"><?=$CALC_RESULTS->technician ? 'Нужен' : 'Не нужен';?></td>
-                            </tr>
-                        <?endif;?>
-                        <?if($CALC_RESULTS->delivery):?>
-                            <tr>
-                                <td><?=$PARAM_LIST_COUNTER++?></td>
-                                <td>Доставка за пределы Москвы</td>
-                                <td colspan="2" class="long-txt"><?=$CALC_RESULTS->delivery == 0 ? 'Не нужна' : 'Нужна';?></td>
-                            </tr>
-                        <?endif;?>
-                    <?endif;?>
+                    <?endforeach;?>
                 </table>
             </div>
+
+            <?//Блок Итого?>
             <div class="calc__specification-result">
                 <div class="calc__specification-result-sum">
                     <span>Итого:</span>
@@ -345,19 +385,19 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                         </span>
                     </div>
                     <div class="dropdown">
-                        <a href="" download>
+                        <a href="<?=$ARR_FILES_PATHS[0]?>" target="_blank">
                             <span class="icon">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 6.8708L6.99256 9M6.99256 9L9 6.88658M6.99256 9L6.99256 1M11 5C11 5 11.3978 5 11.7654 5.15224C12.2554 5.35523 12.6448 5.74458 12.8478 6.23463C13 6.60218 13 7.06812 13 8V9C13 10.8856 13 11.8284 12.4142 12.4142C11.8284 13 10.8856 13 9 13H5C3.11438 13 2.17157 13 1.58579 12.4142C1 11.8284 1 10.8856 1 9V8C1 7.06812 1 6.60218 1.15224 6.23463C1.35523 5.74458 1.74458 5.35523 2.23463 5.15224C2.60218 5 3 5 3 5" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </span>
                             <span class="txt">Pdf</span>
                         </a>
-                        <a href="" download>
+                        <a href="<?=$ARR_FILES_PATHS[1]?>" download>
                             <span class="icon">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 6.8708L6.99256 9M6.99256 9L9 6.88658M6.99256 9L6.99256 1M11 5C11 5 11.3978 5 11.7654 5.15224C12.2554 5.35523 12.6448 5.74458 12.8478 6.23463C13 6.60218 13 7.06812 13 8V9C13 10.8856 13 11.8284 12.4142 12.4142C11.8284 13 10.8856 13 9 13H5C3.11438 13 2.17157 13 1.58579 12.4142C1 11.8284 1 10.8856 1 9V8C1 7.06812 1 6.60218 1.15224 6.23463C1.35523 5.74458 1.74458 5.35523 2.23463 5.15224C2.60218 5 3 5 3 5" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </span>
                             <span class="txt">Excel</span>
                         </a>
-                        <a href="" download>
+                        <a href="<?=$ARR_FILES_PATHS[2]?>" download>
                             <span class="icon">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 6.8708L6.99256 9M6.99256 9L9 6.88658M6.99256 9L6.99256 1M11 5C11 5 11.3978 5 11.7654 5.15224C12.2554 5.35523 12.6448 5.74458 12.8478 6.23463C13 6.60218 13 7.06812 13 8V9C13 10.8856 13 11.8284 12.4142 12.4142C11.8284 13 10.8856 13 9 13H5C3.11438 13 2.17157 13 1.58579 12.4142C1 11.8284 1 10.8856 1 9V8C1 7.06812 1 6.60218 1.15224 6.23463C1.35523 5.74458 1.74458 5.35523 2.23463 5.15224C2.60218 5 3 5 3 5" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </span>
@@ -367,8 +407,7 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                 </div>
                 <a class="calc__specification-result-share"
                    id="calcSpecificationShareLink"
-                   href=""
-                   data-share-link="">
+                   href="<?=$_SERVER["DOCUMENT_ROOT"] . substr($ARR_FILES_PATHS[0], 1)?>">
                     <span class="icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.76217 9.92072L4.72253 10.9604C2.42582 13.2571 2.42582 16.9808 4.72253 19.2775C7.01924 21.5742 10.7429 21.5742 13.0396 19.2775L14.0793 18.2378M9.92072 5.76217L10.9604 4.72253C13.2571 2.42582 16.9808 2.42582 19.2775 4.72253C21.5742 7.01924 21.5742 10.7429 19.2775 13.0396L18.2378 14.0793M9.92072 14.0793L14.0793 9.92072" stroke="#F6F0FF" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
@@ -393,13 +432,22 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
             </div>
         </div>
     </div>
+    <?//Форма отправки запроса?>
     <div class="container">
         <div class="calc__order">
             <div class="calc__order-title">
                 <span class="title">Отправьте заявку на подробный расчет</span>
             </div>
             <div class="calc__order-form">
-                <form class="form-order" id="calcForm" action="/" method="POST" data-target="#calcModal">
+                <form class="form-order"
+                      id="calcForm"
+                      action="/utilities/handle-calc-results-form.php"
+                      method="POST"
+                      data-target="#calcModal"
+                      enctype="multipart/form-data">
+                    <input type="hidden" name="pdf" value="<?=$_SERVER["DOCUMENT_ROOT"] . substr($ARR_FILES_PATHS[0], 1)?>">
+                    <input type="hidden" name="xls" value="<?=$_SERVER["DOCUMENT_ROOT"] . substr($ARR_FILES_PATHS[1], 1)?>">
+                    <input type="hidden" name="txt" value="<?=$_SERVER["DOCUMENT_ROOT"] . substr($ARR_FILES_PATHS[2], 1)?>">
                     <div class="controller-group">
                         <label class="controller-label">ФИО</label>
                         <div class="controller controller__input">
@@ -411,7 +459,8 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                                        type="text"
                                        placeholder="Как Вас зовут?"
                                        name="name"
-                                       id="calcFormName">
+                                       id="calcFormName"
+                                       tabindex="5">
                             </label>
                         </div>
                     </div>
@@ -426,7 +475,8 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                                        type="text"
                                        placeholder="+7 900 000 00 00"
                                        name="phone"
-                                       id="calcFormPhone">
+                                       id="calcFormPhone"
+                                       tabindex="6">
                             </label>
                             <div class="validator validator__cross">
                                 <img class="valid" src="/img/icon-validator-cross-valid.svg" alt="">
@@ -449,7 +499,8 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                                        type="text"
                                        placeholder="example@email.com"
                                        name="mail"
-                                       id="calcFormMail">
+                                       id="calcFormMail"
+                                       tabindex="7">
                             </label>
                         </div>
                     </div>
@@ -462,7 +513,8 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                             <textarea class="textarea"
                                       placeholder="Напишите что-нибудь"
                                       name="message"
-                                      id="calcFormMessage"></textarea>
+                                      id="calcFormMessage"
+                                      tabindex="8"></textarea>
                         </div>
                     </div>
                 </form>
@@ -481,6 +533,7 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                         }
                     ?>
                 </div>
+                <?//Короткая спецификация рядом с формаой для показа на тач устройствах?>
                 <div class="calc__order-result-list">
                     <div class="calc__order-result-list-title">Спецификация</div>
                     <div class="calc__order-result-list-short">
@@ -534,7 +587,7 @@ if ($CALC_RESULTS->calcType == 'rentScreen') {
                                     target="_blank">обработку моих персональных данных</a>
                             </span>
                             <div class="form-order__button">
-                                <button class="btn btn_primary form-order__submit" type="submit">Отправить заявку</button>
+                                <button class="btn btn_primary form-order__submit" type="submit" tabindex="9">Отправить заявку</button>
                             </div>
                         </div>
                     </div>

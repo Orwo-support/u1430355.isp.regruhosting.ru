@@ -14,7 +14,7 @@ $(document).ready(() => {
             setTimeout(() => $(msg).removeClass('visible'), 10000);
 
             const tmpTextarea = $('<textarea>'),
-                fileShareLink = $(this).data('shareLink');
+                fileShareLink = $(this).attr('href');
 
             $('body').append(tmpTextarea);
             tmpTextarea.val(fileShareLink).select();

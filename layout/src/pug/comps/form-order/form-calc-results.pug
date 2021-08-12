@@ -1,4 +1,7 @@
-form.form-order#calcForm(action="/" method="POST" data-target="#calcModal")
+form.form-order#calcForm(action="http://ekranika.develop/utilities/handle-calc-results-form.php" method="POST" data-target="#calcModal" enctype="multipart/form-data")
+    input(type="hidden" name="pdf" value="$PDF_FILE_URL_LINK")
+    input(type="hidden" name="xls" value="$XLS_FILE_URL_LINK")
+    input(type="hidden" name="txt" value="$TXT_FILE_URL_LINK")
     .controller-group
         label.controller-label ФИО
         .controller.controller__input
