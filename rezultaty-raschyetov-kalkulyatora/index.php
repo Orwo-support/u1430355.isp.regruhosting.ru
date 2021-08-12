@@ -407,7 +407,7 @@ $ARR_FILES_PATHS = makeFilesFromCalcResults($arParamsList, $finalCost); // [$PDF
                 </div>
                 <a class="calc__specification-result-share"
                    id="calcSpecificationShareLink"
-                   href="<?=$_SERVER["DOCUMENT_ROOT"] . substr($ARR_FILES_PATHS[0], 1)?>">
+                   href="<?=$_SERVER['HTTP_HOST'] . $ARR_FILES_PATHS[0]?>">
                     <span class="icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.76217 9.92072L4.72253 10.9604C2.42582 13.2571 2.42582 16.9808 4.72253 19.2775C7.01924 21.5742 10.7429 21.5742 13.0396 19.2775L14.0793 18.2378M9.92072 5.76217L10.9604 4.72253C13.2571 2.42582 16.9808 2.42582 19.2775 4.72253C21.5742 7.01924 21.5742 10.7429 19.2775 13.0396L18.2378 14.0793M9.92072 14.0793L14.0793 9.92072" stroke="#F6F0FF" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
@@ -445,9 +445,9 @@ $ARR_FILES_PATHS = makeFilesFromCalcResults($arParamsList, $finalCost); // [$PDF
                       method="POST"
                       data-target="#calcModal"
                       enctype="multipart/form-data">
-                    <input type="hidden" name="pdf" value="<?=$_SERVER["DOCUMENT_ROOT"] . substr($ARR_FILES_PATHS[0], 1)?>">
-                    <input type="hidden" name="xls" value="<?=$_SERVER["DOCUMENT_ROOT"] . substr($ARR_FILES_PATHS[1], 1)?>">
-                    <input type="hidden" name="txt" value="<?=$_SERVER["DOCUMENT_ROOT"] . substr($ARR_FILES_PATHS[2], 1)?>">
+                    <input type="hidden" name="pdf" value="<?=$_SERVER['HTTP_HOST'] . $ARR_FILES_PATHS[0]?>">
+                    <input type="hidden" name="xls" value="<?=$_SERVER['HTTP_HOST'] . $ARR_FILES_PATHS[1]?>">
+                    <input type="hidden" name="txt" value="<?=$_SERVER['HTTP_HOST'] . $ARR_FILES_PATHS[2]?>">
                     <div class="controller-group">
                         <label class="controller-label">ФИО</label>
                         <div class="controller controller__input">
