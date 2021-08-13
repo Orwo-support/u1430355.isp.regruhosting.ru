@@ -16,7 +16,7 @@ $arUrlRewrite=array (
     'PATH' => '/novosti/index.php',
     'SORT' => 100,
   ),
-  5 => 
+  7 => 
   array (
     'CONDITION' => '#^/stati/#',
     'RULE' => '',

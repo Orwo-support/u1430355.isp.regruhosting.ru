@@ -75,8 +75,8 @@ $APPLICATION->SetTitle("Статьи");
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
 		"SHARE_HANDLERS" => array(
-			0 => "facebook",
-			1 => "vk",
+			0 => "vk",
+			1 => "facebook",
 		),
 		"SHARE_HIDE" => "Y",
 		"SHARE_SHORTEN_URL_KEY" => "",
