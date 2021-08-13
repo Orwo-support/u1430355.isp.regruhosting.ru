@@ -21,7 +21,9 @@ $this->setFrameMode(true);
         ?>
         <?if ($arItem["PROPERTIES"]["SHOW_IN_FOOTER"]["VALUE_XML_ID"] == "Y") :?>
             <li id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-                <a class="social-icon" href="<?=$arItem["PROPERTIES"]["SOCIAL_LINK"]["VALUE"]?>">
+                <a class="social-icon"
+                   href="<?=$arItem["PROPERTIES"]["SOCIAL_LINK"]["VALUE"]?>"
+                   target="_blank">
                     <div class="social-icon__pic">
                         <?=html_entity_decode($arItem["PROPERTIES"]["SOCIAL_ICON"]["VALUE"]["TEXT"]);?>
                     </div>
