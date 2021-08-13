@@ -20,7 +20,7 @@ $RENT_SLIDER_COUNT = count($arResult["ITEMS"]);
 ?>
 <section class="section section_banner-content">
     <div class="container">
-        <div class="banner-content">
+        <div class="banner-content animation-element">
             <div class="banner-content__wrap">
                 <div class="banner-content__picture"
                      style="background-image: url('<?=$INFO_BLOCK_IMG_PATH?>');"
