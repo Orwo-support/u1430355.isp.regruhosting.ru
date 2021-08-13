@@ -11,6 +11,8 @@
 
 .banner-content {
 
+    @include card-animation;
+
     &__wrap {
         padding: 16px 7.5% 0;
 
