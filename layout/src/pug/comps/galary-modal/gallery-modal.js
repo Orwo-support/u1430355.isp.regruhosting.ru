@@ -21,22 +21,28 @@ $(document).ready(function () {
     }
 
     function openModal(src) {
+        $(SPINNER).addClass('visible');
+
         const img = document.getElementById('galleryPic');
         img.src = src;
         img.onload = function() {
+            $(SPINNER).removeClass('visible');
 
-            if (isLaptop) {
-                $('body')
-                    .addClass('modal-open')
-                    .css('paddingRight', paddingRightWidth);
+            setTimeout(() => {
+                if (isLaptop) {
+                    $('body')
+                        .addClass('modal-open')
+                        .css('paddingRight', paddingRightWidth);
 
-                $('header.header').css({
-                    'paddingRight': 'calc(5vw + ' + paddingRightWidth + ')',
-                    'transition': 'none',
-                });
-            }
+                    $('header.header').css({
+                        'paddingRight': 'calc(5vw + ' + paddingRightWidth + ')',
+                        'transition': 'none',
+                    });
+                }
 
-            $(modal).addClass('visible');
+                $(modal).addClass('visible');
+
+            }, 400);
         };
     }
 

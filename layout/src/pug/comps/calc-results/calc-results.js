@@ -160,7 +160,7 @@ $(document).ready(function () {
                         $('#calcFormMessage').val('');
                         maskCalcPhone.unmaskedValue = '';
                         $('#calcModal .modal__close').focus();
-                    }, 700);
+                    }, 400);
                 }
             }).fail(err => {
                 alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');

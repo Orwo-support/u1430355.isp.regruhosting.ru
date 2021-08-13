@@ -112,7 +112,7 @@ $this->setFrameMode(true);
                     >
                 </div>
                 <div class="article-news__image-caption">
-                    <?=$arResult['DETAIL_PICTURE']['TITLE']?>
+                    <?=$arResult['DETAIL_PICTURE']['DESCRIPTION']?>
                 </div>
             </div>
             <div class="article-news__content">

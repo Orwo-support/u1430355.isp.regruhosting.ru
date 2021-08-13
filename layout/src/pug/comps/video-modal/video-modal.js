@@ -75,24 +75,31 @@ $(document).ready(function () {
         function showVideModal () {
             if (showVideoMarker) {
                 $(SPINNER).removeClass('visible');
-                toggleVideoBack(true);
-                toggleVideoContainer(true);
-                toggleBodyFixed(true);
-                fixHeader(true);
+
+                setTimeout(() => {
+                    toggleVideoBack(true);
+                    toggleVideoContainer(true);
+                    toggleBodyFixed(true);
+                    fixHeader(true);
+                }, 500);
+
             } else {
                 showVideoMarker = true;
             }
         }
 
         function closeVideModal () {
-            toggleVideoBack();
             toggleVideoContainer();
-            toggleBodyFixed();
-            fixHeader();
 
-            showVideoMarker = false;
+            setTimeout(() => {
+                toggleVideoBack();
+                toggleBodyFixed();
+                fixHeader();
 
-            $('#videoModalContent iframe').attr('src', '');
+                showVideoMarker = false;
+
+                $('#videoModalContent iframe').attr('src', '');
+            }, 300);
         }
     }
 });

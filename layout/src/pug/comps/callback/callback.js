@@ -99,21 +99,20 @@ $(document).ready(function () {
                 if (JSON.parse(response).IS_ERRORS) {
                     alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
                 } else {
-                    $(callbackPhoneController).removeClass('valid input checked');
-                    maskCallback.unmaskedValue = '';
-                    $('#calbackModal .modal__close').focus();
-                    modalOpen(this);
+                    $(SPINNER).removeClass('visible');
+
+                    setTimeout(() => {
+                        $(callbackPhoneController).removeClass('valid input checked');
+                        maskCallback.unmaskedValue = '';
+                        $('#calbackModal .modal__close').focus();
+                        modalOpen(this);
+                    }, 400);
                 }
             }).fail(err => {
                 alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
                 console.log('Request error on callback form!');
                 console.log(err);
-            }).always(() => {
-                setTimeout(
-                    () => $(SPINNER).removeClass('visible'),
-                    300
-                );
-            });
+            }).always(() => $(SPINNER).removeClass('visible'));
         }
     });
 });

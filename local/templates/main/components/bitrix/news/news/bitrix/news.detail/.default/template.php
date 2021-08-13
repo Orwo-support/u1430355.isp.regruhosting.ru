@@ -112,7 +112,7 @@ $GOING_BACK_ICON = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/200
                     >
                 </div>
                 <div class="article-news__image-caption">
-                    <?=$arResult['DETAIL_PICTURE']['TITLE']?>
+                    <?=$arResult['DETAIL_PICTURE']['DESCRIPTION']?>
                 </div>
             </div>
             <div class="article-news__content">

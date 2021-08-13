@@ -866,13 +866,12 @@ $(document).ready(function () {
                     resetFailQuiz(response);
                 } else {
                     // console.log(JSON.parse(response));
-                    showQuizEpilogue();
+                    $(SPINNER).removeClass('visible');
+                    setTimeout(showQuizEpilogue, 400);
                 }
             }).fail(xhr => {
                 resetFailQuiz(xhr);
-            }).always(() => {
-                $(SPINNER).removeClass('visible');
-            });
+            }).always(() => $(SPINNER).removeClass('visible'));
 
             function resetFailQuiz(data) {
                 alert('Сообщение не отправлено. ' +
