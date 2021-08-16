@@ -9,12 +9,6 @@
         }
     }
 
-    .banner-content__slide:first-child .paragraph {
-        @media (min-width: $xl) {
-            max-width: 60%;
-        }
-    }
-
     .banner-content__text_two-column .paragraph {
         padding-right: 0;
     }
