@@ -48,7 +48,7 @@ $APPLICATION->SetTitle("Монтаж светодиодных экранов");
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"PROPERTY_CODE" => array(
-			0 => "",
+			0 => "SLIDER_ITEM_CUSTOM_CLASSES",
 			1 => "",
 		),
 		"SET_BROWSER_TITLE" => "N",
