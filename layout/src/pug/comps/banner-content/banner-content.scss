@@ -69,6 +69,7 @@
 
         @media (min-width: $lg) {
             padding-left: 48px;
+            padding-bottom: 80px;
             display: block;
         }
 
@@ -196,6 +197,7 @@
     &__text {
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
 
         @media (min-width: $md) {
             flex-direction: row;
@@ -206,8 +208,32 @@
         }
 
         @media (min-width: $xl) {
-            &_large {
-                width: 61%;
+            &_large-60 {
+                width: 60%;
+            }
+
+            &_large-65 {
+                width: 65%;
+            }
+
+            &_large-70 {
+                width: 70%;
+            }
+
+            &_large-75 {
+                width: 75%;
+            }
+
+            &_large-80 {
+                width: 80%;
+            }
+
+            &_large-85 {
+                width: 85%;
+            }
+
+            &_large-90 {
+                width: 90%;
             }
         }
 
@@ -240,7 +266,7 @@
 
             @media (min-width: $lg) {
                 width: 100% !important;
-                max-width: 80%;
+                max-width: 90%;
                 padding: 0 !important;
                 font-size: 14px;
             }
