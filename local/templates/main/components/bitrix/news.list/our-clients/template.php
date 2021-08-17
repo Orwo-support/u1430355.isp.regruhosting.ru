@@ -33,8 +33,9 @@ $this->setFrameMode(true);
                                     <?if($arItem["PROPERTIES"]["CLIENT_LOGO_SVG_CODE"]["VALUE"] != ""):?>
                                         <?=html_entity_decode($arItem["PROPERTIES"]["CLIENT_LOGO_SVG_CODE"]["VALUE"]["TEXT"]);?>
                                     <?else:?>
-                                        <img class="pic" src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>"
-                                             alt="<?=$arItem["DETAIL_PICTURE"]["DESCRIPTION"]?>">
+                                        <span class="picture"
+                                              title="<?=htmlspecialchars($arItem["DETAIL_PICTURE"]["DESCRIPTION"])?>"
+                                              style="background-image: url('<?=$arItem["DETAIL_PICTURE"]["SRC"]?>');"></span>
                                     <?endif;?>
                                 </a>
                             </div>
