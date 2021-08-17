@@ -137,6 +137,7 @@
             background-position: center;
             background-repeat: no-repeat;
             transition: all .4s ease-out;
+            background-color: $color-back-primary;
         }
 
         @media (min-width: $lg) {
