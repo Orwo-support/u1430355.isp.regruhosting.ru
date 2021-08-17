@@ -343,7 +343,7 @@
                                                            placeholder="Напишите Ваше Имя"
                                                            name="quizName"
                                                            id="quizName"
-                                                           tabindex="1">
+                                                           tabindex="101">
                                                 </label>
                                             </div>
                                         </div>
@@ -358,7 +358,7 @@
                                                            type="text"
                                                            placeholder="+7 900 000 00 00"
                                                            id="quizPhone"
-                                                           tabindex="2">
+                                                           tabindex="102">
                                                 </label>
                                                 <div class="validator validator__cross">
                                                     <img class="pic valid" src="/img/icon-validator-cross-valid.svg" alt="">
@@ -381,7 +381,7 @@
                                                           placeholder="Напишите что-нибудь"
                                                           name="quizMessage"
                                                           id="quizMessage"
-                                                          tabindex="3"></textarea>
+                                                          tabindex="103"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -404,7 +404,7 @@
                     <div class="quiz__btn-next">
                         <button class="btn btn_primary"
                                 id="quizBtnNextStep"
-                                tabindex="4">Следующий вопрос</button>
+                                tabindex="104">Следующий вопрос</button>
                     </div>
                     <div class="quiz__btn-prev">
                         <div class="btn btn_icon-outlined not-focused" id="quizBtnPrevStep">

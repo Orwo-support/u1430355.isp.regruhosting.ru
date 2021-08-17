@@ -64,7 +64,7 @@
                                            placeholder="Напишите Ваше имя"
                                            name="name"
                                            id="name"
-                                           tabindex="1">
+                                           tabindex="201">
                                 </label>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                            placeholder="+7 900 000 00 00"
                                            name="phone"
                                            id="phone"
-                                           tabindex="2">
+                                           tabindex="202">
                                 </label>
                                 <div class="validator validator__cross">
                                     <img class="pic valid"
@@ -114,7 +114,7 @@
                                           placeholder="Напишите что-нибудь"
                                           name="message"
                                           id="message"
-                                          tabindex="3"></textarea>
+                                          tabindex="203"></textarea>
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                         <div class="form-order__button">
                             <button class="btn btn_primary form-order__submit"
                                     type="submit"
-                                    tabindex="4">
+                                    tabindex="204">
                                 Отправить заявку
                             </button>
                         </div>
