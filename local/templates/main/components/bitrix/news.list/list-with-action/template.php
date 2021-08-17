@@ -53,7 +53,7 @@ $this->setFrameMode(true);
                         case '/':
                             $ACTION_LIST_TITLE = 'Давайте знакомиться';
                             $ACTION_LIST_LINK_NAME = 'О компании';
-                            $ACTION_LIST_LINK_URL = '/o-nas-garantiya-kontakty/';
+                            $ACTION_LIST_LINK_URL = '/o-nas-garantiya-kontakty/#o-kompanii';
                             break;
                         case '/o-nas-garantiya-kontakty/':
                             $ACTION_LIST_TITLE = 'Наши проекты';

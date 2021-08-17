@@ -562,7 +562,7 @@ $APPLICATION->SetTitle("О нас, Гарантия, Контакты");
             <h2 class="h2 section__title animation-element">
                 <span class="title">Оплата</span>
                 <span class="section__link animation-element">
-                    <a class="revers" href="">Подробнее о способах оплаты и доставки</a>
+                    <a class="revers" href="/dostavka-i-oplata/">Подробнее о способах оплаты и доставки</a>
                     <span class="icon">
                         <svg width="12"
                              height="17"

@@ -19,7 +19,7 @@ $this->setFrameMode(true);
             <h2 class="section__title animation-element">
                 <span class="title">Мы предлагаем</span>
                 <span class="section__link animation-element">
-                <a class="revers" href="/svetodiodnyy-ekran/">
+                <a class="revers" href="/svetodiodnyy-ekran/#gotovye-kabinety">
                     Выбрать готовые кабинеты
                     <svg width="12"
                          height="17"

@@ -16,7 +16,7 @@
             <h2 class="section__title animation-element">
                 <span class="title"><?=$CALLBACK_FORM_TITLE?></span>
                 <span class="section__link animation-element">
-                    <a class="revers" href="/o-nas-garantiya-kontakty/">
+                    <a class="revers" href="/o-nas-garantiya-kontakty/#kontakty">
                         Открыть контакты
                         <svg width="12"
                              height="17"

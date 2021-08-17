@@ -19,7 +19,7 @@ $this->setFrameMode(true);
             <h2 class="section__title animation-element">
                 <span class="title"><?=$arResult['DESCRIPTION']?></span>
                 <span class="section__link animation-element">
-                    <a class="revers" href="">
+                    <a class="revers" href="/o-nas-garantiya-kontakty/#sertifikaty">
                         Посмотреть сертификаты
                         <svg width="12"
                              height="17"
