@@ -1,11 +1,7 @@
 <div class="video-modal__background" id="videoModalBackground"></div>
 <div class="video-modal__content" id="videoModalContent">
     <div class="video-modal__wrap">
-        <iframe src=""
-                width="auto"
-                height="auto"
-                title=""
-                frameborder="0"
+        <iframe src="https://youtu.be/ex9tML6udCU"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
         </iframe>
