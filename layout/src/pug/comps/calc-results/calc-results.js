@@ -140,33 +140,54 @@ $(document).ready(function () {
 
             $(SPINNER).addClass('visible');
 
-            $.post(
-                action,
-                $(form).serializeArray(),
-                "json"
-            ).done(response => {
-                // console.log(JSON.parse(response));
+            grecaptcha.ready(() => {
+                grecaptcha.execute(
+                    '6LdJnQ8cAAAAAB_HhGL-DIeud36yN9j-mGuwMBKV',
+                    { action: 'calc_results_form' }
+                ).then(token => {
+                    $.post(
+                        'http://ekranika.develop/utilities/check-recaptcha-token.php',
+                        { token: token },
+                        "json"
+                    ).done(response => {
+                        const reCaptchaData = JSON.parse(response);
 
-                if (JSON.parse(response).IS_ERRORS) {
-                    alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
-                } else {
-                    $(SPINNER).removeClass('visible');
+                        console.log(reCaptchaData);
 
-                    setTimeout(() => {
-                        modalOpen($('#calcForm'));
-                        $('#calcForm .controller').removeClass('valid input checked');
-                        $('#calcFormName').val('');
-                        $('#calcFormMail').val('');
-                        $('#calcFormMessage').val('');
-                        maskCalcPhone.unmaskedValue = '';
-                        $('#calcModal .modal__close').focus();
-                    }, 400);
-                }
-            }).fail(err => {
-                alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
-                console.log('Request error on set calc results form!');
-                console.log(err);
-            }).always(() => $(SPINNER).removeClass('visible'));
+                        if (reCaptchaData.success && reCaptchaData.score > 0.5) {
+                            $.post(
+                                action,
+                                $(form).serializeArray(),
+                                "json"
+                            ).done(response => {
+                                // console.log(JSON.parse(response));
+
+                                if (JSON.parse(response).IS_ERRORS) {
+                                    alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                                } else {
+                                    $(SPINNER).removeClass('visible');
+
+                                    setTimeout(() => {
+                                        modalOpen($('#calcForm'));
+                                        $('#calcForm .controller').removeClass('valid input checked');
+                                        $('#calcFormName').val('');
+                                        $('#calcFormMail').val('');
+                                        $('#calcFormMessage').val('');
+                                        maskCalcPhone.unmaskedValue = '';
+                                        $('#calcModal .modal__close').focus();
+                                    }, 400);
+                                }
+                            }).fail(err => {
+                                alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                                console.log('Request error on set calc results form!');
+                                console.log(err);
+                            }).always(() => $(SPINNER).removeClass('visible'));
+                        } else {
+                            alert('К сожалению система определила Вас как робота. Для отправки данных перезагрузите страницу и повторите попытку.');
+                        }
+                    });
+                });
+            });
         }
 
         // Toggle visible for download formats dropdown

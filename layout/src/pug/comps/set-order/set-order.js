@@ -178,6 +178,9 @@ $(document).ready(function () {
                         "json"
                     ).done(response => {
                         const reCaptchaData = JSON.parse(response);
+
+                        console.log(reCaptchaData);
+
                         if (reCaptchaData.success && reCaptchaData.score > 0.5) {
                             $.post(
                                 this.action,
