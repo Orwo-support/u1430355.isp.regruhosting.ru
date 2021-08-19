@@ -140,168 +140,81 @@ $(document).ready(function () {
     $(setOrderFormPhone).blur(checkSetOrderFormPhone);
 
 
+    $(setOrderForm).on('submit', function(e) {
+        e.preventDefault();
 
-    // const testForm = document.getElementById('setOrderForm');
-    //
-    // testForm.addEventListener('submit', async (e) => {
-    //     e.preventDefault();
-    //
-    //     // let phone = $(setOrderFormPhone).val();
-    //     // let isFormValid = true;
-    //     //
-    //     // if (phone !== '') {
-    //     //     if (!validPhone(phone.replace(/\s+|\+/g, ''))) {
-    //     //         isFormValid = false;
-    //     //         animationFormError(
-    //     //             setOrderFormController,
-    //     //             setOrderFormValidator
-    //     //         );
-    //     //     }
-    //     // } else {
-    //     //     isFormValid = false;
-    //     //     animationFormError(
-    //     //         setOrderFormController,
-    //     //         setOrderFormValidator
-    //     //     );
-    //     // }
-    //     //
-    //     // if (isFormValid) {
-    //     //     console.log($(this).serializeArray());
-    //     //
-    //     //     console.log('---------------------------------------------');
-    //     //
-    //     //     // const response =
-    //     //     //     await fetch('http://ekranika.develop/utilities/get-recaptcha-data.php', {
-    //     //     //         body: 'asdf',
-    //     //     //         method: 'POST'
-    //     //     //     })
-    //     //     // const data = await response.json();
-    //     //     // console.log(data);
-    //     //
-    //     //
-    //     //     // // рабочий вариант
-    //     //     // //grecaptcha.reset();
-    //     //     // grecaptcha.execute();
-    //     //     //
-    //     //     // console.log('#recaptcha', $('#recaptcha').val());
-    //     //     //
-    //     //     //
-    //     //     //
-    //     //     // $.post(
-    //     //     //     "http://ekranika.develop/utilities/get-recaptcha-data.php",
-    //     //     //     { token: $('#recaptcha').val() },
-    //     //     //     function(result) {
-    //     //     //         console.log(result);
-    //     //     //         if(result.success) {
-    //     //     //             alert('Thanks for posting comment.')
-    //     //     //         } else {
-    //     //     //             alert('You are spammer ! Get the @$%K out.')
-    //     //     //         }
-    //     //     //     }
-    //     //     // );
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //     // grecaptcha.ready(function() {
-    //     //     //     grecaptcha.execute('6Les2AocAAAAAAuo6Kd8iMxsAzk2p6gA2RD79hRO', {action: 'submit'}).then(function(token) {
-    //     //     //         // Add your logic to submit to your backend server here.
-    //     //     //         console.log('Сработал execute внутри большого скрипты')
-    //     //     //         console.log(token)
-    //     //     //
-    //     //     //
-    //     //     //         $.post(
-    //     //     //             'https://www.google.com/recaptcha/api/siteverify',
-    //     //     //             {
-    //     //     //                 secret: '6Les2AocAAAAAEflLEGWkgIlE-NSwXeq2gKyFLsE',
-    //     //     //                 response: token
-    //     //     //             },
-    //     //     //             "json"
-    //     //     //         ).done(response => {
-    //     //     //             console.log(response)
-    //     //     //         }).fail(err => {
-    //     //     //             alert('Вы робот');
-    //     //     //             console.log('Request error on reCaptcha!');
-    //     //     //             console.log(err);
-    //     //     //         });
-    //     //     //     });
-    //     //     // });
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //
-    //     //     // grecaptcha.ready(function() {
-    //     //     //     grecaptcha.execute(
-    //     //     //         '6Les2AocAAAAAAuo6Kd8iMxsAzk2p6gA2RD79hRO',
-    //     //     //         { action: 'submit' }
-    //     //     //     ).then(function(token) {
-    //     //     //         console.log('token', token);
-    //     //     //     });
-    //     //     // });
-    //     //
-    //     //
-    //     //     // $(SPINNER).addClass('visible');
-    //     //     //
-    //     //     // $.post(
-    //     //     //     this.action,
-    //     //     //     $(this).serializeArray(),
-    //     //     //     "json"
-    //     //     // ).done(response => {
-    //     //     //     // console.log(JSON.parse(response));
-    //     //     //
-    //     //     //     if (JSON.parse(response).IS_ERRORS) {
-    //     //     //         alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
-    //     //     //     } else {
-    //     //     //         $(SPINNER).removeClass('visible');
-    //     //     //
-    //     //     //         setTimeout(() => $('#setOrderFormContent')
-    //     //     //             .removeClass('visible'), 700);
-    //     //     //
-    //     //     //         setTimeout(() => {
-    //     //     //             $('#setOrderFormContent').css("display", "none");
-    //     //     //
-    //     //     //             $(setOrderFormModalResult)
-    //     //     //                 .addClass('visible');
-    //     //     //
-    //     //     //             $('#setOrderFormModalResult .btn-set-order-modal-close')
-    //     //     //                 .focus();
-    //     //     //         },1000);
-    //     //     //     }
-    //     //     // }).fail(err => {
-    //     //     //     alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
-    //     //     //     console.log('Request error on set order form!');
-    //     //     //     console.log(err);
-    //     //     // }).always(() => $(SPINNER).removeClass('visible'));
-    //     // }
-    // });
+        let phone = $(setOrderFormPhone).val();
+        let isFormValid = true;
+
+        if (phone !== '') {
+            if (!validPhone(phone.replace(/\s+|\+/g, ''))) {
+                isFormValid = false;
+                animationFormError(
+                    setOrderFormController,
+                    setOrderFormValidator
+                );
+            }
+        } else {
+            isFormValid = false;
+            animationFormError(
+                setOrderFormController,
+                setOrderFormValidator
+            );
+        }
+
+        if (isFormValid) {
+            //console.log($(this).serializeArray());
+
+            $(SPINNER).addClass('visible');
+
+            grecaptcha.ready(() => {
+                grecaptcha.execute(
+                    '6LdJnQ8cAAAAAB_HhGL-DIeud36yN9j-mGuwMBKV',
+                    { action: 'set_order_form' }
+                ).then(token => {
+                    $.post(
+                        'http://ekranika.develop/utilities/check-recaptcha-token.php',
+                        { token: token },
+                        "json"
+                    ).done(response => {
+                        const reCaptchaData = JSON.parse(response);
+                        if (reCaptchaData.success && reCaptchaData.score > 0.5) {
+                            $.post(
+                                this.action,
+                                $(this).serializeArray(),
+                                "json"
+                            ).done(response => {
+                                // console.log(JSON.parse(response));
+
+                                if (JSON.parse(response).IS_ERRORS) {
+                                    alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                                } else {
+                                    $(SPINNER).removeClass('visible');
+
+                                    setTimeout(() => $('#setOrderFormContent')
+                                        .removeClass('visible'), 700);
+
+                                    setTimeout(() => {
+                                        $('#setOrderFormContent').css("display", "none");
+
+                                        $(setOrderFormModalResult)
+                                            .addClass('visible');
+
+                                        $('#setOrderFormModalResult .btn-set-order-modal-close')
+                                            .focus();
+                                    },1000);
+                                }
+                            }).fail(err => {
+                                alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                                console.log('Request error on set order form!');
+                                console.log(err);
+                            }).always(() => $(SPINNER).removeClass('visible'));
+                        } else {
+                            alert('К сожалению система определила Вас как робота. Для отправки данных перезагрузите страницу и повторите попытку.');
+                        }
+                    });
+                });
+            });
+        }
+    });
 });
-
-
-
-// const testForm = document.forms["setOrderForm"];
-//
-// console.log(testForm)
-
-const subscribe_form_0 = document.forms["subscribe-form-0"];
-
-subscribe_form_0.addEventListener("submit", async (e) => {
-    // e.preventDefault();
-    // const email = new FormData(e.target).get("email");
-    // if (email) {
-    //     const response =
-    //         await fetch('/.netlify/functions/fake-subscribe', {
-    //             body: email,
-    //             method: 'POST'
-    //         })
-    //     const data = await response.json();
-    //     alert(data);
-    // }
-})

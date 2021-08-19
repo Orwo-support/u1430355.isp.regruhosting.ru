@@ -2039,3 +2039,8 @@ filter: grayscale(0) blur(0);
         top: -170px;
     }
 }
+
+// Customizing reCaptcha badge
+.grecaptcha-badge {
+    z-index: 3;
+}

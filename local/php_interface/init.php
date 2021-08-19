@@ -1,7 +1,4 @@
 <?
-define('reCAPTCHA_SITE_KEY', '6Les2AocAAAAAAuo6Kd8iMxsAzk2p6gA2RD79hRO');
-define('reCAPTCHA_SECRET_KEY', '6Les2AocAAAAAEflLEGWkgIlE-NSwXeq2gKyFLsE');
-
 function debug ($data) {
     print '<pre>' . print_r($data, 1) . '</pre>';
 }
