@@ -18,7 +18,24 @@ html(lang="ru")
         // API Яндекс карт подключать только на страницаъ с картой
         script(src="https://api-maps.yandex.ru/2.1/?apikey=4c74d479-972b-4c76-81e7-b1bc63268173&lang=ru_RU")
 
+        //- Рабочий ваирант
+        //-script(src="https://www.google.com/recaptcha/api.js" async defer)
+
+        // API Google recaptcha
+        //script(src="https://www.google.com/recaptcha/api.js?onload=ReCaptchaCallbackV3&render=6Les2AocAAAAAAuo6Kd8iMxsAzk2p6gA2RD79hRO")
+
+
+
+
+
+
+
+
     body(class=pageClass)
+        //- Рабочий ваирант
+        //-.g-recaptcha(data-sitekey="6Les2AocAAAAAAuo6Kd8iMxsAzk2p6gA2RD79hRO" data-callback="onSubmit" data-size="invisible")
+        //-input#recaptcha(type="hidden")
+
         //- Loader
         include ../comps/loader/loader
 
