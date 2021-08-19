@@ -139,6 +139,7 @@ $(document).ready(function () {
     // Handle unfocused phone input
     $(setOrderFormPhone).blur(checkSetOrderFormPhone);
 
+
     $(setOrderForm).on('submit', function(e) {
         e.preventDefault();
 
@@ -166,36 +167,57 @@ $(document).ready(function () {
 
             $(SPINNER).addClass('visible');
 
-            $.post(
-                this.action,
-                $(this).serializeArray(),
-                "json"
-            ).done(response => {
-                // console.log(JSON.parse(response));
+            grecaptcha.ready(() => {
+                grecaptcha.execute(
+                    '6LdJnQ8cAAAAAB_HhGL-DIeud36yN9j-mGuwMBKV',
+                    { action: 'set_order_form' }
+                ).then(token => {
+                    $.post(
+                        'http://ekranika.develop/utilities/check-recaptcha-token.php',
+                        { token: token },
+                        "json"
+                    ).done(response => {
+                        const reCaptchaData = JSON.parse(response);
 
-                if (JSON.parse(response).IS_ERRORS) {
-                    alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
-                } else {
-                    $(SPINNER).removeClass('visible');
+                        //console.log(reCaptchaData);
 
-                    setTimeout(() => $('#setOrderFormContent')
-                        .removeClass('visible'), 700);
+                        if (reCaptchaData.success && reCaptchaData.score > 0.5) {
+                            $.post(
+                                this.action,
+                                $(this).serializeArray(),
+                                "json"
+                            ).done(response => {
+                                // console.log(JSON.parse(response));
 
-                    setTimeout(() => {
-                        $('#setOrderFormContent').css("display", "none");
+                                if (JSON.parse(response).IS_ERRORS) {
+                                    alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                                } else {
+                                    $(SPINNER).removeClass('visible');
 
-                        $(setOrderFormModalResult)
-                            .addClass('visible');
+                                    setTimeout(() => $('#setOrderFormContent')
+                                        .removeClass('visible'), 700);
 
-                        $('#setOrderFormModalResult .btn-set-order-modal-close')
-                            .focus();
-                    },1000);
-                }
-            }).fail(err => {
-                alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
-                console.log('Request error on set order form!');
-                console.log(err);
-            }).always(() => $(SPINNER).removeClass('visible'));
+                                    setTimeout(() => {
+                                        $('#setOrderFormContent').css("display", "none");
+
+                                        $(setOrderFormModalResult)
+                                            .addClass('visible');
+
+                                        $('#setOrderFormModalResult .btn-set-order-modal-close')
+                                            .focus();
+                                    },1000);
+                                }
+                            }).fail(err => {
+                                alert('Сообщение не отправлено. Произошла ошибка. Попробуйте немного позже.');
+                                console.log('Request error on set order form!');
+                                console.log(err);
+                            }).always(() => $(SPINNER).removeClass('visible'));
+                        } else {
+                            alert('К сожалению система определила Вас как робота. Для отправки данных перезагрузите страницу и повторите попытку.');
+                        }
+                    });
+                });
+            });
         }
     });
 });

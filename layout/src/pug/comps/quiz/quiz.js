@@ -846,32 +846,54 @@ $(document).ready(function () {
 
         function sendQuizDataToTheServe () {
             // console.log(QUIZ_STATE);
+
             $(SPINNER).addClass('visible');
 
-            $.post(
-                $('#quizForm').attr('action'),
-                {
-                    name: QUIZ_STATE.contactsName,
-                    phone: QUIZ_STATE.contactsPhone,
-                    message: QUIZ_STATE.contactsMessage,
-                    width: QUIZ_STATE.sizeWidth,
-                    height: QUIZ_STATE.sizeHeight,
-                    location: QUIZ_STATE.location,
-                    distance: QUIZ_STATE.distance,
-                    contract: QUIZ_STATE.contract,
-                },
-                "json"
-            ).done(response => {
-                if (JSON.parse(response).IS_ERRORS) {
-                    resetFailQuiz(response);
-                } else {
-                    // console.log(JSON.parse(response));
-                    $(SPINNER).removeClass('visible');
-                    setTimeout(showQuizEpilogue, 400);
-                }
-            }).fail(xhr => {
-                resetFailQuiz(xhr);
-            }).always(() => $(SPINNER).removeClass('visible'));
+            grecaptcha.ready(() => {
+                grecaptcha.execute(
+                    '6LdJnQ8cAAAAAB_HhGL-DIeud36yN9j-mGuwMBKV',
+                    { action: 'quiz_form' }
+                ).then(token => {
+                    $.post(
+                        'http://ekranika.develop/utilities/check-recaptcha-token.php',
+                        { token: token },
+                        "json"
+                    ).done(response => {
+                        const reCaptchaData = JSON.parse(response);
+
+                        //console.log(reCaptchaData);
+
+                        if (reCaptchaData.success && reCaptchaData.score > 0.5) {
+                            $.post(
+                                $('#quizForm').attr('action'),
+                                {
+                                    name: QUIZ_STATE.contactsName,
+                                    phone: QUIZ_STATE.contactsPhone,
+                                    message: QUIZ_STATE.contactsMessage,
+                                    width: QUIZ_STATE.sizeWidth,
+                                    height: QUIZ_STATE.sizeHeight,
+                                    location: QUIZ_STATE.location,
+                                    distance: QUIZ_STATE.distance,
+                                    contract: QUIZ_STATE.contract,
+                                },
+                                "json"
+                            ).done(response => {
+                                if (JSON.parse(response).IS_ERRORS) {
+                                    resetFailQuiz(response);
+                                } else {
+                                    // console.log(JSON.parse(response));
+                                    $(SPINNER).removeClass('visible');
+                                    setTimeout(showQuizEpilogue, 400);
+                                }
+                            }).fail(xhr => {
+                                resetFailQuiz(xhr);
+                            }).always(() => $(SPINNER).removeClass('visible'));
+                        } else {
+                            alert('К сожалению система определила Вас как робота. Для отправки данных перезагрузите страницу и повторите попытку.');
+                        }
+                    });
+                });
+            });
 
             function resetFailQuiz(data) {
                 alert('Сообщение не отправлено. ' +

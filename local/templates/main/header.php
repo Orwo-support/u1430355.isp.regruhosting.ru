@@ -35,15 +35,19 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
 
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.43b693a7171843d241ac.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.43b693a7171843d241ac.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.724b40524725423267a7.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.724b40524725423267a7.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.c968c1e4d619d79118fd.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.c968c1e4d619d79118fd.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.af92efe5ad6f4673361a.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.af92efe5ad6f4673361a.js");
 
+            // Connecting API Yandex Paps for about page
             if ($APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
                 Asset::getInstance()->addJs('https://api-maps.yandex.ru/2.1/?apikey=4c74d479-972b-4c76-81e7-b1bc63268173&amp;lang=ru_RU');
             }
+
+            // Connecting API google reCaptcha v3
+            Asset::getInstance()->addJs('https://www.google.com/recaptcha/api.js?render=6LdJnQ8cAAAAAB_HhGL-DIeud36yN9j-mGuwMBKV');
         ?>
 	</head>
     <body class="<?
