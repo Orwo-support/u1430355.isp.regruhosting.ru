@@ -1,8 +1,10 @@
 <?php
 if ($_POST) {
+  
+    require($_SERVER['DOCUMENT_ROOT'].'/comps/key.php');
+    
     function getCaptcha($TOKEN) {
-        $SECRET_KEY = '6LdJnQ8cAAAAAFjCFTUfyLrdRl_2H_u7AjgL0KZ9';
-        return file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$SECRET_KEY}&response={$TOKEN}");
+        return file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".SECRET_RECAPTCH_KEY."&response={$TOKEN}");
     }
 
     $RESPONSE = json_decode(getCaptcha($_POST['token']));

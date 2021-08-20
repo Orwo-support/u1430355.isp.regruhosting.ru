@@ -21,3 +21,5 @@
 
 # Ignore calc results txt files
 /calc-results-files/txt/
+
+/comps/key.php
