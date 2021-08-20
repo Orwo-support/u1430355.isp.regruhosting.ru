@@ -66,14 +66,11 @@ $APPLICATION->SetTitle("База знаний");
 	),
 	false,
 	array(
-	"ACTIVE_COMPONENT" => "Y"
+	"ACTIVE_COMPONENT" => "N"
 	)
 );?>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"post-list", 
-	array(
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+<?$APPLICATION->IncludeComponent("bitrix:news.list", "post-list", array(
+	"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
@@ -132,10 +129,13 @@ $APPLICATION->SetTitle("База знаний");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N",
 		"COMPONENT_TEMPLATE" => "post-list",
-        "LOCAL_SECTION_TITLE" => "Новости",
-        "LOCAL_TAB_ID" => "newsList"
+		"LOCAL_SECTION_TITLE" => "Новости",
+		"LOCAL_TAB_ID" => "newsList"
 	),
-	false
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "N"
+	)
 );?>
 <?$APPLICATION->IncludeComponent("bitrix:news.list", "firmware", Array(
 	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
