@@ -555,7 +555,7 @@ function printDop_CD (state) {
 function getExRate_CD(state, fPrintResults) {
     let request = $.ajax({
         // Exchange rates of Central Bank Russia
-        url: "http://u1430355.isp.regruhosting.ru/utilities/exchange-rate.php?get=true",
+        url: "https://u1430355.isp.regruhosting.ru/utilities/exchange-rate.php?get=true",
     });
 
     request.done(
@@ -597,7 +597,7 @@ function setRubSum_CD(state, response, fPrintResult) {
 
 function handleErrorOnRequestExRate(jqXHR, textStatus) {
     console.log('Произошла ошибка при попытке запросить курс доллара!');
-    console.log('URL: http://u1430355.isp.regruhosting.ru/utilities/exchange-rate.php?get=true');
+    console.log('URL: https://u1430355.isp.regruhosting.ru/utilities/exchange-rate.php?get=true');
     console.log(jqXHR);
     console.log(textStatus);
 
