@@ -855,7 +855,7 @@ $(document).ready(function () {
                     { action: 'quiz_form' }
                 ).then(token => {
                     $.post(
-                        'http://ekranika.develop/utilities/check-recaptcha-token.php',
+                        'https://ekranika.develop/utilities/check-recaptcha-token.php',
                         { token: token },
                         "json"
                     ).done(response => {
