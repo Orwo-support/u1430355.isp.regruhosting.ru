@@ -20,6 +20,10 @@ $this->setFrameMode(true);
  * */
 
 //debug($arResult);
+//debug($arResult['ITEMS']);
+
+$ACTIVATE_TAB = true;
+$ACTIVATE_LIST_ITEMS = true;
 ?>
 <section class="section section_tab-list">
     <div class="tab-list">
@@ -40,7 +44,11 @@ $this->setFrameMode(true);
                                 <?foreach($arResult['ITEMS'] as $key => $arSection):?>
                                     <?if(!empty($arSection['ELEMENTS'])):?>
                                         <div class="slider-tabs__slide swiper-slide">
-                                            <div class="slider-tabs__button<?= $key == 0 ? ' active' : '';?>"
+                                            <div class="slider-tabs__button<?
+                                                if ($ACTIVATE_TAB) {
+                                                    echo ' active';
+                                                    $ACTIVATE_TAB = false;
+                                                }?>"
                                                  data-target-tab-id="#<?=$arSection['CODE']?>">
                                                 <?=$arSection['NAME']?>
                                             </div>
@@ -96,7 +104,11 @@ $this->setFrameMode(true);
                             $SLIDER_CONTAINER_ID = 'tabListOurWorkRentSlider';
                             break;
                     }?>
-                    <div class="container-endless tabs-item<?= $key == 0 ? ' visible show' : '';?>"
+                    <div class="container-endless tabs-item<?
+                        if ($ACTIVATE_LIST_ITEMS) {
+                            echo ' visible show';
+                            $ACTIVATE_LIST_ITEMS = false;
+                        }?>"
                          id="<?=$arSection['CODE']?>">
                         <div class="endless tab-list__list swiper-container"
                              id="<?=$SLIDER_CONTAINER_ID?>">
