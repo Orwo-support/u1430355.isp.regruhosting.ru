@@ -173,7 +173,7 @@ $(document).ready(function () {
                     { action: 'set_order_form' }
                 ).then(token => {
                     $.post(
-                        'https://ekranika.develop/utilities/check-recaptcha-token.php',
+                        '/utilities/check-recaptcha-token.php',
                         { token: token },
                         "json"
                     ).done(response => {

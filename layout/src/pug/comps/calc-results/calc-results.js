@@ -146,7 +146,7 @@ $(document).ready(function () {
                     { action: 'calc_results_form' }
                 ).then(token => {
                     $.post(
-                        'https://ekranika.develop/utilities/check-recaptcha-token.php',
+                        '/utilities/check-recaptcha-token.php',
                         { token: token },
                         "json"
                     ).done(response => {
