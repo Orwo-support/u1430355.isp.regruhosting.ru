@@ -72,17 +72,10 @@ $this->setFrameMode(true);
                         <div class="slider__actions">
                             <div data-swiper-parallax-x="-300"
                                  data-swiper-parallax-opacity="0"
-                                 data-swiper-parallax-duration="1700">
-                                <a class="btn btn_primary" href="/kalkulyator/">
-                                    Узнать стоимость
-                                </a>
-                            </div>
-                            <span class="link revers btn-quiz-toggle"
-                               data-swiper-parallax-x="-350"
-                               data-swiper-parallax-opacity="0"
-                               data-swiper-parallax-duration="2100">
-                                Как выбрать экран?
-                            </span>
+                                 data-swiper-parallax-duration="1700"><a class="btn btn_primary" href="/kalkulyator/">Узнать стоимость</a></div>
+                            <div data-swiper-parallax-x="-350"
+                                 data-swiper-parallax-opacity="0"
+                                 data-swiper-parallax-duration="2100"><span class="link revers btn-quiz-toggle">Как выбрать экран?</span></div>
                         </div>
                     </div>
                 <?endforeach;?>
