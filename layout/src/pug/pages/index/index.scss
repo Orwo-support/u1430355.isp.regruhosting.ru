@@ -352,6 +352,7 @@ body.page-index  {
             margin-top: 24px;
             margin-bottom: 68px;
             max-width: 450px;
+            min-height: 93px;
         }
 
         @media (min-width: $xl) {
@@ -360,6 +361,7 @@ body.page-index  {
             margin-top: 34px;
             margin-bottom: 96px;
             max-width: 600px;
+            min-height: 111px;
         }
     }
 
