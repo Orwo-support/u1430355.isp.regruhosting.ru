@@ -399,7 +399,11 @@
             }
 
             .dropsection {
-                padding: 40px 0 34px calc(4.978038067349927vw + 215px + 4.978038067349927vw);
+                padding: 108px 0 34px calc(4.978038067349927vw + 215px + 4.978038067349927vw);
+
+                &::before {
+                    height: calc(100% - 55px);
+                }
             }
 
             .nav__droplist {
@@ -496,7 +500,7 @@
             &__item {
                 margin-right: 26px;
                 margin-bottom: 0;
-                height: 100%;
+                height: auto;
                 transform: initial !important;
                 opacity: 1;
 
@@ -541,14 +545,25 @@
                 flex-direction: row;
                 align-items: stretch;
                 // Padding left is padding-left for header + width for logotype + margin-right for logotype
-                padding: 54px 0 49px calc(4.978038067349927vw + 215px + 4.978038067349927vw);
+                padding: 100px 0 49px calc(4.978038067349927vw + 215px + 4.978038067349927vw);
                 position: fixed;
                 left: -9999px;
                 transition: left 0s linear .1s, transform .1s ease-out, opacity .1s linear;
                 opacity: 0;
-                background-color: $color-back-primary;
+                background-color: transparent;
                 overflow: initial;
                 max-height: none;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    height: calc(100% - 46px);
+                    background-color: $color-back-primary;
+                }
             }
 
             &__droplist {
