@@ -376,8 +376,9 @@
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"PROPERTY_CODE" => array(
 			0 => "CLIENT_LINK_URL",
-			1 => "CLIENT_LOGO_SVG_CODE",
-			2 => "",
+			1 => "CLIENT_LOGO_TEXT",
+			2 => "CLIENT_LOGO_SVG_CODE",
+			3 => "",
 		),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",

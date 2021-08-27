@@ -30,7 +30,9 @@ $this->setFrameMode(true);
                              id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                             <div class="clients__card">
                                 <a class="clients__link animation-element" href="<?=$arItem["PROPERTIES"]["CLIENT_LINK_URL"]["VALUE"]?>">
-                                    <?if($arItem["PROPERTIES"]["CLIENT_LOGO_SVG_CODE"]["VALUE"] != ""):?>
+                                    <?if($arItem["PROPERTIES"]["CLIENT_LOGO_TEXT"]["VALUE"]):?>
+                                        <span class="txt"><?=$arItem["PROPERTIES"]["CLIENT_LOGO_TEXT"]["VALUE"]?></span>
+                                    <?elseif($arItem["PROPERTIES"]["CLIENT_LOGO_SVG_CODE"]["VALUE"]):?>
                                         <?=html_entity_decode($arItem["PROPERTIES"]["CLIENT_LOGO_SVG_CODE"]["VALUE"]["TEXT"]);?>
                                     <?else:?>
                                         <span class="picture"
