@@ -532,7 +532,7 @@
 	),
 	false,
 	array(
-	"ACTIVE_COMPONENT" => "N"
+	"ACTIVE_COMPONENT" => "Y"
 	)
 );?>
 <?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');?>
