@@ -59,19 +59,19 @@ body.page-index  {
                 margin-top: 423px;
             }
         }
+    }
 
-        &_callback {
-            @media (min-width: $md) {
-                margin-top: 312px;
-            }
+    .section_feedback + .section_callback {
+        @media (min-width: $md) {
+            margin-top: 312px;
+        }
 
-            @media (min-width: $lg) {
-                margin-top: 302px;
-            }
+        @media (min-width: $lg) {
+            margin-top: 302px;
+        }
 
-            @media (min-width: $xl) {
-                margin-top: 578px;
-            }
+        @media (min-width: $xl) {
+            margin-top: 578px;
         }
     }
 
