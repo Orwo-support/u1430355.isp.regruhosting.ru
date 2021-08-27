@@ -61,6 +61,7 @@ $(document).ready(function () {
     }
 
     $('.header .nav__item')
+        .not('.dropdown')
         .toArray()
         .forEach(closeNavAfterClickOnMenuItem);
 
