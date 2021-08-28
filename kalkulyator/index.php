@@ -739,7 +739,7 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
         </div>
 
         <div class="calc__calculator calc__calculator_inside-screen<?
-                if($_GET['calc'] == 'insideScreen')
+                if(isset($_GET['calc']) && $_GET['calc'] == 'insideScreen')
                     echo ' active';
                 else
                     echo ' hidden';
@@ -1414,7 +1414,7 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
         </div>
 
         <div class="calc__calculator calc__calculator_rent<?
-                if($_GET['calc'] == 'rentScreen')
+                if(isset($_GET['calc']) && $_GET['calc'] == 'rentScreen')
                     echo ' active';
                 else
                     echo ' hidden';
