@@ -437,13 +437,13 @@ $(document).ready(function () {
             if (isQuizVisible()) {
                 $(quiz).removeClass('visible');
                 $(body).removeClass('modal-open');
-                $(header).removeClass('quiz-open')
+                $(header).removeClass('quiz-open');
                 fixScrollWidth(scrollWidth);
                 resetQuizScrollTop();
             } else {
                 $(quiz).addClass('visible');
                 $(body).addClass('modal-open');
-                $(header).addClass('quiz-open').header
+                $(header).addClass('quiz-open');
                 fixScrollWidth(scrollWidth);
             }
         }
@@ -784,7 +784,7 @@ $(document).ready(function () {
 
         function resetQuizData (fail) {
             // Reset data only if user is on last slide (epilogue)
-            if ($('#quizEpilogue').css('display') === 'block' || fail) {
+            if ($('#quizEpilogue').css('display') === 'block' || fail === true) {
                 let firstQuestion = $('#quizSlide_1');
                 let lastQuestion = $('#quizSlide_5');
 
@@ -805,7 +805,7 @@ $(document).ready(function () {
                         setNumberOfQuizSlide();
                     },
                     ANIMATION_TIME_TOGGLE_QUIZ_SLIDE + 100
-                )
+                );
             }
         }
 

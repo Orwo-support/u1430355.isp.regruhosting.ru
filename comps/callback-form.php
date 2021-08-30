@@ -54,7 +54,7 @@
                       data-target="#calbackModal">
                     <input type="hidden" name="from" value="<?=$CALLBACK_FORM_SOURCE_PAGE?>">
                     <div class="callback__data">
-                        <div class="controller controller__input">
+                        <div class="controller controller__input single-valid-warning">
                             <label class="label label__icon">
                             <span class="icon">
                                 <img class="pic" src="/img/icon-phone.svg" alt="">

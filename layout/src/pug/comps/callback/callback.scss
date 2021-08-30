@@ -249,4 +249,10 @@
             }
         }
     }
+
+    .validator__cross {
+        @media (min-width: $md) {
+            display: block !important;
+        }
+    }
 }
