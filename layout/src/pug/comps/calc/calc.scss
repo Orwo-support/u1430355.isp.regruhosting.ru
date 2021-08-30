@@ -18,6 +18,11 @@
         margin-bottom: 24px;
         margin-top: -52px;
         color: $color-text-inactive;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+        max-height: 999999px;
 
         @include card-animation;
         transition-delay: 0.5s;

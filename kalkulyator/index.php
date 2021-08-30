@@ -1412,7 +1412,7 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
                     echo ' hidden';
             ?>" id="rentScreen">
             <div class="container">
-                <div class="calc__subtitle animation-element">У нас можно взять в аренду экран на мероприятие с установкой под ключ. У нас можно взять в аренду экран на мероприятие с установкой под ключ</div>
+                <div class="calc__subtitle animation-element">У нас можно взять в аренду экран на мероприятие с установкой под ключ</div>
                 <div class="calc__body animation-element">
                     <div class="calc__body-controllers">
                         <div class="label-controll">
