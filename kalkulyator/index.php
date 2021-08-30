@@ -57,9 +57,7 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
         </div>
     </div>
     <div class="container">
-        <h2 class="h2 calc__title">
-            <span class="title animation-element">Рассчитать стоимость конструкции</span>
-            <span class="step animation-element">шаг 1 из 2</span></h2>
+        <h2 class="h2 calc__title"><span class="title animation-element">Рассчитать стоимость конструкции</span><span class="step animation-element">шаг 1 из 2</span></h2>
     </div>
     <div class="container-endless-fix">
         <div class="endless calc__tab-list-animation-container animation-element">
@@ -1414,7 +1412,7 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
                     echo ' hidden';
             ?>" id="rentScreen">
             <div class="container">
-                <div class="calc__subtitle animation-element">У нас можно взять в аренду экран на мероприятие с установкой под ключ</div>
+                <div class="calc__subtitle animation-element">У нас можно взять в аренду экран на мероприятие с установкой под ключ. У нас можно взять в аренду экран на мероприятие с установкой под ключ</div>
                 <div class="calc__body animation-element">
                     <div class="calc__body-controllers">
                         <div class="label-controll">
