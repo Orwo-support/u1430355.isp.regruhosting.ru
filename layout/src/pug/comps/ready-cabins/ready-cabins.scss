@@ -315,8 +315,15 @@
     &__controlls {
         margin-bottom: 48px;
         transition-delay: .3s !important;
+        opacity: 1;
+        margin-left: 0;
+        padding-left: 0;
+        transition: $anim-title;
 
-        @include title-animation;
+        &.animation-element {
+            opacity: 0;
+            margin-left: 50px;
+        }
 
         @media (min-width: $xl) {
             margin-bottom: 68px;
@@ -448,5 +455,13 @@
         &.hidden {
             display: none !important;
         }
+    }
+
+    .outer .filter-controller[data-filter-execution-type="inner"] {
+        display: none;
+    }
+
+    .inner .filter-controller[data-filter-execution-type="outer"] {
+        display: none;
     }
 }

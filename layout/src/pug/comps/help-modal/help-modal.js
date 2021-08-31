@@ -10,7 +10,14 @@ $(document).ready(function () {
     function responsiveOpen() {
         if (!isLaptop) {
             $('body').addClass('modal-open');
-            $('.typical-solutions .filter').css('zIndex', 'initial');
+
+            if ($('.typical-solutions .filter')[0]) {
+                $('.typical-solutions .filter').css('zIndex', 'initial');
+            }
+
+            if ($('.ready-cabins .filter')[0]) {
+                $('.ready-cabins .filter').css('zIndex', 'initial');
+            }
 
             for (let j = 0; j < btnsOpen.length; j++) {
                 $(btnsOpen[j]).css('zIndex', 'initial');
@@ -25,7 +32,14 @@ $(document).ready(function () {
     function responsiveClose() {
         if (!isLaptop) {
             $('body').removeClass('modal-open');
-            $('.typical-solutions .filter').css('zIndex', '2');
+
+            if ($('.typical-solutions .filter')[0]) {
+                $('.typical-solutions .filter').css('zIndex', '2');
+            }
+
+            if ($('.ready-cabins .filter')[0]) {
+                $('.ready-cabins .filter').css('zIndex', '2');
+            }
 
             for (let j = 0; j < btnsOpen.length; j++) {
                 $(btnsOpen[j]).css('zIndex', '4');

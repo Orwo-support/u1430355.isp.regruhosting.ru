@@ -25,4 +25,10 @@
             padding-left: 64px;
         }
     }
+
+    .section_ready-cabins .label-controll {
+        @media (min-width: $xl) {
+            margin-right: 64px;
+        }
+    }
 }

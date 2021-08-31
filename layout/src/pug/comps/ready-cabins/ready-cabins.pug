@@ -1,5 +1,5 @@
 section.section.section_ready-cabins
-    .ready-cabins(data-filter-state='{"executionType":"","pixelStep":"","width":""}')
+    .ready-cabins(data-filter-state='{"executionType":"","pixelStep":"","cabinetSize":""}')
 
         .container
             h2.section__title.animation-element
@@ -9,7 +9,7 @@ section.section.section_ready-cabins
             .endless.ready-cabins__controlls.animation-element
                 include ../custom-slider-radio/custom-slider-radio-types
                 include ../custom-selects/suffix-select-pixel-step
-                include ../custom-selects/suffix-select-width
+                include ../custom-selects/suffix-select-cabinet-size
 
         .container#notRcFilterResults
             .ready-cabins__not-results
@@ -21,7 +21,7 @@ section.section.section_ready-cabins
             .endless.ready-cabins__list.swiper-container#readyCabinsSlider
                 .ready-cabins__list__wrap.swiper-wrapper
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"vertical","pixelStep":"1,53","width":"3420"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"outer","pixelStep":"2","cabinetSize":"640480"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -42,7 +42,7 @@ section.section.section_ready-cabins
                                     .dot
                                     .dot
                                     .dot
-                            .ready-cabins__caption Шаг 1,53 кабинет 640х480 для помещений
+                            .ready-cabins__caption Шаг 2 кабинет 640х480 для помещений
                             .ready-cabins__params
                                 span Яркость: 800
                                 span Вес кабинета: 8
@@ -51,7 +51,37 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"vertical","pixelStep":"1,53","width":"3420"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"outer","pixelStep":"1","cabinetSize":"640480"}')
+                        .ready-cabins__card.animation-element
+                            .ready-cabins__gallery.gallery
+                                .ready-cabins__pics
+                                    // При сборке превому элементу добавить класс .active
+                                    .image.active(style="background-image: url('/img/placeholder-img.jpg')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+                                    .image(style="background-image: url('/img/placeholder-img.jpg')")
+                                    .image(style="background-image: url('/img/placeholder-img.png')")
+
+                                    .typical-solutions__pics-prev.slider-gallery-controller(data-direction="prev")
+                                        include ../../../img/icon-title-arr.svg
+                                    .typical-solutions__pics-next.slider-gallery-controller(data-direction="next")
+                                        include ../../../img/icon-title-arr.svg
+
+                                .ready-cabins__dots
+                                    // При сборке превому элементу добавить класс .active
+                                    .dot.active
+                                    .dot
+                                    .dot
+                                    .dot
+                            .ready-cabins__caption Шаг 1 кабинет 640х480 для помещений
+                            .ready-cabins__params
+                                span Яркость: 800
+                                span Вес кабинета: 8
+                                span.price Цена/кабинет: $1057
+                            .ready-cabins__actions
+                                a.btn.btn_primary(href="#")
+                                a.revers(href="#") Рассчитать
+
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"outer","pixelStep":"1,53","cabinetSize":"640480"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -81,7 +111,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"horizontal","pixelStep":"1,53","width":"4000"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"1,53","cabinetSize":"576576"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -111,7 +141,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"horizontal","pixelStep":"1,53","width":"3420"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"1,53","cabinetSize":"640480"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -141,7 +171,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"vertical","pixelStep":"2,5","width":"4000"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"outer","pixelStep":"2,5","cabinetSize":"576576"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -171,7 +201,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"vertical","pixelStep":"3,5","width":"3000"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"outer","pixelStep":"3,07","cabinetSize":"576576"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -201,7 +231,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"vertical","pixelStep":"2,5","width":"4000"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"outer","pixelStep":"2,5","cabinetSize":"576576"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -231,7 +261,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"horizontal","pixelStep":"1,53","width":"3420"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"1,53","cabinetSize":"640480"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -261,7 +291,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"vertical","pixelStep":"2,5","width":"3420"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"outer","pixelStep":"2,5","cabinetSize":"640480"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -291,7 +321,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"vertical","pixelStep":"3,5","width":"5000"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"outer","pixelStep":"3,07","cabinetSize":"640640"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -312,7 +342,7 @@ section.section.section_ready-cabins
                                     .dot
                                     .dot
                                     .dot
-                            .ready-cabins__caption Шаг 3,5 кабинет 640х480 для помещений
+                            .ready-cabins__caption Шаг 3,07 кабинет 640х480 для помещений
                             .ready-cabins__params
                                 span Яркость: 800
                                 span Вес кабинета: 8
@@ -321,7 +351,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"horizontal","pixelStep":"4,5","width":"6000"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"1,25","cabinetSize":"960960"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -342,7 +372,7 @@ section.section.section_ready-cabins
                                     .dot
                                     .dot
                                     .dot
-                            .ready-cabins__caption Шаг 4,5 кабинет 640х480 для помещений
+                            .ready-cabins__caption Шаг 1,25 кабинет 640х480 для помещений
                             .ready-cabins__params
                                 span Яркость: 800
                                 span Вес кабинета: 8
@@ -351,7 +381,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"horizontal","pixelStep":"5,5","width":"6000"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"1,37","cabinetSize":"960960"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -372,36 +402,7 @@ section.section.section_ready-cabins
                                     .dot
                                     .dot
                                     .dot
-                            .ready-cabins__caption Шаг 5,5 кабинет 640х480 для помещений
-                            .ready-cabins__params
-                                span Яркость: 800
-                                span Вес кабинета: 8
-                                span.price Цена/кабинет: $1057
-                            .ready-cabins__actions
-                                a.btn.btn_primary(href="#")
-                                a.revers(href="#") Рассчитать
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"horizontal","pixelStep":"6,5","width":"3420"}')
-                        .ready-cabins__card.animation-element
-                            .ready-cabins__gallery.gallery
-                                .ready-cabins__pics
-                                    // При сборке превому элементу добавить класс .active
-                                    .image.active(style="background-image: url('/img/placeholder-img.jpg')")
-                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
-                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-1.png')")
-                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
-
-                                    .typical-solutions__pics-prev.slider-gallery-controller(data-direction="prev")
-                                        include ../../../img/icon-title-arr.svg
-                                    .typical-solutions__pics-next.slider-gallery-controller(data-direction="next")
-                                        include ../../../img/icon-title-arr.svg
-
-                                .ready-cabins__dots
-                                    // При сборке превому элементу добавить класс .active
-                                    .dot.active
-                                    .dot
-                                    .dot
-                                    .dot
-                            .ready-cabins__caption Шаг 6,5 кабинет 640х480 для помещений
+                            .ready-cabins__caption Шаг 1,37 кабинет 640х480 для помещений
                             .ready-cabins__params
                                 span Яркость: 800
                                 span Вес кабинета: 8
@@ -410,7 +411,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"horizontal","pixelStep":"7,5","width":"7000"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"6,66","cabinetSize":"640480"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -431,7 +432,7 @@ section.section.section_ready-cabins
                                     .dot
                                     .dot
                                     .dot
-                            .ready-cabins__caption Шаг 7,5 кабинет 640х480 для помещений
+                            .ready-cabins__caption Шаг 6,66 кабинет 640х480 для помещений
                             .ready-cabins__params
                                 span Яркость: 800
                                 span Вес кабинета: 8
@@ -440,7 +441,7 @@ section.section.section_ready-cabins
                                 a.btn.btn_primary(href="#")
                                 a.revers(href="#") Рассчитать
 
-                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"horizontal","pixelStep":"8,5","width":"7000"}')
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"1,66","cabinetSize":"640640"}')
                         .ready-cabins__card.animation-element
                             .ready-cabins__gallery.gallery
                                 .ready-cabins__pics
@@ -461,7 +462,217 @@ section.section.section_ready-cabins
                                     .dot
                                     .dot
                                     .dot
-                            .ready-cabins__caption Шаг 8,5 кабинет 640х480 для помещений
+                            .ready-cabins__caption Шаг 1,66 кабинет 640х480 для помещений
+                            .ready-cabins__params
+                                span Яркость: 800
+                                span Вес кабинета: 8
+                                span.price Цена/кабинет: $1057
+                            .ready-cabins__actions
+                                a.btn.btn_primary(href="#")
+                                a.revers(href="#") Рассчитать
+
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"1,86","cabinetSize":"640640"}')
+                        .ready-cabins__card.animation-element
+                            .ready-cabins__gallery.gallery
+                                .ready-cabins__pics
+                                    // При сборке превому элементу добавить класс .active
+                                    .image.active(style="background-image: url('/img/placeholder-img.jpg')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-1.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+
+                                    .typical-solutions__pics-prev.slider-gallery-controller(data-direction="prev")
+                                        include ../../../img/icon-title-arr.svg
+                                    .typical-solutions__pics-next.slider-gallery-controller(data-direction="next")
+                                        include ../../../img/icon-title-arr.svg
+
+                                .ready-cabins__dots
+                                    // При сборке превому элементу добавить класс .active
+                                    .dot.active
+                                    .dot
+                                    .dot
+                                    .dot
+                            .ready-cabins__caption Шаг 1,86 кабинет 640х480 для помещений
+                            .ready-cabins__params
+                                span Яркость: 800
+                                span Вес кабинета: 8
+                                span.price Цена/кабинет: $1057
+                            .ready-cabins__actions
+                                a.btn.btn_primary(href="#")
+                                a.revers(href="#") Рассчитать
+
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"4","cabinetSize":"640640"}')
+                        .ready-cabins__card.animation-element
+                            .ready-cabins__gallery.gallery
+                                .ready-cabins__pics
+                                    // При сборке превому элементу добавить класс .active
+                                    .image.active(style="background-image: url('/img/placeholder-img.jpg')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-1.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+
+                                    .typical-solutions__pics-prev.slider-gallery-controller(data-direction="prev")
+                                        include ../../../img/icon-title-arr.svg
+                                    .typical-solutions__pics-next.slider-gallery-controller(data-direction="next")
+                                        include ../../../img/icon-title-arr.svg
+
+                                .ready-cabins__dots
+                                    // При сборке превому элементу добавить класс .active
+                                    .dot.active
+                                    .dot
+                                    .dot
+                                    .dot
+                            .ready-cabins__caption Шаг 4 кабинет 640х480 для помещений
+                            .ready-cabins__params
+                                span Яркость: 800
+                                span Вес кабинета: 8
+                                span.price Цена/кабинет: $1057
+                            .ready-cabins__actions
+                                a.btn.btn_primary(href="#")
+                                a.revers(href="#") Рассчитать
+
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"5","cabinetSize":"640640"}')
+                        .ready-cabins__card.animation-element
+                            .ready-cabins__gallery.gallery
+                                .ready-cabins__pics
+                                    // При сборке превому элементу добавить класс .active
+                                    .image.active(style="background-image: url('/img/placeholder-img.jpg')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-1.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+
+                                    .typical-solutions__pics-prev.slider-gallery-controller(data-direction="prev")
+                                        include ../../../img/icon-title-arr.svg
+                                    .typical-solutions__pics-next.slider-gallery-controller(data-direction="next")
+                                        include ../../../img/icon-title-arr.svg
+
+                                .ready-cabins__dots
+                                    // При сборке превому элементу добавить класс .active
+                                    .dot.active
+                                    .dot
+                                    .dot
+                                    .dot
+                            .ready-cabins__caption Шаг 5 кабинет 640х480 для помещений
+                            .ready-cabins__params
+                                span Яркость: 800
+                                span Вес кабинета: 8
+                                span.price Цена/кабинет: $1057
+                            .ready-cabins__actions
+                                a.btn.btn_primary(href="#")
+                                a.revers(href="#") Рассчитать
+
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"8","cabinetSize":"640640"}')
+                        .ready-cabins__card.animation-element
+                            .ready-cabins__gallery.gallery
+                                .ready-cabins__pics
+                                    // При сборке превому элементу добавить класс .active
+                                    .image.active(style="background-image: url('/img/placeholder-img.jpg')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-1.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+
+                                    .typical-solutions__pics-prev.slider-gallery-controller(data-direction="prev")
+                                        include ../../../img/icon-title-arr.svg
+                                    .typical-solutions__pics-next.slider-gallery-controller(data-direction="next")
+                                        include ../../../img/icon-title-arr.svg
+
+                                .ready-cabins__dots
+                                    // При сборке превому элементу добавить класс .active
+                                    .dot.active
+                                    .dot
+                                    .dot
+                                    .dot
+                            .ready-cabins__caption Шаг 8 кабинет 640х480 для помещений
+                            .ready-cabins__params
+                                span Яркость: 800
+                                span Вес кабинета: 8
+                                span.price Цена/кабинет: $1057
+                            .ready-cabins__actions
+                                a.btn.btn_primary(href="#")
+                                a.revers(href="#") Рассчитать
+
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"8","cabinetSize":"640640"}')
+                        .ready-cabins__card.animation-element
+                            .ready-cabins__gallery.gallery
+                                .ready-cabins__pics
+                                    // При сборке превому элементу добавить класс .active
+                                    .image.active(style="background-image: url('/img/placeholder-img.jpg')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-1.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+
+                                    .typical-solutions__pics-prev.slider-gallery-controller(data-direction="prev")
+                                        include ../../../img/icon-title-arr.svg
+                                    .typical-solutions__pics-next.slider-gallery-controller(data-direction="next")
+                                        include ../../../img/icon-title-arr.svg
+
+                                .ready-cabins__dots
+                                    // При сборке превому элементу добавить класс .active
+                                    .dot.active
+                                    .dot
+                                    .dot
+                                    .dot
+                            .ready-cabins__caption Шаг 8 кабинет 640х480 для помещений
+                            .ready-cabins__params
+                                span Яркость: 800
+                                span Вес кабинета: 8
+                                span.price Цена/кабинет: $1057
+                            .ready-cabins__actions
+                                a.btn.btn_primary(href="#")
+                                a.revers(href="#") Рассчитать
+
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"inner","pixelStep":"10","cabinetSize":"640640"}')
+                        .ready-cabins__card.animation-element
+                            .ready-cabins__gallery.gallery
+                                .ready-cabins__pics
+                                    // При сборке превому элементу добавить класс .active
+                                    .image.active(style="background-image: url('/img/placeholder-img.jpg')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-1.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+
+                                    .typical-solutions__pics-prev.slider-gallery-controller(data-direction="prev")
+                                        include ../../../img/icon-title-arr.svg
+                                    .typical-solutions__pics-next.slider-gallery-controller(data-direction="next")
+                                        include ../../../img/icon-title-arr.svg
+
+                                .ready-cabins__dots
+                                    // При сборке превому элементу добавить класс .active
+                                    .dot.active
+                                    .dot
+                                    .dot
+                                    .dot
+                            .ready-cabins__caption Шаг 10 кабинет 640х480 для помещений
+                            .ready-cabins__params
+                                span Яркость: 800
+                                span Вес кабинета: 8
+                                span.price Цена/кабинет: $1057
+                            .ready-cabins__actions
+                                a.btn.btn_primary(href="#")
+                                a.revers(href="#") Рассчитать
+
+                    .ready-cabins__slide.swiper-slide(data-filter-props='{"executionType":"outer","pixelStep":"10","cabinetSize":"640640"}')
+                        .ready-cabins__card.animation-element
+                            .ready-cabins__gallery.gallery
+                                .ready-cabins__pics
+                                    // При сборке превому элементу добавить класс .active
+                                    .image.active(style="background-image: url('/img/placeholder-img.jpg')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-1.png')")
+                                    .image(style="background-image: url('/img/temp/led-screen-card-placeholder-2.png')")
+
+                                    .typical-solutions__pics-prev.slider-gallery-controller(data-direction="prev")
+                                        include ../../../img/icon-title-arr.svg
+                                    .typical-solutions__pics-next.slider-gallery-controller(data-direction="next")
+                                        include ../../../img/icon-title-arr.svg
+
+                                .ready-cabins__dots
+                                    // При сборке превому элементу добавить класс .active
+                                    .dot.active
+                                    .dot
+                                    .dot
+                                    .dot
+                            .ready-cabins__caption Шаг 10 кабинет 640х480 для помещений
                             .ready-cabins__params
                                 span Яркость: 800
                                 span Вес кабинета: 8

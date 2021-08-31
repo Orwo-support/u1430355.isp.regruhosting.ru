@@ -10,11 +10,43 @@ $(document).ready(function () {
 
     // READY CABINS FILTER
     const rcItems = $('.ready-cabins__slide');
-    const rcFilterConstrols = $('.ready-cabins .filter-controller');
+    const rcFilterControls = $('.ready-cabins .filter-controller');
     const rcFilterState = {
         executionType: '',
         pixelStep: '',
-        width: '',
+        cabinetSize: '',
+    }
+
+    // Фильтруем шаг список пикселя в зависимости от Типа испольнения
+    $('.section_ready-cabins #executionType .filter-controller')
+        .toArray()
+        .forEach(el => $(el).click(handleClickOnExTypeButton));
+
+    function handleClickOnExTypeButton () {
+        let typeInControl = $(this).data('filterValue'),
+            typeInState = rcFilterState.executionType;
+
+        if (typeInState !== typeInControl) {
+            filterRCPixelStep(typeInControl);
+        }
+    }
+
+    function filterRCPixelStep (type) {
+        let controller = $('.section_ready-cabins #pixelStep');
+
+        $(controller).removeClass('outer inner');
+
+        if (!type) return;
+
+        switch (type) {
+            case 'outer':
+                $(controller).addClass('outer');
+                break;
+
+            case 'inner':
+                $(controller).addClass('inner');
+                break;
+        }
     }
 
     function setRcState(prop, value, reset = false) {
@@ -96,9 +128,9 @@ $(document).ready(function () {
     }
 
     // Обрабатываем клик на контроллере
-    if (rcFilterConstrols.length > 0) {
-        for (let i = 0; i < rcFilterConstrols.length; i++) {
-            $(rcFilterConstrols[i]).on('click', function (e) {
+    if (rcFilterControls.length > 0) {
+        for (let i = 0; i < rcFilterControls.length; i++) {
+            $(rcFilterControls[i]).on('click', function (e) {
                 setRcState(
                     $(this).data('filterProperty'),
                     $(this).data('filterValue')
@@ -108,18 +140,20 @@ $(document).ready(function () {
     }
 
     // Сбрасываем все контроллеры
-    function resetRcControlls(...constrolls) {
-        if (constrolls.length > 0) {
-            for (let i = 0; i < constrolls.length; i++) {
-                const type = $(constrolls[i]).data('controllerType');
+    function resetRcControls(...controls) {
+        if (controls.length > 0) {
+            filterRCPixelStep(); // Reset pixel steps
+
+            for (let i = 0; i < controls.length; i++) {
+                const type = $(controls[i]).data('controllerType');
 
                 switch(type) {
                     case 'radio-group':
-                        $(constrolls[i])
+                        $(controls[i])
                             .children('.marker')
                             .removeAttr('style');
 
-                        const inputs = $(constrolls[i]).children('input');
+                        const inputs = $(controls[i]).children('input');
                         if (inputs.length > 0) {
                             for (let j = 0; j < inputs.length; j++) {
                                 $(inputs[j])[0].checked = false;
@@ -129,8 +163,8 @@ $(document).ready(function () {
                         break;
 
                     case 'custom-select':
-                        $(constrolls[i]).children('.selected').html('&nbsp;');
-                        $(constrolls[i]).find('.active').removeClass('active');
+                        $(controls[i]).children('.selected').html('&nbsp;');
+                        $(controls[i]).find('.active').removeClass('active');
 
                         break;
                 }
@@ -146,10 +180,10 @@ $(document).ready(function () {
             true
         );
 
-        resetRcControlls(
+        resetRcControls(
             $('#executionType'),
             $('#pixelStep'),
-            $('#width'),
+            $('#cabinetSize'),
         );
     });
 });
