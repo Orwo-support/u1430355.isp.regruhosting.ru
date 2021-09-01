@@ -10,11 +10,9 @@ $(document).ready(function () {
 
     // TYPICAL SOLUTIONS FILTER
     const tsItems = $('.typical-solutions__slide');
-    const tsFilterConstrols = $('.typical-solutions .filter-controller');
+    const tsFilterControls = $('.typical-solutions .filter-controller');
     const tsFilterState = {
         executionType: '',
-        pixelStep: '',
-        width: '',
         solutionType: '',
     }
 
@@ -97,9 +95,9 @@ $(document).ready(function () {
     }
 
     // Обрабатываем клик на контроллере
-    if (tsFilterConstrols.length > 0) {
-        for (let i = 0; i < tsFilterConstrols.length; i++) {
-            $(tsFilterConstrols[i]).on('click', function (e) {
+    if (tsFilterControls.length > 0) {
+        for (let i = 0; i < tsFilterControls.length; i++) {
+            $(tsFilterControls[i]).on('click', function (e) {
                 setTsState(
                     $(this).data('filterProperty'),
                     $(this).data('filterValue')
@@ -109,18 +107,18 @@ $(document).ready(function () {
     }
 
     // Сбрасываем все контроллеры
-    function resetTsControlls(...constrolls) {
-        if (constrolls.length > 0) {
-            for (let i = 0; i < constrolls.length; i++) {
-                const type = $(constrolls[i]).data('controllerType');
+    function resetTsControls(...controls) {
+        if (controls.length > 0) {
+            for (let i = 0; i < controls.length; i++) {
+                const type = $(controls[i]).data('controllerType');
 
                 switch(type) {
                     case 'radio-group':
-                        $(constrolls[i])
+                        $(controls[i])
                             .children('.marker')
                             .removeAttr('style');
 
-                        const inputs = $(constrolls[i]).children('input');
+                        const inputs = $(controls[i]).children('input');
                         if (inputs.length > 0) {
                             for (let j = 0; j < inputs.length; j++) {
                                 $(inputs[j])[0].checked = false;
@@ -130,8 +128,8 @@ $(document).ready(function () {
                         break;
 
                     case 'custom-select':
-                        $(constrolls[i]).children('.selected').html('&nbsp;');
-                        $(constrolls[i]).find('.active').removeClass('active');
+                        $(controls[i]).children('.selected').html('&nbsp;');
+                        $(controls[i]).find('.active').removeClass('active');
 
                         break;
                 }
@@ -147,10 +145,8 @@ $(document).ready(function () {
             true
         );
 
-        resetTsControlls(
+        resetTsControls(
             $('#executionType'),
-            $('#pixelStep'),
-            $('#width'),
             $('#solutionType'),
         );
     });

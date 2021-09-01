@@ -250,25 +250,14 @@
     }
 
     &__actions {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        @media (min-width: $lg) {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        @media (min-width: $xl) {
-            flex-direction: row-reverse;
-        }
-
         .btn {
-            margin-bottom: 16px;
+            margin-bottom: 8px;
+
+            @media (min-width: $md) {
+                margin-bottom: 0;
+            }
 
             @media (min-width: $lg) {
-                margin-bottom: 0;
                 width: 180px;
                 padding: 0;
                 display: flex;
@@ -284,86 +273,27 @@
                 }
             }
         }
-
-        .revers {
-            font-size: 16px;
-            line-height: 160%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-
-            @media (min-width: $lg) {
-                font-size: 14px;
-            }
-
-            &::before {
-                content: "";
-                display: block;
-                width: 24px;
-                height: 24px;
-                margin-right: 8px;
-                margin-top: -1px;
-                background: url("/img/icon-calc-signs.svg") no-repeat center;
-
-                @media (min-width: $lg) {
-                    display: none;
-                }
-            }
-        }
     }
 
     &__controlls {
         margin-bottom: 48px;
         transition-delay: .3s !important;
+        opacity: 1;
+        margin-left: 0;
+        padding-left: 0;
+        transition: $anim-title;
 
-        @include title-animation;
+        &.animation-element {
+            opacity: 0;
+            margin-left: 50px;
+        }
 
         @media (min-width: $xl) {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
             margin-bottom: 68px;
 
             .label-controll {
-                margin-right: 114px;
-            }
-
-            .label-controll:nth-child(1) {
-                order: 2;
-                z-index: 3;
-                margin-bottom: 48px;
-                width: 55%;
-            }
-
-            .label-controll:nth-child(2) {
-                order: 4;
-                z-index: 0;
-                width: 55%;
-
-                .label-controll__caption {
-                    width: 121.11px;
-                }
-            }
-
-            .label-controll:nth-child(3) {
-                order: 1;
-                z-index: 4;
-                margin-bottom: 48px;
-                width: 480px;
-                margin-right: 0;
-            }
-
-            .label-controll:nth-child(4) {
-                order: 3;
-                z-index: 1;
-                width: 480px;
-                margin-right: 0;
-
-                .label-controll__caption {
-                    width: 94.33px;
-                }
-            }
-
+                 margin-right: 68px;
+             }
         }
     }
 
