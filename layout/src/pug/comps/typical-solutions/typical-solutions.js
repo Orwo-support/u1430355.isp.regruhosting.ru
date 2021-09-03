@@ -11,7 +11,7 @@ $(document).ready(function () {
     // TYPICAL SOLUTIONS FILTER
     const tsItems = $('.typical-solutions__slide');
     const tsFilterControls = $('.typical-solutions .filter-controller');
-    const tsFilterState = {
+    window.tsFilterState = {
         executionType: '',
         solutionType: '',
     }

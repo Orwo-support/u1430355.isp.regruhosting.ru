@@ -30,7 +30,31 @@ foreach ($arResult['ITEMS'] as $arItem) {
 }
 asort($arSolutionType);
 //debug($arSolutionType);
+
+function getActiveSolutionType ($currentPage) {
+    switch ($currentPage) {
+        case '/begushchaya-stroka/': $activeSolutionType = 'ticker'; break;
+        case '/reklamnyy-videobanner/': $activeSolutionType = 'advertising-video-banner'; break;
+        case '/videokub/': $activeSolutionType = 'video-cube'; break;
+        case '/mediafasad/': $activeSolutionType = 'media-facade'; break;
+        case '/svetodiodnyy-shar/': $activeSolutionType = 'led-ball'; break;
+        case '/elektronnoe-tablo/': $activeSolutionType = 'electronic-scoreboard'; break;
+        default:  $activeSolutionType = false;
+    }
+
+    return $activeSolutionType;
+}
+$ACTIVE_SOLUTION_TYPE = getActiveSolutionType($APPLICATION->GetCurPage());
 ?>
+<?if($ACTIVE_SOLUTION_TYPE):?>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+            window.tsFilterState['solutionType'] = '<?=$ACTIVE_SOLUTION_TYPE?>';
+        }, 1000);
+    });
+</script>
+<?endif;?>
 <section class="section section_typical-solutions">
     <div class="typical-solutions">
         <div class="container">
@@ -46,7 +70,15 @@ asort($arSolutionType);
                                  id="solutionType"
                                  data-controller-type="custom-select">
                                 <?//Если есть значение по умолчанию добавить его в .select-suffix__selected-item.selected?>
-                                <div class="select-simple__selected-item selected"></div>
+                                <div class="select-simple__selected-item selected"><?
+                                    switch ($APPLICATION->GetCurPage()) {
+                                        case '/begushchaya-stroka/': echo 'Бегущая строка'; break;
+                                        case '/reklamnyy-videobanner/': echo 'Видеобаннер'; break;
+                                        case '/videokub/': echo 'Видеокуб'; break;
+                                        case '/mediafasad/': echo 'Медиафасад'; break;
+                                        case '/svetodiodnyy-shar/': echo 'Светодиодный шар'; break;
+                                        case '/elektronnoe-tablo/': echo 'Электронное табло'; break;
+                                    }?></div>
                                 <div class="select-simple__arr"></div>
                                 <div class="custom-select__container">
                                     <div class="custom-select__list scroller">
@@ -61,11 +93,11 @@ asort($arSolutionType);
                                         */?>
                                        <div class="custom-select__item filter-controller"
                                             data-filter-property="solutionType" data-filter-value="">Сбросить</div>
-                                            <?foreach ($arSolutionType as $stKey=>$stVal):?>
-                                                <div class="custom-select__item filter-controller"
-                                                     data-filter-property="solutionType"
-                                                     data-filter-value="<?=$stKey?>"><?=$stVal?></div>
-                                            <?endforeach;?>
+                                       <?foreach ($arSolutionType as $stKey=>$stVal):?>
+                                           <div class="custom-select__item filter-controller<?=$ACTIVE_SOLUTION_TYPE === $stKey ? ' active' : ''?>"
+                                                data-filter-property="solutionType"
+                                                data-filter-value="<?=$stKey?>"><?=$stVal?></div>
+                                       <?endforeach;?>
                                     </div>
                                 </div>
                             </div>
@@ -137,62 +169,70 @@ asort($arSolutionType);
         <div class="container-endless" id="tsSlider">
             <div class="endless typical-solutions__list swiper-container" id="typicalSolutionsSlider">
                 <div class="typical-solutions__list__wrap swiper-wrapper">
+                    <?$TRANSITION_DELAY_COUNTER = 1;?>
                     <?foreach($arResult["ITEMS"] as $arItem):?>
                         <?
-                        $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-                        $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+                            $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                            $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+
+                            $isHidden = $ACTIVE_SOLUTION_TYPE && $ACTIVE_SOLUTION_TYPE !== $arItem['PROPERTIES']['SOLUTION_TYPE']['VALUE_XML_ID']
+                                ? ' hidden'
+                                : '';
                         ?>
-                        <div class="typical-solutions__slide swiper-slide"
-                             id="<?=$this->GetEditAreaId($arItem['ID']);?>"
+                        <div class="typical-solutions__slide swiper-slide<?=$isHidden?>" id="<?=$this->GetEditAreaId($arItem['ID']);?>"
                             <?
                                 $FILTER_PROP_EXECUTION_TYPE = $arItem['PROPERTIES']['EXECUTION_TYPE']['VALUE_XML_ID'];
                                 $FILTER_PROP_SOLUTION_TYPE = $arItem['PROPERTIES']['SOLUTION_TYPE']['VALUE_XML_ID'];
                                 $FILTER_PROPS_STR = '{"executionType":"' . $FILTER_PROP_EXECUTION_TYPE . '","solutionType":"' . $FILTER_PROP_SOLUTION_TYPE .'"}';
                             ?>
                              data-filter-props='<?=$FILTER_PROPS_STR?>'>
-                            <div class="typical-solutions__card animation-element">
-                            <div class="typical-solutions__gallery gallery">
-                                <div class="typical-solutions__pics">
-                                    <?foreach ($arItem['PROPERTIES']['GALLERY_PHOTOS']['VALUE'] as $key=>$img):?>
-                                        <?$IMG_PATH = CFile::GetPath($img);?>
-                                        <div class="image<?=$key == 0 ? ' active' : '';?>"
-                                             style="background-image: url(<?=$IMG_PATH?>)"></div>
-                                    <?endforeach;?>
-                                    <?$COUNT_OF_IMG = count($arItem['PROPERTIES']['GALLERY_PHOTOS']['VALUE'])?>
-                                    <?if($COUNT_OF_IMG > 1):?>
-                                        <div class="typical-solutions__pics-prev slider-gallery-controller" data-direction="prev">
-                                            <svg width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9"><path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-                                        </div>
-                                        <div class="typical-solutions__pics-next slider-gallery-controller" data-direction="next">
-                                            <svg width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9"><path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-                                        </div>
+                            <div class="typical-solutions__card animation-element"<?
+                                if ($ACTIVE_SOLUTION_TYPE and $isHidden == '') {
+                                    echo ' style="transition-delay: '.($TRANSITION_DELAY_COUNTER * 0.3).'s;"';
+                                    $TRANSITION_DELAY_COUNTER++;
+                                }?>>
+                                <div class="typical-solutions__gallery gallery">
+                                    <div class="typical-solutions__pics">
+                                        <?foreach ($arItem['PROPERTIES']['GALLERY_PHOTOS']['VALUE'] as $key=>$img):?>
+                                            <?$IMG_PATH = CFile::GetPath($img);?>
+                                            <div class="image<?=$key == 0 ? ' active' : '';?>"
+                                                 style="background-image: url(<?=$IMG_PATH?>)"></div>
+                                        <?endforeach;?>
+                                        <?$COUNT_OF_IMG = count($arItem['PROPERTIES']['GALLERY_PHOTOS']['VALUE'])?>
+                                        <?if($COUNT_OF_IMG > 1):?>
+                                            <div class="typical-solutions__pics-prev slider-gallery-controller" data-direction="prev">
+                                                <svg width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9"><path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+                                            </div>
+                                            <div class="typical-solutions__pics-next slider-gallery-controller" data-direction="next">
+                                                <svg width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9"><path d="M3.90002 13.3572L9.10002 8.50004L3.90002 3.64289" stroke="#AB78FF" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+                                            </div>
+                                        <?endif;?>
+                                    </div>
+                                    <div class="typical-solutions__dots">
+                                        <?if ($COUNT_OF_IMG > 1) :?>
+                                            <?for ($i = 0; $i < $COUNT_OF_IMG; $i++):?>
+                                                <div class="dot<?=$i == 0 ? ' active': '';?>"></div>
+                                            <?endfor;?>
+                                        <?endif;?>
+                                    </div>
+                                </div>
+                                <div class="typical-solutions__caption"><?=$arItem['NAME']?></div>
+                                <div class="typical-solutions__params">
+                                    <?if($arItem['PROPERTIES']['BRIGHTNESS']['VALUE']):?>
+                                        <span>Яркость: <?=$arItem['PROPERTIES']['BRIGHTNESS']['VALUE']?></span>
+                                    <?endif;?>
+                                    <?if($arItem['PROPERTIES']['WEIGHT']['VALUE']):?>
+                                        <span>Вес кабинета: <?=$arItem['PROPERTIES']['WEIGHT']['VALUE']?></span>
+                                    <?endif;?>
+                                    <?if($arItem['PROPERTIES']['PRICE']['VALUE']):?>
+                                        <span class="price">Цена/кабинет: <?=$arItem['PROPERTIES']['PRICE']['VALUE']?></span>
                                     <?endif;?>
                                 </div>
-                                <div class="typical-solutions__dots">
-                                    <?if ($COUNT_OF_IMG > 1) :?>
-                                        <?for ($i = 0; $i < $COUNT_OF_IMG; $i++):?>
-                                            <div class="dot<?=$i == 0 ? ' active': '';?>"></div>
-                                        <?endfor;?>
-                                    <?endif;?>
+                                <div class="typical-solutions__actions">
+                                    <a class="btn btn_primary" data-go-to-place-link="true" data-go-to-place-target="#order-form" href=""></a>
                                 </div>
-                            </div>
-                            <div class="typical-solutions__caption"><?=$arItem['NAME']?></div>
-                            <div class="typical-solutions__params">
-                                <?if($arItem['PROPERTIES']['BRIGHTNESS']['VALUE']):?>
-                                    <span>Яркость: <?=$arItem['PROPERTIES']['BRIGHTNESS']['VALUE']?></span>
-                                <?endif;?>
-                                <?if($arItem['PROPERTIES']['WEIGHT']['VALUE']):?>
-                                    <span>Вес кабинета: <?=$arItem['PROPERTIES']['WEIGHT']['VALUE']?></span>
-                                <?endif;?>
-                                <?if($arItem['PROPERTIES']['PRICE']['VALUE']):?>
-                                    <span class="price">Цена/кабинет: <?=$arItem['PROPERTIES']['PRICE']['VALUE']?></span>
-                                <?endif;?>
-                            </div>
-                            <div class="typical-solutions__actions">
-                                <a class="btn btn_primary" data-go-to-place-link="true" data-go-to-place-target="#order-form" href=""></a>
                             </div>
                         </div>
-                    </div>
                     <?endforeach;?>
                 </div>
             </div>
