@@ -16,5 +16,15 @@ $APPLICATION->IncludeComponent("bitrix:main.map", ".default", Array(
 	"CACHE_TIME"	=>	"36000000"
 	)
 );
-
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?>
+<section style="margin-top: 94px; margin-bottom: 94px;">
+    <div class="container">
+        <h1>Ошибка 404.</h1>
+        <br><br>
+        <p>
+            Запрашиваемая Вами странице не найдена.
+            Она удалена, либо перенесена в другой раздел.
+        </p>
+    </div>
+</section>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

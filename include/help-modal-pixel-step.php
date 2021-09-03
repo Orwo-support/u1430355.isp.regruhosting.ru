@@ -1,6 +1,8 @@
-<div class="help-modal__caption">
-	 Заголовок для стандартного блока подсказки!!!
-</div>
-<div class="help-modal__text">
-	 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consequuntur culpa deserunt ducimus eius est facere illum ipsum minus mollitia officia possimus quam quo quos repellendus, soluta suscipit, tempora voluptatem???
+<div class="help-modal__caption">Расстояние между пикселями</div>
+<div class="help-modal__text">От шага пикселя зависит минимальное комфортное
+    расстояние для просмотра. Считается по формуле:<br>Расстояние просмотра в
+    метрах = шаг пикселя (р) х 1000.<br>Например, экран с шагом 2.5мм
+    рекомендуется смотреть с расстояния не менее 2.5 метров, а экран с шагом 8мм
+    – более чем с 8 метров. С этого расстояния не будет видно зерно пикселя, а
+    изображение будет восприниматься цельной картинкой.
 </div>

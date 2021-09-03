@@ -1,22 +1,12 @@
-<div class="help-modal__section">
-    <div class="help-modal__picture">
-        <img src="/img/typical-solutions-help-vertical.png" class="pic vertical" alt="">
-    </div>
-    <div class="help-modal__caption">
-        Вертикальный модуль
-    </div>
-    <div class="help-modal__text">
-        Предназначен лля сборки вертикальных медиафасадов
-    </div>
+<div class="help-modal__caption">Уличный</div>
+<div class="help-modal__text">
+    Уличные экраны защищены от влаги и пыли IP65,
+    имеют яркость 4000-6500КД для противодействия солнечному засвету.
 </div>
-<div class="help-modal__section">
-    <div class="help-modal__picture">
-        <img src="/img/typical-solutions-help-horizontal.png" class="pic horizontal" alt="">
-    </div>
-    <div class="help-modal__caption">
-        Горизонтальный модуль
-    </div>
-    <div class="help-modal__text">
-        Отличается от вертикального расположением центральной оси светодиодов
-    </div>
+<br>
+<div class="help-modal__caption">Внутренний</div>
+<div class="help-modal__text">
+    Внутренние экраны имеют защиту IP22, параметр
+    яркости 600-800 КД для комфортного просмотра
+    и сохранения энергии.
 </div>

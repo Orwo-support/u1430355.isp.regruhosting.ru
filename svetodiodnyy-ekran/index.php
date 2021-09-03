@@ -181,7 +181,7 @@ $APPLICATION->SetTitle("Светодиодный экран");
 		"PROPERTY_CODE" => array(
 			0 => "EXECUTION_TYPE",
 			1 => "PIXEL_STEP",
-			2 => "WIDTH",
+			2 => "CABINET_SIZE",
 			3 => "BRIGHTNESS",
 			4 => "WEIGHT",
 			5 => "PRICE",
