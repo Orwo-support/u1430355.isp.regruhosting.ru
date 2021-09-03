@@ -242,10 +242,11 @@
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"PROPERTY_CODE" => array(
-			0 => "WORK_CITY",
+			0 => "WORK_CITY_PREVIEW",
 			1 => "WORK_SCREEN_TYPE",
 			2 => "WORK_PIXEL_STEP",
-			3 => "",
+			3 => "WORK_CITY",
+			4 => "",
 		),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",

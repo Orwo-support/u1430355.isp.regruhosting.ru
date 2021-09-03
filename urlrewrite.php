@@ -1,6 +1,6 @@
 <?php
 $arUrlRewrite=array (
-  4 => 
+  8 => 
   array (
     'CONDITION' => '#^/nashi-raboty/#',
     'RULE' => '',

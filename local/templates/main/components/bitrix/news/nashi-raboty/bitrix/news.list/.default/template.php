@@ -122,11 +122,9 @@ $ACTIVATE_LIST_ITEMS = true;
                                          id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                                         <a class="tab-list__card<?= $key == 0 ? ' animation-element' : '';?>"
                                            href="<?=$arItem["DETAIL_PAGE_URL"]?>">
-                                            <div class="tab-list__place">
-                                                <?=$arItem['PREVIEW_TEXT']?>
-                                                <br>
-                                                <?=$arItem['PROPERTIES']['WORK_CITY']['VALUE']?>
-                                            </div>
+                                            <div class="tab-list__place"><?=$arItem['PREVIEW_TEXT']?><?
+                                                if(trim($arItem['PROPERTIES']['WORK_CITY_PREVIEW']['VALUE'])):
+                                                    ?><br><?=$arItem['PROPERTIES']['WORK_CITY_PREVIEW']['VALUE']?><?endif;?></div>
                                             <div class="tab-list__params">
                                                 <div class="screen">
                                                     Экран <?=$arItem['PROPERTIES']['WORK_SCREEN_TYPE']['VALUE']?>

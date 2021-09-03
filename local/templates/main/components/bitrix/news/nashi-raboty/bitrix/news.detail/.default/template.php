@@ -21,12 +21,12 @@ $this->setFrameMode(true);
                     <div class="single-work__date animation-element">
                         <?=normalizeDate($arResult['PROPERTIES']['WORK_DATE']['VALUE'])?>
                     </div>
-                    <div class="single-work__title animation-element">
-                        <?=$arResult['PREVIEW_TEXT']?>
-                        <span class="single-work__city">
-                            <?=$arResult['PROPERTIES']['WORK_CITY']['VALUE']?>
-                        </span>
-                    </div>
+                    <div class="single-work__title animation-element<?=$arResult['PROPERTIES']['WORK_CITY_DETAIL']['VALUE']
+                        ? ''
+                        : ' single-work__title_without-city';?>"><?=$arResult['NAME']?><?
+                        if($arResult['PROPERTIES']['WORK_CITY_DETAIL']['VALUE']):?>
+                            <span class="single-work__city"><?=$arResult['PROPERTIES']['WORK_CITY_DETAIL']['VALUE']?></span>
+                        <?endif;?></div>
                     <div class="single-work__props animation-element">
                         <div class="single-work__props-item single-work__pixel-step">
                             <div class="single-work__param">
@@ -53,7 +53,7 @@ $this->setFrameMode(true);
                             <div class="single-work__caption">Стоимость</div>
                         </div>
                     </div>
-                    <div class="single-work__gallery swiper-container" id="singleWorkSlider">
+                    <div class="single-work__gallery swiper-container"<?=count($arResult['PROPERTIES']['WORK_GALLERY']['VALUE']) > 1 ? ' id="singleWorkSlider"' : '';?>>
                         <div class="single-work__gallery-wrap swiper-wrapper">
                             <?foreach ($arResult['PROPERTIES']['WORK_GALLERY']['VALUE'] as $key => $PICTURE):?>
                                 <?$PICTURE_PATH = CFile::GetPath($PICTURE);?>
@@ -64,34 +64,36 @@ $this->setFrameMode(true);
                     </div>
                 </div>
             </div>
-            <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_prev animation-element"
-                 id="btnSingleWorkPrev">
-                <svg width="14"
-                     height="26"
-                     viewBox="0 0 14 26"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.999998 25L13 13L1 1"
-                          stroke="#80758F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_next animation-element"
-                 id="btnSingleWorkNext">
-                <svg width="14"
-                     height="26"
-                     viewBox="0 0 14 26"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.999998 25L13 13L1 1"
-                          stroke="#80758F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"/>
-                </svg>
-            </div>
+            <?if(count($arResult['PROPERTIES']['WORK_GALLERY']['VALUE']) > 1):?>
+                <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_prev animation-element"
+                     id="btnSingleWorkPrev">
+                    <svg width="14"
+                         height="26"
+                         viewBox="0 0 14 26"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.999998 25L13 13L1 1"
+                              stroke="#80758F"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="btn btn_icon-outlined not-focused slider-controller slider-controller_next animation-element"
+                     id="btnSingleWorkNext">
+                    <svg width="14"
+                         height="26"
+                         viewBox="0 0 14 26"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.999998 25L13 13L1 1"
+                              stroke="#80758F"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            <?endif;?>
         </div>
     </div>
 </section>

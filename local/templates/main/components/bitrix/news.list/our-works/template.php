@@ -40,11 +40,9 @@ $this->setFrameMode(true);
                              id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                             <a class="projects__card animation-element"
                                href="<?=$arItem["DETAIL_PAGE_URL"]?>">
-                                <div class="projects__place">
-                                    <?=$arItem['PREVIEW_TEXT']?>
-                                    <br>
-                                    <?=$arItem['PROPERTIES']['WORK_CITY']['VALUE']?>
-                                </div>
+                                <div class="projects__place"><?=$arItem['PREVIEW_TEXT']?><?
+                                    if(trim($arItem['PROPERTIES']['WORK_CITY_PREVIEW']['VALUE'])):
+                                    ?><br><?=$arItem['PROPERTIES']['WORK_CITY_PREVIEW']['VALUE']?><?endif;?></div>
                                 <div class="projects__params">
                                     <div class="screen">
                                         Экран <?=$arItem['PROPERTIES']['WORK_SCREEN_TYPE']['VALUE']?>
