@@ -39,8 +39,7 @@ asort($arCabinetSize);
 //debug($arCabinetSize);
 ?>
 <section class="section section_ready-cabins">
-    <?//Удалил из div.ready-cabins (прямо под комментом) data-filter-state="{&quot;executionType&quot;:&quot;&quot;,&quot;pixelStep&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;}"?>
-    <div class="ready-cabins" data-filter-state="{'executionType':'', 'pixelStep':'', 'cabinetSize':''}">
+    <div class="ready-cabins">
         <div class="place-target-container">
             <span id="gotovye-kabinety" class="place-target-anchor"></span>
         </div>
