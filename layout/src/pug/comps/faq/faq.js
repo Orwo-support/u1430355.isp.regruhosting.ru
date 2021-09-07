@@ -74,7 +74,7 @@ $(document).ready(function () {
     });
 
     // Show/hide FAQ items
-    $('.faq__more').on('click', function () {
+    $('.faq__more').not('.faq__more_link').on('click', function () {
         if ( $('.faq__more').hasClass('roll-up') ) {
             hideElements();
         } else {

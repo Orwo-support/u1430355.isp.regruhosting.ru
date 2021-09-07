@@ -471,8 +471,11 @@
 	)
 );?>
 <?include_once($_SERVER["DOCUMENT_ROOT"]."/comps/callback-form.php");?>
-<?$APPLICATION->IncludeComponent("bitrix:news.list", "faq", array(
-	"ACTIVE_DATE_FORMAT" => "d.m.Y",
+<?$APPLICATION->IncludeComponent(
+	"bitrix:news.list", 
+	"faq", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
@@ -515,7 +518,7 @@
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"PROPERTY_CODE" => array(
-			0 => "",
+			0 => "SHOW_IN_INDEX_PAGE",
 			1 => "",
 		),
 		"SET_BROWSER_TITLE" => "N",
@@ -530,11 +533,11 @@
 		"SORT_ORDER1" => "ASC",
 		"SORT_ORDER2" => "DESC",
 		"STRICT_SECTION_CHECK" => "N",
-		"COMPONENT_TEMPLATE" => ".default"
+		"COMPONENT_TEMPLATE" => "faq"
 	),
 	false,
 	array(
-	"ACTIVE_COMPONENT" => "Y"
+		"ACTIVE_COMPONENT" => "Y"
 	)
 );?>
 <?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');?>
