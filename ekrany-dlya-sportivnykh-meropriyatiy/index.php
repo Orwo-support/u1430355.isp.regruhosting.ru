@@ -133,11 +133,8 @@ $APPLICATION->SetTitle("Экраны для спортивных меропри�
 	),
 	false
 );?>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"typical-solutions", 
-	array(
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+<?$APPLICATION->IncludeComponent("bitrix:news.list", "typical-solutions", array(
+	"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
@@ -202,7 +199,10 @@ $APPLICATION->SetTitle("Экраны для спортивных меропри�
 		"STRICT_SECTION_CHECK" => "N",
 		"COMPONENT_TEMPLATE" => "typical-solutions"
 	),
-	false
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "N"
+	)
 );?>
 <?$APPLICATION->IncludeComponent(
     "bitrix:news.list",
