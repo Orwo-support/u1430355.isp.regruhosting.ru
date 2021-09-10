@@ -580,12 +580,17 @@ $ARR_FILES_PATHS = makeFilesFromCalcResults($arParamsList, $finalCost); // [$PDF
                 <div class="calc__order-result-submit">
                     <div class="form-order__actions">
                         <div class="form-order__actions-group">
-                            <span class="form-order__privacy">
-                                Нажимая на кнопку “Отправить заявку”, я даю согласие на
-                                <a class="revers"
-                                   href="/politika-konfidentsialnosti/"
-                                    target="_blank">обработку моих персональных данных</a>
-                            </span>
+                            <span class="form-order__privacy"><?
+                              $APPLICATION->IncludeComponent(
+                                    "bitrix:main.include",
+                                    "",
+                                    Array(
+                                        "AREA_FILE_SHOW" => "file",
+                                        "AREA_FILE_SUFFIX" => "inc",
+                                        "EDIT_TEMPLATE" => "",
+                                        "PATH" => "/include/calc-results-policy.php"
+                                    )
+                                );?></span>
                             <div class="form-order__button">
                                 <button class="btn btn_primary form-order__submit" type="submit" tabindex="9">Отправить заявку</button>
                             </div>

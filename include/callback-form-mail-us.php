@@ -1,0 +1,1 @@
+Или напишите нам <a href="mailto:info@ekranika.ru">info@ekranika.ru</a>

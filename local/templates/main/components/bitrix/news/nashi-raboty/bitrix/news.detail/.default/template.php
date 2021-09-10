@@ -190,4 +190,3 @@ $this->setFrameMode(true);
         </div>
     </div>
 </section>
-<?include_once($_SERVER["DOCUMENT_ROOT"]."/comps/order-form.php");?>

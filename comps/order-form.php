@@ -121,12 +121,17 @@
                 </div>
                 <div class="form-order__actions animation-element">
                     <div class="form-order__actions-group">
-                        <span class="form-order__privacy">
-                            Нажимая на кнопку “Отправить заявку”, я даю согласие
-                            на <a class="revers"
-                                  href="/politika-konfidentsialnosti/"
-                                  target="_blank">обработку моих персональных данных</a>
-                        </span>
+                        <span class="form-order__privacy"><?
+                          $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/order-form-policy.php"
+                            )
+                          );?></span>
                         <div class="form-order__button">
                             <button class="btn btn_primary form-order__submit"
                                     type="submit"
@@ -135,11 +140,17 @@
                             </button>
                         </div>
                     </div>
-                    <span class="form-order__note">
-                        Перезвоним в течение рабочего дня
-                        и поможем определиться с типом
-                        оборудования для аренды под ключ
-                    </span>
+                    <span class="form-order__note"><?
+                      $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/order-form-comment.php"
+                        )
+                      );?></span>
                 </div>
             </form>
         </div>

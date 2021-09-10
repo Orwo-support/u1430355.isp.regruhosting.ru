@@ -37,7 +37,17 @@ if(preg_match('/stati/', $_SERVER["REQUEST_URI"])
         <div class="order-form-modal__content">
             <div class="form-order">
                 <div class="container">
-                    <h2 class="h2 section__title">Оставьте заявку, мы поможем с выбором</h2>
+                    <h2 class="h2 section__title"><?
+                      $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/set-order-form-title.php"
+                            )
+                        );?></h2>
                 </div>
                 <div class="container">
                     <form class="form-order__form" id="setOrderForm"
@@ -109,21 +119,32 @@ if(preg_match('/stati/', $_SERVER["REQUEST_URI"])
                         </div>
                         <div class="form-order__actions">
                             <div class="form-order__actions-group">
-                                <span class="form-order__privacy">
-                                    Нажимая на кнопку “Отправить заявку”, я даю согласие на
-                                    <a class="revers" href="/politika-konfidentsialnosti/" target="_blank">
-                                        обработку моих персональных данных
-                                    </a>
-                                </span>
+                                <span class="form-order__privacy"><?
+                                    $APPLICATION->IncludeComponent(
+                                      "bitrix:main.include",
+                                      "",
+                                      Array(
+                                          "AREA_FILE_SHOW" => "file",
+                                          "AREA_FILE_SUFFIX" => "inc",
+                                          "EDIT_TEMPLATE" => "",
+                                          "PATH" => "/include/set-order-form-policy.php"
+                                      )
+                                    );?></span>
                                 <div class="form-order__button">
                                     <button class="btn btn_primary form-order__submit" type="submit" tabindex="4">Отправить заявку</button>
                                 </div>
                             </div>
-                            <span class="form-order__note">
-                                Перезвоним в течение рабочего дня и поможем
-                                определиться с типом оборудования для
-                                аренды или покупки
-                            </span>
+                            <span class="form-order__note"><?
+                              $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/set-order-form-comment.php"
+                                )
+                              );?></span>
                         </div>
                     </form>
                 </div>

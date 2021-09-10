@@ -87,7 +87,17 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
                     echo ' hidden';
             ?>" id="outsideScreen">
             <div class="container">
-                <div class="calc__subtitle animation-element">Уличные экраны защищены от влаги и пыли IP65, имеют яркость 4000-6500КД для противодействия солнечному засвету</div>
+                <div class="calc__subtitle animation-element"><?
+                  $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/calc-outside-screen-subtile.php"
+                        )
+                    );?></div>
                 <div class="calc__body animation-element">
                     <div class="calc__body-controllers">
                         <div class="label-controll">
@@ -740,7 +750,17 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
                     echo ' hidden';
             ?>" id="insideScreen">
             <div class="container">
-                <div class="calc__subtitle animation-element">Внутренние экраны имеют защиту IP22, параметр яркости 600-800 КД для комфортного просмотра и сохранения энергии</div>
+                <div class="calc__subtitle animation-element"><?
+                  $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/calc-inside-screen-subtile.php"
+                        )
+                    );?></div>
                 <div class="calc__body animation-element">
                     <div class="calc__body-controllers">
                         <div class="label-controll">
@@ -1412,7 +1432,17 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
                     echo ' hidden';
             ?>" id="rentScreen">
             <div class="container">
-                <div class="calc__subtitle animation-element">У нас можно взять в аренду экран на мероприятие с установкой под ключ</div>
+                <div class="calc__subtitle animation-element"><?
+                  $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/calc-rent-subtile.php"
+                        )
+                    );?></div>
                 <div class="calc__body animation-element">
                     <div class="calc__body-controllers">
                         <div class="label-controll">

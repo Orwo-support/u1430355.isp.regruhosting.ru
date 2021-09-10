@@ -104,7 +104,6 @@
                  data-preset="circle"
                  data-duration="2"></div>
         </div>
-        <?include_once($_SERVER["DOCUMENT_ROOT"]."/comps/set-order-form-modal.php");?>
         <?if ($APPLICATION->GetCurPage() == '/rezultaty-raschyetov-kalkulyatora/') {
             include_once($_SERVER["DOCUMENT_ROOT"]."/comps/calc-results-modal.php");
         }?>
@@ -145,6 +144,7 @@
         <?if ($APPLICATION->GetCurPage() == '/') {
             include_once($_SERVER["DOCUMENT_ROOT"]."/comps/quiz.php");
         }?>
+        <?include_once($_SERVER["DOCUMENT_ROOT"]."/comps/set-order-form-modal.php");?>
         <header class="header" id="header">
             <a class="header__logo" href="/">
                 <img class="logo-mob pic" src="/img/mob-logo.svg" alt="">

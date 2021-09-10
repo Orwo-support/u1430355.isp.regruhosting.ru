@@ -15,15 +15,29 @@
                 <div class="pic">
                     <svg width="218" height="354" viewBox="0 0 218 354" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_dd)"><g filter="url(#filter1_ii)"><path d="M109.015 269.485C106.659 269.485 104.745 271.394 104.77 273.744C104.77 276.094 106.684 278.003 109.04 278.003C111.396 278.003 113.31 276.094 113.31 273.744C113.335 271.394 111.42 269.485 109.015 269.485" stroke="#AB78FF" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/></g><g filter="url(#filter2_ii)"><path d="M109.041 203.024V197.149C109.041 177.884 120.968 167.456 132.944 159.452C144.625 151.619 156.331 141.386 156.331 122.513C156.331 96.4675 135.177 75.3667 109.066 75.3667C82.9542 75.3667 61.7754 96.4186 61.7754 122.464" stroke="#AB78FF" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/></g></g><defs><filter id="filter0_dd" x="0" y="0" width="218.13" height="354" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="14" dy="28"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.0156863 0 0 0 0 0.0196078 0 0 0 0 0.054902 0 0 0 0.3 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="-14" dy="-28"/><feGaussianBlur stdDeviation="15"/><feColorMatrix type="matrix" values="0 0 0 0 0.137255 0 0 0 0 0.129412 0 0 0 0 0.227451 0 0 0 0.35 0"/><feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/></filter><filter id="filter1_ii" x="85.7695" y="250.484" width="49.5408" height="48.5187" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dx="-2" dy="-2"/><feGaussianBlur stdDeviation="15"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dx="5" dy="4"/><feGaussianBlur stdDeviation="5"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.191667 0 0 0 0 0.014375 0 0 0 0 0.149999 0 0 0 0.5 0"/><feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/></filter><filter id="filter2_ii" x="42.7754" y="56.3667" width="135.556" height="167.658" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dx="-2" dy="-2"/><feGaussianBlur stdDeviation="15"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dx="5" dy="4"/><feGaussianBlur stdDeviation="5"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.191667 0 0 0 0 0.014375 0 0 0 0 0.149999 0 0 0 0.5 0"/><feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/></filter></defs></svg>
                 </div>
-                <div class="title">
-                    Как определить какой именно экран, подойдет лучше всего?
-                </div>
+                <div class="title"><?
+                  $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/quiz-prolog-title.php"
+                        )
+                    );?></div>
                 <div class="content">
-                    <div class="subtitle">
-                        Предлагаем пройти тест из 5 вопросов,
-                        на основании ответов на которые, мы
-                        бесплатно подберем нужную вам конфигурацию
-                    </div>
+                    <div class="subtitle"><?
+                      $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/quiz-prolog-subtitle.php"
+                            )
+                        );?></div>
                     <div class="btn btn_primary" id="btnQuizQuestionsStart">
                         Пройти тест
                     </div>
@@ -31,8 +45,28 @@
             </div>
             <div class="quiz__epilogue" id="quizEpilogue">
                 <div class="quiz__epilogue-body">
-                    <div class="title">Заявка отправлена</div>
-                    <div class="subtitle">Перезвоним вам в ближайшее время</div>
+                    <div class="title"><?
+                      $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/quiz-epilog-title.php"
+                            )
+                        );?></div>
+                    <div class="subtitle"><?
+                      $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/quiz-epilog-subtitle.php"
+                            )
+                        );?></div>
                     <div class="pic"><img src="/img/icon-modal-phone.svg" alt=""></div>
                     <div class="btn btn_primary btn-quiz-toggle btn-reset-quiz">Закрыть окно</div>
                 </div>
@@ -40,11 +74,28 @@
             <div class="quiz__questions" id="quizQuestions">
                 <div class="quiz__body">
                     <div class="quiz__slide active" data-quiz-property="location" id="quizSlide_1">
-                        <div class="quiz__slide-title">Где будет стоять экран?</div>
-                        <div class="quiz__slide-subtitle">
-                            Уличные экраны, в отличии от внутренних, защищены от
-                            воздействий внешней среды и светят ярче солнечного света
-                        </div>
+                        <div class="quiz__slide-title"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-1-title.php"
+                                )
+                            );?></div>
+                        <div class="quiz__slide-subtitle"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-1-subtitle.php"
+                                )
+                            );?></div>
                         <div class="quiz__slide-controllers">
                             <div class="quiz__radio-group"><input class="input" id="quizLocationOutside" type="radio"
                                                                   name="location" value=""><label class="quiz__card"
@@ -69,10 +120,28 @@
                         </div>
                     </div>
                     <div class="quiz__slide" data-quiz-property="distance" id="quizSlide_2">
-                        <div class="quiz__slide-title">Какое расстояние от экрана до наблюдателя?</div>
-                        <div class="quiz__slide-subtitle">На какое минимальное расстояние зритель может подойти без
-                            ухудшения качества изображения
-                        </div>
+                        <div class="quiz__slide-title"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-2-title.php"
+                                )
+                            );?></div>
+                        <div class="quiz__slide-subtitle"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-2-subtitle.php"
+                                )
+                            );?></div>
                         <div class="quiz__slide-controllers">
                             <div class="quiz__slider-group">
                                 <div class="quiz__card"><img class="picture" src="/img/quiz-distance.png" alt=""><span
@@ -242,10 +311,28 @@
                         </div>
                     </div>
                     <div class="quiz__slide" data-quiz-property="size" id="quizSlide_3">
-                        <div class="quiz__slide-title">Какими должны быть ширина и высота экрана?</div>
-                        <div class="quiz__slide-subtitle">Эти параметры влияют на количество пикселей, размер экрана,
-                            цену и расходы на транспортировку
-                        </div>
+                        <div class="quiz__slide-title"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-3-title.php"
+                                )
+                            );?></div>
+                        <div class="quiz__slide-subtitle"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-3-subtitle.php"
+                                )
+                            );?></div>
                         <div class="quiz__slide-controllers">
                             <div class="quiz__slider-group">
                                 <div class="quiz__card"><img class="picture" src="/img/quiz-size.png" alt=""><span
@@ -299,10 +386,28 @@
                         </div>
                     </div>
                     <div class="quiz__slide" data-quiz-property="contract" id="quizSlide_4">
-                        <div class="quiz__slide-title">Нужна аренда или хотите купить сразу?</div>
-                        <div class="quiz__slide-subtitle">При аренде настроим всё по техзаданию.<br>При покупке сразу
-                            подскажем, как провести подключение.
-                        </div>
+                        <div class="quiz__slide-title"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-4-title.php"
+                                )
+                            );?></div>
+                        <div class="quiz__slide-subtitle"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-4-subtitle.php"
+                                )
+                            );?></div>
                         <div class="quiz__slide-controllers">
                             <div class="quiz__radio-group"><input class="input" id="quizRent" type="radio"
                                                                   name="contract" value=""><label class="quiz__card"
@@ -323,10 +428,28 @@
                         </div>
                     </div>
                     <div class="quiz__slide" data-quiz-property="contacts" id="quizSlide_5">
-                        <div class="quiz__slide-title">Оставьте свои контакты</div>
-                        <div class="quiz__slide-subtitle">Свяжемся с вами в течение дня и поможем подобрать оптимальный
-                            вариант экрана
-                        </div>
+                        <div class="quiz__slide-title"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-5-title.php"
+                                )
+                            );?></div>
+                        <div class="quiz__slide-subtitle"><?
+                          $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/quiz-slide-5-subtitle.php"
+                                )
+                            );?></div>
                         <div class="quiz__slide-controllers">
                             <div class="form-order">
                                 <div class="form-order__data">
@@ -388,12 +511,17 @@
                                 </div>
                                 <div class="form-order__actions">
                                     <div class="form-order__actions-group">
-                                        <span class="form-order__privacy">
-                                            Нажимая на кнопку “Отправить заявку”, я даю согласие на
-                                            <a class="revers"
-                                               href="/politika-konfidentsialnosti/"
-                                               target="_blank">обработку моих персональных данных</a>
-                                        </span>
+                                        <span class="form-order__privacy"><?
+                                          $APPLICATION->IncludeComponent(
+                                                "bitrix:main.include",
+                                                "",
+                                                Array(
+                                                    "AREA_FILE_SHOW" => "file",
+                                                    "AREA_FILE_SUFFIX" => "inc",
+                                                    "EDIT_TEMPLATE" => "",
+                                                    "PATH" => "/include/quiz-slide-5-policy.php"
+                                                )
+                                            );?></span>
                                     </div>
                                 </div>
                             </div>

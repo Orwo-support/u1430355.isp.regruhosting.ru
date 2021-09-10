@@ -33,12 +33,30 @@
                     </a>
                 </span>
             </h2>
-            <div class="callback__title animation-element">
-                Заинтересовались светодиодным оборудованием?
-            </div>
-            <div class="callback__subtitle animation-element">
-                Укажите ваш мобильный номер телефона и мы перезвоним в течение 5 минут
-            </div>
+            <div class="callback__title animation-element"><?
+                $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    Array(
+                        "AREA_FILE_SHOW" => "file",
+                        "AREA_FILE_SUFFIX" => "inc",
+                        "EDIT_TEMPLATE" => "",
+                        "PATH" => "/include/callback-form-title.php"
+                    )
+                  );
+            ?></div>
+            <div class="callback__subtitle animation-element"><?
+                $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    Array(
+                        "AREA_FILE_SHOW" => "file",
+                        "AREA_FILE_SUFFIX" => "inc",
+                        "EDIT_TEMPLATE" => "",
+                        "PATH" => "/include/callback-form-subtitle.php"
+                    )
+                  );
+            ?></div>
         </div>
         <div class="callback__background-pic animation-element">
             <img class="pic" src="<?=$CALLBACK_FORM_IMG_SOURCE?>" alt="">
@@ -79,22 +97,29 @@
                         <button class="btn btn_primary" type="submit">
                             Отправить номер
                         </button>
-                        <span class="privacy">
-                            Нажимая на кнопку “Отправить номер”,
-                            я даю согласие на
-                            <a class="revers"
-                               href="/politika-konfidentsialnosti/"
-                               target="_blank">
-                                обработку моих персональных данных
-                            </a>
-                        </span>
+                        <span class="privacy"><?
+                          $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/callback-form-plicy.php"
+                            )
+                          );?></span>
                     </div>
-                    <span class="send-mail">
-                        Или напишите нам
-                        <a href="mailto:info@ekranika.ru">
-                            info@ekranika.ru
-                        </a>
-                    </span>
+                    <span class="send-mail"><?
+                      $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/callback-form-mail-us.php"
+                        )
+                      );?></span>
                 </form>
             </div>
         </div>

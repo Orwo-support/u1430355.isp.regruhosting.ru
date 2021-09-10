@@ -61,13 +61,13 @@ $this->setFrameMode(true);
                             data-swiper-parallax-x="-50"
                             data-swiper-parallax-opacity="0"
                             data-swiper-parallax-duration="900">
-                            <?=$arItem["PROPERTIES"]["SLIDER_TITLE"]["VALUE"]?>
+                            <?=$arItem["PROPERTIES"]["SLIDER_TITLE"]["~VALUE"]["TEXT"]?>
                         </h2>
                         <div class="slider__subtitle"
                              data-swiper-parallax-x="-200"
                              data-swiper-parallax-opacity="0"
                              data-swiper-parallax-duration="1200">
-                            <?=$arItem["PROPERTIES"]["SLIDER_SUBTITLE"]["VALUE"]?>
+                            <?=$arItem["PROPERTIES"]["SLIDER_SUBTITLE"]["~VALUE"]["TEXT"]?>
                         </div>
                         <div class="slider__actions">
                             <div data-swiper-parallax-x="-300"

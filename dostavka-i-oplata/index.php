@@ -31,73 +31,73 @@ $APPLICATION->SetTitle("Доставка и оплата");
                         <div class="tabs__controlls-caption">
                             Конструкция
                         </div>
-                            <?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"constructions", 
-	array(
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"ADD_SECTIONS_CHAIN" => "N",
-		"AJAX_MODE" => "N",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
-		"CACHE_TYPE" => "A",
-		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"DISPLAY_DATE" => "N",
-		"DISPLAY_NAME" => "Y",
-		"DISPLAY_PICTURE" => "N",
-		"DISPLAY_PREVIEW_TEXT" => "N",
-		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
-			0 => "CODE",
-			1 => "NAME",
-			2 => "DETAIL_TEXT",
-			3 => "",
-		),
-		"FILTER_NAME" => "",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "16",
-		"IBLOCK_TYPE" => "constructions",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"INCLUDE_SUBSECTIONS" => "N",
-		"MESSAGE_404" => "",
-		"NEWS_COUNT" => "3",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => ".default",
-		"PAGER_TITLE" => "Новости",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
-		),
-		"SET_BROWSER_TITLE" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_STATUS_404" => "N",
-		"SET_TITLE" => "N",
-		"SHOW_404" => "N",
-		"SORT_BY1" => "SORT",
-		"SORT_BY2" => "ACTIVE_FROM",
-		"SORT_ORDER1" => "ASC",
-		"SORT_ORDER2" => "DESC",
-		"STRICT_SECTION_CHECK" => "N",
-		"COMPONENT_TEMPLATE" => "constructions"
-	),
-	false
-);?>
+                        <?$APPLICATION->IncludeComponent(
+                          "bitrix:news.list", 
+                          "constructions", 
+                          array(
+                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                            "ADD_SECTIONS_CHAIN" => "N",
+                            "AJAX_MODE" => "N",
+                            "AJAX_OPTION_ADDITIONAL" => "",
+                            "AJAX_OPTION_HISTORY" => "N",
+                            "AJAX_OPTION_JUMP" => "N",
+                            "AJAX_OPTION_STYLE" => "Y",
+                            "CACHE_FILTER" => "N",
+                            "CACHE_GROUPS" => "Y",
+                            "CACHE_TIME" => "36000000",
+                            "CACHE_TYPE" => "A",
+                            "CHECK_DATES" => "Y",
+                            "DETAIL_URL" => "",
+                            "DISPLAY_BOTTOM_PAGER" => "N",
+                            "DISPLAY_DATE" => "N",
+                            "DISPLAY_NAME" => "Y",
+                            "DISPLAY_PICTURE" => "N",
+                            "DISPLAY_PREVIEW_TEXT" => "N",
+                            "DISPLAY_TOP_PAGER" => "N",
+                            "FIELD_CODE" => array(
+                              0 => "CODE",
+                              1 => "NAME",
+                              2 => "DETAIL_TEXT",
+                              3 => "",
+                            ),
+                            "FILTER_NAME" => "",
+                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                            "IBLOCK_ID" => "16",
+                            "IBLOCK_TYPE" => "constructions",
+                            "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                            "INCLUDE_SUBSECTIONS" => "N",
+                            "MESSAGE_404" => "",
+                            "NEWS_COUNT" => "3",
+                            "PAGER_BASE_LINK_ENABLE" => "N",
+                            "PAGER_DESC_NUMBERING" => "N",
+                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                            "PAGER_SHOW_ALL" => "N",
+                            "PAGER_SHOW_ALWAYS" => "N",
+                            "PAGER_TEMPLATE" => ".default",
+                            "PAGER_TITLE" => "Новости",
+                            "PARENT_SECTION" => "",
+                            "PARENT_SECTION_CODE" => "",
+                            "PREVIEW_TRUNCATE_LEN" => "",
+                            "PROPERTY_CODE" => array(
+                              0 => "",
+                              1 => "",
+                            ),
+                            "SET_BROWSER_TITLE" => "N",
+                            "SET_LAST_MODIFIED" => "N",
+                            "SET_META_DESCRIPTION" => "N",
+                            "SET_META_KEYWORDS" => "N",
+                            "SET_STATUS_404" => "N",
+                            "SET_TITLE" => "N",
+                            "SHOW_404" => "N",
+                            "SORT_BY1" => "SORT",
+                            "SORT_BY2" => "ACTIVE_FROM",
+                            "SORT_ORDER1" => "ASC",
+                            "SORT_ORDER2" => "DESC",
+                            "STRICT_SECTION_CHECK" => "N",
+                            "COMPONENT_TEMPLATE" => "constructions"
+                          ),
+                          false
+                        );?>
                     </div>
                     <?$APPLICATION->IncludeComponent("bitrix:news.list", "constructions-content", Array(
                         "ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
@@ -179,8 +179,7 @@ $APPLICATION->SetTitle("Доставка и оплата");
         </div>
         <div class="container">
             <div class="payment__description animation-element">
-                <div class="payment__description-text">
-                    <?$APPLICATION->IncludeComponent(
+                <div class="payment__description-text"><?$APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         "",
                         Array(
@@ -189,8 +188,7 @@ $APPLICATION->SetTitle("Доставка и оплата");
                             "EDIT_TEMPLATE" => "",
                             "PATH" => "/include/payment-scheme.php"
                         )
-                    );?>
-                </div>
+                    );?></div>
                 <?include_once($_SERVER["DOCUMENT_ROOT"]."/comps/download-requisites.php");?>
             </div>
             <div class="payment__calc animation-element">
@@ -292,13 +290,17 @@ $APPLICATION->SetTitle("Доставка и оплата");
                                    type="submit"
                                    value="Рассчитать">
                         </div>
-                        <div class="installment-calc__remainder">
-                            Рассрочка от 12 до 36 месяцев,
-                            первоначальный взнос
-                            от 30% до 95%.
-                            <br>
-                            Не оферта, подробности у менеджера.
-                        </div>
+                        <div class="installment-calc__remainder"><?
+                          $APPLICATION->IncludeComponent(
+                              "bitrix:main.include",
+                              "",
+                              Array(
+                                  "AREA_FILE_SHOW" => "file",
+                                  "AREA_FILE_SUFFIX" => "inc",
+                                  "EDIT_TEMPLATE" => "",
+                                  "PATH" => "/include/installment-calculator-comment.php"
+                              )
+                          );?></div>
                     </div>
                     <div class="installment-calc__delimiter"></div>
                     <div class="installment-calc__result">

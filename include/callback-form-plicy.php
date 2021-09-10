@@ -1,0 +1,1 @@
+Нажимая на кнопку “Отправить номер”, я даю согласие на <a class="revers"href="/politika-konfidentsialnosti/"target="_blank">обработку моих персональных данных</a>
