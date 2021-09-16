@@ -1,4 +1,4 @@
-<?
+<? if (isset($_POST['calc-results'])):
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Результаты расчётов калькулятора");
 
@@ -269,7 +269,17 @@ $ARR_FILES_PATHS = makeFilesFromCalcResults($arParamsList, $finalCost); // [$PDF
     <div class="container calc-results-animation-wrap animation-element">
         <div class="calc__specification hidden invisible">
             <div class="calc__specification-title">
-                <span class="title">Просмотр спецификации</span>
+                <span class="title"><?
+                  $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/calc-results-title.php"
+                        )
+                    );?></span>
                 <span class="step">шаг 2 из 2</span>
             </div>
             <div class="calc__tab-list swiper-container">
@@ -436,7 +446,17 @@ $ARR_FILES_PATHS = makeFilesFromCalcResults($arParamsList, $finalCost); // [$PDF
     <div class="container">
         <div class="calc__order">
             <div class="calc__order-title">
-                <span class="title">Отправьте заявку на подробный расчет</span>
+                <span class="title"><?
+                  $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/calc-results-form-title.php"
+                        )
+                    );?></span>
             </div>
             <div class="calc__order-form">
                 <form class="form-order"
@@ -602,3 +622,4 @@ $ARR_FILES_PATHS = makeFilesFromCalcResults($arParamsList, $finalCost); // [$PDF
     </div>
 </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?endif;?>

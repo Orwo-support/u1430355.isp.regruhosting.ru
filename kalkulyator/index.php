@@ -57,7 +57,17 @@ $PRICE_AS_JSON = defined('JSON_UNESCAPED_UNICODE')
         </div>
     </div>
     <div class="container">
-        <h2 class="h2 calc__title"><span class="title animation-element">Рассчитать стоимость конструкции</span><span class="step animation-element">шаг 1 из 2</span></h2>
+        <h2 class="h2 calc__title"><span class="title animation-element"><?
+          $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => "/include/calc-title.php"
+                )
+            );?></span><span class="step animation-element">шаг 1 из 2</span></h2>
     </div>
     <div class="container-endless-fix">
         <div class="endless calc__tab-list-animation-container animation-element">
