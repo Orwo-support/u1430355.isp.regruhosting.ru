@@ -25,7 +25,7 @@ $(document).ready(
     function () {
         window.isDebugMainCalcState = false;
 
-        window.isDebugMainCalcResults = true;
+        window.isDebugMainCalcResults = false;
 
         window.CALC_PRICE = $('#mainCalc').data('calcPrice');
 

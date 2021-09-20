@@ -38,8 +38,8 @@
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.59d10bf69a854966d911.css");
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.59d10bf69a854966d911.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.59d10bf69a854966d911.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.59d10bf69a854966d911.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.8e7af79fff0d7dbc5fbb.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.8e7af79fff0d7dbc5fbb.js");
 
             // Connecting API Yandex Paps for about page
             if ($APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
