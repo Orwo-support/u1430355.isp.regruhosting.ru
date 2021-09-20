@@ -201,7 +201,7 @@
               echo '<br>';
               echo 'Ошибка обновлённого курса USD в БД.';
               
-              $to = 'anar.n.agaev@gmail.com';
+              $to = 'info@ekranika.ru';
               $subject = 'Error of adding current USD exchange rate to DB';
               $message = 'Error of adding current USD exchange rate to DB on ekranika.ru web site!';
               $headers = 'From: ekrfnika@ekranika' . "\r\n" . 'Reply-To: info@ekranika' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
