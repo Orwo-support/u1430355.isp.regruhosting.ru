@@ -35,8 +35,8 @@
             Asset::getInstance()->addString('<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">');
             Asset::getInstance()->addString('<meta name="theme-color" content="#ffffff">');
             
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.59d10bf69a854966d911.css");
-            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.59d10bf69a854966d911.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.faf44350663d518db2e2.css");
+            Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.faf44350663d518db2e2.css");
 
             Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.8e7af79fff0d7dbc5fbb.js");
             Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.8e7af79fff0d7dbc5fbb.js");
@@ -49,21 +49,21 @@
             // Connecting API google reCaptcha v3
             Asset::getInstance()->addJs('https://www.google.com/recaptcha/api.js?render=6LdJnQ8cAAAAAB_HhGL-DIeud36yN9j-mGuwMBKV');
         ?>
-            <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(62189050, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/62189050" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+           ym(62189050, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/62189050" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
 	</head>
     <body class="<?
         switch ($APPLICATION->GetCurPage()) {
