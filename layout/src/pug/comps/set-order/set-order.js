@@ -179,9 +179,9 @@ $(document).ready(function () {
                     ).done(response => {
                         const reCaptchaData = JSON.parse(response);
 
-                        //console.log(reCaptchaData);
+                        console.log(reCaptchaData);
 
-                        if (reCaptchaData.success && reCaptchaData.score > 0.5) {
+                        if (reCaptchaData.success && reCaptchaData.score > 0.7) {
                             $.post(
                                 this.action,
                                 $(this).serializeArray(),
