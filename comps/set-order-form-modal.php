@@ -55,6 +55,8 @@ if(preg_match('/stati/', $_SERVER["REQUEST_URI"])
                           method="POST"
                           enctype="multipart/form-data">
                         <input type="hidden" name="fromname" value="<?=$PAGE_NAME?>">
+                        <input type="hidden" name="fromip" value="<?=getRealIP()?>">
+                        <input type="hidden" name="fromrecaptcha" id="reCaptchaStatus" value="">
                         <input type="hidden" name="fromlink" value="<?=((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>">
                         <div class="form-order__data">
                             <div class="form-order__user-data">

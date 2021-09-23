@@ -37,8 +37,8 @@
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.faf44350663d518db2e2.css");
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.faf44350663d518db2e2.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.47c74a88a313cf3b8edc.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.47c74a88a313cf3b8edc.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.f0059fcf1a79cc0d0e44.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.f0059fcf1a79cc0d0e44.js");
 
             // Connecting API Yandex Paps for about page
             if ($APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
@@ -63,9 +63,7 @@
         </script>
         <noscript><div><img src="https://mc.yandex.ru/watch/62189050" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         <!-- /Yandex.Metrika counter -->
-         <meta name="yandex-verification" content="e0346ddf7ad4cd31" />
-
-
+        <meta name="yandex-verification" content="e0346ddf7ad4cd31" />
 	</head>
     <body class="<?
         switch ($APPLICATION->GetCurPage()) {

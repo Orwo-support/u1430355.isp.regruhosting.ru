@@ -15,11 +15,17 @@ $PROP['REQUEST_MESSAGE'] = htmlspecialchars(strip_tags(trim($_POST['message'])))
 $PROP['REQUEST_FROM_NAME'] = htmlspecialchars(strip_tags(trim($_POST['fromname'])));
 $PROP['REQUEST_FROM_LINK'] = htmlspecialchars(strip_tags(trim($_POST['fromlink'])));
 
+$PROP['REQUEST_USER_IP'] = htmlspecialchars(strip_tags(trim($_POST['fromip'])));
+$PROP['REQUEST_USER_RECAPTCHA'] = htmlspecialchars(strip_tags(trim($_POST['fromrecaptcha'])));
+
 if (get_magic_quotes_gpc()) {
     $PROP['REQUEST_PHONE'] = stripcslashes($PROP['REQUEST_PHONE']);
     $PROP['REQUEST_MESSAGE'] = stripcslashes($PROP['REQUEST_MESSAGE']);
     $PROP['REQUEST_FROM_NAME'] = stripcslashes($PROP['REQUEST_FROM_NAME']);
     $PROP['REQUEST_FROM_LINK'] = stripcslashes($PROP['REQUEST_FROM_LINK']);
+
+    $PROP['REQUEST_USER_IP'] = stripcslashes($PROP['REQUEST_USER_IP']);
+    $PROP['REQUEST_USER_RECAPTCHA'] = stripcslashes($PROP['REQUEST_USER_RECAPTCHA']);
 }
 
 $REQUEST_USER_NAME = strip_tags($_REQUEST['name']) == ''

@@ -9,6 +9,8 @@ setOrderForm.order-form-modal#setOrderFormModal
                 .container
                     form.form-order__form#setOrderForm(action="http://ekranika.develop/utilities/handle-set-order-form.php" method="POST" enctype="multipart/form-data")
                         input(type="hidden" name="fromname" value="Главная страница")
+                        input(type="hidden" name="fromip" value="0.0.0.0")
+                        input(type="hidden" name="fromrecaptcha" id="reCaptchaStatus" value="")
                         input(type="hidden" name="fromlink" value="http://ekranika.develop")
                         .form-order__data
 

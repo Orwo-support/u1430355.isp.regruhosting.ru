@@ -99,7 +99,20 @@ function getDaysWordForm ($num) {
     return $resultForm;
 };
 
-
+// Get ip of active user
+function getRealIP () {
+    $ip = false;
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ips = explode(', ', $_SERVER['HTTP_X_FORWARDED_FOR']);
+        for ($i = 0; $i < count($ips); $i++) {
+            if (!preg_match("/^(10|172\\.16|192\\.168)\\./", $ips[$i])) {
+                $ip = $ips[$i];
+                break;
+            }
+        }
+    }
+    return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
+}
 
 /*
  * Обработка отправки сообщения из формы Колбэка
@@ -262,6 +275,8 @@ class handleSetOrderForm {
                 'MESSAGE' => $arFields['PROPERTY_VALUES']['REQUEST_MESSAGE'],
                 'FROM_PAGE_NAME' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_NAME'],
                 'FROM_PAGE_LINK' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_LINK'],
+                'USER_IP' => $arFields['PROPERTY_VALUES']['REQUEST_USER_IP'],
+                'RECAPTCHA_SCORE' => $arFields['PROPERTY_VALUES']['REQUEST_USER_RECAPTCHA'],
             );
 
             // Первым параметром дложно идти почтовое событие,

@@ -154,7 +154,7 @@ $(document).ready(function () {
 
                         console.log(reCaptchaData);
 
-                        if (reCaptchaData.success && reCaptchaData.score > 0.7) {
+                        if (reCaptchaData.success && reCaptchaData.score > 0.8) {
                             $.post(
                                 action,
                                 $(form).serializeArray(),
