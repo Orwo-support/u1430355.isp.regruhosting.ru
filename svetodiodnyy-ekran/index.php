@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("description", "Описание для страницы Светодиодный экран");
 $APPLICATION->SetTitle("Светодиодный экран");
 ?>
 <?$APPLICATION->IncludeComponent(

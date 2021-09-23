@@ -1,5 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("description", "Один из наиболее востребованных рекламных носителей с     возможностью транслирования ролика любой длины. Привлекает внимание меняющимся визуальным рядом, динамикой и красочностью изображения.");
+$APPLICATION->SetPageProperty("keywords", "Рекламный видеобаннер, Экраника, Светодиодный экран, LED Экран");
+$APPLICATION->SetPageProperty("title", "Рекламный видеобаннер");
 $APPLICATION->SetTitle("Рекламный видеобаннер");
 ?>
 <?$APPLICATION->IncludeComponent(

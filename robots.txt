@@ -1,13 +1,8 @@
 User-agent: *
-Disallow: /utilities/get-next-articles-page.php
-Disallow: /rezultaty-raschyetov-kalkulyatora/
+Allow: /
+Host: https://ekranika.ru
 Disallow: /bitrix/ 
-Disallow: /*?*
-Allow: /bitrix/templates/
-Allow: /bitrix/cache/
-Allow: /bitrix/js/
-Allow: /bitrix/components/
-Allow: /local/components/
-Allow: /local/templates/
+Disallow: /utilities/get-next-articles-page.php
+Disallow: /rezultaty-raschyetov-kalkulyatora/index.php
 
 Sitemap: https://ekranika.ru/sitemap.xml

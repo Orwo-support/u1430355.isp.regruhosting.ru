@@ -1,8 +1,7 @@
 <?
     if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
     use Bitrix\Main\Page\Asset;
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="ru">
 	<head>
 		<?$APPLICATION->ShowHead();?>
@@ -64,6 +63,9 @@
         </script>
         <noscript><div><img src="https://mc.yandex.ru/watch/62189050" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         <!-- /Yandex.Metrika counter -->
+         <meta name="yandex-verification" content="e0346ddf7ad4cd31" />
+
+
 	</head>
     <body class="<?
         switch ($APPLICATION->GetCurPage()) {
