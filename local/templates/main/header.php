@@ -37,8 +37,8 @@
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendors.faf44350663d518db2e2.css");
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/main.faf44350663d518db2e2.css");
 
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.f0059fcf1a79cc0d0e44.js");
-            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.f0059fcf1a79cc0d0e44.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendors.50a66daca8201e13d11e.js");
+            Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.50a66daca8201e13d11e.js");
 
             // Connecting API Yandex Paps for about page
             if ($APPLICATION->GetCurPage() == '/o-nas-garantiya-kontakty/') {
@@ -46,7 +46,7 @@
             }
 
             // Connecting API google reCaptcha v3
-            Asset::getInstance()->addJs('https://www.google.com/recaptcha/api.js?render=6LdJnQ8cAAAAAB_HhGL-DIeud36yN9j-mGuwMBKV');
+            Asset::getInstance()->addJs('https://www.google.com/recaptcha/api.js?render=6LdiYokcAAAAAOcpNk3xoD062wXPBX_5i8Y0dNJx');
         ?>
         <!-- Yandex.Metrika counter -->
         <script type="text/javascript" >

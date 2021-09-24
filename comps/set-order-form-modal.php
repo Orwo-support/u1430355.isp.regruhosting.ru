@@ -51,7 +51,7 @@ if(preg_match('/stati/', $_SERVER["REQUEST_URI"])
                 </div>
                 <div class="container">
                     <form class="form-order__form" id="setOrderForm"
-                          action="/utilities/handle-set-order-form.php"
+                          action=""
                           method="POST"
                           enctype="multipart/form-data">
                         <input type="hidden" name="fromname" value="<?=$PAGE_NAME?>">

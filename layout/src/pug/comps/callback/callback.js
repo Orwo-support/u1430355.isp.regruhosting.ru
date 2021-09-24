@@ -91,7 +91,7 @@ $(document).ready(function () {
 
             grecaptcha.ready(() => {
                 grecaptcha.execute(
-                    '6LdJnQ8cAAAAAB_HhGL-DIeud36yN9j-mGuwMBKV',
+                    '6LdiYokcAAAAAOcpNk3xoD062wXPBX_5i8Y0dNJx',
                     { action: 'callback_form' }
                 ).then(token => {
                     $.post(
@@ -103,7 +103,7 @@ $(document).ready(function () {
 
                         console.log(reCaptchaData);
 
-                        if (reCaptchaData.success && reCaptchaData.score > 0.8) {
+                        if (reCaptchaData.success && reCaptchaData.score > 0.7) {
                             $.post(
                                 this.action,
                                 $(this).serializeArray(),
