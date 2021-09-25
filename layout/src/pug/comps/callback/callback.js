@@ -101,11 +101,17 @@ $(document).ready(function () {
                     ).done(response => {
                         const reCaptchaData = JSON.parse(response);
 
-                        console.log(reCaptchaData);
+                        if (reCaptchaData.success && reCaptchaData.score > 0.6) {
+                            let input = document.createElement('input');
 
-                        if (reCaptchaData.success && reCaptchaData.score > 0.7) {
+                            input.name="score";
+                            input.type = "hidden";
+                            input.value = reCaptchaData.score;
+
+                            this.appendChild(input);
+
                             $.post(
-                                this.action,
+                                "/utilities/inc-handle-callback-form.php",
                                 $(this).serializeArray(),
                                 "json"
                             ).done(response => {

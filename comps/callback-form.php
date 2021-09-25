@@ -65,12 +65,14 @@
             <div class="endless">
                 <form class="callback__form animation-element"
                       name="add_callback"
-                      action="/utilities/handle-callback-form.php"
+                      action=""
                       method="POST"
                       enctype="multipart/form-data"
                       id="callbackForm"
                       data-target="#calbackModal">
-                    <input type="hidden" name="from" value="<?=$CALLBACK_FORM_SOURCE_PAGE?>">
+                    <input type="hidden" name="page" value="<?=$CALLBACK_FORM_SOURCE_PAGE?>">
+                    <input type="hidden" name="ip" value="<?=getRealIP()?>">
+                    <input type="hidden" name="link" value="<?=((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>">
                     <div class="callback__data">
                         <div class="controller controller__input single-valid-warning">
                             <label class="label label__icon">

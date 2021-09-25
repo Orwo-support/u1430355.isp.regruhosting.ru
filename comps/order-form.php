@@ -23,10 +23,10 @@
                   method="POST"
                   enctype="multipart/form-data"
                   data-target="#orderModal"
-                  action="/utilities/handle-order-form.php">
-                <input type="hidden" name="fromlink"
-                       value="https://ekranika.ru<?=$APPLICATION->GetCurPage()?>">
-                <input type="hidden" name="fromname" value="<?
+                  action="">
+                <input type="hidden" name="link" value="<?=((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>">
+                <input type="hidden" name="ip" value="<?=getRealIP()?>">
+                <input type="hidden" name="page" value="<?
                     switch ($APPLICATION->GetCurPage()) {
                         case '/dostavka-i-oplata/': echo 'Доставка и оплата'; break;
                         case '/arenda-svetodiodnykh-ekranov/': echo 'Аренда свтодиодных экранов'; break;

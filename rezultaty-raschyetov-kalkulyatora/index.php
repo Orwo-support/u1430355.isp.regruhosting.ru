@@ -461,13 +461,14 @@ $ARR_FILES_PATHS = makeFilesFromCalcResults($arParamsList, $finalCost); // [$PDF
             <div class="calc__order-form">
                 <form class="form-order"
                       id="calcForm"
-                      action="/utilities/handle-calc-results-form.php"
+                      action=""
                       method="POST"
                       data-target="#calcModal"
                       enctype="multipart/form-data">
                     <input type="hidden" name="pdf" value="<?=$_SERVER['HTTP_HOST'] . $ARR_FILES_PATHS[0]?>">
                     <input type="hidden" name="xls" value="<?=$_SERVER['HTTP_HOST'] . $ARR_FILES_PATHS[1]?>">
                     <input type="hidden" name="txt" value="<?=$_SERVER['HTTP_HOST'] . $ARR_FILES_PATHS[2]?>">
+                    <input type="hidden" name="ip" value="<?=getRealIP()?>">
                     <div class="controller-group">
                         <label class="controller-label">ФИО</label>
                         <div class="controller controller__input">

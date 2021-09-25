@@ -135,9 +135,6 @@ $(document).ready(function () {
         }
 
         function submitCalcForm() {
-            const form = $('#calcForm'),
-                action = $(form).attr('action');
-
             $(SPINNER).addClass('visible');
 
             grecaptcha.ready(() => {
@@ -152,11 +149,18 @@ $(document).ready(function () {
                     ).done(response => {
                         const reCaptchaData = JSON.parse(response);
 
-                        console.log(reCaptchaData);
+                        if (reCaptchaData.success && reCaptchaData.score > 0.6) {
+                            let input = document.createElement('input'),
+                                form = document.getElementById('calcForm');
 
-                        if (reCaptchaData.success && reCaptchaData.score > 0.7) {
+                            input.name="score";
+                            input.type = "hidden";
+                            input.value = reCaptchaData.score;
+
+                            form.appendChild(input);
+
                             $.post(
-                                action,
+                                "/utilities/inc-handle-calc-results-form.php",
                                 $(form).serializeArray(),
                                 "json"
                             ).done(response => {

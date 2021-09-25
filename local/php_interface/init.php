@@ -143,9 +143,9 @@ class handleCallbackForm {
         if ($arFields["IBLOCK_ID"] == 12) {
 
             $arSend = array(
-                'AUTHOR' => $arFields['NAME'],
-                'FROM' => $arFields['PROPERTY_VALUES']['CALLBACK_FROM'],
                 'PHONE' => $arFields['PROPERTY_VALUES']['CALLBACK_PHONE'],
+                'PAGE' => $arFields['PROPERTY_VALUES']['CALLBACK_PAGE'],
+                'LINK' => $arFields['PROPERTY_VALUES']['CALLBACK_PAGE_LINK'],
             );
 
             // Первым параметром дложно идти почтовое событие,
@@ -231,8 +231,8 @@ class handleRequestForm {
                 'AUTHOR' => $arFields['NAME'],
                 'PHONE' => $arFields['PROPERTY_VALUES']['REQUEST_PHONE'],
                 'MESSAGE' => $arFields['PROPERTY_VALUES']['REQUEST_MESSAGE'],
-                'FROM_PAGE_NAME' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_NAME'],
-                'FROM_PAGE_LINK' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_LINK'],
+                'PAGE' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_PAGE'],
+                'LINK' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_LINK'],
             );
 
             // Первым параметром дложно идти почтовое событие,
@@ -273,10 +273,8 @@ class handleSetOrderForm {
                 'AUTHOR' => $arFields['NAME'],
                 'PHONE' => $arFields['PROPERTY_VALUES']['REQUEST_PHONE'],
                 'MESSAGE' => $arFields['PROPERTY_VALUES']['REQUEST_MESSAGE'],
-                'FROM_PAGE_NAME' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_NAME'],
-                'FROM_PAGE_LINK' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_LINK'],
-                'USER_IP' => $arFields['PROPERTY_VALUES']['REQUEST_USER_IP'],
-                'RECAPTCHA_SCORE' => $arFields['PROPERTY_VALUES']['REQUEST_USER_RECAPTCHA'],
+                'FROM_PAGE_NAME' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_PAGE'],
+                'FROM_PAGE_LINK' => $arFields['PROPERTY_VALUES']['REQUEST_FROM_LINK']
             );
 
             // Первым параметром дложно идти почтовое событие,

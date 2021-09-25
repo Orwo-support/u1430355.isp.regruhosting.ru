@@ -861,11 +861,9 @@ $(document).ready(function () {
                     ).done(response => {
                         const reCaptchaData = JSON.parse(response);
 
-                        console.log(reCaptchaData);
-
-                        if (reCaptchaData.success && reCaptchaData.score > 0.7) {
+                        if (reCaptchaData.success && reCaptchaData.score > 0.6) {
                             $.post(
-                                $('#quizForm').attr('action'),
+                                "/utilities/inc-handle-quiz-form.php",
                                 {
                                     name: QUIZ_STATE.contactsName,
                                     phone: QUIZ_STATE.contactsPhone,
@@ -875,6 +873,8 @@ $(document).ready(function () {
                                     location: QUIZ_STATE.location,
                                     distance: QUIZ_STATE.distance,
                                     contract: QUIZ_STATE.contract,
+                                    ip: $('#quizIP').val(),
+                                    score: reCaptchaData.score
                                 },
                                 "json"
                             ).done(response => {
